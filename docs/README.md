@@ -6,10 +6,11 @@ The teams consists of students identified in the following table.
 
 | Student Number	| Name |
 |--------------|----------------------------|
-| **1190001**  | Name of student 1          |
-| **1190002**  | Name of student 2          |
-| **1190003**  | Name of student 3          |
-| **1190004**  | Name of student 4          |
+| **1190918**  | Nuno Pinho                 |
+| **1201234**  | Alexandre Soares         	|
+| **1201238**  | Eduardo Gonçalves          |
+| **1201239**  | Francisco Redol            |
+| **1201240**  | Rita Lello           		|
 
 
 
