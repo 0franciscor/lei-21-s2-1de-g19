@@ -4,6 +4,7 @@
 
 | **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)                                           |                                       
 |:------------------------|:-----------------|:--------------------------------------------|
+| **Administrator** | **Administrador** | The person in charge of a certain system. |
 | **API** | **API** | Acronym for Application Programming Interface. It is a set of functions and procedures allowing the creation of applications that access the features or data of an operating system, application, or other service. |
 | **Application** | **Aplicação** | Software created to execute a certain group of tasks. In this case, used to submit results, generate Barcodes and establish connections to samples and user ID's. |
 | **Asymptotic behaviour** | **Comportamento assintótico** | Asymptotic analysis is a method of describing the behaviour of Mathmatical limits. |
