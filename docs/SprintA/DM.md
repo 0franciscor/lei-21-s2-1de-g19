@@ -1,37 +1,182 @@
-• (Business) Transactions -----Test Diagnosis
+# OO Analysis #
 
-• Transaction line items -----Sample
+The construction process of the domain model is based on the client specifications, especially the nouns (for _concepts_) and verbs (for _relations_) used. 
 
-• Products or Services related to a Transaction or Transaction line
-Covid-19 test Blood test -----Parameter
+## Rationale to identify domain conceptual classes ##
+To identify domain conceptual classes, start by making a list of candidate conceptual classes inspired by the list of categories suggested in the book "Applying UML and Patterns: An Introduction to Object-Oriented Analysis and Design and Iterative Development". 
 
-• Transaction Records/Registers Report Lab order Result
 
-• Roles of People or Organizations -----Client -----Administrator
------Clinical chemistry technologist -----Laboratory coordinator MLT
------Receptionist -----Specialist doctor
+### _Conceptual Class Category List_ ###
 
-• Places -----Clinical Analysis Laboratory -----Chemical Laboratory
+**Business Transactions**
 
-• Noteworthy Events Chemical Analysis
+* Test Diagnosis
 
-• Physical objects Swab
+---
 
-• Descriptions of things -----Type of Test (TestType) -----Category
+**Transaction Line Itemss**
 
-• Catalogs
+* Sample
 
-• Containers of things
+---
 
-• Elements of containers PLT RBC WBC
+**Product/Service related to a Transaction or Transaction Line Item**
 
-• (Other) Organizations -----Company
+*  Covid-19 test 
+*  Blood test
 
-• Other (External) Systems External module Internal code Internal
-process
+---
 
-• Records of finance, work, contracts, legal matters
 
-• Financial instruments
+**Transaction Records**
 
-• Documents mentioned/used to perform some work
+*  Report
+*  Lab order
+*  Result
+
+---  
+
+
+**Roles of People or Organizations**
+
+* Client
+* Administrator
+* Clinical chemistry technologist
+* Laboratory coordinator
+* MLT
+* Receptionist
+* Specialist doctor
+
+---
+
+
+**Places**
+
+*  Application
+*  Clinical Analysis Laboratory
+*  Chemical Laboratory 
+
+---
+
+**Noteworthy Events**
+
+* Chemical Analysis
+
+---
+
+
+**Physical Objects**
+
+* Swab
+
+---
+
+
+**Descriptions of Things**
+
+*  Type of Test (TestType)
+*  Category
+
+
+---
+
+
+**Catalogs**
+
+*  
+
+---
+
+
+**Containers**
+
+*  
+
+---
+
+
+**Elements of Containers**
+
+*  PLT
+*  RBC
+*  WBC
+
+---
+
+
+**Organizations**
+
+*  Many Labs
+
+---
+
+**Other External/Collaborating Systems**
+
+*  External module
+*  Internal code
+*  Internal process
+
+
+---
+
+
+**Records of finance, work, contracts, legal matters**
+
+* 
+
+---
+
+
+**Financial Instruments**
+
+*  
+
+---
+
+
+**Documents mentioned/used to perform some work/**
+
+* 
+---
+
+
+
+###**Rationale to identify associations between conceptual classes**###
+
+An association is a relationship between instances of objects that indicates a relevant connection and that is worth of remembering, or it is derivable from the List of Common Associations: 
+
++ **_A_** is physically or logically part of **_B_**
++ **_A_** is physically or logically contained in/on **_B_**
++ **_A_** is a description for **_B_**
++ **_A_** known/logged/recorded/reported/captured in **_B_**
++ **_A_** uses or manages or owns **_B_**
++ **_A_** is related with a transaction (item) of **_B_**
++ etc.
+
+
+
+| Concept (A) 		|  Association   	|  Concept (B) |
+|----------	   		|:-------------:		|------:       |
+| Many Labs  	| performs    		 	| Tests  |
+| Many Labs  	| conducts    		 	| Test Type  |
+| Category  	| created by    	| Administrator  |
+| Test  	| requested by    	| Client  |
+| Test  	| is a    	| Type of Test  |
+| Test  	| collects    	| Sample  |
+| Test  	| requests analysis of    	| Parameter  |
+| Company  	| owns    	| Chemical Laboratory  |
+| Company  	| owns   	| Clinical Analysis Laboratory  |
+| Clinical Analysis Laboratory  	| performs    	| Blood Test  |
+| Blood Test  	| is a    	| Test  |
+| Clinical Analysis Laboratory  	| performs    	| Covid-19 Test  |
+
+
+
+
+## Domain Model
+
+**Do NOT forget to identify concepts atributes too.**
+
+**Insert below the Domain Model Diagram in a SVG format**
+
+![DM.svg](DM.svg)
