@@ -10,61 +10,72 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
-*
+* Test Diagnosis
 
 ---
 
 **Transaction Line Itemss**
 
-*
+* Sample
 
 ---
 
 **Product/Service related to a Transaction or Transaction Line Item**
 
-*  
+*  Covid-19 test 
+*  Blood test
 
 ---
 
 
 **Transaction Records**
 
-*  
+*  Report
+*  Lab order
+*  Result
 
 ---  
 
 
 **Roles of People or Organizations**
 
-* 
-
+* Client
+* Administrator
+* Clinical chemistry technologist
+* Laboratory coordinator
+* MLT
+* Receptionist
+* Specialist doctor
 
 ---
 
 
 **Places**
 
-*  
+*  Application
+*  Clinical Analysis Laboratory
+*  Chemical Laboratory 
 
 ---
 
-** Noteworthy Events**
+**Noteworthy Events**
 
-* 
+* Chemical Analysis
 
 ---
 
 
 **Physical Objects**
 
-*
+* Swab
 
 ---
 
 
 **Descriptions of Things**
 
-*  
+*  Type of Test (TestType)
+*  Category
 
 
 ---
@@ -86,20 +97,24 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Elements of Containers**
 
-*  
+*  PLT
+*  RBC
+*  WBC
 
 ---
 
 
 **Organizations**
 
-*  
+*  Many Labs
 
 ---
 
 **Other External/Collaborating Systems**
 
-*  
+*  External module
+*  Internal code
+*  Internal process
 
 
 ---
@@ -142,8 +157,19 @@ An association is a relationship between instances of objects that indicates a r
 
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
-| C1  	| verb1    		 	| C2  |
-| ...  	| ...    		 	| ...  |
+| Many Labs  	| performs    		 	| Tests  |
+| Many Labs  	| conducts    		 	| Test Type  |
+| Category  	| created by    	| Administrator  |
+| Test  	| requested by    	| Client  |
+| Test  	| is a    	| Type of Test  |
+| Test  	| collects    	| Sample  |
+| Test  	| requests analysis of    	| Parameter  |
+| Company  	| owns    	| Chemical Laboratory  |
+| Company  	| owns   	| Clinical Analysis Laboratory  |
+| Clinical Analysis Laboratory  	| performs    	| Blood Test  |
+| Blood Test  	| is a    	| Test  |
+| Clinical Analysis Laboratory  	| performs    	| Covid-19 Test  |
+
 
 
 
