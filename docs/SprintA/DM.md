@@ -158,14 +158,14 @@ An association is a relationship between instances of objects that indicates a r
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
 | Many Labs  	| performs    		 	| Tests  |
-| Many Labs  	| conducts    		 	| Test Type  |
+|   	| conducts    		 	| Test Type  |
 | Category  	| created by    	| Administrator  |
 | Test  	| requested by    	| Client  |
-| Test  	| is a    	| Type of Test  |
-| Test  	| collects    	| Sample  |
-| Test  	| requests analysis of    	| Parameter  |
+|   	| is a    	| Type of Test  |
+|   	| collects    	| Sample  |
+|   	| requests analysis of    	| Parameter  |
 | Company  	| owns    	| Chemical Laboratory  |
-| Company  	| owns   	| Clinical Analysis Laboratory  |
+|   	| owns   	| Clinical Analysis Laboratory  |
 | Clinical Analysis Laboratory  	| performs    	| Blood Test  |
 | Blood Test  	| is a    	| Test  |
 | Clinical Analysis Laboratory  	| performs    	| Covid-19 Test  |
