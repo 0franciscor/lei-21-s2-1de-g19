@@ -28,5 +28,3 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | US12 | [As an administrator, I want to specify a new type of test and its collecting methods](US12.md)|
 | US13 | [As an administrator, I want to specify a new test parameter and categorize it](US13.md)|
 | US14 | [As an administrator, I want to specify a new parameter category](US14.md)|
-| ... | ...|
-
