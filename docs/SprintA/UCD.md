@@ -14,7 +14,7 @@ However, be aware, this is a pedagogical simplification. On further projects and
 # Use Cases / User Stories
 | UC/US  | Description                                                               |                   
 |:----|:------------------------------------------------------------------------|
-| US1 | [ShortNameOfUS1](US1.md)   |
+| US1 | [**As a new client of the laboratory, I want to be able to do a test quickly and effortlessly(Blood test or swab test).** ](US1.md)   |
 | US2 | [ShortNameOfUS2](US2.md)  |
 | US3 | [ShortNameOfUS3](US3.md)|
 | US4 | [ShortNameOfUS4](US4.md)|
