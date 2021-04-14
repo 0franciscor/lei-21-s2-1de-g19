@@ -157,20 +157,48 @@ An association is a relationship between instances of objects that indicates a r
 
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
-| Many Labs  	| performs    		 	| Tests  |
-|   	| conducts    		 	| Test Type  |
+| Many Labs  	| performs    		| Tests  |
+|   			| conducts    		| Test Type  |
 | Category  	| created by    	| Administrator  |
-| Test  	| requested by    	| Client  |
-|   	| is a    	| Type of Test  |
-|   	| collects    	| Sample  |
-|   	| requests analysis of    	| Parameter  |
-| Company  	| owns    	| Chemical Laboratory  |
-|   	| owns   	| Clinical Analysis Laboratory  |
+| Test  		| requested by    	| Client  |
+|   			| is a    			| Type of Test  |
+|   			| collects    		| Sample  |
+|   			| requests analysis of    	| Parameter  |
+| Company  		| owns    	| Chemical Laboratory  |
+|   			| owns   	| Clinical Analysis Laboratory  |
 | Clinical Analysis Laboratory  	| performs    	| Blood Test  |
-|   	| performs    	| Covid-19 Test  |
+|   			| performs    	| Covid-19 Test  |
 | Blood Test  	| is a    	| Test  |
 | Covid-19 Test  	| is a    	| Test  |
-
+|               |               |       |
+|               |               |       |
+|               |               |       |
+| Specialist doctor | registers | report |
+| Result | analyzed by | specialist doctor |
+| Clinical chemistry technologist | registers | result |
+| 								  | works for | chemical laboratory |
+| Sample | analyzed by | clinical chemistry technologist |
+| 		 | is sent to | chemical laboratory |
+| Medical lab technician | registers | sample |
+|   					 | works for | clinical analysis laboratory |
+| Company | owns | chemical laboratory |
+|         | owns | clinical analysis laboratory |
+|         | perfoms | test |
+|         | conducts | test type |
+| Clinical analysis laboratory | performs | test |
+| Receptionist | works for | clinical analysis laboratory |
+| 			   | registers | test |
+|  			   | registers | client |
+|  			   | receives | lab order |
+| Test | requested by | client |
+|  	   | is of | test type |
+|      | requests analysis of | parameter |
+|      | collects | sample |
+| Lab order | brought by | client |
+|           | contains | test type |
+| Parameter | present under | category |
+| Category | created by | administrator |
+| Administrator | creates | test type |
 
 
 
