@@ -42,11 +42,6 @@ _Specifies functionalities that:_
 
 
 
-
-(fill in here)
-
-
-
 ## Usability 
 
 _Evaluates the user interface. It has several subcategories,
@@ -59,7 +54,6 @@ documentation; consistency and standards._
   * Consistency
 
 
-(fill in here )
 
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
@@ -69,7 +63,6 @@ _Refers to the integrity, compliance and interoperability of the software. The r
   * Recoverability
 
 
-(fill in here )
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
@@ -81,7 +74,7 @@ _Evaluates the performance requirements of the software, namely: response time, 
   * Throughput
 
 
-(fill in here )
+
 
 ## Supportability
 _The supportability requirements gathers several characteristics, such as:
@@ -105,8 +98,6 @@ configurability, installability, scalability and more._
 
 
 
-(fill in here )
-
 
 ## +
 
@@ -118,9 +109,9 @@ _Specifies or constraints the system design process. Examples may include: progr
   * "...adopt recognized coding standards..."
   * "...use Javadoc to generate useful documentation for Java code."
   * "All the images/figures produced during the software development process should be recorded in SVG format."
-  
 
-(fill in here )
+
+
 
 
 ### Implementation Constraints
@@ -136,8 +127,6 @@ database integrity, resource limits, operating system._
 
 
 
-(fill in here )
-
 
 ### Interface Constraints
 _Specifies or constraints the features inherent to the interaction of the
@@ -146,10 +135,8 @@ system being developed with other external systems._
   * "The application graphical interface is to be developed in JavaFX 11."
 
 
-(fill in here )
+
 
 ### Physical Constraints
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
-
-(fill in here )

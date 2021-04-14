@@ -34,7 +34,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 *  Lab order
 *  Result
 
----  
+---
 
 
 **Roles of People or Organizations**
@@ -175,9 +175,5 @@ An association is a relationship between instances of objects that indicates a r
 
 
 ## Domain Model
-
-**Do NOT forget to identify concepts atributes too.**
-
-**Insert below the Domain Model Diagram in a SVG format**
 
 ![DM.svg](DM.svg)

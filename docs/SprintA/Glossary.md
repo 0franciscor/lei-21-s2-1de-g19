@@ -1,8 +1,8 @@
 # Glossary
 
-**Terms, Expressions and Acronyms (TEA) must be organized alphabetically.**
+**Terms, Expressions and Acronyms (TEA) organized alphabetically.**
 
-| **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)                                           |                                       
+| **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)                                           |
 |:------------------------|:-----------------|:--------------------------------------------|
 | **Administrator** | **Administrador** | The person in charge of a certain system. |
 | **API** | **API** | Acronym for Application Programming Interface. It is a set of functions and procedures allowing the creation of applications that access the features or data of an operating system, application, or other service. |
