@@ -167,8 +167,9 @@ An association is a relationship between instances of objects that indicates a r
 | Company  	| owns    	| Chemical Laboratory  |
 |   	| owns   	| Clinical Analysis Laboratory  |
 | Clinical Analysis Laboratory  	| performs    	| Blood Test  |
+|   	| performs    	| Covid-19 Test  |
 | Blood Test  	| is a    	| Test  |
-| Clinical Analysis Laboratory  	| performs    	| Covid-19 Test  |
+| Covid-19 Test  	| is a    	| Test  |
 
 
 
