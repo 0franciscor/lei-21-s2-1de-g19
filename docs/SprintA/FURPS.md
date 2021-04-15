@@ -75,7 +75,7 @@ _Evaluates the performance requirements of the software, namely: response time, 
     * "Any interface between a user and the system shall have a maximum response time of 3 seconds." 
   * Shutdown time
   * Start-up time
-    *"The system should start up in less than 10 seconds."
+    * "The system should start up in less than 10 seconds."
   * Throughput
 
 
@@ -100,7 +100,7 @@ configurability, installability, scalability and more._
   * Testability
     * "The development team must implement unit tests for all methods except methods that implement Input/Output operations."
     * "The unit tests should be implemented using the JUnit 4 framework."
-    * The JaCoCo plugin should be used to generate the coverage report."
+    * "The JaCoCo plugin should be used to generate the coverage report."
 
 
 
