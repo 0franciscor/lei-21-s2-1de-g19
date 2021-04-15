@@ -51,7 +51,9 @@ documentation; consistency and standards._
   * Accessibility
     * "...the application must allow ordering the clients by TIF and by name."
   * Aesthetics
+    * "The user interface must be simple, intuitive (...)"
   * Consistency
+    * "The user interface must be simple, intuitive and consistent."
 
 
 
@@ -60,8 +62,9 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 
   * Accuracy
   * Availability
+    * "The system should not fail more than 5 days in one year."
   * Recoverability
-
+    * "Whenever the system fails, there should be no data loss."
 
 
 ## Performance
@@ -69,8 +72,10 @@ _Evaluates the performance requirements of the software, namely: response time, 
 
   * Recovery time
   * Response time
+    * "Any interface between a user and the system shall have a maximum response time of 3 seconds." 
   * Shutdown time
   * Start-up time
+    *"The system should start up in less than 10 seconds."
   * Throughput
 
 
@@ -84,6 +89,7 @@ configurability, installability, scalability and more._
   * Auditing 
   * Adaptability
   * Compatibility
+    * "The application should run on all platforms for which there exists a Java Virtual Machine."
   * Configurability
     * "The ordering algorithm to be used by the application must be defined through a configuration file."
     * "The algorithm to be used by the application must be defined through a configuration file." (benchmark)
@@ -124,6 +130,8 @@ database integrity, resource limits, operating system._
   * "...use Javadoc to generate useful documentation for Java code."
   * "...the application should implement a brute-force algorithm (an algorithm which examines each subsequence)..."
   * "Only the specialist doctor is allowed to access all client data." (código em que só o specialist doctor pode ter acesso)
+  * "The application should run on all platforms for which there exists a Java Virtual Machine."
+  * "The application will be deployed to a machine with 8GB of RAM."
 
 
 
