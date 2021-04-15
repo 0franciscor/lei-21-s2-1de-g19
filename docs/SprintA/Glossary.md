@@ -33,7 +33,7 @@
 | **MLT** | **MLT** | Acronym for Medical Lab Technician. It is a end-users' role. |
 | **Netbeans** | **Netbeans** | It is an integrated development environment (IDE) for Java. |
 | **NHS** | **NHS** | Acronym for National Healthcare Service. |
-| **object serialization** | **Serialização de objetos** | Converting a certain object to another type of data, such as .json. |
+| **Object serialization** | **Serialização de objetos** | Converting a certain object to another type of data, such as .json. |
 | **Ordering algorithm** | **Algoritmo de ordenação** | It helps organize ID's on a database in order to facilitate the access to the client's results. |
 | **Parameter** | **Parâmetro** | Number of Red Blood Cells (RBC), White Blood Cells (WBC) and Platelets (PLT) are instances of parameters that can be obtained through blood tests. |
 | **PLT** | **PLT** | Acronym for Platelets. |
