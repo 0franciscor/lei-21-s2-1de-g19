@@ -10,7 +10,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
-* Test Diagnosis
+* Test Diagnosis //
 
 ---
 
@@ -22,8 +22,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Product/Service related to a Transaction or Transaction Line Item**
 
-*  Covid-19 test 
-*  Blood test
+*  Covid-19 test //
+*  Blood test //
 
 ---
 
@@ -43,12 +43,11 @@ To identify domain conceptual classes, start by making a list of candidate conce
 * Administrator
 * Clinical chemistry technologist
 * Laboratory coordinator
-* MLT
+* medical lab technician
 * Receptionist
 * Specialist doctor
 
 ---
-
 
 **Places**
 
@@ -67,7 +66,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Physical Objects**
 
-* Swab
+* Swab 
 
 ---
 
@@ -97,24 +96,25 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Elements of Containers**
 
-*  PLT
-*  RBC
-*  WBC
+*  PLT //
+*  RBC //
+*  WBC //
 
 ---
 
 
 **Organizations**
 
-*  Many Labs
+* Company
+* Many Labs //
 
 ---
 
 **Other External/Collaborating Systems**
 
-*  External module
-*  Internal code
-*  Internal process
+*  External module //
+*  Internal code //
+*  Internal process //
 
 
 ---
@@ -154,53 +154,49 @@ An association is a relationship between instances of objects that indicates a r
 + etc.
 
 
-
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
-| Many Labs  	| performs    		| Tests  |
-|   			| conducts    		| Test Type  |
-| Category  	| created by    	| Administrator  |
-| Test  		| requested by    	| Client  |
-|   			| is a    			| Type of Test  |
-|   			| collects    		| Sample  |
-|   			| requests analysis of    	| Parameter  |
-| Company  		| owns    	| Chemical Laboratory  |
-|   			| owns   	| Clinical Analysis Laboratory  |
-| Clinical Analysis Laboratory  	| performs    	| Blood Test  |
-|   			| performs    	| Covid-19 Test  |
-| Blood Test  	| is a    	| Test  |
-| Covid-19 Test  	| is a    	| Test  |
-|               |               |       |
-|               |               |       |
-|               |               |       |
-| Specialist doctor | registers | report |
-| Result | analyzed by | specialist doctor |
-| Clinical chemistry technologist | registers | result |
-| 								  | works for | chemical laboratory |
-| Sample | analyzed by | clinical chemistry technologist |
-| 		 | is sent to | chemical laboratory |
-| Medical lab technician | registers | sample |
-|   					 | works for | clinical analysis laboratory |
+| Many Labs  	| performs    		| Tests  | ******
+|   			| conducts    		| Test Type  | ******
+| Category  	| created by    	| Administrator  |*****
+| Test  		| requested by    	| Client  |*****
+|   			| is a    			| Type of Test  |****
+|   			| collects    		| Sample  |****
+|   			| requests analysis of    	| Parameter  |***
+| Company  		| owns    	| Chemical Laboratory  |*****
+|   			| owns   	| Clinical Analysis Laboratory  |****
+| Clinical Analysis Laboratory  	| performs    	| Blood Test  |*****
+|   			| performs    	| Covid-19 Test  |****
+| Blood Test  	| is a    	| Test  |*****
+| Covid-19 Test  	| is a    	| Test  |*****
+
+
+| Administrator | creates | test type |
+| Category | created by | administrator |
 | Company | owns | chemical laboratory |
 |         | owns | clinical analysis laboratory |
 |         | perfoms | test |
 |         | conducts | test type |
 | Clinical analysis laboratory | performs | test |
+| Clinical chemistry technologist | registers | result |
+| 								  | works for | chemical laboratory |
+| Lab order | brought by | client |
+|           | contains | test type |
+| Medical lab technician | registers | sample |
+|   					 | works for | clinical analysis laboratory |
+| Parameter | present under | category |
 | Receptionist | works for | clinical analysis laboratory |
 | 			   | registers | test |
 |  			   | registers | client |
 |  			   | receives | lab order |
+| Result | analyzed by | specialist doctor |
+| Sample | analyzed by | clinical chemistry technologist |
+| 		 | is sent to | chemical laboratory |
+| Specialist doctor | registers | report |
 | Test | requested by | client |
 |  	   | is of | test type |
 |      | requests analysis of | parameter |
 |      | collects | sample |
-| Lab order | brought by | client |
-|           | contains | test type |
-| Parameter | present under | category |
-| Category | created by | administrator |
-| Administrator | creates | test type |
-
-
 
 ## Domain Model
 
