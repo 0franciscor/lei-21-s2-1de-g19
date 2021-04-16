@@ -46,7 +46,7 @@
 | **SVG** | **SVG** | Acronym for Scalable Vector Graphics. |
 | **Swab** | **Cotonete** | It refers to a specific type of test that can be used to get a client's sample. |
 | **Test** | **Teste** | It refers to a clinical analysis test. |
-| **TIF** | **TIF** | Acronym for Tax Identification number. |
+| **TIN** | **TIN** | Acronym for Tax Identification Number. |
 | **Type of test** | **Tipo de teste** | Clinical blood tests and Covid-19 tests. |
 | **Unit test** | **Teste unitário** | It is a way of testing the implemented methods. |
 | **WBC** | **WBC** | Acronym for White Blood Cells. |
