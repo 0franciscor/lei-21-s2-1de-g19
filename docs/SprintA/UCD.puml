@@ -22,7 +22,7 @@ actor "Receptionist" as RCP
 actor "Medical Lab Technician" as MLT
 actor "Chemistry Technologist" as CT
 actor "Specialist Doctor" as SD
-actor "Lab Coordinator" as LC
+actor "Laboratory Coordinator" as LC
 actor "Administrator" as ADM
 actor "Timer" as TM
 
