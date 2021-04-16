@@ -10,7 +10,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
-* Test Diagnosis //
+* Test
 
 ---
 
@@ -22,8 +22,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Product/Service related to a Transaction or Transaction Line Item**
 
-*  Covid-19 test //
-*  Blood test //
+*  Covid-19 test 
+*  Blood test 
 
 ---
 
@@ -96,25 +96,25 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Elements of Containers**
 
-*  PLT //
-*  RBC //
-*  WBC //
+*  PLT 
+*  RBC 
+*  WBC
 
 ---
 
 
 **Organizations**
 
-* Company
-* Many Labs //
+* Company (Many labs)
+
 
 ---
 
 **Other External/Collaborating Systems**
 
-*  External module //
-*  Internal code //
-*  Internal process //
+*  External module
+*  Internal code
+*  Internal process 
 
 
 ---
@@ -156,28 +156,17 @@ An association is a relationship between instances of objects that indicates a r
 
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
-| Many Labs  	| performs    		| Tests  | ******
-|   			| conducts    		| Test Type  | ******
-| Category  	| created by    	| Administrator  |*****
-| Test  		| requested by    	| Client  |*****
-|   			| is a    			| Type of Test  |****
-|   			| collects    		| Sample  |****
-|   			| requests analysis of    	| Parameter  |***
-| Company  		| owns    	| Chemical Laboratory  |*****
-|   			| owns   	| Clinical Analysis Laboratory  |****
-| Clinical Analysis Laboratory  	| performs    	| Blood Test  |*****
-|   			| performs    	| Covid-19 Test  |****
-| Blood Test  	| is a    	| Test  |*****
-| Covid-19 Test  	| is a    	| Test  |*****
-
-
 | Administrator | creates | test type |
+| Blood Test  	| is a    	| Test  |
 | Category | created by | administrator |
 | Company | owns | chemical laboratory |
 |         | owns | clinical analysis laboratory |
 |         | perfoms | test |
 |         | conducts | test type |
+| Covid-19 Test  	| is a    	| Test  |
 | Clinical analysis laboratory | performs | test |
+|   						   | performs    	| Blood Test  |
+|   						   | performs    	| Covid-19 Test  |
 | Clinical chemistry technologist | registers | result |
 | 								  | works for | chemical laboratory |
 | Lab order | brought by | client |
