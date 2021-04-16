@@ -1,0 +1,207 @@
+@startuml
+
+class Company
+class ChemicalLaboratory
+class ClinicalAnalysisLaboratory
+class Administrator
+class SpecialistDoctor
+class ClinicalChemistryTechnologist
+class MedicalLabTechnician
+class Receptionist
+class Client
+class LabOrder
+class Result
+class Report
+class Category
+class Parameter
+class TestType
+class Test
+class bloodTest
+class covidTest
+class Sample
+
+
+ChemicalLaboratory "1" -- "1" Company : < owns
+
+ChemicalLaboratory "1" -- "*" Sample : < is sent
+
+ClinicalAnalysisLaboratory "*" -- "1" Company : < owns
+
+Administrator "1" -- "*" Category : < created by
+
+SpecialistDoctor "1" -- "1" Result : < analyzed by
+
+ClinicalChemistryTechnologist "*" -- "1" ChemicalLaboratory : > works for
+
+ClinicalChemistryTechnologist "*" -- "1..*" Sample : < analyzed by
+
+MedicalLabTechnician "1..*" -- "*" ClinicalAnalysisLaboratory : > works for
+
+Receptionist "1..*" -- "*" ClinicalAnalysisLaboratory : > works for
+
+Client "1" -- "*" Test : < requested by
+
+Client "*" -- "1..*" Receptionist : < registers
+
+LabOrder "1" -- "*" Client : > brought by
+
+LabOrder "1" -- "1..*" Receptionist : < receives
+
+Result "*" -- "1..*" ClinicalChemistryTechnologist : < registers
+
+Report "1" -- "1" SpecialistDoctor : < registers
+
+Category "1" -- "*" Parameter : < presented under
+
+Parameter "1..*" -- "*" Test : < requests analysis of
+
+TestType "*" -- "1" Company : < conducts
+
+TestType "1" -- "*" Test: < is of
+
+TestType "*" -- "1" Administrator : < creates
+
+TestType "1" -- "1" LabOrder : < contains
+
+Test "*" -- "1" Company : < performs
+
+Test "*" -- "*" ClinicalAnalysisLaboratory : < performs
+
+Test "*" -- "1..*" Receptionist : < registers
+
+bloodTest "1" -- "1" Test : > is a
+
+covidTest "1" -- "1" Test : > is a
+
+Sample "*" -- "1" Test : < collects
+
+Sample "1..*" -- "1..*" MedicalLabTechnician : < registers
+
+skinparam classAttributeIconSize 0
+
+class Company{
+}
+
+class ChemicalLaboratory{
+-name
+-address
+-phoneNumber
+-TIN
+}
+
+class ClinicalAnalysisLaboratory{
+-name
+-address
+-phoneNumber
+-labID
+-TIN
+}
+
+class Administrator{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+class SpecialistDoctor{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+-doctorIndex
+}
+
+class ClinicalChemistryTechnologist{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+class MedicalLabTechnician{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+class Receptionist{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+class Client{
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
+}
+
+class LabOrder{
+}
+
+class Result{
+}
+
+class Report{
+}
+
+class Category{
+-code
+-description
+-nhsID
+}
+
+class Parameter{
+}
+
+class TestType{
+}
+
+class Test{
+-internalCode
+-nhsCode
+-collectMethod
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime
+}
+
+class bloodTest{
+-PLT
+-RBC
+-WBC
+}
+
+class covidTest{
+-isCovid
+}
+
+class Sample{
+-barcode
+}
+
+@enduml
