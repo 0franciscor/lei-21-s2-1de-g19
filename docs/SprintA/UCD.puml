@@ -14,6 +14,7 @@ usecase UC11 as "UC11 - Specify new parameter category"
 usecase UC12 as "UC12 - Make diagnosis and write a report"
 usecase UC13 as "UC13 - Check test results"
 usecase UC14 as "UC14 - Validate test results"
+usecase UC15 as "UC15 - Generate daily reports"
 
 
 actor "Client" as C
@@ -23,6 +24,7 @@ actor "Chemistry Technologist" as CT
 actor "Specialist Doctor" as SD
 actor "Lab Coordinator" as LC
 actor "Administrator" as ADM
+actor "Timer" as TM
 
 
 left to right direction
@@ -48,6 +50,6 @@ SD -->(UC13)
 
 LC--> (UC14)
 
-
+TM --> (UC15)
 
 @enduml
