@@ -43,6 +43,7 @@
 | **Result** | **Resultado** | Associated to the clinical blood tests and Covid-19 tests, being positive or negative. |
 | **Sample** | **Amostra** | Fragment of blood or pulmonary mucus, depends on the test. |
 | **Specialist doctor** | **Médico especialista** | It is the person who makes the diagnosis and writes a report for the client. |
+| **SOC** | **SOC** | Acronym for Standard Occupational Classification. |
 | **SVG** | **SVG** | Acronym for Scalable Vector Graphics. |
 | **Swab** | **Cotonete** | It refers to a specific type of test that can be used to get a client's sample. |
 | **Test** | **Teste** | It refers to a clinical analysis test. |
