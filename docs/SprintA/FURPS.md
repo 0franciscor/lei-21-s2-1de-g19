@@ -13,7 +13,6 @@ _Specifies functionalities that:_
     * "(...) the receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number,birth date, sex, Tax Identification number (TIF), phone number, e-mail and name."
     * "(...) a password holding seven alphanumeric characters, including three capital letters and two digits."
     * "Each test is characterized by an internal code (...)"
-  * Auditing
   * Authentication
     * "All those who wish to use the application must be authenticated with a password (...)"
     * "To use the application the client needs an email"
@@ -23,10 +22,8 @@ _Specifies functionalities that:_
     * "(...) the client receives a notification alerting that the results are already available in the central application (...)"
     * "The client receives the notification by SMS and e-mail."
     * "(...) the application uses an external module that is responsible for doing an automatic validation using test reference values."
-  * Licensing
   * Localisation
     * "The application must support the English language only." 
-  * Online help
   * Persistence
     * "The application should use object serialization to ensure data persistence between two runs of the application."
   * Printing
@@ -34,9 +31,6 @@ _Specifies functionalities that:_
   * Reporting
     * "(...) specialist doctor who makes a diagnosis and writes a report that afterwards will be delivered to the client."
     * "(...) the report becomes available in the system and must be validated by the laboratory coordinator."
-  * Scheduling 
-  * Transaction management
-  * Workflow
   
 
 ## Usability 
@@ -57,7 +51,6 @@ documentation; consistency and standards._
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
 
-  * Accuracy
   * Availability
     * "The system should not fail more than 5 days in one year."
   * Recoverability
@@ -67,15 +60,10 @@ _Refers to the integrity, compliance and interoperability of the software. The r
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
 
-  * Recovery time
   * Response time
     * "Any interface between a user and the system shall have a maximum response time of 3 seconds." 
-  * Shutdown time
   * Start-up time
     * "The system should start up in less than 10 seconds."
-  * Throughput
-
-
 
 
 ## Supportability
@@ -83,23 +71,15 @@ _The supportability requirements gathers several characteristics, such as:
 testability, adaptability, maintainability, compatibility,
 configurability, installability, scalability and more._ 
 
-  * Auditing 
-  * Adaptability
   * Compatibility
     * "The application should run on all platforms for which there exists a Java Virtual Machine."
   * Configurability
     * "The ordering algorithm to be used by the application must be defined through a configuration file."
     * "The algorithm to be used by the application must be defined through a configuration file."
-  * Installability
-  * Localisation
-  * Maintainability
-  * Scalability
   * Testability
     * "The development team must implement unit tests for all methods except methods that implement Input/Output operations."
     * "The unit tests should be implemented using the JUnit 4 framework."
     * "The JaCoCo plugin should be used to generate the coverage report."
-
-
 
 
 ## +
