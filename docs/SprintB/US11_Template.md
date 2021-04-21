@@ -33,14 +33,14 @@ No dependencies were found.
 ### 1.5 Input and Output Data
 #### **Input Data**
 
-	• **_Typed data_**: code, description and NHS identified
-	• **_Selected data_**: (none)
+	• Typed data: code, description and NHS identified
+	• Selected data: (none)
 
 ### 1.6. System Sequence Diagram (SSD)
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US11-SSD](US11-SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -53,7 +53,7 @@ No dependencies were found.
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US11-MD](US11-MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -98,7 +98,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML static view representing the main domain related software classes that are involved in fulfilling the requirement as well as and their relations, attributes and methods.*
 
-![USXX-CD](USXX-CD.svg)
+![US11-CD](US11-CD.svg)
 
 # 4. Tests 
 *In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
