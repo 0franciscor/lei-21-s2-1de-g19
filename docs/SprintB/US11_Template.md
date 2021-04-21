@@ -33,8 +33,8 @@ No dependencies were found.
 ### 1.5 Input and Output Data
 #### **Input Data**
 
-	• **Typed data**: code, description and NHS identified
-	• **Selected data**: (none)
+	• **_Typed data_**: code, description and NHS identified
+	• **_Selected data_**: (none)
 
 ### 1.6. System Sequence Diagram (SSD)
 
@@ -92,7 +92,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US11-SD](US11-SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
