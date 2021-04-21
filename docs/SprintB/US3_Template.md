@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US3 - As a receptionist, I want to register a client 
 
 ## 1. Requirements Engineering
 
@@ -9,21 +9,46 @@
 
 *Insert here the User Story as described by the client.*
 
+As a receptionist of the laboratory, I want to register a client.
+
 ### 1.2. Customer Specifications and Clarifications 
 
 *Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
+
+From the Specifications Document:
+
+  * " (...) a receptionist asks the client’s citizen card number, the lab order (which contains the type of test and parameters to be measured), and registers in the application the test to be performed to that client."
+  * " In case of a new client, the receptionist registers the client in the application. To register a client, the receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number, birth date, sex, Tax Identification number (TIF), phone number, e-mail and name."
+  
+From the client clarifications:
+
+  * Question:
+    * Answer:
 
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
 
+  * AC1: The client must become a system user.
+
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
 
+No dependencies were found.
+
 ### 1.5 Input and Output Data
 
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
+
+Input Data
+
+  * Typed data: client’s citizen card number, National Healthcare Service (NHS) number, birth date, sex, Tax Identification number (TIN), phone number, e-mail and name.
+  * Selected data:
+  
+Output Data
+
+  * (In)Success of the operation
 
 
 ### 1.6. System Sequence Diagram (SSD)
