@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 011 - As an administrator, I want to specify a new parameter category.
 
 ## 1. Requirements Engineering
 ### 1.1. User Story Description
@@ -8,11 +8,16 @@ As an administrator, I want to specify a new parameter category.
 ### 1.2. Customer Specifications and Clarifications 
 #### From the Specifications Document:
 • “Blood tests are frequently characterized by measuring several parameters which for presentation/reporting purposes are organized by categories. For example, parameters such as the number of Red Blood Cells (RBC), White Blood Cells (RBC) and Platelets (PLT) are usually presented under the blood count (Hemogram) category.”
+
 • “Regardless, such tests rely on measuring one or more parameters that can be grouped/organized by categories.”
+
 #### From the client clarifications:
 • Question: What are the data that characterize a parameter category?
+
 • Answer: Simply consider a code, a description and an NHS identifier 
+
 • Question: What are the business rules applicable to such data?
+
 • Answer: ...
 
 ### 1.3. Acceptance Criteria
@@ -20,12 +25,14 @@ As an administrator, I want to specify a new parameter category.
 • AC1: Code must be unique having 4 to 8 chars
 • AC2: Description cannot be empty and has, at maximum, 40 chars
 • AC3: NHS identifier is not mandatory
+
 ### 1.4. Found out Dependencies
 
 No dependencies were found.
 
 ### 1.5 Input and Output Data
 #### **Input Data**
+
 	• **Typed data**: code, description and NHS identified
 	• **Selected data**: (none)
 
