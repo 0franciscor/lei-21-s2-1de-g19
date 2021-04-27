@@ -4,14 +4,14 @@
 
 *In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
 
-
 ### 1.1. User Story Description
 
-*Insert here the User Story as described by the client.*
+*As an administrator, I want to specify a new type of test and its collecting methods.*
 
 ### 1.2. Customer Specifications and Clarifications 
 
 *Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
+(ainda nao foram fornecidas infos acerca da US9 no portal)
 
 ### 1.3. Acceptance Criteria
 
