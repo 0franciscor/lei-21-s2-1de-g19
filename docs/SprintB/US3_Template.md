@@ -84,12 +84,14 @@ Output Data
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Step 1: register a client  		 |... register a client ?							 |Receptionist             |                              |
+| Step 2: request data (citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name		 |n/a							 |             |                              |
+| Step 3: types requested data 		 |... saving the input data ?							 |             |                              |
+| Step 4: shows the data and requests a confirmation  		 |... validating the data locally (e.g.: mandatory vs.non-mandatory data)?							 |             |                              |
+								 |… validating the data globally (e.g.: duplicated)? |
+
+| Step 5: confirms the data  		 |... saving the created parameter category?							 |             |                              |
+| Step 6: informs operation success  		 |... informing operation success?							 |UI             |                              |              
 
 ### Systematization ##
 
