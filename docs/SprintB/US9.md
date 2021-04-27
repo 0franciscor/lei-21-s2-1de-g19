@@ -19,7 +19,8 @@
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+*US10: As an administrator, I want to specify a new parameter and categorize it.*
+*US11: As an administrator, I want to specify a new parameter category.*
 
 ### 1.5 Input and Output Data
 
