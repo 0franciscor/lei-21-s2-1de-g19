@@ -1,36 +1,31 @@
-# US XXX - XXXX XXXX
+# US 7 - As an administrator, I want to register a new employee.
 
 ## 1. Requirements Engineering
-
-*In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
-
-
 ### 1.1. User Story Description
 
 *Insert here the User Story as described by the client.*
 
 ### 1.2. Customer Specifications and Clarifications 
-
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
-
 ### 1.3. Acceptance Criteria
 
-*Insert here the client acceptance criteria.*
+AC1: Each user must have a single role defined in the system. The "auth" component available on the repository must be reused (without mod if icat ions).
 
 ### 1.4. Found out Dependencies
 
-*Identify here any found out dependency to other US and/or requirements.*
+The administrator needs to be logged in to register a new employee.
 
 ### 1.5 Input and Output Data
+#### **Input Data*
 
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
-
-
+	• Typed data: employee ID, organization role, name, address , phone number, e-mail, Standard Occupational Classification (SOC) code and Doctor Index Number. 
+	• Selected data:
+#### **Output Data*
+	• (In)Success of the operation
 ### 1.6. System Sequence Diagram (SSD)
 
 *Insert here a SSD depicting the envisioned Actor-System interactions and throughout which data is inputted and outputted to fulfill the requirement. All interactions must be numbered.*
 
-![USXX-SSD](USXX-SSD.svg)
+![US7-SSD](US7-SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -43,7 +38,7 @@
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US7-MD](US7-MD.svg)
 
 ### 2.2. Other Remarks
 
