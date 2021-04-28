@@ -84,14 +84,13 @@ Output Data
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: register a client  		 |... register a client ?							 |Receptionist             |                              |
+| Step 1: register a client  		 |... register a client ?							 |Receptionist             |Creator: the receptionist registers the client in the application                              |
 | Step 2: request data (citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name		 |n/a							 |             |                              |
-| Step 3: types requested data 		 |... saving the input data ?							 |             |                              |
-| Step 4: shows the data and requests a confirmation  		 |... validating the data locally (e.g.: mandatory vs.non-mandatory data)?							 |             |                              |
-								 |… validating the data globally (e.g.: duplicated)? |
-
-| Step 5: confirms the data  		 |... saving the created parameter category?							 |             |                              |
-| Step 6: informs operation success  		 |... informing operation success?							 |UI             |                              |              
+| Step 3: types requested data 		 |... saving the input data ?							 |Client             |The object created in step 1 has its own data                              |
+| Step 4: shows the data and requests a confirmation  		 |... validating the data locally (e.g.: mandatory vs.non-mandatory data)?							 |Client             |knows its own data                             |
+|								 |… validating the data globally (e.g.: duplicated)?										 |Receptionist	       |knows all the client objects         		      |
+| Step 5: confirms the data  		 |... saving the created parameter category?							 |Receptionist             |records all the client objects                              |
+| Step 6: informs operation success  		 |... informing operation success?							 |UI             |responsible for user interaction                              |              
 
 ### Systematization ##
 
