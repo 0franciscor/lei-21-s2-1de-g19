@@ -100,6 +100,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
  * Receptionist
 
 Other software classes (i.e. Pure Fabrication) identified: 
+
  * RegisterClientUI  
  * RegisterClientController
 
@@ -107,7 +108,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 *In this section, it is suggested to present an UML dynamic view stating the sequence of domain related software objects' interactions that allows to fulfill the requirement.* 
 
-![USXX-SD](USXX-SD.svg)
+![US3-SD](US3-SD.svg)
 
 ## 3.3. Class Diagram (CD)
 
