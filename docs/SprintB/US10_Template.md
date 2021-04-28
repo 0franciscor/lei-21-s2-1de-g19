@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 10 - As an administrator, I want to specify a new parameter and categorize it.
 
 ## 1. Requirements Engineering
 
@@ -7,11 +7,15 @@
 
 ### 1.1. User Story Description
 
-*Insert here the User Story as described by the client.*
+As an administrator, I want to specify a new parameter and categorize it.
 
 ### 1.2. Customer Specifications and Clarifications 
 
 *Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
+
+From the Specifications Document:
+
+From the client clarifications:
 
 ### 1.3. Acceptance Criteria
 
@@ -24,6 +28,14 @@
 ### 1.5 Input and Output Data
 
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
+
+Input Data
+*Typed data:
+*Selected data:
+
+
+Output Data
+*(In)Success of the operation
 
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -43,7 +55,7 @@
 ### 2.1. Relevant Domain Model Excerpt 
 *In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
 
-![USXX-MD](USXX-MD.svg)
+![US10-MD](US10-MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -118,8 +130,5 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 7. Observations
 
 *In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
-
-
-
 
 
