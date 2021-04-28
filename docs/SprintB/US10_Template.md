@@ -15,23 +15,33 @@ As an administrator, I want to specify a new parameter and categorize it.
 
 From the Specifications Document:
 
+*“Blood tests are frequently characterized by measuring several parameters which for presentation/reporting purposes are organized by categories. For example, parameters such as the number of Red Blood Cells (RBC), White Blood Cells (WBC) and Platelets (PLT) are usually presented under the blood count (Hemogram) category.”
+*“Regardless, such tests rely on measuring one or more parameters that can be grouped/organized by categories.”
+
 From the client clarifications:
+*Question:"What is the data that characterize a parameter?"
+	*Answer:"Each parameter is associated with one category. Each parameter has a Code, a Short Name and a Description."
 
 ### 1.3. Acceptance Criteria
 
 *Insert here the client acceptance criteria.*
 
+*AC1:"The Code are five alphanumeric characters."
+*AC2:"The Short Name is a String with no more than 8 characters."
+*AC3:"The Description is a String with no more than 20 characters."
+
 ### 1.4. Found out Dependencies
 
 *Identify here any found out dependency to other US and/or requirements.*
+*US11
 
 ### 1.5 Input and Output Data
 
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 Input Data
-*Typed data:
-*Selected data:
+*Typed data: code, short name and description
+*Selected data: parameter category
 
 
 Output Data
