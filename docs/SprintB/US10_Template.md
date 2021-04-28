@@ -19,6 +19,7 @@ From the Specifications Document:
 * “Regardless, such tests rely on measuring one or more parameters that can be grouped/organized by categories.”
 
 From the client clarifications:
+
 * Question:"What is the data that characterize a parameter?"
 	* Answer:"Each parameter is associated with one category. Each parameter has a Code, a Short Name and a Description."
 
@@ -40,11 +41,13 @@ From the client clarifications:
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 Input Data
+
 * Typed data: code, short name and description
 * Selected data: parameter category
 
 
 Output Data
+
 * (In)Success of the operation
 
 
