@@ -96,13 +96,12 @@ Output Data
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Class1
- * Class2
- * Class3
+ * Client
+ * Receptionist
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * xxxxUI  
- * xxxxController
+ * RegisterClientUI  
+ * RegisterClientController
 
 ## 3.2. Sequence Diagram (SD)
 
