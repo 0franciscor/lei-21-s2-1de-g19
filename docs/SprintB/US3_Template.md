@@ -22,8 +22,20 @@ From the Specifications Document:
   
 From the client clarifications:
 
-  * Question:
-    * Answer:
+  * Question: Does the receptionist need to be logged in the app to preform the regist.
+    * Answer: Yes.
+  * Question: What parameter (asked by the receptionist) should the system use to create the password of the new client.
+    * Answer: The password should be randomly generated. It should have ten alphanumeric characters.
+  * Question: Relative to registering a new user, how should the system respond in the event of creating a new user with the same attributes of an already existing user?
+    * Answer: This should be treated as an error. A subset of the attributes of any client are unique.
+  * Question: And what attributes among "Citizen Card number, NHS number, Birth date, Sex, Tax Identification Number, Phone number, E-mail, Name, Employee ID, Organization Role, Address, Standard Occupational Code and Doctor Index Number" will trigger this response? 
+    * Answer: The e-mail address and phone number should be unique for each user. The sex of each user is optional.
+  * Question: When the receptionist is making the client registration he needs to pay ?
+    * Answer: There are costs and payments but they are managed by a third party and are outside of the system. Therefore, in this project we will not consider the cost and payments associated with each test.
+  * Question: The receptionist needs mandatorily of all client data described on the project description?
+    * Answer: Citizen Card: 16 digit number. NHS: 10 digit number. TIN: 10 digit number. Birth day - in which format: DD/MM/YY. Sex - should only be Male/Female or include more options. Male/Female. Phone number: 11 digit number. The sex is opcional. All other fields are required.
+  * Question: When registering a new client, does the system send a email with login and password to client?
+    * Answer: Each users receives an e-mail informing that the registration was successful and that he can start to use the system. The e-mail includes the user password.
 
 ### 1.3. Acceptance Criteria
 
