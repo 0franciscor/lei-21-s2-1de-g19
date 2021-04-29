@@ -63,9 +63,11 @@
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt 
-*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.* 
+*In this section, it is suggested to present an excerpt of the domain model that is seen as relevant to fulfill this requirement.*
 
-![USXX-MD](USXX-MD.svg)
+*Importante notar que é necessária alteração desta secção, tendo em conta que o DM carece alterações*
+
+![US09-MD](US09-MD.svg)
 
 ### 2.2. Other Remarks
 

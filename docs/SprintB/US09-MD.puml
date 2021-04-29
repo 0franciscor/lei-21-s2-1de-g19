@@ -1,0 +1,59 @@
+@startuml
+
+class Company
+class Administrator
+class Category
+class Parameter
+class TestType
+class Test
+
+Administrator "1" -- "*" Category : < created by
+
+Category "1" -- "*" Parameter : < presented under
+
+Parameter "1..*" -- "*" Test : < requests analysis of
+
+TestType "*" -- "1" Company : < conducts
+
+TestType "1" -- "*" Test: < is of
+
+TestType "*" -- "1" Administrator : < creates
+
+skinparam classAttributeIconSize 0
+
+class Company{
+}
+
+class Administrator{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+class Category{
+-code
+-description
+-nhsID
+}
+
+class Parameter{
+}
+
+class TestType{
+}
+
+class Test{
+-internalCode
+-nhsCode
+-collectMethod
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime
+}
+
+@enduml
