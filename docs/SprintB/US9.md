@@ -6,7 +6,7 @@
 
 ### 1.1. User Story Description
 
-* As an administrator, I want to specify a new type of test and its collecting methods.
+* As an Administrator, I want to specify a new type of test and its collecting methods.
 
 ### 1.2. Customer Specifications and Clarifications
 
@@ -41,11 +41,13 @@
 
 ### 1.5 Input and Output Data
 **Input data**
-*   Typed data: Code, Description, Collecting method.
-*   Selected data: None.
+
+* Typed data: Code, Description, Collecting method.
+* Selected data: None.
 
 **Output data**
-*   (In)Sucess of the operation of adding the new type of test to the test types list.
+
+*  (In)Sucess of the operation of adding the new type of test to the test types list.
 
 ### 1.6. System Sequence Diagram (SSD)
 
