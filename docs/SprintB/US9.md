@@ -2,7 +2,7 @@
 
 ## 1. Requirements Engineering
 
-*In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
+*In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.
 
 ### 1.1. User Story Description
 
@@ -12,10 +12,9 @@
 
 **From the specifications document:**
 
-* "(...) tests are frequently characterized by measuring several parameters which for presentation/reporting purposes are organized
-by categories."*
+* "(...) tests are frequently characterized by measuring several parameters which for presentation/reporting purposes are organized by categories."
   
-* “(...) such tests rely on measuring one or more parameters that can be grouped/organized by categories.”*
+* “(...) such tests rely on measuring one or more parameters that can be grouped/organized by categories.”
 
 **From the client clarifications**
 
