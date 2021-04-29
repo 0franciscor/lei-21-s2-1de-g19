@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 009- As an administrator, I want to specify a new type of test and its collecting methods.
 
 ## 1. Requirements Engineering
 
@@ -6,21 +6,39 @@
 
 ### 1.1. User Story Description
 
-*As an administrator, I want to specify a new type of test and its collecting methods.*
+* As an administrator, I want to specify a new type of test and its collecting methods.
 
-### 1.2. Customer Specifications and Clarifications 
+### 1.2. Customer Specifications and Clarifications
 
-*Insert here any related specification and/or clarification provided by the client together with **your interpretation**. When possible, provide a link to such specifications/clarifications.*
-(ainda nao foram fornecidas infos acerca da US9 no portal)
+**From the specifications document:**
 
+* "(...) tests are frequently characterized by measuring several parameters which for presentation/reporting purposes are organized
+by categories."*
+  
+* “(...) such tests rely on measuring one or more parameters that can be grouped/organized by categories.”*
+
+**From the client clarifications**
+
+* Question: What do you mean by the collecting methods and which ones are available?
+    * Answer: For example, in order to perform a Covid Test, you need a swab. The collecting methods are specified by the Administrator. [Client Forum](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7752#p10120)
+
+* Question: Are there any different collecting methods other than the ones currently known?
+    * Answer: Each collecting method is associated with a test type. Every test must have its collecting method defined. [Client Forum](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7514#p10172)
+
+* Question: Which attributes does a type of test have besides its name and Collecting Method?
+    * Answer: A code, a description, and a Collecting Method description. [Client Forum](https://moodle.isep.ipp.pt/mod/forum/discuss.php?d=7512#p10171)
+    
 ### 1.3. Acceptance Criteria
 
-*Insert here the client acceptance criteria.*
+* AC1: **Code** must have 5 alphanumeric characters and not be automatically generated.
+* AC2: **Description** must be a string with no more than 15 characters.
+* AC3: **Collecting Method** must be a String with no more than 20 characters.
+
 
 ### 1.4. Found out Dependencies
 
-*US10: As an administrator, I want to specify a new parameter and categorize it.*
-*US11: As an administrator, I want to specify a new parameter category.*
+* US10: As an administrator, I want to specify a new parameter and categorize it.
+* US11: As an administrator, I want to specify a new parameter category.
 
 ### 1.5 Input and Output Data
 
