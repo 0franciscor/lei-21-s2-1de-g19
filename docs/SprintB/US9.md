@@ -40,9 +40,12 @@
 * US11: As an administrator, I want to specify a new parameter category.
 
 ### 1.5 Input and Output Data
+**Input data**
+*   Typed data: Code, Description, Collecting method.
+*   Selected data: None.
 
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
-
+**Output data**
+*   (In)Sucess of the operation of adding the new type of test to the test types list.
 
 ### 1.6. System Sequence Diagram (SSD)
 
@@ -53,6 +56,7 @@
 
 ### 1.7 Other Relevant Remarks
 
+* This US should be frequently used, since it allows the Company to expand its offer in terms of different test types, attracting more customers.
 *Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
 
 
