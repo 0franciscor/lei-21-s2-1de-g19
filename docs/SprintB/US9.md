@@ -83,12 +83,12 @@
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |							 |             |                              |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |							 |             |                              |
-| Step 4  		 |							 |             |                              |
-| Step 5  		 |							 |             |                              |
-| Step 6  		 |							 |             |                              |              
+| Step 1: create a new type of test | ...creating a new type of test? | n/a | n/a |
+| Step 2: requests data(code, description, collectingMethod) | ...requesting the data? | n/a | n/a |
+| Step 3: types requested data | ...saving the input data? | n/a | n/a |
+| Step 4: validates the data, shows it and requests a confirmation | ...validating the data both locally and globally? | n/a | n/a |
+| Step 5: confirms the data | ... saving the created type of test? | n/a | n/a |
+| Step 6: adds test to list and informs operation success| ...informing addition success? | n/a | n/a |             
 
 ### Systematization ##
 
