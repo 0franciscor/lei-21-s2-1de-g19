@@ -8,7 +8,7 @@ The teams consists of students identified in the following table.
 |--------------|----------------------------|
 | **1190918**  | Nuno Pinho                 |
 | **1201234**  | Alexandre Soares         	|
-| **1201238**  | Eduardo GonÃ§alves          |
+| **1201238**  | Eduardo Gonçalves          |
 | **1201239**  | Francisco Redol            |
 | **1201240**  | Rita Lello           		|
 
@@ -27,11 +27,11 @@ Throughout the project's development period, the distribution of _tasks / requir
 | Use Case Diagram (UCD)  |  [all](SprintA/UCD.md)   |   [all](SprintB/UCD.md)  |   [all](SprintC/UCD.md)  | [all](SprintD/UCD.md)  |
 | Supplementary Specification   |  [all](SprintA/FURPS.md)   |   [all](SprintB/FURPS.md)  |   [all](SprintC/FURPS.md)  | [all](SprintD/FURPS.md)  |
 | Domain Model  |  [all](SprintA/DM.md)   |   [all](SprintB/DM.md)  |   [all](SprintC/DM.md)  | [all](SprintD/DM.md)  |
-| US 3 (SDP Activities)  |  [1201238](SprintB/US3/US3.md)   |    |   |  |
-| US 7 (SDP Activities)  |  [1201234](SprintB/US7/US7.md)   |    |   |  |
-| US 8 (SDP Activities)  |  [1190918](SprintB/US8/US8.md)   |    |   |  |
-| US 9 (SDP Activities)  |  [1201239](SprintB/US9/US9.md)   |    |   |  |
-| US 10 (SDP Activities) |  [1201240](SprintB/US10/US10.md)   |    |   |  |
-| US 11 (SDP Activities) |  [1201234](SprintB/US11/US11.md)   |    |   |  |
+| US 3 (SDP Activities)  |     |  [1201238](SprintB/US3/US3.md)  |   |  |
+| US 7 (SDP Activities)  |     |  [1201234](SprintB/US7/US7.md)  |   |  |
+| US 8 (SDP Activities)  |     |  [1190918](SprintB/US8/US8.md)  |   |  |
+| US 9 (SDP Activities)  |     |  [1201239](SprintB/US9/US9.md)  |   |  |
+| US 10 (SDP Activities) |     |  [1201240](SprintB/US10/US10.md)  |   |  |
+| US 11 (SDP Activities) |     |  [1201234](SprintB/US11/US11.md)  |   |  |
 
 
