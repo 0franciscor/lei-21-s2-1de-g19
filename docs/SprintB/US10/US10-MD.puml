@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+left to right direction
+class Administrator
+class ParameterCategory
+class Parameter
+
+Administrator "1" -- "*" ParameterCategory : < created by
+ParameterCategory "1" -- "*" Parameter : < presented under
+
+skinparam classAttributeIconSize 0
+
+class Administrator{
+}
+
+class ParameterCategory{
+-code
+-description
+-nhsID
+}
+
+class Parameter{
+-designation
+-description
+-code
+}
+
+@enduml
