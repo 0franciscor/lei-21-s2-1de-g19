@@ -5,9 +5,11 @@ left to right direction
 class Administrator
 class ParameterCategory
 class Parameter
+class Company
 
 Administrator "1" -- "*" ParameterCategory : < created by
 ParameterCategory "1" -- "*" Parameter : < presented under
+Company "1" -- "*" Parameter : > capable of analysing
 
 skinparam classAttributeIconSize 0
 
@@ -24,6 +26,10 @@ class Parameter{
 -designation
 -description
 -code
+}
+
+class Company{
+-designation
 }
 
 @enduml
