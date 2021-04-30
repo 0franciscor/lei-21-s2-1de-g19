@@ -1,0 +1,55 @@
+@startuml
+
+usecase UC1 as "UC1 - Get registered as a client"
+usecase UC2 as "UC2 - Quick blood/swab test"
+usecase UC3 as "UC3 - Register a new client"
+usecase UC4 as "UC4 - Register a test to be performed to a client"
+usecase UC5 as "UC5 - Record collected test samples"
+usecase UC6 as "UC6 - Associate sample to client"
+usecase UC7 as "UC7 - Receive samples"
+usecase UC8 as "UC8 - Perform chemical analysis and register results"
+usecase UC9 as "UC9 - Specify new type of test (and collecting methods)"
+usecase UC10 as "UC10 - Specify and categorize new test parameter"
+usecase UC11 as "UC11 - Specify new parameter category"
+usecase UC12 as "UC12 - Make diagnosis and write a report"
+usecase UC13 as "UC13 - Check test results"
+usecase UC14 as "UC14 - Validate test results"
+usecase UC15 as "UC15 - Generate daily reports"
+
+
+actor "Client" as C
+actor "Receptionist" as RCP
+actor "Medical Lab Technician" as MLT
+actor "Chemistry Technologist" as CT
+actor "Specialist Doctor" as SD
+actor "Laboratory Coordinator" as LC
+actor "Administrator" as ADM
+actor "Timer" as TM
+
+
+left to right direction
+
+C -->(UC1)
+C -->(UC2)
+
+RCP -->(UC3)
+RCP -->(UC4)
+
+MLT -->(UC5)
+MLT -->(UC6)
+
+CT -->(UC7)
+CT -->(UC8)
+
+ADM -->(UC9)
+ADM -->(UC10)
+ADM -->(UC11)
+
+SD -->(UC12)
+SD -->(UC13)
+
+LC--> (UC14)
+
+TM --> (UC15)
+
+@enduml
