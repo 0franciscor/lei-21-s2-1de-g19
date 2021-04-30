@@ -1,15 +1,18 @@
 @startuml
+hide methods
+left to right direction
 
 class Company
+class Employee
 class Administrator
-class Category
+class ParameterCategory
 class Parameter
 class TestType
 class Test
 
-Administrator "1" -- "*" Category : < created by
+Employee "*" -- "1" Administrator : < is a
 
-Category "1" -- "*" Parameter : < presented under
+ParameterCategory "1" -- "*" Parameter : < presented under
 
 Parameter "1..*" -- "*" Test : < requests analysis of
 
@@ -19,12 +22,15 @@ TestType "1" -- "*" Test: < is of
 
 TestType "*" -- "1" Administrator : < creates
 
+Administrator "1" -- "*" ParameterCategory : < created by
+
 skinparam classAttributeIconSize 0
 
 class Company{
+-designation
 }
 
-class Administrator{
+class Employee{
 -name
 -address
 -phoneNumber
@@ -34,19 +40,29 @@ class Administrator{
 -SOCcode
 }
 
-class Category{
+class Administrator{
+}
+
+class ParameterCategory{
 -code
 -description
 -nhsID
 }
 
 class Parameter{
+-designation
+-description
+-code
 }
 
 class TestType{
+-code
+-description
+-collectingMethod
 }
 
 class Test{
+-description
 -internalCode
 -nhsCode
 -collectMethod
