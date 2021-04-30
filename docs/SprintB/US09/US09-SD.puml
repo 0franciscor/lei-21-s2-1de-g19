@@ -1,0 +1,39 @@
+@startuml
+autonumber
+actor "Administrator" as admin
+activate admin
+
+admin -> ":createTestTypeUI" : register a type of test
+activate ":createTestTypeUI"
+":createTestTypeUI" --> admin: request data(code, description, collectingMethod)
+deactivate ":createTestTypeUI"
+admin -> ":createTestTypeUI" : types requested data
+activate ":createTestTypeUI"
+":createTestTypeUI" -> ":createTestTypeController": createTestTypeUI(code, description, collectingMethod)
+activate ":createTestTypeController"
+":createTestTypeController" -> ":Company" : pc = createTestType(code, description, collectingMethod)
+activate ":Company"
+create "pc: TestType"
+":Company" --> "pc: TestType": create(code, description, collectingMethod)
+deactivate ":Company"
+":createTestTypeController" -> ":Company" : validateTestType(tt)
+activate ":Company"
+deactivate ":Company"
+":createTestTypeUI" --> admin: validates the data, shows it and requests a confirmation
+deactivate ":createTestTypeController"
+deactivate ":createTestTypeUI"
+admin -> ":createTestTypeUI": confirms the data
+activate ":createTestTypeUI"
+":createTestTypeUI" -> ":createTestTypeController": saveTestType()
+activate ":createTestTypeController"
+":createTestTypeController" -> ":Company" ++: saveTestType(tt)
+":Company" -> ":Company": validateTestType(tt)
+activate ":Company"
+deactivate ":Company"
+":Company" -> ":Company": addTestType(tt)
+activate ":Company"
+deactivate ":Company"
+deactivate ":createTestTypeController"
+":createTestTypeUI" --> admin: adds test to list and informs operation success
+deactivate ":createTestTypeUI"
+@enduml
