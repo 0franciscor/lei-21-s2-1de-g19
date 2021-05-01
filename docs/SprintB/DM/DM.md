@@ -191,8 +191,6 @@ An association is a relationship between instances of objects that indicates a r
 |      | has a	  | Result	   |
 |      | is associated	  | Lab Order		   |
 
-testType, laboratory, NHS, client, 
-
 ## Domain Model
 
 ![DM.svg](DM.svg)
