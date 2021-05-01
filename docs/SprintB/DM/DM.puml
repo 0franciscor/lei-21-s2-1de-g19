@@ -31,15 +31,15 @@ Company "1" -- "*" Parameter : > capable of analysing
 
 Company "1" -- "*" Employee : < works for
 
-Employee "*" -- "1" Administrator : < is a
+Employee "*" <|-- "1" Administrator
 
-Employee "*" -- "*" ClinicalChemistryTechnologist : < is a
+Employee "*" <|-- "*" ClinicalChemistryTechnologist
 
-Employee "*" -- "1..*" Receptionist : < is a
+Employee "*" <|-- "1..*" Receptionist
 
-Employee "*" -- "*" MedicalLabTechnician : < is a
+Employee "*" <|-- "*" MedicalLabTechnician
 
-Employee "*" -- "1..*" LaboratoryCoordinator: < is a
+Employee "*" <|-- "1..*" LaboratoryCoordinator
 
 ClinicalChemistryTechnologist "*" -- "1" ChemicalLaboratory : > works at
 
@@ -55,9 +55,9 @@ ChemicalLaboratory "1" -- "*" Sample : < is sent to
 
 ClinicalAnalysisLaboratory "*" -- "1" Company : < owns
 
-Laboratory "1"  -- "1" ChemicalLaboratory: < is a
+Laboratory "1"  <|-- "1" ChemicalLaboratory
 
-Laboratory "1"  -- "1" ClinicalAnalysisLaboratory: < is a
+Laboratory "1"  <|-- "1" ClinicalAnalysisLaboratory
 
 Administrator "1" -- "*" ParameterCategory : < created by
 
