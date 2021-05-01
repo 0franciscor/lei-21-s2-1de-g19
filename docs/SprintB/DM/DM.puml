@@ -51,7 +51,7 @@ LaboratoryCoordinator "1..*" -- "*" Laboratory: > works at a
 
 ChemicalLaboratory "1" -- "1" Company : < owns
 
-ChemicalLaboratory "1" -- "*" Sample : < is sent
+ChemicalLaboratory "1" -- "*" Sample : < is sent to
 
 ClinicalAnalysisLaboratory "*" -- "1" Company : < owns
 
@@ -83,7 +83,7 @@ Result "*" -- "1..*" Notification : > is associated with
 
 DiagnosisReport "1" -- "1" SpecialistDoctor : < registers
 
-DiagnosisReport "1" -- "1" Client : is sent to
+DiagnosisReport "1" -- "1" Client : > is sent to
 
 DiagnosisReport "*" -- "1" LaboratoryCoordinator : < validates
 
@@ -100,8 +100,6 @@ TestType "*" -- "1" Company : < conducts
 TestType "1" -- "*" Test: < is of
 
 TestType "*" -- "1" Administrator : < creates
-
-TestType "1" -- "1" LabOrder : < contains
 
 Test "1" -- "1" Result : > has a
 
