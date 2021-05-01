@@ -128,33 +128,70 @@ An association is a relationship between instances of objects that indicates a r
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
 | Administrator | creates | Test Type |
-| Blood Test  	| is a    	| Test  |
-| Category | created by | Administrator |
+
+
+| Chemical Laboratory | is a | Laboratory |
+
 | Company | owns | Chemical Laboratory |
 |         | owns | Clinical Analysis Laboratory |
 |         | performs | Test |
 |         | conducts | Test Type |
-| Covid-19 Test  	| is a    	| Test  |
-| Clinical analysis laboratory | performs | Test |
-| Clinical chemistry technologist | registers | Result |
-| 								  | works for | Chemical Laboratory |
+|	  | capable of analysing 	     | Parameter 		 |
+
+
+| Clinical Analysis Laboratory | performs | Test |
+|			       | is a	  | Laboratory     |
+
+| Clinical Chemistry Technologist | registers | Result |
+| 				  | works at | Chemical Laboratory |
+|				  | is a          | Employee  		    |
+
+| Diagnosis Report        | associated with	     | Test 		 |
+|         	          | is sent to	     	     | Client 		 |
+
+| Employee        | works for	     | Company 		 |
+
+| LaboratoryCoordinator | is a | Employee |
+| 			| works at a| Laboratory |
+| 		        | validates| Diagnosis Report |
+
 | Lab order | brought by | Client |
 |           | contains | Test Type |
+
 | Medical lab technician | registers | Sample |
-|   					 | works for | Clinical Analysis Laboratory |
-| Parameter | present under | Category |
-| Receptionist | works for | Clinical Analysis Laboratory |
+|   			 | works at  | Clinical Analysis Laboratory |
+|			 | is a          | Employee                             |
+
+| NHSReport       | is sent to	     | NHS 		 |
+| Notification       | informs	     | Client		 |
+
+| Parameter | presented under | Category |
+
+| ParameterCategory | created by | Administrator |
+
+| Receptionist | works at  | Clinical Analysis Laboratory |
 | 			   | registers | Test |
 |  			   | registers | Client |
 |  			   | receives | Lab Order |
+|			   | is a 	      |	Employee	  |
+
 | Result | analyzed by | Specialist Doctor |
+|	 | generates	       | NHSReport		   |
+|	 | is associated with	       | Notification		   |
+
 | Sample | analyzed by | Clinical Chemistry Technologist |
 | 		 | is sent to | Chemical Laboratory |
-| Specialist doctor | registers | Report |
+
+| Specialist doctor | registers | Diagnosis Report |
+
 | Test | requested by | Client |
 |  	   | is of | Test Type |
 |      | requests analysis of | Parameter |
 |      | collects | Sample |
+|      | has a	  | Result	   |
+|      | is associated	  | Lab Order		   |
+
+testType, laboratory, NHS, client, 
 
 ## Domain Model
 
