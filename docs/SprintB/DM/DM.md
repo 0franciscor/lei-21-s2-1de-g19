@@ -134,6 +134,8 @@ An association is a relationship between instances of objects that indicates a r
 |         | performs | Test |
 |         | conducts | Test Type |
 |	  | capable of analysing 	     | Parameter 		 |
+|         | adopts | Parameter Category |
+|         | knows | Administrator |
 | Clinical Analysis Laboratory | performs | Test |
 |			       | is a	  | Laboratory     |
 | Clinical Chemistry Technologist | registers | Result |

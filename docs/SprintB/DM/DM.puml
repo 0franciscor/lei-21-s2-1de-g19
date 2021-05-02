@@ -31,7 +31,11 @@ Company "1" -- "*" Parameter : > capable of analysing
 
 Company "1" -- "*" Employee : < works for
 
-Employee "*" <|-- "1" Administrator
+Company "1" -- "*" Parameter Category : > adopts
+
+Company "1" -- "*" Administrator : > knows
+
+Employee "*" <|-- "*" Administrator
 
 Employee "*" <|-- "*" ClinicalChemistryTechnologist
 
@@ -59,7 +63,7 @@ Laboratory "1"  <|-- "1" ChemicalLaboratory
 
 Laboratory "1"  <|-- "1" ClinicalAnalysisLaboratory
 
-Administrator "1" -- "*" ParameterCategory : < created by
+Administrator "*" -- "*" ParameterCategory : < created by
 
 SpecialistDoctor "1" -- "1" Result : < analyzed by
 
