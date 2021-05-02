@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor Administrator as ADM
+participant ":CreateParameterUI" as CPUI
+participant ":CreateParameterController" as CPC
+participant ":Company" as Comp
+activate ADM
+
+
+ADM -> CPUI ++: asks to create a new parameter
+CPUI -> CPC ++: lpc=getParameterCategories()
+CPC -> Comp ++: lpc=getParameterCategories()
+CPUI --> ADM --: shows the existing parameter categories and asks to select one
+ADM -> CPUI ++:
+
+deactivate ADM
+@enduml
