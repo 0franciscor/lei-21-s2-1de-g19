@@ -2,19 +2,24 @@
 'https://plantuml.com/class-diagram
 hide methods
 left to right direction
+class Company
 class Administrator
 class ParameterCategory
 class Parameter
-class Company
 
-Administrator "1" -- "*" ParameterCategory : < created by
-ParameterCategory "1" -- "*" Parameter : < presented under
+
 Company "1" -- "*" Parameter : > capable of analysing
+Company "1" -- "*" ParameterCategory : > adopts
+Company "1" -- "*" Administrator : > knows
+ParameterCategory "1" -- "*" Parameter : < presented under
+Administrator "1" -- "*" ParameterCategory : < created by
 
 skinparam classAttributeIconSize 0
-
-class Administrator{
+class Company{
+-designation
 }
+
+
 
 class ParameterCategory{
 -code
@@ -28,8 +33,8 @@ class Parameter{
 -code
 }
 
-class Company{
--designation
+class Administrator{
 }
+
 
 @enduml
