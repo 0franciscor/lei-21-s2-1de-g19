@@ -2,18 +2,80 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
-actor Administrator as ADM
+'hide footbox
+actor "Administrator" as ADM
+
 participant ":CreateParameterUI" as CPUI
 participant ":CreateParameterController" as CPC
-participant ":Company" as Comp
+participant ":Company" as COMP
+participant "parameter\n:Parameter" as PARAM
+participant "pcat\n:ParameterCategory" as CAT
+participant "lpc\n:List<ParameterCategory>" as LIST_CAT
+
 activate ADM
+ADM -> CPUI : asks to create a new parameter
+activate CPUI
+CPUI --> ADM : requests data (code, designation, description)
+deactivate CPUI
 
+ADM -> CPUI : types requested data
+activate CPUI
 
-ADM -> CPUI ++: asks to create a new parameter
-CPUI -> CPC ++: lpc=getParameterCategories()
-CPC -> Comp ++: lpc=getParameterCategories()
-CPUI --> ADM --: shows the existing parameter categories and asks to select one
-ADM -> CPUI ++:
+CPUI -> CPC : lpc=getParameterCategories()
+activate CPC
+
+CPC -> COMP : lpc=getParameterCategories()
+activate COMP
+|||
+deactivate COMP
+deactivate CPC
+
+CPUI --> ADM : shows the existing parameter categories and asks to select one
+deactivate COMP
+deactivate CPUI
+
+ADM -> CPUI : selects one parameter category
+activate CPUI
+
+CPUI -> CPC : createParameter(code, designation, description, categoryId)
+activate CPC
+
+CPC -> COMP : pcat=getParameterCategoryById(categoryId)
+activate COMP
+|||
+deactivate COMP
+
+CPC -> COMP: parameter=createParameter(code, designation, description, pcat)
+activate COMP
+
+COMP --> PARAM**: create(code, designation, description, pcat)
+COMP -> COMP: validateParameter(parameter)
+
+CPC --> CPUI: result
+
+CPUI --> ADM: shows all data and requests confirmation
+deactivate COMP
+deactivate CPC
+deactivate CPUI
+
+ADM -> CPUI : confirms the data
+activate CPUI
+CPUI -> CPC : saveParameter()
+activate CPC
+
+CPC -> COMP : saveParameter(parameter)
+activate COMP
+
+COMP -> COMP: validateParameter(parameter)
+COMP -> COMP: addParameter(parameter)
+
+CPC --> CPUI: result
+
+CPUI --> ADM : informs operation success
+deactivate COMP
+deactivate CPC
+deactivate CPUI
 
 deactivate ADM
+
 @enduml
