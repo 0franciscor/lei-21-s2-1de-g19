@@ -31,7 +31,7 @@ Company "1" -- "*" Parameter : > capable of analysing
 
 Company "1" -- "*" Employee : < works for
 
-Company "1" -- "*" Parameter Category : > adopts
+Company "1" -- "*" ParameterCategory : > adopts
 
 Company "1" -- "*" Administrator : > knows
 
@@ -125,19 +125,18 @@ class Company{
 -designation
 }
 
-class ChemicalLaboratory{
+class Laboratory{
 -name
 -address
 -phoneNumber
 -TIN
 }
 
+class ChemicalLaboratory{
+}
+
 class ClinicalAnalysisLaboratory{
--name
--address
--phoneNumber
 -labID
--TIN
 }
 
 class Employee{
