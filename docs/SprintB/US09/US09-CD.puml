@@ -4,10 +4,16 @@ left to right direction
 
 class "Company" as C {
 -designation
+}
+
+class "TestTypeStore" as TTS{
 +createTestType(code, description, collectingMethod)
 +validateTestType(tt)
-+saveTestType(tt)
--addTestType(tt)
++addTestType(tt)
+}
+
+class "ParameterCategoryStore" as PCS{
++getParameterCategoryByCode(code)
 }
 
 class "TestType" as TT {
@@ -25,7 +31,10 @@ class "CreateTestTypeController" as CTTC {
 class "CreateTestTypeUI" as CTTUI
 class "TestType" as TT
 class "CreateTestTypeController" as CTTC
+
 CTTUI ..> CTTC
+C ..> PCS
+TTS ..> C
 CTTC ..> TT
 CTTC ..> C
 C "1" --> "*" TT : adopts
