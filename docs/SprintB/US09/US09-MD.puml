@@ -3,22 +3,11 @@ hide methods
 left to right direction
 
 class Company
-class Employee
 class Administrator
 class ParameterCategory
-class Parameter
 class TestType
-class Test
-
-Employee "*" -- "1" Administrator : < is a
-
-ParameterCategory "1" -- "*" Parameter : < presented under
-
-Parameter "1..*" -- "*" Test : < requests analysis of
 
 TestType "*" -- "1" Company : < conducts
-
-TestType "1" -- "*" Test: < is of
 
 TestType "*" -- "1" Administrator : < creates
 
@@ -30,7 +19,7 @@ class Company{
 -designation
 }
 
-class Employee{
+class Administrator{
 -name
 -address
 -phoneNumber
@@ -40,36 +29,16 @@ class Employee{
 -SOCcode
 }
 
-class Administrator{
-}
-
 class ParameterCategory{
 -code
 -description
 -nhsID
 }
 
-class Parameter{
--designation
--description
--code
-}
-
 class TestType{
 -code
 -description
 -collectingMethod
-}
-
-class Test{
--description
--internalCode
--nhsCode
--collectMethod
--collectDateTime
--chemicalAnalysisDateTime
--diagnosisDateTime
--validationDateTime
 }
 
 @enduml
