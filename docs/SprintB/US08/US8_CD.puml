@@ -1,0 +1,52 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+
+class "Company" as C {
+-designation
++registerChemicalAnalysisLaboratory(labID)
++validateChemicalAnalysisLaboratory(cal)
++saveChemicalAnalysisLaboratory(cal)
+-addChemicalAnalysisLaboratory(cal)
+}
+
+class "ChemicalAnalysisLaboratory" as CAL {
+-labID
++ChemicalAnalysisLaboratory(labID)
+}
+
+class "Test" as T {
+-description
+-internalCode
+-nhsCode
+-collectMethod
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime  
+}
+
+class "TestType" as TT {
+-code
+-description
+-collectingMethod
++TestType(code, description, collectingMethod)
+}
+
+class "RegisterChemicalAnalysisLaboratoryController" as RCALC {
++registerChemicalAnalysisLaboratory(labID)
++saveChemicalAnalysisLaboratory(cal)
+}
+
+class "RegisterChemicalAnalysisLaboratoryUI" as RCALUI {  
+}
+
+
+RCALUI ..> RCALC
+RCALC ..> C
+C "1" --> "*" CAL : owns
+C "1" --> "*" T : performs
+T "1" --> "1" TT : is of
+CAL "1" --> "*" T : operates
+
+@enduml
