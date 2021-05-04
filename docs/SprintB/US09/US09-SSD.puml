@@ -13,8 +13,8 @@ System --> admin --: validates the data, shows it and requests a confirmation
 admin -> System ++: confirms the data
 System --> admin --: shows a list of Parameter Categories
 admin -> System ++: selects a category from the list
-System -> admin --: shows the data and requests a confirmation
-admin -> System ++: confirms the data
+System -> admin --: shows the selected category
+admin -> System ++: confirms it
 System --> admin --: adds test to list and informs operation success
 
 @enduml
