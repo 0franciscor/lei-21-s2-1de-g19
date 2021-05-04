@@ -1,0 +1,38 @@
+@startuml
+autonumber
+
+
+actor "Administrator" as ADMIN
+
+participant ":System" as SYST
+
+activate ADMIN
+ADMIN -> SYST : Starts the proccess of registering a new clinical analysis laboratory
+activate SYST
+SYST --> ADMIN : Requests data (i.e., labID) 
+deactivate SYST
+
+
+ADMIN -> SYST : Types requested data
+activate SYST
+SYST --> ADMIN : Shows requested data and asks for confirmation
+deactivate SYST
+
+ADMIN -> SYST : Confirms the data
+activate SYST
+SYST --> ADMIN : Requests the type of tests it operates, asking for the relative data \n (i.e., code, description, collectionMethod)
+deactivate SYST
+
+ADMIN -> SYST : Types requested data
+activate SYST
+SYST --> ADMIN : Shows requested data and asks for confirmation
+deactivate SYST
+
+ADMIN -> SYST : Confirms the data 
+activate SYST
+SYST --> ADMIN : Informs the success of the operation
+deactivate SYST
+
+deactivate ADMIN
+
+@enduml
