@@ -35,8 +35,6 @@ Company "1" -- "*" ParameterCategory : > adopts
 
 Company "1" -- "*" Administrator : > knows
 
-Employee "*" <|-- "*" Administrator
-
 Employee "*" <|-- "*" ClinicalChemistryTechnologist
 
 Employee "*" <|-- "1..*" Receptionist
@@ -139,7 +137,7 @@ class ClinicalAnalysisLaboratory{
 -labID
 }
 
-class Employee{
+class Administrator{
 -name
 -address
 -phoneNumber
@@ -149,7 +147,14 @@ class Employee{
 -SOCcode
 }
 
-class Administrator{
+class Employee{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
 }
 
 class SpecialistDoctor{
