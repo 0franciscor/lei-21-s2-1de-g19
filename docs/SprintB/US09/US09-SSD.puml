@@ -10,7 +10,10 @@ admin -> System ++: register a type of test
 System -->  admin --: request data (code, description, collectingMethod)
 admin ->  System ++: types requested data
 System --> admin --: validates the data, shows it and requests a confirmation
-admin --> System++: confirms the data
+admin -> System ++: confirms the data
+System --> admin --: shows a list of Parameter Categories
+admin -> System ++: selects a category from the list
+
 System --> admin --: adds test to list and informs operation success
 
 
