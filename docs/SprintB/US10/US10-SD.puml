@@ -12,6 +12,7 @@ participant "parameter\n:Parameter" as PARAM
 participant "pcat\n:ParameterCategory" as CAT
 participant "lpc\n:List<ParameterCategory>" as LIST_CAT
 
+loop
 activate ADM
 ADM -> CPUI : asks to create a new parameter
 activate CPUI
@@ -53,6 +54,7 @@ COMP -> COMP: validateParameter(parameter)
 
 CPC --> CPUI: result
 
+end
 CPUI --> ADM: shows all data and requests confirmation
 deactivate COMP
 deactivate CPC
