@@ -12,7 +12,7 @@ Company "1" -- "*" Parameter : > capable of analysing
 Company "1" -- "*" ParameterCategory : > adopts
 Company "1" -- "*" Administrator : > knows
 ParameterCategory "1" -- "*" Parameter : < presented under
-Administrator "1" -- "*" ParameterCategory : < created by
+Administrator "*" -- "*" ParameterCategory : < created by
 
 skinparam classAttributeIconSize 0
 class Company{
@@ -34,6 +34,13 @@ class Parameter{
 }
 
 class Administrator{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
 }
 
 
