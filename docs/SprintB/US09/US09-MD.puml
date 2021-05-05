@@ -6,6 +6,9 @@ class Company
 class Administrator
 class ParameterCategory
 class TestType
+class Employee
+
+Employee "1" <|-- "1..*" Administrator
 
 TestType "*" -- "1" Company : < conducts
 
@@ -15,11 +18,7 @@ Administrator "1" -- "*" ParameterCategory : < created by
 
 skinparam classAttributeIconSize 0
 
-class Company{
--designation
-}
-
-class Administrator{
+class Employee{
 -name
 -address
 -phoneNumber
@@ -27,6 +26,13 @@ class Administrator{
 -orgRole
 -email
 -SOCcode
+}
+
+class Company{
+-designation
+}
+
+class Administrator{
 }
 
 class ParameterCategory{

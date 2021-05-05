@@ -10,8 +10,12 @@ activate ":createTestTypeController"
 ":createTestTypeController" --> ":Company": store = getParameterCategoryStore()
 deactivate ":createTestTypeController"
 activate ":Company"
+loop for each Parameter Category Object on ParameterCategoryStore
 ":Company" --> "store:ParameterCategoryStore": getParameterCategoryByCode(code)
 activate "store:ParameterCategoryStore"
+create "listCategoriesName: list<String>"
+"store:ParameterCategoryStore" --> "listCategoriesName: list<String>": getDesignation()
+end
 deactivate "store:ParameterCategoryStore"
 deactivate ":Company"
 ":createTestTypeUI" --> admin: shows a list of Parameter Categories
@@ -23,15 +27,15 @@ deactivate ":createTestTypeUI"
 deactivate ":createTestTypeUI"
 admin -> ":createTestTypeUI" : types requested data
 activate ":createTestTypeUI"
-":createTestTypeUI" -> ":createTestTypeController": createTestType(code, description, collectingMethod)
+":createTestTypeUI" -> ":createTestTypeController": createTestType(code, description, collectingMethod, CategoryName)
 activate ":createTestTypeController"
 ":createTestTypeController" -> ":Company" : store = getTestTypeStore()
 activate ":Company"
 deactivate ":Company"
-":createTestTypeController" -> "store:TestTypeStore" : tt = createTestType(code, description, collectingMethod)
+":createTestTypeController" -> "store:TestTypeStore" : tt = createTestType(code, description, collectingMethod, CategoryName)
 activate "store:TestTypeStore"
 create "tt: TestType"
-"store:TestTypeStore" -> "tt: TestType" : create(code, description, collectingMethod)
+"store:TestTypeStore" -> "tt: TestType" : create(code, description, collectingMethod, categoryName)
 deactivate "store:TestTypeStore"
 ":createTestTypeController" -> "store:TestTypeStore" : validateTestType(tt)
 activate "store:TestTypeStore"
@@ -43,7 +47,7 @@ admin -> ":createTestTypeUI": confirms the data
 activate ":createTestTypeUI"
 ":createTestTypeUI" -> ":createTestTypeController": saveTestType()
 activate ":createTestTypeController"
-":createTestTypeController" -> "store:TestTypeStore" ++: saveTestType(tt)
+":createTestTypeController" -> "store:TestTypeStore"++ : saveTestType(tt)
 "store:TestTypeStore" -> "store:TestTypeStore": validate(tt)
 activate "store:TestTypeStore"
 deactivate "store:TestTypeStore"
