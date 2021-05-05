@@ -5,13 +5,13 @@ activate admin
 
 admin -> ":createTestTypeUI" : register a type of test
 activate ":createTestTypeUI"
-":createTestTypeUI" --> ":createTestTypeController": getAllParameterCategories()
+":createTestTypeUI" -> ":createTestTypeController": getAllParameterCategories()
 activate ":createTestTypeController"
-":createTestTypeController" --> ":Company": store = getParameterCategoryStore()
+":createTestTypeController" -> ":Company": store = getParameterCategoryStore()
 deactivate ":createTestTypeController"
 activate ":Company"
 loop for each Parameter Category Object on ParameterCategoryStore
-":Company" --> "store:ParameterCategoryStore": getParameterCategoryByCode(code)
+":Company" -> "store:ParameterCategoryStore": getParameterCategoryByCode(code)
 activate "store:ParameterCategoryStore"
 create "listCategoriesName: list<String>"
 "store:ParameterCategoryStore" --> "listCategoriesName: list<String>": getDesignation()
@@ -35,7 +35,7 @@ deactivate ":Company"
 ":createTestTypeController" -> "store:TestTypeStore" : tt = createTestType(code, description, collectingMethod, CategoryName)
 activate "store:TestTypeStore"
 create "tt: TestType"
-"store:TestTypeStore" -> "tt: TestType" : create(code, description, collectingMethod, categoryName)
+"store:TestTypeStore" --> "tt: TestType" : create(code, description, collectingMethod, categoryName)
 deactivate "store:TestTypeStore"
 ":createTestTypeController" -> "store:TestTypeStore" : validateTestType(tt)
 activate "store:TestTypeStore"
