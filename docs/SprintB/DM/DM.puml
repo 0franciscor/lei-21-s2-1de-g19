@@ -8,6 +8,8 @@ class Laboratory
 class ChemicalLaboratory
 class ClinicalAnalysisLaboratory
 class LaboratoryCoordinator
+class User
+class Role
 class Employee
 class Administrator
 class SpecialistDoctor
@@ -35,7 +37,15 @@ Company "1" -- "*" ParameterCategory : > adopts
 
 Company "1" -- "*" Administrator : > knows
 
+User "1" -- "1" Role : > plays a
+
+Employee "1" -- "1" User : > is a
+
+Client "1" -- "1" User : > is a
+
 Employee "*" <|-- "*" ClinicalChemistryTechnologist
+
+Employee "1" <|-- "1..*" Administrator
 
 Employee "*" <|-- "1..*" Receptionist
 
@@ -97,6 +107,8 @@ ParameterCategory "1" -- "*" Parameter : < presented under
 
 Parameter "1..*" -- "*" Test : < requests analysis of
 
+TestType "*" -- "1" ParameterCategory : > analyzes a
+
 TestType "*" -- "1" Company : < conducts
 
 TestType "1" -- "*" Test: < is of
@@ -137,14 +149,18 @@ class ClinicalAnalysisLaboratory{
 -labID
 }
 
-class Administrator{
+class User{
 -name
--address
--phoneNumber
--employeeID
--orgRole
 -email
--SOCcode
+-password
+}
+
+class Role{
+-id
+-description
+}
+
+class Administrator{
 }
 
 class Employee{
