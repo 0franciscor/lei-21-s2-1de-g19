@@ -14,6 +14,7 @@ class "TestTypeStore" as TTS{
 
 class "ParameterCategoryStore" as PCS{
 +getParameterCategoryByCode(code)
++getDesignation()
 }
 
 class "TestType" as TT {

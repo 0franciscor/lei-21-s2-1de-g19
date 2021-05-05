@@ -4,23 +4,40 @@ actor "Administrator" as admin
 activate admin
 
 admin -> ":createTestTypeUI" : register a type of test
+
+
 activate ":createTestTypeUI"
 ":createTestTypeUI" -> ":createTestTypeController": getAllParameterCategories()
+
+
 activate ":createTestTypeController"
 ":createTestTypeController" -> ":Company": store = getParameterCategoryStore()
-deactivate ":createTestTypeController"
 activate ":Company"
-loop for each Parameter Category Object on ParameterCategoryStore
-":Company" -> "store:ParameterCategoryStore": getParameterCategoryByCode(code)
-activate "store:ParameterCategoryStore"
-create "listCategoriesName: list<String>"
-"store:ParameterCategoryStore" --> "listCategoriesName: list<String>": getDesignation()
-end
-deactivate "store:ParameterCategoryStore"
 deactivate ":Company"
+
+
+create "listCategoriesName: list<String>"
+":createTestTypeController" -> "listCategoriesName: list<String>": create()
+
+
+loop for each Parameter Category Object on ParameterCategoryStore
+":createTestTypeController" -> "store:ParameterCategoryStore": category = getParameterCategoryByCode(code)
+
+
+activate "store:ParameterCategoryStore"
+deactivate "store:ParameterCategoryStore"
+":createTestTypeController" --> "listCategoriesName: list<String>": add(category)
+activate "listCategoriesName: list<String>"
+deactivate "listCategoriesName: list<String>"
+deactivate ":createTestTypeController"
+end
+
+
 ":createTestTypeUI" --> admin: shows a list of Parameter Categories
 deactivate ":createTestTypeUI"
+
 admin -> ":createTestTypeUI": selects a category from the list
+
 activate ":createTestTypeUI"
 ":createTestTypeUI" --> admin: request data(code, description, collectingMethod)
 deactivate ":createTestTypeUI"
@@ -40,13 +57,14 @@ deactivate "store:TestTypeStore"
 ":createTestTypeController" -> "store:TestTypeStore" : validateTestType(tt)
 activate "store:TestTypeStore"
 deactivate "store:TestTypeStore"
-":createTestTypeUI" --> admin: validates the data, shows it and requests a confirmation
 deactivate ":createTestTypeController"
+":createTestTypeUI" --> admin: validates the data, shows it and requests a confirmation
 deactivate ":createTestTypeUI"
 admin -> ":createTestTypeUI": confirms the data
 activate ":createTestTypeUI"
 ":createTestTypeUI" -> ":createTestTypeController": saveTestType()
 activate ":createTestTypeController"
+
 ":createTestTypeController" -> "store:TestTypeStore"++ : saveTestType(tt)
 "store:TestTypeStore" -> "store:TestTypeStore": validate(tt)
 activate "store:TestTypeStore"
@@ -54,6 +72,7 @@ deactivate "store:TestTypeStore"
 "store:TestTypeStore" -> "store:TestTypeStore": add(tt)
 activate "store:TestTypeStore"
 deactivate "store:TestTypeStore"
+
 deactivate ":createTestTypeController"
 ":createTestTypeUI" --> admin: adds test to list and informs operation success
 deactivate ":createTestTypeUI"
