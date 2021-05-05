@@ -34,13 +34,6 @@ class Parameter{
 }
 
 class Administrator{
--name
--address
--phoneNumber
--employeeID
--orgRole
--email
--SOCcode
 }
 
 
