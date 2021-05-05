@@ -1,3 +1,5 @@
+
+
 @startuml
 hide methods
 skinparam classAttributeIconSize 0
@@ -74,6 +76,8 @@ Laboratory "1"  <|-- "1" ClinicalAnalysisLaboratory
 Administrator "*" -- "*" ParameterCategory : < created by
 
 SpecialistDoctor "1" -- "1" Result : < analyzed by
+
+Employee "*" <|-- "1..*" SpecialistDoctor
 
 ClinicalChemistryTechnologist "*" -- "1..*" Sample : < analyzed by
 
