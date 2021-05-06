@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Administrator" as A
+activate A
+
+
+A -> ":CreateParameterCategoryUI" : starts new parameter category
+":CreateParameterCategoryUI" --> A: request data (i.e., code, description, nhsId)
+A -> ":CreateParameterCategoryUI" : types requested data
+":CreateParameterCategoryUI" -> ":CreateParameterCategoryController": createParameterCategory(code, description, nhsId)
+":CreateParameterCategoryController" -> ":Company" : pc = createParameterCategory(code, description, nhsId)
+activate ":Company"
+create "pc: Parameter Category"
+":Company" --> "pc: Parameter Category": create(code, description, nhsId)
+deactivate ":Company"
+":CreateParameterCategoryController" -> ":Company" : validateParameterCategory(pc)
+activate ":Company"
+deactivate ":Company"
+":CreateParameterCategoryUI" --> A: shows the data and requests a confirmation
+A -> ":CreateParameterCategoryUI": confirms the data
+":CreateParameterCategoryUI" -> ":CreateParameterCategoryController": saveParameterCategory()
+":CreateParameterCategoryController" -> ":Company" ++: saveParameterCategory(pc)
+
+":Company" -> ":Company": validateParameterCategory(pc)
+activate ":Company"
+deactivate ":Company"
+":Company" -> ":Company": addParameterCategory(pc)
+activate ":Company"
+deactivate ":Company"
+":CreateParameterCategoryUI" --> A: informs operation success
+
+@enduml

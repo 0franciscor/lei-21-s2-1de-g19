@@ -1,0 +1,33 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class "Company" as COMP {
+-designation
++createParameterCategory(code, description, nhsID)
++validateParameterCategory(pc)
++saveParameterCategory(pc)
+-addParameterCategory(pc)
+}
+
+class "ParameterCategory" as PC {
+-code
+-description
+-nhsId
++ParameterCategory(code, description, nhsID)
+}
+
+class "CreateParameterCategoryController" as CPCC {
++createParameterCategory(code, description, nhsID)
++saveParameterCategory()
+}
+
+class "CreateParameterCategoryUI" as CPCUI
+class "ParameterCategory" as PC
+class "CreateParameterCategoryController" as CPCC
+CPCUI ..> CPCC
+CPCC ..> PC
+CPCC ..> COMP
+COMP "1" --> "*" PC : adopts
+
+@enduml
