@@ -3,14 +3,15 @@ skinparam classAttributeIconSize 0
 
 
 class ParameterStore{
-  +createParameter(code, designation, description, pcat)
-  +saveParameter(parameter)
-  -validate(parameter)
-  -add(parameter)
+  +boolean create(code, designation, description, pcat)
+  +boolean validate(parameter)
+  +boolean add(parameter)
+  +List <Parameter> getAllParameters()
 }
 
 class ParameterCategoryStore{
-  +getAllParameterCategories()
+  +List <ParameterCategory> getAllParameterCategories()
+  +String getParameterCategoryById(categoryId)
 }
 
 
@@ -18,13 +19,12 @@ class Parameter {
   - String designation
   - String description
   - String code
-  +Parameter(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
+  +Parameter(code,description,designation,pcat)
 }
 
 class Company {
   -designation
   +getParameterCategoryStore()
-  +getParameterCategoryById(categoryId)
   +getParameterStore()
 }
 
@@ -37,14 +37,13 @@ class ParameterCategory {
 
 
 class ParamCatMapper{
-  +toDTO(lpc)
+  +toDto(lpc)
 }
 
 
 class CreateParameterController {
-  +getParameterCategories()
-  +createParameter(code,designation,description,categoryId)
-  +saveParameter()
+  +boolean createParameter(code,designation,description,categoryId)
+  +boolean saveParameter()
 }
 
 class CreateParameterUI {
@@ -55,8 +54,8 @@ CreateParameterController ..> ParameterCategory
 CreateParameterController ..> ParamCatMapper
 CreateParameterController ..> Parameter
 CreateParameterController ..> Company
-CreateParameterController ..> ParameterStore
-CreateParameterController ..> ParameterCategoryStore
+Company ..> ParameterStore
+Company ..> ParameterCategoryStore
 
 Company "1" -- "*" Parameter : > capable of analysing
 Company "1" -- "*" ParameterCategory : > adopts

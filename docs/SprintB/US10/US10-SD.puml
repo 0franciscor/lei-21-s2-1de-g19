@@ -39,7 +39,7 @@ activate PCS
 deactivate PCS
 
 
-CPC -> PCM : lpcDTO=toDTO(lpc)
+CPC -> PCM : lpcDto=toDto(lpc)
 activate PCM
 deactivate PCM
 
@@ -67,9 +67,7 @@ CPC -> PS: parameter=createParameter(code, designation, description, pcat)
 activate PS
 
 PS --> PARAM**: create(code, designation, description, pcat)
-PS -> PS: validateParameter(parameter)
-activate PS
-deactivate PS
+
 
 CPC --> CPUI: result
 deactivate PS
