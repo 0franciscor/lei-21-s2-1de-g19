@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Parameter {
+  - String designation
+  - String description
+  - String code
+  +Parameter(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
+}
+
+class ParameterStore{
+  +createParameter(code, designation, description, pcat)
+  +saveParameter(parameter)
+  -validate(parameter)
+  -add(parameter)
+}
+
+class ParameterCategory {
+  -String code
+  -String description
+  -String nhsID
+}
+
+class ParamCatMapper{
+  +toDTO(lpc)
+}
+
+class Company {
+  -designation
+  +getParameterCategories()
+  +getParameterCategoryById(categoryId)
+  +getParameterStore()
+}
+
+class CreateParameterController {
+  +getParameterCategories()
+  +createParameter(code,designation,description,categoryId)
+  +saveParameter()
+}
+
+class CreateParameterUI {
+}
+
+CreateParameterUI ..> CreateParameterController
+CreateParameterController ..> ParameterCategory
+CreateParameterController ..> ParamCatMapper
+CreateParameterController ..> Parameter
+CreateParameterController ..> Company
+CreateParameterController ..> ParameterStore
+
+
+
+@enduml
