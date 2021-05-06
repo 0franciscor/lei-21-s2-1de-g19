@@ -9,7 +9,7 @@ class "Company" as C {
 }
 
 class "categoriesNameMapper" as cNM {
-+List <ParameterCategory> toDTO(listCategoriesName)
++List <ParameterCategoryDto> toDTO(parameterCategory)
 }
 
 class "TestTypeStore" as TTS{

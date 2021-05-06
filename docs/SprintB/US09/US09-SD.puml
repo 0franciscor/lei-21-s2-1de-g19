@@ -25,7 +25,7 @@ activate "store:ParameterCategoryStore"
 deactivate "store:ParameterCategoryStore"
 
 
-":createTestTypeController" -> ":categoriesNameMapper": categoriesNamesDTO = toDTO(listCategoriesName)
+":createTestTypeController" -> ":categoriesNameMapper": categoriesNamesDto = toDto(listCategoriesName)
 activate ":categoriesNameMapper"
 deactivate ":categoriesNameMapper"
 deactivate ":createTestTypeController"
