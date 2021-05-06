@@ -52,9 +52,7 @@ activate "store:TestTypeStore"
 create "tt: TestType"
 "store:TestTypeStore" --> "tt: TestType" : create(code, description, collectingMethod, categoryName)
 deactivate "store:TestTypeStore"
-":createTestTypeController" -> "store:TestTypeStore" : validateTestType(tt)
-activate "store:TestTypeStore"
-deactivate "store:TestTypeStore"
+
 deactivate ":createTestTypeController"
 ":createTestTypeUI" --> admin: validates the data, shows it and requests a confirmation
 deactivate ":createTestTypeUI"
