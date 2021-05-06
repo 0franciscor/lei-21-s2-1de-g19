@@ -1,12 +1,6 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class Parameter {
-  - String designation
-  - String description
-  - String code
-  +Parameter(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
-}
 
 class ParameterStore{
   +createParameter(code, designation, description, pcat)
@@ -15,14 +9,12 @@ class ParameterStore{
   -add(parameter)
 }
 
-class ParameterCategory {
-  -String code
-  -String description
-  -String nhsID
-}
 
-class ParamCatMapper{
-  +toDTO(lpc)
+class Parameter {
+  - String designation
+  - String description
+  - String code
+  +Parameter(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
 }
 
 class Company {
@@ -31,6 +23,19 @@ class Company {
   +getParameterCategoryById(categoryId)
   +getParameterStore()
 }
+
+class ParameterCategory {
+  -String code
+  -String description
+  -String nhsID
+}
+
+
+
+class ParamCatMapper{
+  +toDTO(lpc)
+}
+
 
 class CreateParameterController {
   +getParameterCategories()
@@ -47,6 +52,10 @@ CreateParameterController ..> ParamCatMapper
 CreateParameterController ..> Parameter
 CreateParameterController ..> Company
 CreateParameterController ..> ParameterStore
+
+Company "1" -- "*" Parameter : > capable of analysing
+Company "1" -- "*" ParameterCategory : > adopts
+ParameterCategory "1" -- "*" Parameter : < presented under
 
 
 
