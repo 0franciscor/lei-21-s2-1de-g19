@@ -3,50 +3,50 @@ skinparam classAttributeIconSize 0
 left to right direction
 
 class "Company" as C {
--designation
+-String designation
 +getTestTypeStore()
 +getParameterCategoryStore()
 }
 
 class "categoriesNameMapper" as cNM {
-+toDTO(listCategoriesName)
++List <ParameterCategory> toDTO(listCategoriesName)
 }
 
 class "TestTypeStore" as TTS{
-+create(code, description, collectingMethod)
-+validate(tt)
-+add(tt)
-+getAllTestTypes()
++boolean create(code, description, collectingMethod)
++boolean validate(tt)
++bollean add(tt)
++List <TestType> getAllTestTypes()
 }
 
 class "ParameterCategoryStore" as PCS{
-+getAllParameterCategories()
++List <ParameterCategory> getAllParameterCategories()
 }
 
 class "TestType" as TT {
--code
--description
--collectingMethod
--ParameterCategory
-+TestType(code, description, collectingMethod, ParameterCategory)
+-String code
+-String description
+-String collectingMethod
+-List <ParameterCategory> ParameterCategories
++TestType(code, description, collectingMethod, ParameterCategories)
 }
 
 class "CreateTestTypeController" as CTTC {
-+createTestType(code, description, collectingMethod)
-+validateTestType()
-+saveTestType()
++boolean createTestType(code, description, collectingMethod)
++boolean validateTestType()
++boolean saveTestType()
 }
 
 class "Test" as T{
--code
--description
--collectingMethod
+-String code
+-String description
+-String collectingMethod
 }
 
 class "ParameterCategory" as PC{
--code
--description
--nhsID
+-String code
+-String description
+-String nhsID
 }
 
 class "CreateTestTypeUI" as CTTUI
@@ -72,6 +72,8 @@ C "1" -- "*" TT : > adopts
 C "1" -- "*" PC : > adopts
 
 admin "*" -- "*" PC : < created by
+
+admin "*" -- "*" TT : < created by
 
 
 @enduml
