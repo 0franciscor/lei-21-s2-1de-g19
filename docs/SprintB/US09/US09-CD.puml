@@ -13,7 +13,8 @@ class "categoriesNameMapper" as cNM {
 }
 
 class "TestTypeStore" as TTS{
-+TestType createTestType(code, description, collectingMethod)
++TestType createTestType(code, description, collectingMethod, parameterCategory)
++TestType createTestType(code, description, collectingMethod, parameterCategoriesList)
 +boolean saveTestType(tt)
 +boolean validateTestType(tt)
 +boolean addTestType(tt)
@@ -28,12 +29,16 @@ class "TestType" as TT {
 -String code
 -String description
 -String collectingMethod
+-ParameterCategory parameterCategory
 -List <ParameterCategory> ParameterCategories
 +TestType(code, description, collectingMethod, ParameterCategories)
 }
 
 class "CreateTestTypeController" as CTTC {
++createTestType(code, description, collectingMethod, parameterCategory)
++createTestType(code, description, collectingMethod, parameterCategoriesList)
 +saveTestType(tt)
++CreateTestTypeController()
 }
 
 class "Test" as T{
@@ -43,15 +48,13 @@ class "Test" as T{
 }
 
 class "ParameterCategory" as PC{
+-String name
 -String code
--String description
--String nhsID
 }
 
 class "CreateTestTypeUI" as CTTUI
 class "TestType" as TT
 class "CreateTestTypeController" as CTTC
-class "Administrator" as admin
 
 CTTUI ..> CTTC
 
@@ -59,7 +62,7 @@ C ..> PCS
 
 TTS ..> C
 
-CTTC ..> TT
+
 CTTC ..> C
 CTTC ..> cNM
 
@@ -69,10 +72,5 @@ TT "*" -- "1" PC : > analyzes a
 
 C "1" -- "*" TT : > adopts
 C "1" -- "*" PC : > adopts
-
-admin "*" -- "*" PC : < created by
-
-admin "*" -- "*" TT : < created by
-
 
 @enduml
