@@ -9,6 +9,10 @@ class ParameterStore{
   -add(parameter)
 }
 
+class ParameterCategoryStore{
+  +getAllParameterCategories()
+}
+
 
 class Parameter {
   - String designation
@@ -19,7 +23,7 @@ class Parameter {
 
 class Company {
   -designation
-  +getParameterCategories()
+  +getParameterCategoryStore()
   +getParameterCategoryById(categoryId)
   +getParameterStore()
 }

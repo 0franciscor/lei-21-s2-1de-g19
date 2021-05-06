@@ -8,11 +8,12 @@ actor "Administrator" as ADM
 participant ":CreateParameterUI" as CPUI
 participant ":CreateParameterController" as CPC
 participant ":Company" as COMP
+participant "lpc\n:List<ParameterCategory>" as LIST_CAT
+participant "store: ParameterCategoryStore" as PCS
 participant ":ParamCatMapper" as PCM
 participant "store: ParameterStore" as PS
 participant "parameter\n:Parameter" as PARAM
 participant "pcat\n:ParameterCategory" as CAT
-participant "lpc\n:List<ParameterCategory>" as LIST_CAT
 
 loop
 activate ADM
@@ -27,9 +28,16 @@ activate CPUI
 CPUI -> CPC : lpcDto=getParameterCategories()
 activate CPC
 
-CPC -> COMP : lpc=getParameterCategories()
+CPC -> COMP : store = getParameterCategoryStore()
 activate COMP
 deactivate COMP
+
+CPC --> LIST_CAT** : create()
+
+CPC -> PCS : lpc=getAllParameterCategories()
+activate PCS
+deactivate PCS
+
 
 CPC -> PCM : lpcDto=toDTO(lpc)
 activate PCM
