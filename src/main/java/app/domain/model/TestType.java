@@ -105,11 +105,11 @@ public class TestType {
 
     @Override
     public boolean equals(Object obj){
-        if(obj == null)
-            return false;
-
         if(this == obj)
             return true;
+
+        if(obj == null)
+            return false;
 
         TestType obj2 = (TestType) obj;
 
