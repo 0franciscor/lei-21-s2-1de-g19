@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import auth.AuthFacade;
+import auth.domain.store.TestTypeStore;
 import auth.mappers.ClientMapper;
 import auth.mappers.dto.ClientDto;
 import org.apache.commons.lang3.StringUtils;
@@ -13,6 +14,7 @@ public class Company {
 
     private String designation;
     private AuthFacade authFacade;
+    private TestTypeStore testTypeStore;
 
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
@@ -34,5 +36,9 @@ public class Company {
 
         return ClientMapper.toModel(dto);
 
+    }
+
+    public TestTypeStore getTestTypeStore(){
+        return testTypeStore;
     }
 }
