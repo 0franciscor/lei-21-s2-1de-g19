@@ -6,25 +6,32 @@ class "Company" as C {
 -designation
 }
 
+class "categoriesNameMapper" as cNM {
++toDTO(listCategoriesName)
+}
+
 class "TestTypeStore" as TTS{
-+createTestType(code, description, collectingMethod)
-+validateTestType(tt)
-+addTestType(tt)
++create(code, description, collectingMethod)
++validate(tt)
++add(tt)
++getAllTestTypes()
 }
 
 class "ParameterCategoryStore" as PCS{
-+getParameterCategoryByCode(code)
++getAllParameterCategories()
 }
 
 class "TestType" as TT {
 -code
 -description
 -collectingMethod
-+TestType(code, description, collectingMethod)
+-ParameterCategory
++TestType(code, description, collectingMethod, ParameterCategory)
 }
 
 class "CreateTestTypeController" as CTTC {
 +createTestType(code, description, collectingMethod)
++validateTestType()
 +saveTestType()
 }
 
@@ -33,10 +40,15 @@ class "TestType" as TT
 class "CreateTestTypeController" as CTTC
 
 CTTUI ..> CTTC
+
 C ..> PCS
+
 TTS ..> C
+
 CTTC ..> TT
 CTTC ..> C
+CTTC ..> cNM
+
 C "1" --> "*" TT : adopts
 
 @enduml

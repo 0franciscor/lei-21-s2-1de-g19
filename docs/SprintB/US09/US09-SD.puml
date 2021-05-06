@@ -16,27 +16,25 @@ activate ":Company"
 deactivate ":Company"
 
 
-create "listCategoriesName: list<String>"
-":createTestTypeController" -> "listCategoriesName: list<String>": create()
+create "listCategoriesName: list<ParameterCategory>"
+":createTestTypeController" -> "listCategoriesName: list<ParameterCategory>": create()
 
 
-loop for each Parameter Category Object on ParameterCategoryStore
-":createTestTypeController" -> "store:ParameterCategoryStore": category = getParameterCategoryByCode(code)
-
-
+":createTestTypeController" -> "store:ParameterCategoryStore": listCategoriesName = getAllParameterCategories()
 activate "store:ParameterCategoryStore"
 deactivate "store:ParameterCategoryStore"
-":createTestTypeController" --> "listCategoriesName: list<String>": add(category)
-activate "listCategoriesName: list<String>"
-deactivate "listCategoriesName: list<String>"
+
+
+":createTestTypeController" -> ":categoriesNameMapper": categoriesNamesDTO = toDTO(listCategoriesName)
+activate ":categoriesNameMapper"
+deactivate ":categoriesNameMapper"
 deactivate ":createTestTypeController"
-end
 
-
+loop for how many Categories the Administrator wants the new Test Type to have
 ":createTestTypeUI" --> admin: shows a list of Parameter Categories
 deactivate ":createTestTypeUI"
-
 admin -> ":createTestTypeUI": selects a category from the list
+end
 
 activate ":createTestTypeUI"
 ":createTestTypeUI" --> admin: request data(code, description, collectingMethod)
