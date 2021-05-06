@@ -17,7 +17,7 @@ deactivate ":Company"
 
 
 create "listCategoriesName: list<ParameterCategory>"
-":createTestTypeController" -> "listCategoriesName: list<ParameterCategory>": create()
+":createTestTypeController" --> "listCategoriesName: list<ParameterCategory>": create()
 
 
 ":createTestTypeController" -> "store:ParameterCategoryStore": listCategoriesName = getAllParameterCategories()
@@ -71,7 +71,8 @@ deactivate "store:TestTypeStore"
 activate "store:TestTypeStore"
 deactivate "store:TestTypeStore"
 
-deactivate ":createTestTypeController"
+
 ":createTestTypeUI" --> admin: adds test to list and informs operation success
+deactivate ":createTestTypeController"
 deactivate ":createTestTypeUI"
 @enduml

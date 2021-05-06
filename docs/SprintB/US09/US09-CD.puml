@@ -4,6 +4,8 @@ left to right direction
 
 class "Company" as C {
 -designation
++getTestTypeStore()
++getParameterCategoryStore()
 }
 
 class "categoriesNameMapper" as cNM {
@@ -35,9 +37,22 @@ class "CreateTestTypeController" as CTTC {
 +saveTestType()
 }
 
+class "Test" as T{
+-code
+-description
+-collectingMethod
+}
+
+class "ParameterCategory" as PC{
+-code
+-description
+-nhsID
+}
+
 class "CreateTestTypeUI" as CTTUI
 class "TestType" as TT
 class "CreateTestTypeController" as CTTC
+class "Administrator" as admin
 
 CTTUI ..> CTTC
 
@@ -49,6 +64,14 @@ CTTC ..> TT
 CTTC ..> C
 CTTC ..> cNM
 
-C "1" --> "*" TT : adopts
+
+TT "1" -- "*" T: < is of
+TT "*" -- "1" PC : > analyzes a
+
+C "1" -- "*" TT : > adopts
+C "1" -- "*" PC : > adopts
+
+admin "*" -- "*" PC : < created by
+
 
 @enduml
