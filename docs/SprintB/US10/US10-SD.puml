@@ -25,7 +25,7 @@ deactivate CPUI
 ADM -> CPUI : types requested data
 activate CPUI
 
-CPUI -> CPC : lpcDto=getParameterCategories()
+CPUI -> CPC : getAllParameterCategories()
 activate CPC
 
 CPC -> COMP : store = getParameterCategoryStore()
@@ -39,7 +39,7 @@ activate PCS
 deactivate PCS
 
 
-CPC -> PCM : lpcDto=toDTO(lpc)
+CPC -> PCM : lpcDTO=toDTO(lpc)
 activate PCM
 deactivate PCM
 
