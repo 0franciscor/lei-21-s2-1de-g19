@@ -14,8 +14,7 @@ public class Company {
     private String designation;
     private AuthFacade authFacade;
 
-    public Company(String designation)
-    {
+    public Company(String designation) {
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -31,7 +30,7 @@ public class Company {
         return authFacade;
     }
 
-    public Client registerClient (ClientDto dto){
+    public Client registerClient(ClientDto dto) {
 
         return ClientMapper.toModel(dto);
 
