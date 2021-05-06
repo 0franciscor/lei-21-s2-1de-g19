@@ -14,7 +14,7 @@ public class CreateTestTypeController {
     private TestTypeStore ttStore;
 
     public CreateTestTypeController(){
-        this.app = App.getInstance();
+        this.app = app.getInstance();
         this.company = app.getCompany();
         this.ttStore = company.getTestTypeStore();
     }
@@ -27,7 +27,12 @@ public class CreateTestTypeController {
         return ttStore.create(code, description, collectingMethod, parameterCategoriesList);
     }
 
-    public boolean saveTestType(TestType tt){
-        return ttStore.save(tt);
+    public boolean validateTestType(TestType tt){
+        return ttStore.validate(tt);
     }
+
+    public boolean saveTestType(TestType tt){
+        return ttStore.add(tt);
+    }
+
 }

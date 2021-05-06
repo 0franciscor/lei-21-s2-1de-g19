@@ -2,11 +2,17 @@ package auth.domain.store;
 
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestTypeStore {
 
     private List<TestType> testTypeList;
+
+    public TestTypeStore() {
+        this.testTypeList = new ArrayList<>();
+    }
 
     public TestType create(String code, String description, String collectingMethod, ParameterCategory parameterCategory){
         TestType newTest = new TestType(code, description, collectingMethod, parameterCategory);
