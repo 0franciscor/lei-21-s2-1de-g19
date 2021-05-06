@@ -19,6 +19,7 @@
         <option value="UML Use Case" />
         <option value="UML Class" />
         <option value="UML Sequence" />
+        <option value="Class" />
       </list>
     </option>
   </component>
