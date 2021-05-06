@@ -1,6 +1,8 @@
 package app.domain.model;
 
 import auth.AuthFacade;
+import auth.mappers.ClientMapper;
+import auth.mappers.dto.ClientDto;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -27,5 +29,11 @@ public class Company {
 
     public AuthFacade getAuthFacade() {
         return authFacade;
+    }
+
+    public Client registerClient (ClientDto dto){
+
+        return ClientMapper.toModel(dto);
+
     }
 }
