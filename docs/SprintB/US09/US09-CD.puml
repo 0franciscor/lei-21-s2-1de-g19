@@ -15,7 +15,7 @@ class "categoriesNameMapper" as cNM {
 class "TestTypeStore" as TTS{
 +boolean create(code, description, collectingMethod)
 +boolean validate(tt)
-+bollean add(tt)
++boolean add(tt)
 +List <TestType> getAllTestTypes()
 }
 

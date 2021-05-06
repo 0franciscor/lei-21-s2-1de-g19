@@ -2,7 +2,7 @@ package app.controller;
 
 public class CreateTestTypeController {
 
-    public boolean createTestType8(String code, String Description, String CollectingMethod){
+    /*public boolean createTestType8(String code, String Description, String CollectingMethod){
 
     }
 
@@ -12,5 +12,5 @@ public class CreateTestTypeController {
 
     public boolean saveTestType(){
         
-    }
+    }*/
 }
