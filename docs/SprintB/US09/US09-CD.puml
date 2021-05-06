@@ -13,9 +13,10 @@ class "categoriesNameMapper" as cNM {
 }
 
 class "TestTypeStore" as TTS{
-+TestType create(code, description, collectingMethod)
-+boolean validate(tt)
-+boolean add(tt)
++TestType createTestType(code, description, collectingMethod)
++boolean saveTestType(tt)
++boolean validateTestType(tt)
++boolean addTestType(tt)
 +List <TestType> getAllTestTypes()
 }
 
@@ -32,9 +33,7 @@ class "TestType" as TT {
 }
 
 class "CreateTestTypeController" as CTTC {
-+TestType createTestType(code, description, collectingMethod)
-+boolean validateTestType(tt)
-+boolean saveTestType(tt)
++saveTestType(tt)
 }
 
 class "Test" as T{
