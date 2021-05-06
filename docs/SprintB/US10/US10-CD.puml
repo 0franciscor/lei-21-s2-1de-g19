@@ -56,6 +56,7 @@ CreateParameterController ..> ParamCatMapper
 CreateParameterController ..> Parameter
 CreateParameterController ..> Company
 CreateParameterController ..> ParameterStore
+CreateParameterController ..> ParameterCategoryStore
 
 Company "1" -- "*" Parameter : > capable of analysing
 Company "1" -- "*" ParameterCategory : > adopts
