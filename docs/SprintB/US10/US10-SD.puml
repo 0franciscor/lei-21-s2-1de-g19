@@ -19,7 +19,7 @@ loop
 activate ADM
 ADM -> CPUI : asks to create a new parameter
 activate CPUI
-CPUI --> ADM : requests data (code, designation, description)
+CPUI --> ADM : requests data (code, description, designation)
 deactivate CPUI
 
 ADM -> CPUI : types requested data
@@ -55,7 +55,7 @@ activate CPUI
 
 CPUI -> CPC : pcat=getParameterCategoryByCode(parameterCategoryDto.getCode())
 activate CPC
-CPUI -> CPC : createParameter(code, designation, description, catCode)
+CPUI -> CPC : createParameter(code, description, designation, catCode)
 
 
 
@@ -63,10 +63,10 @@ CPC -> COMP: store = getParameterStore()
 activate COMP
 deactivate COMP
 
-CPC -> PS: parameter=createParameter(code, designation, description, pcat)
+CPC -> PS: parameter=createParameter(code, description, designation, pcat)
 activate PS
 
-PS --> PARAM**: create(code, designation, description, pcat)
+PS --> PARAM**: create(code, description, designation, pcat)
 
 
 CPC --> CPUI: result
