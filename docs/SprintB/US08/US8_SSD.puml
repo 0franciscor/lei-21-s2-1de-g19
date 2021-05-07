@@ -20,11 +20,15 @@ deactivate SYST
 
 ADMIN -> SYST : Confirms the data
 activate SYST
+
+loop
 SYST --> ADMIN : Shows list with test types and asks to select the ones the lab operates
 deactivate SYST
 
-ADMIN -> SYST : Selects corresponding test types
+ADMIN -> SYST : Selects corresponding test type
 activate SYST
+end 
+
 SYST --> ADMIN : Shows selected test types and asks for confirmation
 deactivate SYST
 
