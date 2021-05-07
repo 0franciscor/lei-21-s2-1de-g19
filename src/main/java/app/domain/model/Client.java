@@ -13,12 +13,40 @@ public class Client {
      * Client's citizen card number.
      */
     private String citizenID;
+
+    /**
+     * Client's National Healthcare Service number.
+     */
     private String nhsID;
+
+    /**
+     * Client's birth date.
+     */
     private String birthDate;
+
+    /**
+     * Client's sex.
+     */
     private String sex;
+
+    /**
+     * Client's Tax Identification number.
+     */
     private String TIN;
+
+    /**
+     * Client's phone number.
+     */
     private String phoneNumber;
+
+    /**
+     * Client's email.
+     */
     private String email;
+
+    /**
+     * Client's name.
+     */
     private String name;
 
     public Client (String citizenID, String nhsID, String birthDate,String sex, String TIN, String phoneNumber, String email, String name){
@@ -110,5 +138,37 @@ public class Client {
             throw new IllegalArgumentException("Name cannot be blank.");
         if ( name.length() > 35 )
             throw new IllegalArgumentException("Name must not have more than 35 chars.");
+    }
+
+    public String getCitizenID() {
+        return citizenID;
+    }
+
+    public String getNhsID() {
+        return nhsID;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public String getTIN() {
+        return TIN;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getName() {
+        return name;
     }
 }
