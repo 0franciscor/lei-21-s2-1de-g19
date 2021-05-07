@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bffb5907-0083-478b-beab-7c3af9169160" name="Default Changelist" comment="" />
+    <list default="true" id="bffb5907-0083-478b-beab-7c3af9169160" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/controller/RegisterNewEmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/OrgRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/auth/mappers/RolesMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/auth/mappers/dto/EmployeeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/auth/mappers/dto/OrgRoleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Company.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +50,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintB/US09" />
     <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/auth/mappers/dto" />
+      <recent name="$PROJECT_DIR$/src/main/java/auth/mappers" />
+      <recent name="$PROJECT_DIR$/src/main/java/app/domain/model" />
+      <recent name="$PROJECT_DIR$/src/main/java/app/controller" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
@@ -65,5 +82,17 @@
       <updated>1619801302995</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

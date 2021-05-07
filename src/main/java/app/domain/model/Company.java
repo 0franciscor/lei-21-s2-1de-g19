@@ -1,13 +1,17 @@
 package app.domain.model;
 
 import auth.AuthFacade;
-import auth.domain.store.ClientStore;
-import auth.domain.store.ParameterCategoryStore;
-import auth.domain.store.ParameterStore;
-import auth.domain.store.TestTypeStore;
+import auth.domain.store.*;
 import auth.mappers.ClientMapper;
 import auth.mappers.dto.ClientDto;
+import auth.mappers.dto.EmployeeDto;
+import auth.mappers.dto.OrgRoleDto;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static auth.mappers.RolesMapper.toDto;
 
 /**
  *
@@ -21,6 +25,9 @@ public class Company {
     private ClientStore clientstore;
     private ParameterStore parameterStore;
     private ParameterCategoryStore parameterCategoryStore;
+    private EmpStore employeeStore;
+    private List<OrgRole> roleList;
+    private OrgRole orgRole;
 
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
@@ -31,6 +38,14 @@ public class Company {
         this.testTypeStore = new TestTypeStore();
         this.clientstore = new ClientStore();
         this.parameterStore = new ParameterStore();
+        this.employeeStore = new EmpStore();
+        this.roleList = new ArrayList<OrgRole>();
+        this.roleList.add(new OrgRole("Specialist Doctor"));
+        this.roleList.add(new OrgRole("Medical Lab Technician"));
+        this.roleList.add(new OrgRole("Recepcionist"));
+        this.roleList.add(new OrgRole("Lab Coordinator"));
+
+
     }
 
     public String getDesignation() {
@@ -59,6 +74,28 @@ public class Company {
 
     public ParameterCategoryStore getParameterCategoryStore(){
         return parameterCategoryStore;
+    }
+    public List<OrgRoleDto> getRoleList() {
+        List<OrgRole> list = orgRole.getroleList();
+        List<OrgRoleDto> listDto= toDto(list);
+        return listDto;
+    }
+
+    public EmpStore getEmployeeStore() {
+        return this.employeeStore.getEmployeeStore();
+    }
+    public Employee createEmployee(EmployeeDto empDto) {
+        return createEmployee(empDto);
+
+    }
+
+    public String getRoleID(OrgRole role) {
+        return role.getRoleID(role);
+    }
+
+
+    public OrgRole getOrgRoleByName(String name) {
+        return this.getOrgRoleByName(name);
     }
 
 }
