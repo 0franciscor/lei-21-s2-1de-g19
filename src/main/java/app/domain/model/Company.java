@@ -17,6 +17,7 @@ public class Company {
     private AuthFacade authFacade;
     private TestTypeStore testTypeStore;
     public ClientStore clientstore;
+    private ParameterStore parameterStore;
 
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
@@ -26,6 +27,7 @@ public class Company {
         this.authFacade = new AuthFacade();
         this.testTypeStore = new TestTypeStore();
         this.clientstore = new ClientStore();
+        this.parameterStore = new ParameterStore();
     }
 
     public String getDesignation() {
@@ -50,6 +52,10 @@ public class Company {
 
     public TestTypeStore getTestTypeStore(){
         return testTypeStore;
+    }
+
+    public ParameterStore getParameterStore(){
+        return parameterStore;
     }
 
 }
