@@ -1,0 +1,77 @@
+@startuml
+autonumber
+
+actor "Administrator" as ADMIN
+participant ":RegisterClinicalAnalysisLaboratoryUI" as UI
+participant ":RegisterClinicalAnalysisLaboratoryController" as CTRL
+participant ":Company" as CMP
+participant ":cal = Chemical\nAnalysisLaboratory" as CAL
+
+
+activate ADMIN
+ADMIN -> UI : Starts the proccess of registering a new clinical analysis laboratory
+activate UI
+UI --> CTRL ** : create
+UI -> CTRL : registerClincalAnalysisLaboratory()
+activate CTRL
+CTRL -> CMP : cal = registerClinicalAnalysisLaboratory()
+activate CMP
+CMP --> CAL ** : create()
+deactivate CMP
+deactivate CTRL
+UI --> ADMIN : Requests data (i.e., labID)
+deactivate UI
+
+ADMIN -> UI : Types requested data
+activate UI
+UI -> CTRL : setData(labID)
+activate CTRL
+CTRL -> CAL: setLabID(labID)
+activate CAL
+deactivate CAL
+CTRL -> CMP : validateClinicalAnalysisLaboratory(cal)
+activate CMP
+CMP -> CAL : validate()
+activate CAL
+deactivate CAL
+deactivate CMP
+deactivate CTRL
+UI --> ADMIN : Shows the data and requests a confirmation
+deactivate UI
+
+ADMIN -> UI : Confirms the data
+activate UI
+UI -> CTRL : saveChemicalAnalysisLaboratory()
+activate CTRL
+CTRL -> CMP : saveChemicalAnalysisLaboratory(cal)
+activate CMP
+CMP -> CMP : validateChemicalAnalysisLaboratory(cal)
+activate CMP
+deactivate CMP
+CMP -> CMP :addChemicalAnalysisLaboratory(cal)
+activate CMP
+deactivate CMP
+deactivate CMP
+deactivate CTRL
+
+loop for how many test types the lab operates
+UI --> ADMIN : Shows list with test types and asks to select the ones the lab operates
+deactivate UI 
+
+
+ADMIN -> UI : Selects corresponding test types
+activate UI 
+end
+
+UI -> ADMIN : Shows selected test types and asks for confirmation
+deactivate UI
+
+ADMIN -> UI : Confirms
+activate UI
+UI -> ADMIN : Informs the success of the operation
+deactivate UI
+
+deactivate ADMIN
+
+@enduml
+@enduml
