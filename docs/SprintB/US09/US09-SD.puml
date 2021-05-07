@@ -25,7 +25,7 @@ activate "store:ParameterCategoryStore"
 deactivate "store:ParameterCategoryStore"
 
 
-":createTestTypeController" -> ":categoriesNameMapper": categoriesNamesDTO = toDTO(listCategoriesName)
+":createTestTypeController" -> ":categoriesNameMapper": categoriesNamesDto = toDto(listCategoriesName)
 activate ":categoriesNameMapper"
 deactivate ":categoriesNameMapper"
 deactivate ":createTestTypeController"
@@ -62,10 +62,10 @@ activate ":createTestTypeUI"
 activate ":createTestTypeController"
 
 ":createTestTypeController" -> "store:TestTypeStore"++ : saveTestType(tt)
-"store:TestTypeStore" -> "store:TestTypeStore": validate(tt)
+"store:TestTypeStore" -> "store:TestTypeStore": validateTestType(tt)
 activate "store:TestTypeStore"
 deactivate "store:TestTypeStore"
-"store:TestTypeStore" -> "store:TestTypeStore": add(tt)
+"store:TestTypeStore" -> "store:TestTypeStore": addTestType(tt)
 activate "store:TestTypeStore"
 deactivate "store:TestTypeStore"
 
