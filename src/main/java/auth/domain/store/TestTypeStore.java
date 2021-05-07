@@ -14,26 +14,26 @@ public class TestTypeStore {
         this.testTypeList = new ArrayList<>();
     }
 
-    public TestType create(String code, String description, String collectingMethod, ParameterCategory parameterCategory){
-        TestType newTest = new TestType(code, description, collectingMethod, parameterCategory);
-        testTypeList.add(newTest);
-        return newTest;
+    public TestType createTestType(String code, String description, String collectingMethod, ParameterCategory parameterCategory){
+        return new TestType(code, description, collectingMethod, parameterCategory);
     }
 
-    public TestType create(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList){
-        TestType createdTest = new TestType(code, description, collectingMethod, parameterCategoriesList);
-        testTypeList.add(createdTest);
-        return createdTest;
+    public TestType createTestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList){
+        return new TestType(code, description, collectingMethod, parameterCategoriesList);
     }
 
-    public boolean validate(TestType tt){
+    public boolean saveTestType(TestType tt){
+        return addTestType(tt);
+    }
+
+    public boolean validateTestType(TestType tt){
         if(tt == null)
             return false;
         return !this.testTypeList.contains(tt);
     }
 
-    public boolean add(TestType tt) {
-        if (!validate(tt))
+    public boolean addTestType(TestType tt) {
+        if (!validateTestType(tt))
             return false;
         return this.testTypeList.add(tt);
     }

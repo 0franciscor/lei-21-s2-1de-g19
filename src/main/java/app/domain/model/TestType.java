@@ -30,7 +30,6 @@ public class TestType {
         setParameterCategoriesList(parameterCategoriesList);
     }
 
-    //GET'S
 
     public String getCode(){
         return this.code;
@@ -52,7 +51,6 @@ public class TestType {
         return this.parameterCategoriesList;
     }
 
-    //SET'S com CHECK's
 
     public void setCode(String code){
         if(StringUtils.isBlank(code))
