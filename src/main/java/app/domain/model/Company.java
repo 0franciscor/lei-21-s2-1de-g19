@@ -3,6 +3,7 @@ package app.domain.model;
 import auth.AuthFacade;
 import auth.domain.store.*;
 import auth.mappers.ClientMapper;
+import auth.mappers.EmployeeMapper;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.EmployeeDto;
 import auth.mappers.dto.OrgRoleDto;
@@ -28,6 +29,7 @@ public class Company {
     private EmpStore employeeStore;
     private List<OrgRole> roleList;
     private OrgRole orgRole;
+    public int numEmp;
 
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
@@ -44,6 +46,7 @@ public class Company {
         this.roleList.add(new OrgRole("Medical Lab Technician"));
         this.roleList.add(new OrgRole("Recepcionist"));
         this.roleList.add(new OrgRole("Lab Coordinator"));
+        this.numEmp = 1;
 
 
     }
@@ -75,27 +78,22 @@ public class Company {
     public ParameterCategoryStore getParameterCategoryStore(){
         return parameterCategoryStore;
     }
-    public List<OrgRoleDto> getRoleList() {
-        List<OrgRole> list = orgRole.getroleList();
-        List<OrgRoleDto> listDto= toDto(list);
-        return listDto;
+    public List<OrgRole> getRoles() {
+        return roleList;
     }
-
     public EmpStore getEmployeeStore() {
         return this.employeeStore.getEmployeeStore();
     }
     public Employee createEmployee(EmployeeDto empDto) {
-        return createEmployee(empDto);
-
+        return EmployeeMapper.toModel(empDto);
     }
-
-    public String getRoleID(OrgRole role) {
-        return role.getRoleID(role);
-    }
-
 
     public OrgRole getOrgRoleByName(String name) {
-        return this.getOrgRoleByName(name);
+        for (OrgRole c : roleList) {
+            if (c.designation == name)
+                return c;
+        }
+        return new OrgRole(null);
     }
 
 }

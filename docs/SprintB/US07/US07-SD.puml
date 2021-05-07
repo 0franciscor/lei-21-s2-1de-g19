@@ -1,0 +1,91 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Administrator" as A
+
+activate A
+A -> ":RegisterNewEmployeeUI" : starts registering an employee
+activate ":RegisterNewEmployeeUI"
+":RegisterNewEmployeeUI" --> ":RegisterNewEmployeeController" : lRolesDto = getRoles()
+activate ":RegisterNewEmployeeController"
+":RegisterNewEmployeeController" -> ":Company" : lRoles = getRoles()
+":RegisterNewEmployeeController" -> ":RolesMapper" : lRolesDto = toDTO(lRoles)
+deactivate ":RegisterNewEmployeeController"
+":RegisterNewEmployeeUI" --> A : ask to type the employee role
+deactivate ":RegisterNewEmployeeUI"
+A -> ":RegisterNewEmployeeUI" : selects the intended role
+activate ":RegisterNewEmployeeUI"
+":RegisterNewEmployeeUI" --> A : request data (name, address, phoneNumber, emailAddress, SOCcode...)
+deactivate ":RegisterNewEmployeeUI"
+A -> ":RegisterNewEmployeeUI" : types requested data
+activate ":RegisterNewEmployeeUI"
+":RegisterNewEmployeeUI" -> ":RegisterNewEmployeeController" : createEmployee(empDto)
+activate ":RegisterNewEmployeeController"
+
+
+":RegisterNewEmployeeController" -> ":Company" : emp = createEmployee(empDto)
+activate ":Company"
+":Company" -> ":EmployeeMapper" : toModel(empDto)
+deactivate ":Company"
+activate ":EmployeeMapper"
+":EmployeeMapper" -> ":EmployeeMapper" : name = getName(empDto);
+activate ":EmployeeMapper"
+deactivate ":EmployeeMapper"
+":EmployeeMapper" -> ":EmployeeMapper" : address = getRole(address);
+activate ":EmployeeMapper"
+deactivate ":EmployeeMapper"
+":EmployeeMapper" -> ":EmployeeMapper" : email = getEmail(empDto);
+activate ":EmployeeMapper"
+deactivate ":EmployeeMapper"
+":EmployeeMapper" -> ":EmployeeMapper" : role = getRole(empDto);
+activate ":EmployeeMapper"
+deactivate ":EmployeeMapper"
+":EmployeeMapper" -> ":EmployeeMapper" : phoneNumber = getPhoneNumber(address);
+activate ":EmployeeMapper"
+deactivate ":EmployeeMapper"
+":EmployeeMapper" -> ":EmployeeMapper" : socCode = getSocCode(empDto);
+activate ":EmployeeMapper"
+deactivate ":EmployeeMapper"
+":EmployeeMapper" -> ":EmployeeMapper" : doctorIndexNumber = getDoctorIndexNumber(empDto);
+activate ":EmployeeMapper"
+deactivate ":EmployeeMapper"
+create "emp: Employee"
+":EmployeeMapper" -> "emp: Employee" : create(name, address, email...)
+deactivate ":EmployeeMapper"
+activate "emp: Employee"
+"emp: Employee" -> "emp: Employee" : id = generateID(name)
+activate "emp: Employee"
+deactivate "emp: Employee"
+deactivate "emp: Employee"
+deactivate ":RegisterNewEmployeeController"
+participant ":lRoles: List<OrgRole>"
+participant ":lRolesDto: List<OrgRoleDto>"
+
+
+activate "empDto: EmployeeDto"
+deactivate "empDto: EmployeeDto"
+
+
+deactivate "empDto: EmployeeDto"
+
+deactivate ":Company"
+deactivate "role: OrgRole"
+":RegisterNewEmployeeUI" --> A : shows the data and requests confirmation
+deactivate ":RegisterNewEmployeeUI"
+A -> ":RegisterNewEmployeeUI" : confirms the data
+activate ":RegisterNewEmployeeUI"
+":RegisterNewEmployeeUI" -> ":RegisterNewEmployeeController" : saveEmployee()
+activate ":RegisterNewEmployeeController"
+activate ":EmpStore"
+":RegisterNewEmployeeController" -> ":EmpStore" : saveEmployee(emp)
+":EmpStore" -> ":EmpStore" : validateEmployee(emp)
+":EmpStore" -> ":EmpStore" : addEmployee(emp)
+":RegisterNewEmployeeController" -> ":RegisterNewEmployeeController" : pwd = generatePwd()
+deactivate ":EmpStore"
+":RegisterNewEmployeeController" -> ":AuthFacade" : user = addUserWithRole(name, email, pwd, role)
+activate ":AuthFacade"
+
+":RegisterNewEmployeeUI" --> A : informs the success of the operation
+participant "role: OrgRole"
+@enduml
