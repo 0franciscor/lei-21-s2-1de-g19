@@ -9,7 +9,7 @@ class "Company" as C {
 }
 
 class "categoriesNameMapper" as cNM {
-+List <ParameterCategoryDto> toDTO(parameterCategory)
++List <ParameterCategoryDto> toDto(parameterCategory)
 }
 
 class "TestTypeStore" as TTS{
@@ -23,6 +23,7 @@ class "TestTypeStore" as TTS{
 
 class "ParameterCategoryStore" as PCS{
 +List <ParameterCategory> getAllParameterCategories()
++ParameterCategory getParameterCategoryByCode(code)
 }
 
 class "TestType" as TT {
@@ -30,26 +31,25 @@ class "TestType" as TT {
 -String description
 -String collectingMethod
 -ParameterCategory parameterCategory
--List <ParameterCategory> ParameterCategories
-+TestType(code, description, collectingMethod, ParameterCategories)
+-List <ParameterCategory> parameterCategoriesList
++TestType(code, description, collectingMethod, parameterCategory)
++TestType(code, description, collectingMethod, parameterCategoriesList)
 }
 
 class "CreateTestTypeController" as CTTC {
-+createTestType(code, description, collectingMethod, parameterCategory)
-+createTestType(code, description, collectingMethod, parameterCategoriesList)
-+saveTestType(tt)
 +CreateTestTypeController()
-}
-
-class "Test" as T{
--String code
--String description
--String collectingMethod
++List<ParameterCategoryDto> getParameterCategoryDto()
++boolean createTestType(code, description, collectingMethod, parameterCategory)
++boolean createTestType(code, description, collectingMethod, parameterCategoriesList)
++boolean saveTestType(tt)
++ParameterCategory getParameterCategoryByCode(code)
++List<TestType> getAllTestTypes()
 }
 
 class "ParameterCategory" as PC{
 -String name
 -String code
++ParameterCategory(name, code)
 }
 
 class "CreateTestTypeUI" as CTTUI
@@ -66,8 +66,6 @@ TTS ..> C
 CTTC ..> C
 CTTC ..> cNM
 
-
-TT "1" -- "*" T: < is of
 TT "*" -- "1" PC : > analyzes a
 
 C "1" -- "*" TT : > adopts
