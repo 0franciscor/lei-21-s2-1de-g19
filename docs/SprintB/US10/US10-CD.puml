@@ -3,7 +3,7 @@ skinparam classAttributeIconSize 0
 
 
 class ParameterStore{
-  +boolean createParameter(code, designation, description, pcat)
+  +Parameter createParameter(code, designation, description, pcat)
   +boolean saveParameter(parameter)
   -boolean validate(parameter)
   -boolean add(parameter)
@@ -12,6 +12,7 @@ class ParameterStore{
 
 class ParameterCategoryStore{
   +List <ParameterCategory> getAllParameterCategories()
+  +ParameterCategory getParameterCategoryByCode(code)
 }
 
 
@@ -23,30 +24,31 @@ class Parameter {
 }
 
 class Company {
-  -designation
+  -String designation
   +getParameterCategoryStore()
-  +String getParameterCategoryById(categoryId)
   +getParameterStore()
 }
 
 class ParameterCategory {
+  -String name
   -String code
-  -String description
-  -String nhsID
+  +ParameterCategory(name, code)
 }
 
 
 
-class ParamCatMapper{
-  +toDto(lpc)
+class ParameterCategoryMapper{
+  +List<ParameterCategoryDto> toDto(lpc)
 }
 
 
 class CreateParameterController {
-  +getAllParameterCategories()
-  +toDto(lpc)
-  +boolean createParameter(code,designation,description,categoryId)
+  +CreateParameterController()
+  +List<ParameterCategoryDto> toDto()
+  +ParameterCategory getParameterCategoryByCode(code)
+  +boolean createParameter(code,designation,description,code)
   +boolean saveParameter()
+  +List<Parameter> getAllParameters()
 }
 
 class CreateParameterUI {
@@ -54,7 +56,7 @@ class CreateParameterUI {
 
 CreateParameterUI ..> CreateParameterController
 CreateParameterController ..> ParameterCategory
-CreateParameterController ..> ParamCatMapper
+CreateParameterController ..> ParameterCategoryMapper
 CreateParameterController ..> Parameter
 CreateParameterController ..> Company
 Company ..> ParameterStore

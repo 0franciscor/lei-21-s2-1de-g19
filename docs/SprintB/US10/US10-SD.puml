@@ -10,7 +10,7 @@ participant ":CreateParameterController" as CPC
 participant ":Company" as COMP
 participant "lpc\n:List<ParameterCategory>" as LIST_CAT
 participant "store: ParameterCategoryStore" as PCS
-participant ":ParamCatMapper" as PCM
+participant ":ParameterCategoryMapper" as PCM
 participant "store: ParameterStore" as PS
 participant "parameter\n:Parameter" as PARAM
 participant "pcat\n:ParameterCategory" as CAT
@@ -52,12 +52,12 @@ deactivate CPUI
 ADM -> CPUI : selects one parameter category
 activate CPUI
 
-CPUI -> CPC : createParameter(code, designation, description, categoryId)
-activate CPC
 
-CPC -> COMP : pcat=getParameterCategoryById(categoryId)
-activate COMP
-deactivate COMP
+CPUI -> CPC : pcat=getParameterCategoryByCode(parameterCategoryDto.getCode())
+activate CPC
+CPUI -> CPC : createParameter(code, designation, description, catCode)
+
+
 
 CPC -> COMP: store = getParameterStore()
 activate COMP
