@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bffb5907-0083-478b-beab-7c3af9169160" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/controller/RegisterNewEmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/OrgRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/auth/mappers/RolesMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/auth/mappers/dto/EmployeeDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/auth/mappers/dto/OrgRoleDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/Company.java" afterDir="false" />
-    </list>
+    <list default="true" id="bffb5907-0083-478b-beab-7c3af9169160" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
