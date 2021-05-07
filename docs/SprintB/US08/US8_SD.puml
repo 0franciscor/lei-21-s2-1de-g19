@@ -63,11 +63,6 @@ ADMIN -> UI : Selects corresponding test types
 activate UI 
 end
 
-UI -> ADMIN : Shows selected test types and asks for confirmation
-deactivate UI
-
-ADMIN -> UI : Confirms
-activate UI
 UI -> ADMIN : Informs the success of the operation
 deactivate UI
 

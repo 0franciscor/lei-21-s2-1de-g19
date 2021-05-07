@@ -29,14 +29,11 @@ ADMIN -> SYST : Selects corresponding test type
 activate SYST
 end 
 
-SYST --> ADMIN : Shows selected test types and asks for confirmation
-deactivate SYST
-
-ADMIN -> SYST : Confirms
-activate SYST
 SYST --> ADMIN : Informs the success of the operation
 deactivate SYST
 
 deactivate ADMIN
+
+@enduml
 
 @enduml
