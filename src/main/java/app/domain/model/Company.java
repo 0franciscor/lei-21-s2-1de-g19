@@ -2,6 +2,8 @@ package app.domain.model;
 
 import auth.AuthFacade;
 import auth.domain.store.ClientStore;
+import auth.domain.store.ParameterCategoryStore;
+import auth.domain.store.ParameterStore;
 import auth.domain.store.TestTypeStore;
 import auth.mappers.ClientMapper;
 import auth.mappers.dto.ClientDto;
@@ -16,8 +18,9 @@ public class Company {
     private String designation;
     private AuthFacade authFacade;
     private TestTypeStore testTypeStore;
-    public ClientStore clientstore;
+    private ClientStore clientstore;
     private ParameterStore parameterStore;
+    private ParameterCategoryStore parameterCategoryStore;
 
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
@@ -42,13 +45,9 @@ public class Company {
         return ClientMapper.toModel(dto);
     }
 
-    
-
     public ClientStore getClientStore (){
-
         return this.clientstore;
     }
-
 
     public TestTypeStore getTestTypeStore(){
         return testTypeStore;
@@ -56,6 +55,10 @@ public class Company {
 
     public ParameterStore getParameterStore(){
         return parameterStore;
+    }
+
+    public ParameterCategoryStore getParameterCategoryStore(){
+        return parameterCategoryStore;
     }
 
 }

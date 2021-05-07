@@ -4,6 +4,7 @@ import app.domain.model.Company;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import auth.domain.store.ParameterStore;
+import auth.domain.store.ParameterCategoryStore;
 import auth.mappers.ParameterCategoryMapper;
 import auth.mappers.dto.ParameterCategoryDto;
 
@@ -21,7 +22,7 @@ public class CreateParameterController {
     private String pcat;
 
     public CreateParameterController(){
-        this.app=app.getInstance();
+        this.app= app.getInstance();
         this.company=app.getCompany();
         this.parameterStore=company.getParameterStore();
         this.pcStore=company.getParameterCategoryStore();
@@ -35,7 +36,7 @@ public class CreateParameterController {
     }
 
     public boolean createParameter(String code, String description, String designation, ParameterCategoryDto catCode){
-        ParameterCategory pcat = pcStore.getParameterCategoryByCode(catCode);
+        ParameterCategory pcat = pcStore.getParameterCategoryByCode(catCode.getCode());
         this.parameter=parameterStore.create(code, description, designation, pcat);
         return true;
     }
