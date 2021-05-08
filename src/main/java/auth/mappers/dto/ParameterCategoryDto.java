@@ -18,4 +18,8 @@ public class ParameterCategoryDto {
         return this.code;
     }
 
+    @Override
+    public String toString(){
+        return String.format("The parameter category name is %s and it's code is %s.", this.name, this.code);
+    }
 }
