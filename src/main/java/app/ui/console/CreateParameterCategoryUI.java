@@ -63,7 +63,9 @@ public class CreateParameterCategoryUI implements Runnable{
             if(option == 1) {
                 parameterCategoriesList = pcController.getAllParameterCategories();
                 if (!parameterCategoriesList.isEmpty()) {
-                    Utils.showList(parameterCategoriesList, "Available parameter categories:");
+                    System.out.printf("\nAvailable Parameter Categories:\n");
+                    for(ParameterCategory pc: parameterCategoriesList)
+                        System.out.println(pc);
                 } else
                     System.out.printf("\nThere are no Parameter categories available.");
             }
