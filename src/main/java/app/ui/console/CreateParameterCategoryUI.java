@@ -54,16 +54,16 @@ public class CreateParameterCategoryUI implements Runnable{
                         saveSuccess = pcController.saveParameterCategory();
 
                     if (saveSuccess)
-                        System.out.printf("\nYour parameter Category has been successfully saved!");
+                        System.out.printf("\nYour parameter category has been successfully saved!");
                     else
-                        System.out.printf("\nYour parameter Category has not been successfully saved.");
+                        System.out.printf("\nYour parameter category has not been successfully saved.");
                 }
             }
 
             if(option == 1) {
                 parameterCategoriesList = pcController.getAllParameterCategories();
                 if (!parameterCategoriesList.isEmpty()) {
-                    Utils.showList(parameterCategoriesList, "Available Test Types:");
+                    Utils.showList(parameterCategoriesList, "Available parameter categories:");
                 } else
                     System.out.printf("\nThere are no Parameter categories available.");
             }

@@ -27,27 +27,18 @@ public class CreateTestTypeController {
         this.company = app.getCompany();
         this.ttStore = company.getTestTypeStore();
         this.pcStore = company.getParameterCategoryStore();
-        listCategories = pcStore.getAllParameterCategories();
-        categoriesDto = ParameterCategoryMapper.toDto(listCategories);
     }
 
     public List<ParameterCategoryDto> getParameterCategoryDto(){
-        return categoriesDto;
+        return ParameterCategoryMapper.toDto(pcStore.getAllParameterCategories());
     }
 
-    public boolean createTestType(String code, String description, String collectingMethod, ParameterCategoryDto parameterCategoryDto){
-        this.pc = pcStore.getParameterCategoryByCode(parameterCategoryDto.getCode());
-        this.tt = ttStore.createTestType(code, description, collectingMethod, pc);
+    public boolean createTestType(String code, String description, String collectingMethod, ParameterCategory parameterCategory){
+        this.tt = ttStore.createTestType(code, description, collectingMethod, parameterCategory);
         return true;
     }
 
-    public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategoryDto> parameterCategoriesListDto){
-        List<ParameterCategory> parameterCategoriesList = new ArrayList<>();
-        for(ParameterCategoryDto parameterCategoryDto : parameterCategoriesListDto){
-            this.pc = pcStore.getParameterCategoryByCode(parameterCategoryDto.getCode());
-            parameterCategoriesList.add(pc);
-        }
-
+    public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList){
         this.tt = ttStore.createTestType(code, description, collectingMethod, parameterCategoriesList);
         return true;
     }

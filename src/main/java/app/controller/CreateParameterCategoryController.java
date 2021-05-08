@@ -24,7 +24,7 @@ public class CreateParameterCategoryController {
         return true;
     }
 
-    public boolean saveTestType(){
+    public boolean saveParameterCategory(){
         return pcStore.saveParameterCategory(pc);
     }
 
