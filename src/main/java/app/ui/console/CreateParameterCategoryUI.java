@@ -18,7 +18,7 @@ public class CreateParameterCategoryUI implements Runnable{
     private CreateParameterCategoryController pcController;
     private List<ParameterCategory> parameterCategoriesList;
 
-        public CreateParameterCategoryUI() {
+    public CreateParameterCategoryUI() {
             this.pcController = new CreateParameterCategoryController();
         }
 
@@ -44,28 +44,26 @@ public class CreateParameterCategoryUI implements Runnable{
                     code = Utils.readLineFromConsole("Please insert the code of the category:");
                 } while (!Utils.confirm("Are you sure your code is correct? If so, press \"s\", if not, press \"n\"."));
 
-                boolean creation;
+                boolean save;
 
                 if (pcController.createParameterCategory(name, code)) {
-                    creation = Utils.confirm("The parameter category has been created successfully!\nDo you wish to save it? If so, press \"s\", if not, press \"n\".");
+                    save = Utils.confirm("The parameter category has been created successfully!\nDo you wish to save it? If so, press \"s\", if not, press \"n\".");
 
-                    boolean creationSuccess = false;
-                    if (creation)
-                        creationSuccess = pcController.saveParameterCategory();
+                    boolean saveSuccess = false;
+                    if (save)
+                        saveSuccess = pcController.saveParameterCategory();
 
-                    if (creationSuccess)
+                    if (saveSuccess)
                         System.out.printf("\nYour parameter Category has been successfully saved!");
                     else
                         System.out.printf("\nYour parameter Category has not been successfully saved.");
-
                 }
             }
 
             if(option == 1) {
                 parameterCategoriesList = pcController.getAllParameterCategories();
                 if (!parameterCategoriesList.isEmpty()) {
-                    for (ParameterCategory pc : parameterCategoriesList)
-                        System.out.printf("\n" + pc);
+                    Utils.showList(parameterCategoriesList, "Available Test Types:");
                 } else
                     System.out.printf("\nThere are no Parameter categories available.");
             }
