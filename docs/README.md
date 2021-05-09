@@ -32,6 +32,6 @@ Throughout the project's development period, the distribution of _tasks / requir
 | US 8 (SDP Activities)  |     |  [1190918](SprintB/US08/US08.md)  |   |  |
 | US 9 (SDP Activities)  |     |  [1201239](SprintB/US09/US09.md)  |   |  |
 | US 10 (SDP Activities) |     |  [1201240](SprintB/US10/US10.md)  |   |  |
-| US 11 (SDP Activities) |     |  [1201234](SprintB/US11/US11.md)  |   |  |
+| US 11 (SDP Activities) |     |  [1201234](SprintB/US11/US11.md) [1201239](SprintB/US11/US11.md)   |   |  |
 
 
