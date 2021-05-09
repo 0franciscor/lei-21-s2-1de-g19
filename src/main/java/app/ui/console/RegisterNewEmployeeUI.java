@@ -3,6 +3,7 @@ package app.ui.console;
 
 import app.controller.RegisterNewEmployeeController;
 import app.domain.model.Employee;
+import app.domain.model.OrgRole;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.EmployeeDto;
 import auth.mappers.dto.OrgRoleDto;
@@ -29,12 +30,13 @@ public class RegisterNewEmployeeUI implements Runnable {
             System.out.println("This is the list of roles. ");
             for (OrgRoleDto c : list)
                 System.out.println(c.getDesignation());
-            String role = Utils.readLineFromConsole("Type the employee role.");
-            if (role.equalsIgnoreCase("SpecDoctor")){
-                role = "SpecDoctor";
+            String roleName = Utils.readLineFromConsole("Type the employee role.");
+            OrgRole role = ctrl.company.getOrgRoleByName(roleName);
+            if (roleName.equalsIgnoreCase("SpecDoctor")){
+                roleName = "SpecDoctor";
                 int doctorIndexNumber = Utils.readIntegerFromConsole("Type the employee Doctor Index Number:");
                 confirmation = Utils.readIntegerFromConsole(String.format("Are you sure this is the info of the client ? If so type 1, if not type 2. \n\n Name: %s \n Role: %s " +
-                        "\n Address: %s \n Email: %s \n Phone Number: %s \n Standard Occupational Classification code: %d \n Doctor Index Number: %d ", name,role, address, email, phoneNumber, socCode, doctorIndexNumber));
+                        "\n Address: %s \n Email: %s \n Phone Number: %s \n Standard Occupational Classification code: %d \n Doctor Index Number: %d ", name,roleName, address, email, phoneNumber, socCode, doctorIndexNumber));
                 if (confirmation == 1) {
                     EmployeeDto empDto = new EmployeeDto(name, role, address, email, phoneNumber, socCode, doctorIndexNumber);
                     Employee emp = ctrl.createEmployee(empDto);

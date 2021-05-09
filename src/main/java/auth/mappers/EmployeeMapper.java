@@ -26,12 +26,12 @@ public class EmployeeMapper {
         String name = employeeDto.getName();
         String address = employeeDto.getAddress();
         String email = employeeDto.getEmail();
-        String role = employeeDto.getRole();
+        OrgRole role = employeeDto.getRole();
         String phoneNumber = employeeDto.getPhoneNumber();
         int socCode = employeeDto.getSocCode();
         int doctorIndexNumb = employeeDto.getDoctorIndexNumb();
 
-        if (role.equalsIgnoreCase("SpecDoctor")) {
+        if (role.designation.equalsIgnoreCase("SpecDoctor")) {
             SpecialistDoctor c = new SpecialistDoctor(name, role, address, email, phoneNumber, socCode, doctorIndexNumb);
         }
 

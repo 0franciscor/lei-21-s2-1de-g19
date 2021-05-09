@@ -17,7 +17,7 @@ public class SpecialistDoctor extends Employee {
      *
      * @return SpecialistDoctor which is also an Employee object.
      */
-    public SpecialistDoctor(String name, String role, String address, String email, String phoneNumber, int socCode, int doctorIndexNumb) {
+    public SpecialistDoctor(String name, OrgRole role, String address, String email, String phoneNumber, int socCode, int doctorIndexNumb) {
         super();
     }
 }
