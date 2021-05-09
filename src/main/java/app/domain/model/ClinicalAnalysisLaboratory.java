@@ -60,6 +60,7 @@ public class ClinicalAnalysisLaboratory {
      * @param phoneNumber
      * @param TIN
      * @param labID the lab ID
+     * @param TestTypesList
      */
     public ClinicalAnalysisLaboratory(String name, String address, String phoneNumber, String TIN, String labID, List<TestType> TestTypesList) {
         this.name = name;
