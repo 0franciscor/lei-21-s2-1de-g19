@@ -80,13 +80,4 @@ public class ClientStore {
      *
      * @return list of clients
      */
-
-    /*
-    public List<Client> getList (){
-        return ClientList;
-    }
-
-     */
-
-
 }

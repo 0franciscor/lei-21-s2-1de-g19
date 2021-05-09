@@ -62,19 +62,5 @@ public class RegisterClientUI implements Runnable {
             System.out.println("Operation was a success.");
 
         }
-
-        /*
-        for (Client x: ctrl.clientstore.getList()){
-            System.out.println(x.getEmail());
-            System.out.println(x.getBirthDate());
-            System.out.println(x.getSex());
-            System.out.println(x.getName());
-            System.out.println(x.getCitizenID());
-            System.out.println(x.getNhsID());
-            System.out.println(x.getPhoneNumber());
-            System.out.println(x.getTIN());
-        }
-
-         */
     }
 }
