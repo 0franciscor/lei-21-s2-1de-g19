@@ -22,7 +22,18 @@ public class OrgRole {
      * @return OrgRole an Organization Role object.
      */
     public OrgRole (String designation) {
-        this.designation = designation;
+        if (designation.equalsIgnoreCase("SpecDoctor"))
+            this.designation = "SPECIALIST DOCTOR";
+        if (designation.equalsIgnoreCase("MedLabTech"))
+            this.designation = "MEDICAL LAB TECHNICIAN";
+        if (designation.equalsIgnoreCase("Administrator"))
+            this.designation = "ADMINISTRATOR";
+        if (designation.equalsIgnoreCase("Recepcionist"))
+            this.designation = "RECEPCIONIST";
+        if (designation.equalsIgnoreCase("Lab Coordinator"))
+            this.designation = "LAB COORDINATOR";
+        if (designation.equalsIgnoreCase("ClinicalChemTec"))
+            this.designation = "CLINICAL CHEM TECH";
     }
 
 }

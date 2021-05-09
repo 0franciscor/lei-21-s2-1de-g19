@@ -14,7 +14,7 @@ public class Employee {
     /**
      * The employee's Company.
      */
-    public Company company;
+    public Company company = App.getInstance().getCompany();
     /**
      * The employee's name.
      */
@@ -71,10 +71,7 @@ public class Employee {
         checkRoleRules(role);
         checkDoctorIndexNumberRules(doctorIndexNumb);
         checkSOCCODERules(socCode);
-        this.company = App.getInstance().getCompany();
         this.name = name;
-        if (company.getOrgRoleByName(role).designation == null)
-            throw new IllegalArgumentException("This role does not exist.");
         this.role = company.getOrgRoleByName(role);
         this.address = address;
         this.email = email;
@@ -101,7 +98,6 @@ public class Employee {
         checkRoleRules(role);
         checkPhoneNumberRules(phoneNumber);
         checkSOCCODERules(socCode);
-        this.company = App.getInstance().getCompany();
         this.name = name;
         this.role = company.getOrgRoleByName(role);
         this.address = address;

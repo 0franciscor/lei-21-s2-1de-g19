@@ -51,7 +51,7 @@ public class RegisterNewEmployeeController {
     /**
      * Calls the createEmployee method from the company and returns an Employee object
      *
-     * @param EmployeeDto a Data Transfer Object of Employee, which will have all the
+     * @param empDto a Data Transfer Object of Employee, which will have all the
      * info to create an Employee object
      * @return An Employee object.
      */
@@ -61,7 +61,7 @@ public class RegisterNewEmployeeController {
     /**
      * Calls the saveEmployee method from the company and returns a boolean.
      *
-     * @param Employee an Employee object.
+     * @param emp an Employee object.
      *
      * @return a Boolean.
      */

@@ -29,31 +29,34 @@ activate ":Company"
 ":Company" -> ":EmployeeMapper" : toModel(empDto)
 deactivate ":Company"
 activate ":EmployeeMapper"
-":EmployeeMapper" -> ":EmployeeMapper" : name = getName(empDto);
-activate ":EmployeeMapper"
-deactivate ":EmployeeMapper"
-":EmployeeMapper" -> ":EmployeeMapper" : address = getRole(address);
-activate ":EmployeeMapper"
-deactivate ":EmployeeMapper"
-":EmployeeMapper" -> ":EmployeeMapper" : email = getEmail(empDto);
-activate ":EmployeeMapper"
-deactivate ":EmployeeMapper"
-":EmployeeMapper" -> ":EmployeeMapper" : role = getRole(empDto);
-activate ":EmployeeMapper"
-deactivate ":EmployeeMapper"
-":EmployeeMapper" -> ":EmployeeMapper" : phoneNumber = getPhoneNumber(address);
-activate ":EmployeeMapper"
-deactivate ":EmployeeMapper"
-":EmployeeMapper" -> ":EmployeeMapper" : socCode = getSocCode(empDto);
-activate ":EmployeeMapper"
-deactivate ":EmployeeMapper"
-":EmployeeMapper" -> ":EmployeeMapper" : doctorIndexNumber = getDoctorIndexNumber(empDto);
-activate ":EmployeeMapper"
-deactivate ":EmployeeMapper"
+":EmployeeMapper" -> "empDto: EmployeeDto" : name = getName(empDto);
+activate "empDto: EmployeeDto"
+deactivate "empDto: EmployeeDto"
+":EmployeeMapper" -> "empDto: EmployeeDto" : address = getAddress(empDto);
+activate "empDto: EmployeeDto"
+deactivate "empDto: EmployeeDto"
+":EmployeeMapper" -> "empDto: EmployeeDto" : email = getEmail(empDto);
+activate "empDto: EmployeeDto"
+deactivate "empDto: EmployeeDto"
+":EmployeeMapper" -> "empDto: EmployeeDto" : roleName = getRole(empDto);
+activate "empDto: EmployeeDto"
+deactivate "empDto: EmployeeDto"
+":EmployeeMapper" -> "empDto: EmployeeDto" : phoneNumber = getPhoneNumber(empDto);
+activate "empDto: EmployeeDto"
+deactivate "empDto: EmployeeDto"
+":EmployeeMapper" -> "empDto: EmployeeDto" : socCode = getSocCode(empDto);
+activate "empDto: EmployeeDto"
+deactivate "empDto: EmployeeDto"
+":EmployeeMapper" -> "empDto: EmployeeDto" : doctorIndexNumber = getDoctorIndexNumber(empDto);
+activate "empDto: EmployeeDto"
+deactivate "empDto: EmployeeDto"
 create "emp: Employee"
 ":EmployeeMapper" -> "emp: Employee" : create(name, address, email...)
 deactivate ":EmployeeMapper"
 activate "emp: Employee"
+"emp: Employee" -> ":Company" : role = getOrgRoleByName(roleName)
+activate "emp: Employee"
+deactivate "emp: Employee"
 "emp: Employee" -> "emp: Employee" : id = generateID(name)
 activate "emp: Employee"
 deactivate "emp: Employee"
@@ -61,14 +64,7 @@ deactivate "emp: Employee"
 deactivate ":RegisterNewEmployeeController"
 participant ":lRoles: List<OrgRole>"
 participant ":lRolesDto: List<OrgRoleDto>"
-
-
-activate "empDto: EmployeeDto"
 deactivate "empDto: EmployeeDto"
-
-
-deactivate "empDto: EmployeeDto"
-
 deactivate ":Company"
 deactivate "role: OrgRole"
 ":RegisterNewEmployeeUI" --> A : shows the data and requests confirmation
@@ -83,8 +79,10 @@ activate ":EmpStore"
 ":EmpStore" -> ":EmpStore" : addEmployee(emp)
 ":RegisterNewEmployeeController" -> "emp: Employee" : pwd = generatePwd()
 activate "emp: Employee"
+"emp: Employee" -> "emp: Employee" : generatePwd()
 deactivate "emp: Employee"
 deactivate ":EmpStore"
+
 ":RegisterNewEmployeeController" -> ":AuthFacade" : user = addUserWithRole(name, email, pwd, role)
 activate ":AuthFacade"
 
