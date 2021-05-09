@@ -8,8 +8,8 @@ class "Company" as C {
 +getParameterCategoryStore()
 }
 
-class "categoriesNameMapper" as cNM {
-+List <ParameterCategoryDto> toDto(parameterCategory)
+class "TestTypeMapper" as ttM{
++List <TestTypeDto> toDto(List<TestType>)
 }
 
 class "TestTypeStore" as TTS{
@@ -21,8 +21,8 @@ class "TestTypeStore" as TTS{
 +List <TestType> getAllTestTypes()
 }
 
-class "ParameterCategoryStore" as PCS{
-+List <ParameterCategory> getAllParameterCategories()
+class "CreateParameterCategoryController" as PCS{
++List <ParameterCategoryDto> getAllParameterCategoriesDto()
 +ParameterCategory getParameterCategoryByCode(code)
 }
 
@@ -38,11 +38,10 @@ class "TestType" as TT {
 
 class "CreateTestTypeController" as CTTC {
 +CreateTestTypeController()
-+List<ParameterCategoryDto> getParameterCategoryDto()
++List<TestTypeDto> getAllTestTypesDto()
 +boolean createTestType(code, description, collectingMethod, parameterCategory)
 +boolean createTestType(code, description, collectingMethod, parameterCategoriesList)
-+boolean saveTestType(tt)
-+ParameterCategory getParameterCategoryByCode(code)
++boolean saveTestType()
 +List<TestType> getAllTestTypes()
 }
 
@@ -64,7 +63,7 @@ TTS ..> C
 
 
 CTTC ..> C
-CTTC ..> cNM
+CTTC ..> ttM
 
 TT "*" -- "1" PC : > analyzes a
 

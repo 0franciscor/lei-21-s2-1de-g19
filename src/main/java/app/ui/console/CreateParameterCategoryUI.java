@@ -1,27 +1,33 @@
 package app.ui.console;
 
 import app.controller.CreateParameterCategoryController;
-import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
-
+import auth.mappers.dto.ParameterCategoryDto;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- *
- * @author Paulo Maio <pam@isep.ipp.pt>
- */
-
 public class CreateParameterCategoryUI implements Runnable{
 
+    /**
+     * The CreateParameterCategoryUI ParameterCategoryController.
+     */
     private CreateParameterCategoryController pcController;
-    private List<ParameterCategory> parameterCategoriesList;
 
+    /**
+     *The CreateParameterCategoryUI ParameterCategoryDto
+     */
+    private List<ParameterCategoryDto> parameterCategoriesListDto;
+
+    /**
+     * Builds the CreateParameterCategoryUI Object.
+     */
     public CreateParameterCategoryUI() {
             this.pcController = new CreateParameterCategoryController();
         }
 
+    /**
+     * Responsible for allowing the UI to run.
+     */
     public void run()
     {
         List<MenuItem> options = new ArrayList<MenuItem>();
@@ -61,11 +67,11 @@ public class CreateParameterCategoryUI implements Runnable{
             }
 
             if(option == 1) {
-                parameterCategoriesList = pcController.getAllParameterCategories();
-                if (!parameterCategoriesList.isEmpty()) {
+                parameterCategoriesListDto = pcController.getAllParameterCategoriesDto();
+                if (!parameterCategoriesListDto.isEmpty()) {
                     System.out.printf("\nAvailable Parameter Categories:\n");
-                    for(ParameterCategory pc: parameterCategoriesList)
-                        System.out.println(pc);
+                    for(ParameterCategoryDto pc: parameterCategoriesListDto)
+                        System.out.printf("\n" + pc);
                 } else
                     System.out.printf("\nThere are no Parameter categories available.");
             }

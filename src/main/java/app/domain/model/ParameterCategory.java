@@ -2,19 +2,49 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * ParameterCategory class, which is responsible for creating the ParameterCategory object.
+ *
+ * @author Francisco Redol (1201239)
+ */
 public class ParameterCategory {
 
+    /**
+     * The ParameterCategory name.
+     */
     private String name;
+
+    /**
+     * The ParameterCategory code.
+     */
     private String code;
 
+    /**
+     * The maximum name length, specified by the client.
+     */
     private static final int NAME_MAX_LENGTH = 10;
+
+    /**
+     * The maximum code length, specified by the client.
+     */
     private static final int CODE_LENGTH = 5;
 
+    /**
+     * Builds the ParameterCategory object.
+     *
+     * @param name the ParameterCategory name
+     * @param code the ParameterCategory code
+     */
     public ParameterCategory(String name, String code){
         setName(name);
         setCode(code);
     }
 
+    /**
+     * @param name
+     * Modifies and checks the inserted parameter.
+     *
+     */
     public void setName(String name){
         if(StringUtils.isBlank(name))
             throw new IllegalArgumentException("Name cannot be empty.");
@@ -24,6 +54,11 @@ public class ParameterCategory {
         this.name = name;
     }
 
+    /**
+     * @param code
+     * Modifies and checks the inserted parameter.
+     *
+     */
     public void setCode(String code){
         if(StringUtils.isBlank(code))
             throw new IllegalArgumentException("Code cannot be empty.");
@@ -33,19 +68,40 @@ public class ParameterCategory {
         this.code = code;
     }
 
+    /**
+     * Returns the ParameterCategory name.
+     *
+     * @return ParameterCategory name
+     */
     public String getName(){
         return this.name;
     }
 
+    /**
+     * Returns the ParameterCategory code.
+     *
+     * @return ParameterCategory code
+     */
     public String getCode(){
         return this.code;
     }
 
+    /**
+     * Returns a textual representation of the object, which contains all of its attributes.
+     *
+     * @return ParameterCategory characteristics
+     */
     @Override
     public String toString() {
-        return String.format("The parameter category name is %s and it's code is %s.", this.name, this.code);
+        return String.format("Parameter Category name is %s and it's code is %s", this.name, this.code);
     }
 
+    /**
+     * @param obj
+     * Verifies if a certain object is equal to other.
+     *
+     * @return boolean result stating if the compared objects are equal
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

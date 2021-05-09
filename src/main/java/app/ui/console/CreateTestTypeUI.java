@@ -2,26 +2,42 @@ package app.ui.console;
 
 import app.controller.CreateParameterCategoryController;
 import app.controller.CreateTestTypeController;
-import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 import app.ui.console.utils.Utils;
-import auth.mappers.ParameterCategoryMapper;
 import auth.mappers.dto.ParameterCategoryDto;
-
+import auth.mappers.dto.TestTypeDto;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * CreateTestTypeUI class, which is the interface who allows to create a test type.
+ *
+ * @author Francisco Redol (1201239)
+ */
 public class CreateTestTypeUI implements Runnable {
 
+    /**
+     * The CreateTestTypeUI CreateTestTypeController.
+     */
     private CreateTestTypeController ttController;
+
+    /**
+     *The CreateTestTypeUI CreateParameterCategoryController
+     */
     private CreateParameterCategoryController pcController;
 
+
+    /**
+     * Builds the CreateTestTypeUI Object.
+     */
     public CreateTestTypeUI() {
         this.ttController = new CreateTestTypeController();
         this.pcController = new CreateParameterCategoryController();
     }
 
+    /**
+     * Responsible for allowing the UI to run.
+     */
     public void run(){
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Create a new type of test", new ShowTextUI("You have chosen to specify a new type of test.")));
@@ -32,13 +48,42 @@ public class CreateTestTypeUI implements Runnable {
         do{
             option = Utils.showAndSelectIndex(options, "\n\nTest Type menu:");
 
-            if(option == 0 && pcController.getAllParameterCategories().isEmpty())
+            if(option == 0 && pcController.getAllParameterCategoriesDto().isEmpty())
                 System.out.printf("\nThere aren't any Parameter Categories available at the moment. Once you have one, you'll be able to create a test type.\n");
 
-            else if(option == 0 && !pcController.getAllParameterCategories().isEmpty()) {
+            else if(option == 0 && !pcController.getAllParameterCategoriesDto().isEmpty()) {
+                System.out.printf("\nYou are now creating a Test Type!\n");
+
+                List<ParameterCategoryDto> categoryDto = pcController.getAllParameterCategoriesDto();
+
+                boolean createSuccess, save = false, saveSuccess = false;
+
+                System.out.printf("\nChoose at least one or more Parameter Categories.\n");
+
+                List<ParameterCategory> chosenCategoriesList = new ArrayList<ParameterCategory>();
+                int chosenCategories, x = 0;
+
+                do {
+
+                    System.out.printf("\nAvailable Parameter Categories:\n");
+
+                    for (int i = 0; i< categoryDto.size(); i++)
+                        if(categoryDto != null && !chosenCategoriesList.contains(pcController.getParameterCategoryByCode(categoryDto.get(i).getCode())))
+                            System.out.printf("\n" + (i+1)+ ". " + categoryDto.get(i));
+
+                    chosenCategories = Utils.readIntegerFromConsole("Insert your option (Press -1 to exit selecting categories):");
+                    chosenCategories = chosenCategories - 1;
+
+                    if (chosenCategories > -1) {
+                        chosenCategoriesList.add(pcController.getParameterCategoryByCode(categoryDto.get(chosenCategories).getCode()));
+                        x++;
+                    }
+
+                } while (x== 0 || (x < categoryDto.size() && chosenCategories != -2));
+
+
                 String code, description, collectingMethod;
 
-                System.out.printf("\nYou are now creating a Test Type!\n");
 
                 do {
                     code = Utils.readLineFromConsole("Please insert the code of the test type:");
@@ -53,39 +98,11 @@ public class CreateTestTypeUI implements Runnable {
                 } while (!Utils.confirm("Are you sure your collecting method is correct? If so, press \"s\", if not, press \"n\"."));
 
 
-                List<ParameterCategoryDto> categoryDto = ttController.getParameterCategoryDto();
-
-
-                boolean createSuccess = false, save = false, saveSuccess = false;
-
-
-                if (categoryDto.size() == 1) {
-                    if (Utils.showAndSelectIndex(categoryDto, "Available Parameter Category:") == 0) {
-                        createSuccess = ttController.createTestType(code, description, collectingMethod, pcController.getParameterCategoryByCode(categoryDto.get(0).getCode()));
-                    }
-
-                } else if (categoryDto.size() > 1) {
-
-                    System.out.printf("\nChoose at least one or more Parameter Categories. To stop choosing, insert -1");
-
-                    int[] chosenCategoriesNumberList = new int[categoryDto.size()];
-                    int x = 0;
-                    int chosenCategories;
-
-                    do {
-                        chosenCategories = Utils.showAndSelectIndex(categoryDto, "Available Parameter Categories:");
-                        if (chosenCategories != -1)
-                            chosenCategoriesNumberList[x] = chosenCategories;
-
-                    } while (x < categoryDto.size() && chosenCategories != -1);
-
-                    List<ParameterCategory> chosenCategoriesList = new ArrayList<ParameterCategory>();
-
-                    for (int i = 0; i < x; i++)
-                        chosenCategoriesList.add(pcController.getParameterCategoryByCode(categoryDto.get(chosenCategoriesNumberList[i]).getCode()));
-
+                if(chosenCategoriesList.size() == 1)
+                    createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList.get(0));
+                else
                     createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList);
-                }
+
 
                 if (createSuccess)
                     save = Utils.confirm("The test type was created successfully. Do you want to add it to the system? If so, press \"s\", if not, press \"n\".");
@@ -101,13 +118,15 @@ public class CreateTestTypeUI implements Runnable {
             }
 
             if(option == 1) {
-                List<TestType> availableTestTypes = ttController.getAllTestTypes();
+                List<TestTypeDto> availableTestTypesDto = ttController.getAllTestTypesDto();
 
-                if (availableTestTypes.isEmpty())
+                if (availableTestTypesDto.isEmpty())
                     System.out.printf("\nThere are no available Test Types at the moment.");
-                else
-                    Utils.showList(ttController.getAllTestTypes(), "Available Test Types:");
-
+                else {
+                    System.out.printf("\nAvailable Test Types:");
+                    for (int i = 0; i< availableTestTypesDto.size(); i++)
+                        System.out.printf("\n" + (i+1)+ ". " + availableTestTypesDto.get(i));
+                }
             }
 
         } while (option != -1);

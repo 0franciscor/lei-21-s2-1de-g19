@@ -2,42 +2,98 @@ package auth.domain.store;
 
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
-
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * TestTypeStore class, which is responsible for creating the TestTypeStore object.
+ *
+ * @author Francisco Redol (1201239)
+ */
 public class TestTypeStore {
 
+    /**
+     * List which keeps all the TestType objects created in the store.
+     */
     private List<TestType> testTypeList;
 
+    /**
+     * Builds the TestTypeStore object.
+     *
+     */
     public TestTypeStore() {
         this.testTypeList = new ArrayList<>();
     }
 
+    /**
+     * @param code
+     * @param description
+     * @param collectingMethod
+     * @param parameterCategory
+     *
+     * Invokes the TestType Builder.
+     *
+     * @return created TestType, back to the controller
+     */
     public TestType createTestType(String code, String description, String collectingMethod, ParameterCategory parameterCategory){
         return new TestType(code, description, collectingMethod, parameterCategory);
     }
 
+    /**
+     * @param code
+     * @param description
+     * @param collectingMethod
+     * @param parameterCategoriesList
+     *
+     * Invokes the TestType Builder.
+     *
+     * @return created TestType, back to the controller
+     */
     public TestType createTestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList){
         return new TestType(code, description, collectingMethod, parameterCategoriesList);
     }
 
+    /**
+     * @param tt
+     *
+     * Saves the received TestType Object, after validating it (then adding it).
+     *
+     * @returna a boolean stating the success of saving the received TestType (true if successful, false if it can't save)
+     */
     public boolean saveTestType(TestType tt){
         return addTestType(tt);
     }
 
+    /**
+     * @param tt
+     *
+     * Validates if a certain TestType already exists in the store list.
+     *
+     * @return a boolean stating if the TestType gotten by parameter already exists in the list.
+     */
     public boolean validateTestType(TestType tt){
         if(tt == null)
             return false;
         return !this.testTypeList.contains(tt);
     }
 
+    /**
+     * @param tt
+     *
+     * Adds a certain TestType after validating if it exists in the store list.
+     *
+     * @return a boolean stating if the TestType gotten by parameter was successfully added
+     */
     public boolean addTestType(TestType tt) {
         if (!validateTestType(tt))
             return false;
         return this.testTypeList.add(tt);
     }
 
+    /**
+     *
+     * @return all TestTypes that exist in the store list
+     */
     public List<TestType> getAllTestTypes(){
         return testTypeList;
     }
