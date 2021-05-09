@@ -6,19 +6,46 @@ import app.domain.model.ParameterCategory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the parameter store class.
+ *
+ * @author Rita Lello
+ */
 public class ParameterStore {
 
+    /**
+     * The store's parameters list.
+     */
     private List<Parameter> parameterStoreList;
 
+    /**
+     * Builds a Parameter Store without receiving parameters.
+     */
     public ParameterStore(){
         this.parameterStoreList=new ArrayList<>();
     }
 
+    /**
+     * Creates a new parameter by calling the parameter class.
+     *
+     * @param code
+     * @param description
+     * @param designation
+     * @param pcat
+     * @return the created parameter.
+     */
     public Parameter create(String code, String description, String designation, ParameterCategory pcat){
         Parameter parameter = new Parameter(code, description, designation, pcat);
         return parameter;
     }
 
+    /**
+     * Saves the parameter in the parameter store list.
+     *
+     * @param parameter
+     * @return true if the parameter was successfully save in the parameter store list.
+     * @return false if the parameter was not save in the parameter store list.
+     */
     public boolean saveParameter(Parameter parameter){
         if(validate(parameter)){
             parameterStoreList.add(parameter);
@@ -27,12 +54,24 @@ public class ParameterStore {
         return false;
     }
 
+    /**
+     * Sees if the parameter is valid.
+     *
+     * @param parameter
+     * @return true if the parameter is valid.
+     * @return false if the parameter is not valid.
+     */
     public boolean validate(Parameter parameter){
         if(parameterStoreList.contains(parameter))
             return false;
         return true;
     }
 
+    /**
+     * Shows all the parameters.
+     *
+     * @return a list of all the parameters.
+     */
     public List<Parameter> getAllParameters(){
         return parameterStoreList;
     }

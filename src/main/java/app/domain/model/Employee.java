@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.controller.App;
 import auth.mappers.dto.EmployeeDto;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,43 +15,32 @@ public class Employee {
     private int socCode;
     private int doctorIndexNumb;
 
-    public Employee createEmployee(EmployeeDto empDto) {
-        if (empDto.getRole().equalsIgnoreCase("Specialist Doctor")) {
-            OrgRole orgRole = company.getOrgRoleByName("Specialist Doctor");
-            if (orgRole.designation == null) {
-                return new Employee();
-            }
-            Employee emp = new Employee(empDto.getName(), orgRole, empDto.getAddress(), empDto.getEmail(), empDto.getPhoneNumber(), empDto.getSocCode(), empDto.getDoctorIndexNumb());
-            return emp;
-        }
-        OrgRole orgRole1 = company.getOrgRoleByName(empDto.getRole());
-        Employee emp1 = new Employee(empDto.getName(), orgRole1, empDto.getAddress(), empDto.getEmail(), empDto.getPhoneNumber(), empDto.getSocCode());
-        return emp1;
-    }
-
-
     public Employee () {
 
     }
-    public Employee (String name, OrgRole role, String address, String email,int phoneNumber, int socCode, int doctorIndexNumb)  {
+    public Employee (String name, String role, String address, String email,int phoneNumber, int socCode, int doctorIndexNumb)  {
         checkNameRules(name);
         checkRoleRules(role);
+        this.company = App.getInstance().getCompany();
         this.name = name;
-        this.role = role;
+        this.role = company.getOrgRoleByName(role);
         this.address = address;
         this.email = email;
-        this.empID = generateID();
+        this.empID = generateID(name);
         this.phoneNumber = phoneNumber;
         this.socCode = socCode;
         this.doctorIndexNumb = doctorIndexNumb;
         company.numEmp++;
     }
-    public Employee (String name, OrgRole role, String address, String email, int phoneNumber, int socCode)  {
+    public Employee (String name, String role, String address, String email, int phoneNumber, int socCode)  {
+        checkNameRules(name);
+        checkRoleRules(role);
+        this.company = App.getInstance().getCompany();
         this.name = name;
-        this.role = role;
+        this.role = company.getOrgRoleByName(role);
         this.address = address;
         this.email = email;
-        this.empID = empID;
+        this.empID = generateID(name);
         this.phoneNumber = phoneNumber;
         this.socCode = socCode;
         company.numEmp++;
@@ -63,11 +53,11 @@ public class Employee {
             throw new IllegalArgumentException("Name must not have more than 35 chars.");
     }
 
-    private void checkRoleRules(OrgRole role) {
+    private void checkRoleRules(String role) {
 
-        if (StringUtils.isBlank(role.designation))
+        if (StringUtils.isBlank(role))
             throw new IllegalArgumentException("Name cannot be blank.");
-        if ( role.designation.length() > 15 )
+        if ( role.length() > 15 )
             throw new IllegalArgumentException("Name must not have more than 15 chars.");
     }
     public String generateID(String name) {
@@ -79,13 +69,17 @@ public class Employee {
         }
         for (int i = 1; i < name.length() - 1; i++)
             if (name.charAt(i) == ' '){
-                charsArray[x] = name.charAt(i+1);
                 x++;
+                charsArray[x] = name.charAt(i+1);
             }
-
         for (char c : charsArray)
             id = id + c;
-        id = id + company.numbEmp;
+        String y = String.valueOf(company.numEmp);
+        int z = y.length();
+        String esp = "0";
+        for (int i = 0; i < (5-z); i++)
+            id = id + esp;
+        id = id + company.numEmp;
         return id;
     }
 

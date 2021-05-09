@@ -14,24 +14,21 @@ import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Random;
 
+import static auth.mappers.RolesMapper.toDto;
+
 public class RegisterNewEmployeeController {
     private App app;
     public Company company;
     public AuthFacade authFacade;
     public EmpStore empStore;
-    private int empIDnumber;
-
 
     public RegisterNewEmployeeController(Company company) {
         this.app = App.getInstance();
         this.company = app.getCompany();
         this.authFacade = company.getAuthFacade();;
-        this.empIDnumber = 10000;
+
     }
 
-    public List<OrgRoleDto> getRoles() {
-        return company.getRoleList();
-    }
 
     public Employee createEmployee(EmployeeDto empDto) {
             return this.company.createEmployee(empDto);
@@ -63,28 +60,10 @@ public class RegisterNewEmployeeController {
         return strAux;
     }
 
-    public List<OrgRoleDto> toDto(List<OrgRole> list) {
-        return RolesMapper.toDto(list);
+    public List<OrgRoleDto> getRoles(List<OrgRole> list) {
+        List<OrgRole> lRoles = this.company.getRoles();
+        return toDto(lRoles);
     }
 
-    public String generateID(String name) {
-        String id = "";
-        int x = 0;
-        char[] charsArray = new char[10];
-        if (!(name.charAt(0) == ' ')) {
-            charsArray[0] = name.charAt(0);
-        }
-        for (int i = 1; i < name.length() - 1; i++)
-            if (name.charAt(i) == ' '){
-                charsArray[x] = name.charAt(i+1);
-                x++;
-            }
-
-        for (char c : charsArray)
-            id = id + c;
-        id = id + empIDnumber;
-        empIDnumber++;
-        return id;
-    }
 
 }

@@ -43,7 +43,7 @@ public class ParameterCategory {
 
     @Override
     public String toString() {
-        return String.format("The parameter category name is %s and it's code is.", this.name, this.code);
+        return String.format("The parameter category name is %s and it's code is %s.", this.name, this.code);
     }
 
     @Override
