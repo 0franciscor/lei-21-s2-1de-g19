@@ -15,7 +15,7 @@ public class EmployeeDto {
     /**
      * The Employee Data Transfer object Organization Role.
      */
-    public String role;
+    public OrgRole role;
     /**
      * The Employee Data Transfer object address.
      */
@@ -48,7 +48,7 @@ public class EmployeeDto {
      *
      * @return An Employee Data Transfer object.
      */
-    public EmployeeDto (String name, String role, String address, String email, String phoneNumber, int socCode) {
+    public EmployeeDto (String name, OrgRole role, String address, String email, String phoneNumber, int socCode) {
         this.name= name;
         this.role = role;
         this.address = address;
@@ -69,7 +69,7 @@ public class EmployeeDto {
      *
      * @return An Employee Data Transfer object.
      */
-    public EmployeeDto (String name, String role, String address, String email, String phoneNumber, int socCode, int doctorIndexNumb) {
+    public EmployeeDto (String name, OrgRole role, String address, String email, String phoneNumber, int socCode, int doctorIndexNumb) {
         this.name= name;
         this.role = role;
         this.address = address;
@@ -99,7 +99,7 @@ public class EmployeeDto {
      *
      * @return String role.
      */
-    public String getRole() {
+    public OrgRole getRole() {
         return role;
     }
     /**

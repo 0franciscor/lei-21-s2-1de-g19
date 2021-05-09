@@ -66,13 +66,13 @@ public class Employee {
      *
      * @return An Employee object.
      */
-    public Employee (String name, String role, String address, String email,String phoneNumber, int socCode, int doctorIndexNumb)  {
+    public Employee (String name, OrgRole role, String address, String email,String phoneNumber, int socCode, int doctorIndexNumb)  {
         checkNameRules(name);
-        checkRoleRules(role);
+        checkRoleRules(role.designation);
         checkDoctorIndexNumberRules(doctorIndexNumb);
         checkSOCCODERules(socCode);
         this.name = name;
-        this.role = company.getOrgRoleByName(role);
+        this.role = role;
         this.address = address;
         this.email = email;
         this.empID = generateID(name);
@@ -93,13 +93,13 @@ public class Employee {
      *
      * @return An Employee object.
      */
-    public Employee (String name, String role, String address, String email, String phoneNumber, int socCode)  {
+    public Employee (String name, OrgRole role, String address, String email, String phoneNumber, int socCode)  {
         checkNameRules(name);
-        checkRoleRules(role);
+        checkRoleRules(role.designation);
         checkPhoneNumberRules(phoneNumber);
         checkSOCCODERules(socCode);
         this.name = name;
-        this.role = company.getOrgRoleByName(role);
+        this.role = role;
         this.address = address;
         this.email = email;
         this.empID = generateID(name);

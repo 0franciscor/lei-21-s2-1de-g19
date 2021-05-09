@@ -38,7 +38,7 @@ deactivate "empDto: EmployeeDto"
 ":EmployeeMapper" -> "empDto: EmployeeDto" : email = getEmail(empDto);
 activate "empDto: EmployeeDto"
 deactivate "empDto: EmployeeDto"
-":EmployeeMapper" -> "empDto: EmployeeDto" : roleName = getRole(empDto);
+":EmployeeMapper" -> "empDto: EmployeeDto" : role = getRole(empDto);
 activate "empDto: EmployeeDto"
 deactivate "empDto: EmployeeDto"
 ":EmployeeMapper" -> "empDto: EmployeeDto" : phoneNumber = getPhoneNumber(empDto);
@@ -53,8 +53,7 @@ deactivate "empDto: EmployeeDto"
 create "emp: Employee"
 ":EmployeeMapper" -> "emp: Employee" : create(name, address, email...)
 deactivate ":EmployeeMapper"
-activate "emp: Employee"
-"emp: Employee" -> ":Company" : role = getOrgRoleByName(roleName)
+
 activate "emp: Employee"
 deactivate "emp: Employee"
 "emp: Employee" -> "emp: Employee" : id = generateID(name)
