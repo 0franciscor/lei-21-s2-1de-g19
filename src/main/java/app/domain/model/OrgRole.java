@@ -14,7 +14,7 @@ public class OrgRole {
      * The Organization Role designation
      */
     public String designation;
-    public Company company = App.getInstance().getCompany();
+
     /**
      * Builds a new Organization Role object with its designation.
      *
@@ -50,8 +50,6 @@ public class OrgRole {
             throw new IllegalArgumentException("Name cannot be blank.");
         if ( role.length() > 15 )
             throw new IllegalArgumentException("Role must not have more than 15 chars.");
-        if (company.getOrgRoleByName(role).designation == null)
-            throw new IllegalArgumentException("This role does not exist.");
     }
 
 }

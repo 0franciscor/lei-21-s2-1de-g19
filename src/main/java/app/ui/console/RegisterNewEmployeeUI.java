@@ -31,6 +31,8 @@ public class RegisterNewEmployeeUI implements Runnable {
             for (OrgRoleDto c : list)
                 System.out.println(c.getDesignation());
             String roleName = Utils.readLineFromConsole("Type the employee role.");
+            if (ctrl.company.getOrgRoleByName(roleName).designation == null)
+                throw new IllegalArgumentException("This role does not exist.");
             OrgRole role = ctrl.company.getOrgRoleByName(roleName);
             if (roleName.equalsIgnoreCase("SpecDoctor")){
                 roleName = "SpecDoctor";

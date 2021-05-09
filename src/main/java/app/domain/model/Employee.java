@@ -184,17 +184,18 @@ public class Employee {
     public String generateID(String name) {
         String id = "";
         int x = 0;
-        char[] charsArray = new char[10];
+        String[] charsArray = new String[10];
         if (!(name.charAt(0) == ' ')) {
-            charsArray[0] = name.charAt(0);
+            charsArray[0] = String.valueOf(name.charAt(0));
         }
         for (int i = 1; i < name.length() - 1; i++)
             if (name.charAt(i) == ' '){
                 x++;
-                charsArray[x] = name.charAt(i+1);
+                charsArray[x] = String.valueOf(name.charAt(i+1));
             }
-        for (char c : charsArray)
-            id = id + c;
+        for (String c : charsArray)
+            if (c != null)
+                id = id + c;
         String y = String.valueOf(company.numEmp);
         int z = y.length();
         String esp = "0";
