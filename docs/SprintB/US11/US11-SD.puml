@@ -1,34 +1,57 @@
 @startuml
-'https://plantuml.com/sequence-diagram
 
 autonumber
 actor "Administrator" as A
 activate A
 
-
 A -> ":CreateParameterCategoryUI" : starts new parameter category
-":CreateParameterCategoryUI" --> A: request data (i.e., code, description, nhsId)
-A -> ":CreateParameterCategoryUI" : types requested data
-":CreateParameterCategoryUI" -> ":CreateParameterCategoryController": createParameterCategory(code, description, nhsId)
-":CreateParameterCategoryController" -> ":Company" : pc = createParameterCategory(code, description, nhsId)
-activate ":Company"
-create "pc: Parameter Category"
-":Company" --> "pc: Parameter Category": create(code, description, nhsId)
-deactivate ":Company"
-":CreateParameterCategoryController" -> ":Company" : validateParameterCategory(pc)
-activate ":Company"
-deactivate ":Company"
-":CreateParameterCategoryUI" --> A: shows the data and requests a confirmation
-A -> ":CreateParameterCategoryUI": confirms the data
-":CreateParameterCategoryUI" -> ":CreateParameterCategoryController": saveParameterCategory()
-":CreateParameterCategoryController" -> ":Company" ++: saveParameterCategory(pc)
+activate ":CreateParameterCategoryUI"
+":CreateParameterCategoryUI" --> A: request data (name, code)
+deactivate ":CreateParameterCategoryUI"
 
-":Company" -> ":Company": validateParameterCategory(pc)
+
+A -> ":CreateParameterCategoryUI" : types requested data
+activate ":CreateParameterCategoryUI"
+
+":CreateParameterCategoryUI" -> ":CreateParameterCategoryController": createParameterCategory(name, code)
+activate ":CreateParameterCategoryController"
+
+":CreateParameterCategoryController" -> ":Company": store = getParameterCategoryStore()
 activate ":Company"
 deactivate ":Company"
-":Company" -> ":Company": addParameterCategory(pc)
-activate ":Company"
+
+
+
+":CreateParameterCategoryController" -> "store:ParameterCategoryStore" : pc = createParameterCategory(name, code)
+create "pc: ParameterCategory"
+activate "store:ParameterCategoryStore"
+"store:ParameterCategoryStore" --> "pc: ParameterCategory": createParameterCategory(name, code)
+deactivate "store:ParameterCategoryStore"
+
+deactivate ":CreateParameterCategoryController"
 deactivate ":Company"
+
+
+
+":CreateParameterCategoryUI" --> A: shows the data and requests a confirmation
+deactivate ":CreateParameterCategoryUI"
+A -> ":CreateParameterCategoryUI": confirms the data
+activate ":CreateParameterCategoryUI"
+":CreateParameterCategoryUI" -> ":CreateParameterCategoryController": saveParameterCategory()
+
+activate ":CreateParameterCategoryController"
+":CreateParameterCategoryController" -> "store:ParameterCategoryStore" ++: saveParameterCategory(pc)
+
+
+"store:ParameterCategoryStore" -> "store:ParameterCategoryStore": validateParameterCategory(pc)
+activate "store:ParameterCategoryStore"
+deactivate "store:ParameterCategoryStore"
+"store:ParameterCategoryStore" -> "store:ParameterCategoryStore": addParameterCategory(pc)
+activate "store:ParameterCategoryStore"
+deactivate "store:ParameterCategoryStore"
+
 ":CreateParameterCategoryUI" --> A: informs operation success
+deactivate ":CreateParameterCategoryController"
+deactivate ":CreateParameterCategoryUI"
 
 @enduml

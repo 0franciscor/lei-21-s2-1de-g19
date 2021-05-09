@@ -59,13 +59,14 @@ CTTUI ..> CTTC
 
 C ..> PCS
 
-TTS ..> C
+C ..> TTS
 
 
 CTTC ..> C
 CTTC ..> ttM
 
 TT "*" -- "1" PC : > analyzes a
+TTS ..> TT
 
 C "1" -- "*" TT : > adopts
 C "1" -- "*" PC : > adopts
