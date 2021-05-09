@@ -16,9 +16,6 @@ import static org.junit.Assert.*;
  */
 public class TestTypeTest {
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
     @Test(expected = IllegalArgumentException.class)
     public void setCode() {
         TestType test = new TestType("", "Covid_test", "Swab", new ParameterCategory("test","test0"));

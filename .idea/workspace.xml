@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Sem2App:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -46,12 +51,13 @@
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ESOFT/GSPRINTB" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Francisco Redol\Documents\Repositórios\LEI_21_S2_1DE_G19\out\artifacts\Sem2App_jar" />
       <recent name="$PROJECT_DIR$/src/main/java/auth/mappers/dto" />
       <recent name="$PROJECT_DIR$/src/main/java/auth/mappers" />
       <recent name="$PROJECT_DIR$/src/main/java/app/domain/model" />
@@ -70,7 +76,7 @@
       <recent name="app.domain.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Sem2App">
+  <component name="RunManager" selected="JUnit.ClinicalAnalysisLaboratoryTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -97,28 +103,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateParameterCategoryControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClinicalAnalysisLaboratoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
-      <option name="PACKAGE_NAME" value="app.controller" />
-      <option name="MAIN_CLASS_NAME" value="app.controller.CreateParameterCategoryControllerTest" />
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClinicalAnalysisLaboratoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParameterCategoryStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClinicalAnalysisLaboratoryTest.setName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ParameterCategoryStoreTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClinicalAnalysisLaboratoryTest" />
+      <option name="METHOD_NAME" value="setName" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTypeStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTypeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.TestTypeStoreTest" />
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,17 +134,17 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
-      <item itemvalue="JUnit.ParameterCategoryStoreTest" />
-      <item itemvalue="JUnit.TestTypeStoreTest" />
+      <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest" />
+      <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest.setName" />
+      <item itemvalue="JUnit.TestTypeTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest" />
+        <item itemvalue="JUnit.TestTypeTest" />
+        <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest.setName" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
-        <item itemvalue="JUnit.TestTypeStoreTest" />
-        <item itemvalue="JUnit.ParameterCategoryStoreTest" />
+        <item itemvalue="JUnit.All in Sem2App" />
       </list>
     </recent_temporary>
   </component>
