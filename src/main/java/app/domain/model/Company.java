@@ -45,12 +45,12 @@ public class Company {
         this.parameterStore = new ParameterStore();
         this.employeeStore = new EmpStore();
         this.roleList = new ArrayList<OrgRole>();
-        this.roleList.add(new OrgRole("SpecDoctor"));
-        this.roleList.add(new OrgRole("MedLabTech"));
-        this.roleList.add(new OrgRole("Recepcionist"));
-        this.roleList.add(new OrgRole("Lab Coordinator"));
-        this.roleList.add(new OrgRole("Administrator"));
-        this.roleList.add(new OrgRole("ClinicalChemTec"));
+        this.roleList.add(new OrgRole("SPEC DOCTOR"));
+        this.roleList.add(new OrgRole("MED LAB TECH"));
+        this.roleList.add(new OrgRole("RECEPCIONIST"));
+        this.roleList.add(new OrgRole("LAB COORDINATOR"));
+        this.roleList.add(new OrgRole("ADMINISTRATOR"));
+        this.roleList.add(new OrgRole("CLINICALCHEMTEC"));
         this.numEmp = 1;
     }
 
@@ -104,11 +104,12 @@ public class Company {
 
     public OrgRole getOrgRoleByName(String name) {
         for (OrgRole c : roleList) {
-            if (c.designation == name)
+            if (c.designation.equalsIgnoreCase(name))
                 return c;
         }
         return new OrgRole(null);
     }
+
 
     /**
      * Returns the clinical analysis laboratory store

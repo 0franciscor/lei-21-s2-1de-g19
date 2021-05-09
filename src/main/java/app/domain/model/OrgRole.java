@@ -24,18 +24,18 @@ public class OrgRole {
      */
     public OrgRole (String designation) {
         checkRoleRules(designation);
-        if (designation.equalsIgnoreCase("SpecDoctor"))
-            this.designation = "SPECIALIST DOCTOR";
-        if (designation.equalsIgnoreCase("MedLabTech"))
-            this.designation = "MEDICAL LAB TECHNICIAN";
-        if (designation.equalsIgnoreCase("Administrator"))
+        if (designation.equalsIgnoreCase("SPEC DOCTOR"))
+            this.designation = "SPEC DOCTOR";
+        if (designation.equalsIgnoreCase("MED LAB TECH"))
+            this.designation = "MED LAB TECH";
+        if (designation.equalsIgnoreCase("ADMINISTRATOR"))
             this.designation = "ADMINISTRATOR";
-        if (designation.equalsIgnoreCase("Recepcionist"))
+        if (designation.equalsIgnoreCase("RECEPCIONIST"))
             this.designation = "RECEPCIONIST";
-        if (designation.equalsIgnoreCase("Lab Coordinator"))
+        if (designation.equalsIgnoreCase("LAB COORDINATOR"))
             this.designation = "LAB COORDINATOR";
-        if (designation.equalsIgnoreCase("ClinicalChemTec"))
-            this.designation = "CLINICAL CHEM TECH";
+        if (designation.equalsIgnoreCase("CLINICALCHEMTECH"))
+            this.designation = "CLINICALCHEMTECH";
     }
     /**
      * Method responsible for checking the acceptance criteria for the Employee's role.

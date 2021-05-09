@@ -34,8 +34,8 @@ public class RegisterNewEmployeeUI implements Runnable {
             if (ctrl.company.getOrgRoleByName(roleName).designation == null)
                 throw new IllegalArgumentException("This role does not exist.");
             OrgRole role = ctrl.company.getOrgRoleByName(roleName);
-            if (roleName.equalsIgnoreCase("SpecDoctor")){
-                roleName = "SpecDoctor";
+            if (roleName.equalsIgnoreCase("SPEC DOCTOR")){
+                roleName = "SPEC DOCTOR";
                 int doctorIndexNumber = Utils.readIntegerFromConsole("Type the employee Doctor Index Number:");
                 confirmation = Utils.readIntegerFromConsole(String.format("Are you sure this is the info of the client ? If so type 1, if not type 2. \n\n Name: %s \n Role: %s " +
                         "\n Address: %s \n Email: %s \n Phone Number: %s \n Standard Occupational Classification code: %d \n Doctor Index Number: %d ", name,roleName, address, email, phoneNumber, socCode, doctorIndexNumber));
@@ -53,7 +53,7 @@ public class RegisterNewEmployeeUI implements Runnable {
 
         } else {
                 confirmation = Utils.readIntegerFromConsole(String.format("Are you sure this is the info of the client ? If so type 1, if not type 2. \n\n Name: %s \n Role: %s " +
-                        "\n Address: %s \n Email: %s \n Phone Number: %s \n Standard Occupational Classification code: %d ", name,role, address, email, phoneNumber, socCode));
+                        "\n Address: %s \n Email: %s \n Phone Number: %s \n Standard Occupational Classification code: %d ", name,roleName, address, email, phoneNumber, socCode));
                 if (confirmation == 1) {
                     EmployeeDto empDto = new EmployeeDto(name, role, address, email, phoneNumber, socCode);
                     Employee emp = ctrl.createEmployee(empDto);
