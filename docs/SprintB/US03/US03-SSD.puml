@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Receptionist" as R
+activate R
+R -> System ++: register a client
+System -->  R --: request data (citizenID, nhsID, birthDate, sex,TIN, phoneNumber, email, name)
+R -> System ++: types requested data
+System --> R --: shows the data and requests a confirmation
+R -> System ++: confirms the data
+System --> R --: informs operation success
+@enduml

@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+
+class Receptionist
+class Client
+class Employee
+class Company
+class User
+left to right direction
+
+Client "*" -- "1..*" Receptionist : < registers
+Employee "*" <|-- "1..*" Receptionist
+Company "1" -- "*" Employee : < works for
+Client "1" -- "1" User : > is a
+
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+class Receptionist{
+}
+
+class Client{
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
+}
+
+class Employee{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+class User {
+-name
+-email
+-password
+}
+
+@enduml

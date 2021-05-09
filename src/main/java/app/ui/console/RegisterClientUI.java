@@ -44,22 +44,23 @@ public class RegisterClientUI implements Runnable {
         String email = Utils.readLineFromConsole("Type the client's email: ");
         String name = Utils.readLineFromConsole("Type the client's name: ");
 
-        ClientDto dto = new ClientDto(citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name);
-
-        Client cl;
-        try {
-            cl = ctrl.registerClient(dto);
-        } catch (Exception e) {
-            System.out.println("Erro ao registar o cliente. Verifique os dados introduzidos.");
-            return;
-        }
-
         boolean confirmation = Utils.confirm(String.format("Are you sure this is the info of the client ? If so type s, if not type n. \n\n Citizen card number: %s \n National Healthcare Service number (NHS): %s " +
                 "\n Birth date: %s \n Sex: %s \n Tax Identification number (TIN): %s \n Phone number: %s \n email: %s \n name: %s ", citizenID,nhsID, birthDate, sex, TIN, phoneNumber, email, name));
 
-        if(confirmation){
+        if (confirmation){
+            ClientDto dto = new ClientDto(citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name);
+
+            Client cl;
+            try {
+                cl = ctrl.registerClient(dto);
+            } catch (Exception e) {
+                System.out.println("Erro ao registar o cliente. Verifique os dados introduzidos e faça um novo registo.");
+                return;
+            }
+
             ctrl.saveClient(cl);
             System.out.println("Operation was a success.");
+
         }
 
         /*
@@ -75,7 +76,5 @@ public class RegisterClientUI implements Runnable {
         }
 
          */
-
-
     }
 }
