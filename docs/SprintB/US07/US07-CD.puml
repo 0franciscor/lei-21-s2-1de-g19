@@ -1,0 +1,57 @@
+@startuml
+skinparam classAttributeIconSize 0
+class RegisterNewEmployeeUI
+class EmployeeDTO {
+  +getRoleId()
+class RegisterNewEmployeeController {
+  -generatePwd()
+  -generateID()
+  +getRoles()
+  +createEmployee()
+  +saveEmployee()
+class Employee {
+  -id
+  -name
+  -address
+  -phoneNumber
+  -emailAddress
+  -socCode
+  +create(role, id, name ...)
+}
+class OrgRole {
+  -description
+  +createEmployee(empDto)
+}
+class Company {
+  -designation
+  -getRoleById()
+  +getRoles()
+  +getEmployeesStore()
+  +getUserStore()
+  +createEmployee()
+}
+
+class UserStore {
+  +saveUser(user)
+}
+class EmpStore {
+  -validateEmployee(emp)
+  -addEmployee(emp)
+}
+class AuthFacade {
+  +addUserWithRole(name, email, pwd, role)
+}
+Company .-> UserStore
+Company .-> EmpStore
+Company .-> EmployeeDTO
+Company .-> OrgRole
+RegisterNewEmployeeUI .-> RegisterNewEmployeeController
+RegisterNewEmployeeController .-> Company
+RegisterNewEmployeeController .-> RolesMapper
+RegisterNewEmployeeController .-> EmpStore
+RegisterNewEmployeeController .-> UserStore
+RegisterNewEmployeeController .-> AuthFacade
+Administrator .-> RegisterNewEmployeeUI
+
+Administrator -> Employee : > is a
+@enduml

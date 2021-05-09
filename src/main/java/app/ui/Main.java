@@ -1,6 +1,9 @@
 package app.ui;
 
 import app.ui.console.MainMenuUI;
+import auth.domain.store.UserStore;
+
+import java.util.Optional;
 
 /**
  *

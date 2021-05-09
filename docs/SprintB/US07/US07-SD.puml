@@ -75,13 +75,15 @@ deactivate "role: OrgRole"
 deactivate ":RegisterNewEmployeeUI"
 A -> ":RegisterNewEmployeeUI" : confirms the data
 activate ":RegisterNewEmployeeUI"
-":RegisterNewEmployeeUI" -> ":RegisterNewEmployeeController" : saveEmployee()
+":RegisterNewEmployeeUI" -> ":RegisterNewEmployeeController" : saveEmployee(emp)
 activate ":RegisterNewEmployeeController"
 activate ":EmpStore"
 ":RegisterNewEmployeeController" -> ":EmpStore" : saveEmployee(emp)
 ":EmpStore" -> ":EmpStore" : validateEmployee(emp)
 ":EmpStore" -> ":EmpStore" : addEmployee(emp)
-":RegisterNewEmployeeController" -> ":RegisterNewEmployeeController" : pwd = generatePwd()
+":RegisterNewEmployeeController" -> "emp: Employee" : pwd = generatePwd()
+activate "emp: Employee"
+deactivate "emp: Employee"
 deactivate ":EmpStore"
 ":RegisterNewEmployeeController" -> ":AuthFacade" : user = addUserWithRole(name, email, pwd, role)
 activate ":AuthFacade"
