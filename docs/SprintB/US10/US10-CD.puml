@@ -3,16 +3,16 @@ skinparam classAttributeIconSize 0
 
 
 class ParameterStore{
-  +Parameter createParameter(code, designation, description, pcat)
-  +boolean saveParameter(parameter)
-  -boolean validate(parameter)
-  -boolean add(parameter)
-  +List <Parameter> getAllParameters()
+  +createParameter(code, designation, description, pcat)
+  +saveParameter(parameter)
+  -validate(parameter)
+  -add(parameter)
+  +getAllParameters()
 }
 
 class ParameterCategoryStore{
-  +List <ParameterCategory> getAllParameterCategories()
-  +ParameterCategory getParameterCategoryByCode(code)
+  +getAllParameterCategories()
+  +getParameterCategoryByCode(code)
 }
 
 
@@ -38,17 +38,17 @@ class ParameterCategory {
 
 
 class ParameterCategoryMapper{
-  +List<ParameterCategoryDto> toDto(lpc)
+  +toDto(lpc)
 }
 
 
 class CreateParameterController {
   +CreateParameterController()
-  +List<ParameterCategoryDto> toDto()
-  +ParameterCategory getParameterCategoryByCode(code)
-  +boolean createParameter(code,designation,description,code)
-  +boolean saveParameter()
-  +List<Parameter> getAllParameters()
+  +toDto()
+  +getParameterCategoryByCode(code)
+  +createParameter(code,designation,description,code)
+  +saveParameter()
+  +getAllParameters()
 }
 
 class CreateParameterUI {

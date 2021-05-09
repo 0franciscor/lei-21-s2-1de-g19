@@ -47,7 +47,7 @@ public class ParameterStore {
      * @return false if the parameter was not save in the parameter store list.
      */
     public boolean saveParameter(Parameter parameter){
-        if(validate(parameter)){
+        if(parameter!=null&&validate(parameter)){
             add(parameter);
             return true;
         }
