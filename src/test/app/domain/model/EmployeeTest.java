@@ -102,20 +102,20 @@ public class EmployeeTest {
     public void checkDoctorIndexNumberRules() {
         Employee emp = new Employee();
         int socCode = 123424;
-        emp.checkSOCCODERules(socCode);
+        emp.checkDoctorIndexNumberRules(socCode);
     }
 
     @org.junit.Test(expected = IllegalArgumentException.class)
     public void checkDoctorIndexNumberRulesisBlank() {
         Employee emp = new Employee();
         int socCode = Integer.parseInt(null);
-        emp.checkSOCCODERules(socCode);
+        emp.checkDoctorIndexNumberRules(socCode);
     }
     @org.junit.Test(expected = IllegalArgumentException.class)
     public void checkDoctorIndexNumberRulesLenght() {
         Employee emp = new Employee();
         int socCode = 12345;
-        emp.checkSOCCODERules(socCode);
+        emp.checkDoctorIndexNumberRules(socCode);
     }
 
     @Test

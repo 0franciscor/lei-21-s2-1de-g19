@@ -20,4 +20,14 @@ public class ParameterCategoryTest {
     public void setCode() {
         ParameterCategory test2 = new ParameterCategory("covid", "");
     }
+
+    @Test
+    public void setNameCorrect() {
+        ParameterCategory test = new ParameterCategory("covid", "c0de1");
+    }
+
+    @Test
+    public void setCodeCorrect() {
+        ParameterCategory test2 = new ParameterCategory("covid", "c0vid");
+    }
 }

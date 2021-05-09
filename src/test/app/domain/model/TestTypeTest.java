@@ -45,4 +45,37 @@ public class TestTypeTest {
         testList.add(null);
         TestType test5 = new TestType("c0vid", "Covid_test", "", testList);
     }
+
+    //Correct Tests
+
+    @Test
+    public void setCodeCorrect() {
+        TestType test = new TestType("test1", "Covid_test", "Swab", new ParameterCategory("covid","c0vid"));
+    }
+
+    @Test
+    public void setDescriptionCorrect() {
+        TestType test2 = new TestType("test2", "blood_test", "Syringe", new ParameterCategory("hemogram","bl00d"));
+    }
+
+    @Test
+    public void setCollectingMethodCorrect() {
+        TestType test3 = new TestType("test3", "urine_test", "tube", new ParameterCategory("pee","test0"));
+    }
+
+    @Test
+    public void setParameterCategoryCorrect() {
+        TestType test4 = new TestType("test4", "skin_test", "skinExtract", new ParameterCategory("skinT","skin0"));
+    }
+
+    @Test
+    public void setParameterCategoriesListCorrect() {
+        List<ParameterCategory> testList = new ArrayList<>();
+        ParameterCategory testPC= new ParameterCategory("pee","test0");
+        ParameterCategory testPC2= new ParameterCategory("skinT","skin0");
+        testList.add(testPC);
+        testList.add(testPC2);
+        TestType test4 = new TestType("test4", "skin_test", "skinExtract", new ParameterCategory("skinT","skin0"));
+        test4.setParameterCategoriesList(testList);
+    }
 }

@@ -201,7 +201,7 @@ public class Employee {
         String esp = "0";
         for (int i = 0; i < (5-z); i++)
             id = id + esp;
-        id = id + (company.numEmp + 1);
+        id = id + company.numEmp;
         company.numEmp++;
         return id;
     }

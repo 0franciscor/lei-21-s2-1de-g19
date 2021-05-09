@@ -48,4 +48,5 @@ public class ParameterCategoryStoreTest {
         pcStoreTest.saveParameterCategory(pc1);
         assertEquals(pc1.toString(), pcStoreTest.getParameterCategoryByCode(pc1.getCode()).toString());
     }
+
 }

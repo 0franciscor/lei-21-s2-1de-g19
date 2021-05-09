@@ -36,7 +36,7 @@ public class EmpStoreTest {
 
         EmpStore empS = new EmpStore();
 
-        boolean result = true;
+        boolean result = false;
         empS.empList.add(emp);
         boolean expected = empS.saveEmployee(emp);
 
