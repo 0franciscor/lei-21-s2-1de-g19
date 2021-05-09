@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import app.controller.App;
-import auth.mappers.dto.EmployeeDto;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Random;

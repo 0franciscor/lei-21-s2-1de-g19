@@ -81,6 +81,11 @@ public class Company {
         return this.clientstore;
     }
 
+    /**
+     * Returns the TestTypeStore.
+     *
+     * @return parameter store.
+     */
     public TestTypeStore getTestTypeStore(){
         return testTypeStore;
     }
@@ -94,15 +99,23 @@ public class Company {
         return parameterStore;
     }
 
+    /**
+     * Returns the ParameterCategoryStore.
+     *
+     * @return parameter store.
+     */
     public ParameterCategoryStore getParameterCategoryStore(){
         return parameterCategoryStore;
     }
+
     public List<OrgRole> getRoles() {
         return roleList;
     }
+
     public EmpStore getEmployeeStore() {
         return this.employeeStore.getEmployeeStore();
     }
+
     public Employee createEmployee(EmployeeDto empDto) {
         return EmployeeMapper.toModel(empDto);
     }
@@ -114,7 +127,6 @@ public class Company {
         }
         return new OrgRole(null);
     }
-
 
     /**
      * Returns the clinical analysis laboratory store
