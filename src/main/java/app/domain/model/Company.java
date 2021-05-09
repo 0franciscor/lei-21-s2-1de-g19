@@ -85,6 +85,11 @@ public class Company {
         return testTypeStore;
     }
 
+    /**
+     * Returns the parameter store.
+     *
+     * @return parameter store.
+     */
     public ParameterStore getParameterStore(){
         return parameterStore;
     }
