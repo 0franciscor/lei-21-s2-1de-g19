@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import app.controller.App;
-import auth.mappers.dto.EmployeeDto;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Random;
@@ -201,7 +200,7 @@ public class Employee {
         String esp = "0";
         for (int i = 0; i < (5-z); i++)
             id = id + esp;
-        id = id + company.numEmp;
+        id = id + (company.numEmp+1);
         company.numEmp++;
         return id;
     }
