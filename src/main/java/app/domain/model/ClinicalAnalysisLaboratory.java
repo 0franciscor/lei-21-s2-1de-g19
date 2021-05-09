@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Represents the ClinicalAnalysisLaboratory class
@@ -52,6 +53,11 @@ public class ClinicalAnalysisLaboratory {
     private List<TestType> TestTypesList;
 
     /**
+     * The TIN's exact length.
+     */
+    private static final int TIN_LENGTH = 10;
+
+    /**
      * Constructs a Clinical Analysis Laboratory's instance, receiving the lab's
      * name, address, phone number, TIN, the ID and the Test Type List
      *
@@ -72,18 +78,80 @@ public class ClinicalAnalysisLaboratory {
     }
 
     /**
-     * Modifies the lab ID
+     * Modifies and checks the inserted name.
      *
-     * @param labID the new lab ID
+     * @param name
      */
+    public void setName(String name) {
+        if (StringUtils.isBlank(name)) {
+            throw new IllegalArgumentException("Name cannot be empty.");
+        }
+        this.name = name;
+    }
+
     /**
-     * FALTA SABER O MAX LENGTH DO LAB ID public void setLabID(String labID) {
-     * if (StringUtils.isBlank(labID)) { throw new IllegalArgumentException("Lab
-     * ID cannot be empty."); } if (labID.length() > LABID_MAX_LENGTH) {
+     * Modifies and checks the inserted address.
      *
-     * throw new IllegalArgumentException("The Lab ID length is not correct.");
-     * } this.labID = labID; }
+     * @param address
      */
+    public void setAddress(String address) {
+        if (StringUtils.isBlank(address)) {
+            throw new IllegalArgumentException("Address cannot be empty.");
+        }
+        this.address = address;
+    }
+
+    /**
+     * Modifies and checks the inserted phone number.
+     *
+     * @param phoneNumber
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        if (StringUtils.isBlank(name)) {
+            throw new IllegalArgumentException("Code cannot be empty.");
+        }
+        this.phoneNumber = phoneNumber;
+    }
+
+    /**
+     * Modifies and checks the inserted TIN.
+     *
+     * @param TIN
+     */
+    public void setTIN(String TIN) {
+        if (StringUtils.isBlank(TIN)) {
+            throw new IllegalArgumentException("TIN cannot be empty.");
+        }
+        if (TIN.length() != TIN_LENGTH) {
+            throw new IllegalArgumentException("The TIN length is not correct.");
+        }
+        this.TIN = TIN;
+    }
+
+    /**
+     * Modifies and checks the inserted labID.
+     *
+     * @param labID
+     */
+    public void setLabID(String labID) {
+        if (StringUtils.isBlank(labID)) {
+            throw new IllegalArgumentException("Lab ID cannot be empty.");
+        }
+        this.labID = labID;
+    }
+
+    /**
+     * Modifies and checks the inserted test types list.
+     *
+     * @param TestTypesList
+     */
+    public void setTestTypesList(List<TestType> TestTypesList) {
+        if (TestTypesList.isEmpty()) {
+            throw new NullPointerException("The test types list is null.");
+        }
+        this.TestTypesList = TestTypesList;
+    }
+
     /**
      * Gives the name.
      *
@@ -150,4 +218,3 @@ public class ClinicalAnalysisLaboratory {
 
     }
 }
-
