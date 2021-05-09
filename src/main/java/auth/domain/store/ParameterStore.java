@@ -48,7 +48,7 @@ public class ParameterStore {
      */
     public boolean saveParameter(Parameter parameter){
         if(validate(parameter)){
-            parameterStoreList.add(parameter);
+            add(parameter);
             return true;
         }
         return false;
@@ -58,8 +58,8 @@ public class ParameterStore {
      * Sees if the parameter is valid.
      *
      * @param parameter
-     * @return true if the parameter is valid.
-     * @return false if the parameter is not valid.
+     * @return true if the parameter is not already in the store.
+     * @return false if the parameter is already in the store.
      */
     public boolean validate(Parameter parameter){
         if(parameterStoreList.contains(parameter))
@@ -72,9 +72,16 @@ public class ParameterStore {
      *
      * @return a list of all the parameters.
      */
-    public List<Parameter> getAllParameters(){
+    /*public List<Parameter> getAllParameters(){
         return parameterStoreList;
-    }
+    }*/
 
+    /**
+     * Add a parameter to the store list.
+     * @param parameter
+     */
+    public void add(Parameter parameter){
+        parameterStoreList.add(parameter);
+    }
 
 }

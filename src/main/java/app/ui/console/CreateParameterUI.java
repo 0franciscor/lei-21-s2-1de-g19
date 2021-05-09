@@ -41,7 +41,7 @@ public class CreateParameterUI implements Runnable{
     public void run(){
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Create a new parameter",new ShowTextUI("You have chosen to specify a new parameter.")));
-        options.add(new MenuItem("See all the available parameters",new ShowTextUI("You have chosen to show all the existing parameters.")));
+        //options.add(new MenuItem("See all the available parameters",new ShowTextUI("You have chosen to show all the existing parameters.")));
 
         int option = 0;
         do
@@ -50,6 +50,7 @@ public class CreateParameterUI implements Runnable{
             CreateParameterController parameter = new CreateParameterController();
             String code, description, designation;
             if (option==0) {
+                //if(cpcc.getAllParameterCategoriesDto().isEmpty())
                 if(cpcc.getAllParameterCategories().isEmpty())
                     System.out.printf("\nYou need to create a parameter category first.");
                 else{
@@ -82,19 +83,18 @@ public class CreateParameterUI implements Runnable{
                         }
                     }else
                         System.out.printf("The creation of the parameter was cancelled.");
-
                 }
             }
-            if(option==1){
+            /*if(option==1){
                 List<Parameter> allParameters= cpc.getAllParameters();
                 if(allParameters.isEmpty())
                     System.out.printf("\nThere are no parameters to be shown.");
                 else{
                     System.out.printf("\n...showing all the existing parameters...\n");
                     for(Parameter p: allParameters)
-                        System.out.println(p);
+                        System.out.printf("\n"+p);
                 }
-            }
+            }*/
         }
         while (option != -1 );
     }

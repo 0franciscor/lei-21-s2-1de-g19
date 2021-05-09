@@ -63,6 +63,12 @@ public class Parameter {
     }
 
     /**
+     * Builds an empty parameter instance.
+     */
+    public Parameter(){
+    }
+
+    /**
      * Returns the parameter code.
      * @return parameter code.
      */
@@ -98,7 +104,7 @@ public class Parameter {
      * Method responsible for checking the acceptance criteria for the parameter's code.
      * @param code
      */
-    private void checkCodeRules(String code){
+    public void checkCodeRules(String code){
         if(StringUtils.isBlank(code))
             throw new IllegalArgumentException("Code cannot be blank.");
         if(code.length()!= CODE_LENGTH)
@@ -109,7 +115,7 @@ public class Parameter {
      * Method responsible for checking the acceptance criteria for the parameter's description.
      * @param description
      */
-    private void checkDescriptionRules(String description){
+    public void checkDescriptionRules(String description){
         if(StringUtils.isBlank(description))
             throw new IllegalArgumentException("Description cannot be blank.");
         if(description.length()>DESCRIPTION_MAX_LENGTH)
@@ -120,7 +126,7 @@ public class Parameter {
      * Method responsible for checking the acceptance criteria for the parameter's designation.
      * @param designation
      */
-    private void checkDesignationRules(String designation){
+    public void checkDesignationRules(String designation){
         if(StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
         if(designation.length()>DESIGNATION_MAX_LENGTH)
@@ -131,7 +137,7 @@ public class Parameter {
      * Method responsible for checking the acceptance criteria for the parameter's category.
      * @param pcat
      */
-    private void checkPcatRules(ParameterCategory pcat){
+    public void checkPcatRules(ParameterCategory pcat){
         if(pcat ==null)
             throw new NullPointerException("The parameter category is null.");
     }
@@ -142,10 +148,10 @@ public class Parameter {
      *
      * @return parameter characteristics.
      */
-    @Override
+    /*@Override
     public String toString(){
         return String.format("Parameter with code %s, description %s, and designation %s. %s", this.code, this.description, this.designation, this.pcat);
-    }
+    }*/
 
 
     /**
@@ -156,8 +162,8 @@ public class Parameter {
      * @return true if it founds an object equals to the @param.
      * @return false if there is not any object equals to the @param.
      */
-    @Override
-    public boolean equals(Object obj){
+    //@Override
+    /*public boolean equals(Object obj){
         if(obj == null)
             return false;
 
@@ -167,5 +173,5 @@ public class Parameter {
         Parameter obj2 = (Parameter) obj;
 
         return (this.code.equals(obj2.code) && this.description.equals(obj2.description) && this.designation.equals(obj2.designation) && this.pcat.equals(obj2.pcat));
-    }
+    }*/
 }

@@ -107,9 +107,9 @@ public class CreateParameterController {
      *
      * @return a list of all the parameters.
      */
-    public List<Parameter> getAllParameters(){
+    /*public List<Parameter> getAllParameters(){
         return parameterStore.getAllParameters();
-    }
+    }*/
 
 
 }
