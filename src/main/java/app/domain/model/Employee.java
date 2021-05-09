@@ -51,8 +51,7 @@ public class Employee {
      * Builds a new Employee object without defining any attributes
      *
      */
-    public Employee () {
-    }
+    public Employee () { }
     /**
      * Builds an Employee object receiving a name, role, address, email, phone number, Standard Occupational Classification code
      * and Doctor Index Number.
@@ -68,18 +67,16 @@ public class Employee {
      */
     public Employee (String name, OrgRole role, String address, String email,String phoneNumber, int socCode, int doctorIndexNumb)  {
         checkNameRules(name);
-        checkRoleRules(role.designation);
         checkDoctorIndexNumberRules(doctorIndexNumb);
         checkSOCCODERules(socCode);
         this.name = name;
         this.role = role;
         this.address = address;
         this.email = email;
-        this.empID = generateID(name);
         this.phoneNumber = phoneNumber;
         this.socCode = socCode;
         this.doctorIndexNumb = doctorIndexNumb;
-        company.numEmp++;
+
     }
     /**
      * Builds an Employee object receiving a name, role, address, email, phone number and Standard Occupational Classification code.
@@ -95,17 +92,15 @@ public class Employee {
      */
     public Employee (String name, OrgRole role, String address, String email, String phoneNumber, int socCode)  {
         checkNameRules(name);
-        checkRoleRules(role.designation);
         checkPhoneNumberRules(phoneNumber);
         checkSOCCODERules(socCode);
         this.name = name;
         this.role = role;
         this.address = address;
         this.email = email;
-        this.empID = generateID(name);
         this.phoneNumber = phoneNumber;
         this.socCode = socCode;
-        company.numEmp++;
+
     }
     /**
      * Method responsible for checking the acceptance criteria for the Employee's name.
@@ -114,28 +109,18 @@ public class Employee {
      *
      *
      */
-    private void checkNameRules (String name) {
+    public void checkNameRules (String name) {
 
         if (StringUtils.isBlank(name))
             throw new IllegalArgumentException("Name cannot be blank.");
         if ( name.length() > 35 )
             throw new IllegalArgumentException("Name must not have more than 35 chars.");
-    }
-    /**
-     * Method responsible for checking the acceptance criteria for the Employee's role.
-     *
-     * @param role Employee's role.
-     *
-     *
-     */
-    private void checkRoleRules(String role) {
-
-        if (StringUtils.isBlank(role))
-            throw new IllegalArgumentException("Name cannot be blank.");
-        if ( role.length() > 15 )
-            throw new IllegalArgumentException("Role must not have more than 15 chars.");
-        if (company.getOrgRoleByName(role).designation == null)
-            throw new IllegalArgumentException("This role does not exist.");
+        for (int i = 0; i<name.length(); i++){
+            char y = name.charAt(i);
+            if (y == 48 || y == 49 || y == 50 || y == 51 || y == 52 || y == 53 || y == 54 || y == 55 || y == 56 || y == 57 ){
+                throw new IllegalArgumentException("Name must be only letters.");
+            }
+        }
     }
     /**
      * Method responsible for checking the acceptance criteria for the Employee's role.
@@ -144,7 +129,7 @@ public class Employee {
      *
      *
      */
-    private void checkPhoneNumberRules (String phoneNumber){
+    public void checkPhoneNumberRules (String phoneNumber){
 
         if (StringUtils.isBlank(phoneNumber))
             throw new IllegalArgumentException("Phone number cannot be blank.");
@@ -165,19 +150,14 @@ public class Employee {
      *
      *
      */
-    private void checkSOCCODERules (int socCode){
+    public void checkSOCCODERules (int socCode){
 
         if (StringUtils.isBlank(String.valueOf(socCode)))
             throw new IllegalArgumentException("Phone number cannot be blank.");
         if ( String.valueOf(socCode).length() != 4 ){
             throw new IllegalArgumentException("Phone number must have 11 chars.");
         }
-        for (int i = 0; i<String.valueOf(socCode).length(); i++){
-            char y = String.valueOf(socCode).charAt(i);
-            if (y != 48 && y != 49 && y != 50 && y != 51 && y != 52 && y != 53 && y != 54 && y != 55 && y != 56 && y != 57 ){
-                throw new IllegalArgumentException("Standard Occupational Classification code must be only numbers.");
-            }
-        }
+
     }
     /**
      * Method responsible for checking the acceptance criteria for the Employee's Doctor Index Number.
@@ -186,18 +166,12 @@ public class Employee {
      *
      *
      */
-    private void checkDoctorIndexNumberRules (int doctorIndexNumb){
+    public void checkDoctorIndexNumberRules (int doctorIndexNumb){
 
         if (StringUtils.isBlank(String.valueOf(doctorIndexNumb)))
             throw new IllegalArgumentException("Phone number cannot be blank.");
         if ( String.valueOf(doctorIndexNumb).length() != 6 ){
             throw new IllegalArgumentException("Phone number must have 11 chars.");
-        }
-        for (int i = 0; i<String.valueOf(doctorIndexNumb).length(); i++){
-            char y = String.valueOf(doctorIndexNumb).charAt(i);
-            if (y != 48 && y != 49 && y != 50 && y != 51 && y != 52 && y != 53 && y != 54 && y != 55 && y != 56 && y != 57 ){
-                throw new IllegalArgumentException("Standard Occupational Classification code must be only numbers.");
-            }
         }
     }
     /**
@@ -207,7 +181,7 @@ public class Employee {
      *
      * @return String Employee's ID.
      */
-    private String generateID(String name) {
+    public String generateID(String name) {
         String id = "";
         int x = 0;
         char[] charsArray = new char[10];
@@ -226,7 +200,8 @@ public class Employee {
         String esp = "0";
         for (int i = 0; i < (5-z); i++)
             id = id + esp;
-        id = id + company.numEmp;
+        id = id + (company.numEmp + 1);
+        company.numEmp++;
         return id;
     }
     /**
@@ -248,6 +223,9 @@ public class Employee {
         }
 
         return strAux;
+    }
+    public void setEmpID(String empID) {
+        this.empID = empID;
     }
 
 }

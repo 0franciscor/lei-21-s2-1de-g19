@@ -68,6 +68,8 @@ public class RegisterNewEmployeeController {
     public boolean saveEmployee(Employee emp) {
         this.empStore = company.getEmployeeStore();
         if (this.empStore.saveEmployee(emp)) {
+            String empId = emp.generateID(emp.name);
+            emp.setEmpID(empId);
             String pwd = emp.generatePwd();
             this.authFacade.addUserWithRole(emp.name, emp.email, pwd, emp.role.designation);
             return true;

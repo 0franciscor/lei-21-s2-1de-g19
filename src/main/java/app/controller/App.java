@@ -19,7 +19,7 @@ public class App {
     private Company company;
     private AuthFacade authFacade;
 
-    private App()
+    public App()
     {
         Properties props = getProperties();
         this.company = new Company(props.getProperty(Constants.PARAMS_COMPANY_DESIGNATION));
