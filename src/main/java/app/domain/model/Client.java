@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import auth.domain.model.User;
 import org.apache.commons.lang3.StringUtils;
 
 import java.text.ParseException;
