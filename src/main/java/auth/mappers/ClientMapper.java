@@ -6,6 +6,12 @@ import auth.mappers.dto.ClientDto;
 
 public class ClientMapper {
 
+    /**
+     * Builds a client instance, receiving the clientDto.
+     *
+     * @param clientDto the clientDto
+     * @return client instance
+     */
     public static Client toModel (ClientDto clientDto ){
 
         String citizenID = clientDto.getCitizenID();

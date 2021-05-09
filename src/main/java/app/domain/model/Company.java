@@ -60,10 +60,21 @@ public class Company {
         return authFacade;
     }
 
+    /**
+     * Returns the method toModel of the ClientMapper class that receives a dto as a parameter.
+     *
+     * @param dto Client's dto
+     * @return method toModel of the ClientMapper class that receives a dto as a parameter
+     */
     public Client registerClient(ClientDto dto) {
         return ClientMapper.toModel(dto);
     }
 
+    /**
+     * Returns the client store.
+     *
+     * @return client store
+     */
     public ClientStore getClientStore (){
         return this.clientstore;
     }
