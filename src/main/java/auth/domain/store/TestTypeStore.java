@@ -91,6 +91,23 @@ public class TestTypeStore {
     }
 
     /**
+     * @param code
+     *
+     * Searches for a specific TestType, through a sent code.
+     *
+     * @return the found TestTypeObject or a null object, stating that
+     * it was not found.
+     */
+    public TestType getTestTypeByCode(String code) {
+        for (TestType tt : testTypeList) {
+            if (tt.getCode().equalsIgnoreCase(code)) {
+                return tt;
+            }
+        }
+        return new TestType("NOT_FOUND", "NOT_FOUND", "NOT_FOUND.", new ParameterCategory ("null", "pcnul"));
+    }
+
+    /**
      *
      * @return all TestTypes that exist in the store list
      */

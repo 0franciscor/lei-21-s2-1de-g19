@@ -96,6 +96,16 @@ public class CreateTestTypeController {
     }
 
     /**
+     * @param code
+     *
+     * Receives a code as a parameter, which is then sent to the TestTypeStore.
+     * @return a TestType which is sent by the TestTypeStore
+     */
+    public TestType getTestTypeByCode(String code) {
+        return ttStore.getTestTypeByCode(code);
+    }
+
+    /**
      * Invokes the method in the TestTypeStore
      *
      * @return a list that contains all the Test Types existent in the TestTypeStore

@@ -24,6 +24,7 @@ public class Company {
     private AuthFacade authFacade;
     private TestTypeStore testTypeStore;
     private ClientStore clientstore;
+    private ClinicalAnalysisLaboratoryStore calStore;
     private ParameterStore parameterStore;
     private ParameterCategoryStore parameterCategoryStore;
     private EmpStore employeeStore;
@@ -40,16 +41,17 @@ public class Company {
         this.testTypeStore = new TestTypeStore();
         this.parameterCategoryStore = new ParameterCategoryStore();
         this.clientstore = new ClientStore();
+        this.calStore = new ClinicalAnalysisLaboratoryStore();
         this.parameterStore = new ParameterStore();
         this.employeeStore = new EmpStore();
         this.roleList = new ArrayList<OrgRole>();
-        this.roleList.add(new OrgRole("Specialist Doctor"));
-        this.roleList.add(new OrgRole("Medical Lab Technician"));
+        this.roleList.add(new OrgRole("SpecDoctor"));
+        this.roleList.add(new OrgRole("MedLabTech"));
         this.roleList.add(new OrgRole("Recepcionist"));
         this.roleList.add(new OrgRole("Lab Coordinator"));
+        this.roleList.add(new OrgRole("Administrator"));
+        this.roleList.add(new OrgRole("ClinicalChemTec"));
         this.numEmp = 1;
-
-
     }
 
     public String getDesignation() {
@@ -106,6 +108,15 @@ public class Company {
                 return c;
         }
         return new OrgRole(null);
+    }
+
+    /**
+     * Returns the clinical analysis laboratory store
+     *
+     * @return clinical analysis laboratory store
+     */
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore() {
+        return this.calStore;
     }
 
 }

@@ -3,6 +3,8 @@ package app.ui.console;
 import app.controller.CreateTestTypeController;
 import app.controller.RegisterClinicalAnalysisLaboratoryController;
 import app.domain.model.TestType;
+import app.ui.console.MenuItem;
+import app.ui.console.ShowTextUI;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.ClinicalAnalysisLaboratoryDto;
 import auth.mappers.dto.TestTypeDto;
