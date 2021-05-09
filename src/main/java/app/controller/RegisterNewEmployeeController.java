@@ -45,7 +45,7 @@ public class RegisterNewEmployeeController {
         this.app = App.getInstance();
         this.company = app.getCompany();
         this.authFacade = company.getAuthFacade();;
-
+        this.empStore = company.getEmployeeStore();
     }
 
     /**
@@ -66,7 +66,6 @@ public class RegisterNewEmployeeController {
      * @return a Boolean.
      */
     public boolean saveEmployee(Employee emp) {
-        this.empStore = company.getEmployeeStore();
         if (this.empStore.saveEmployee(emp)) {
             String empId = emp.generateID(emp.name);
             emp.setEmpID(empId);

@@ -229,4 +229,8 @@ public class Employee {
         this.empID = empID;
     }
 
+    @Override
+    public String toString() {
+        return String.format("The Employee %s (with the Employee ID: %s) is registered on the database. Address: %s Phone Number: %s Email: %s Organization Role: %s ", this.name, this.empID, this.address, this.phoneNumber, this.email,this.role.designation);
+    }
 }

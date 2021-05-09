@@ -44,6 +44,10 @@ public class RegisterNewEmployeeUI implements Runnable {
                     Employee emp = ctrl.createEmployee(empDto);
                     if (ctrl.saveEmployee(emp)) {
                         System.out.println("Employee registered with success");
+                        System.out.println("This is the list of Employees registered on the database.");
+                        for (Employee c : ctrl.empStore.getEmpList()) {
+                            System.out.println(c.toString());
+                        }
                     } else {
                         System.out.println("Employee is already registered");
                     }
@@ -59,6 +63,10 @@ public class RegisterNewEmployeeUI implements Runnable {
                     Employee emp = ctrl.createEmployee(empDto);
                     if (ctrl.saveEmployee(emp)) {
                         System.out.println("Employee registered with success");
+                        System.out.println("This is the list of Employees registered on the database.");
+                        for (Employee c : ctrl.empStore.empList) {
+                            System.out.println(c.toString());
+                        }
                     } else {
                         System.out.println("Employee is already registered");
                     }
