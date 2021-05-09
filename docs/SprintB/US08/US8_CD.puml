@@ -4,27 +4,28 @@ left to right direction
 
 class "Company" as C {
 -designation
-+registerChemicalAnalysisLaboratory(labID)
-+validateChemicalAnalysisLaboratory(cal)
-+saveChemicalAnalysisLaboratory(cal)
--addChemicalAnalysisLaboratory(cal)
++getClinicalAnalysisLaboratoryStore()
++getTestTypeStore()
 }
 
-class "ChemicalAnalysisLaboratory" as CAL {
+class "ClinicalAnalysisLaboratory" as CAL {
+-name
+-address
+-phoneNumber
+-TIN
 -labID
-+ChemicalAnalysisLaboratory(labID)
++ClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID)
 }
 
-class "Test" as T {
--description
--internalCode
--nhsCode
--collectMethod
--collectDateTime
--chemicalAnalysisDateTime
--diagnosisDateTime
--validationDateTime  
+
+class "ClinicalAnalysisLaboratoryStore" as CALS {
++ClinicalAnalysisLaboratory registerClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID, TestTypes)
++boolean saveClinicalAnalysisLaboratory(cal)
++boolean validateClinicalAnalysisLaboratory(cal)
++boolean addClinicalAnalysisLaboratory(cal)
++List<ClinicalAnalysisLaboratory> getAllClinicalAnalysisLaboratories()
 }
+  
 
 class "TestType" as TT {
 -code
@@ -33,20 +34,28 @@ class "TestType" as TT {
 +TestType(code, description, collectingMethod)
 }
 
-class "RegisterChemicalAnalysisLaboratoryController" as RCALC {
-+registerChemicalAnalysisLaboratory(labID)
-+saveChemicalAnalysisLaboratory(cal)
+class "RegisterClinicalAnalysisLaboratoryController" as RCALC {
++RegisterClinicalAnalysisLaboratoryController()
++List<ClinicalAnalysisLaboratoryDto>getAllClinicalAnalysisLaboratoriesDto()
++boolean registerClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID, TestTypesList)
++boolean saveClinicalAnalysisLaboratory()  
++List<ClinicalAnalysisLaboratory> getClinicalAnalysisLaboratories()
 }
 
-class "RegisterChemicalAnalysisLaboratoryUI" as RCALUI {  
+class "RegisterClinicalAnalysisLaboratoryUI" as RCALUI {  
+}
+
+class "ClinicalAnalysisLaboratoryMapper" as CALM {
++List<ClinicalAnalysisLaboratoryDto>toDto(List<ChemicalAnalysisLaboratory>)  
 }
 
 
 RCALUI ..> RCALC
 RCALC ..> C
+RCALC ..> CALM
+CALS ..> C
 C "1" --> "*" CAL : owns
-C "1" --> "*" T : performs
-T "1" --> "1" TT : is of
-CAL "1" --> "*" T : operates
+C "1" --> "*" TT : performs
+CAL "1" --> "*" TT : operates
 
 @enduml

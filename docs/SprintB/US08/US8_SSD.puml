@@ -9,9 +9,16 @@ participant ":System" as SYST
 activate ADMIN
 ADMIN -> SYST : Starts the proccess of registering a new clinical analysis laboratory
 activate SYST
+
+loop
+SYST --> ADMIN : Shows list with test types and asks to select the ones the lab operates
+deactivate SYST
+ADMIN -> SYST : Selects corresponding test type
+activate SYST
+end 
+
 SYST --> ADMIN : Requests data (i.e., labID) 
 deactivate SYST
-
 
 ADMIN -> SYST : Types requested data
 activate SYST
@@ -21,19 +28,10 @@ deactivate SYST
 ADMIN -> SYST : Confirms the data
 activate SYST
 
-loop
-SYST --> ADMIN : Shows list with test types and asks to select the ones the lab operates
-deactivate SYST
-
-ADMIN -> SYST : Selects corresponding test type
-activate SYST
-end 
 
 SYST --> ADMIN : Informs the success of the operation
 deactivate SYST
 
 deactivate ADMIN
-
-@enduml
 
 @enduml

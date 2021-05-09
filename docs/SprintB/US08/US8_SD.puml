@@ -5,67 +5,65 @@ actor "Administrator" as ADMIN
 participant ":RegisterClinicalAnalysisLaboratoryUI" as UI
 participant ":RegisterClinicalAnalysisLaboratoryController" as CTRL
 participant ":Company" as CMP
-participant ":cal = Chemical\nAnalysisLaboratory" as CAL
+participant "listTestTypes: list<TestType>" as LTT
+participant "store:TestTypeStore" as TTS
+participant ":TestTypeMapper" as TTM
+participant "store:ClinicalAnalysisLaboratoryStore" as CALS
+participant ":cal = Clinical\nAnalysisLaboratory" as CAL
 
 
 activate ADMIN
 ADMIN -> UI : Starts the proccess of registering a new clinical analysis laboratory
 activate UI
-UI --> CTRL ** : create
-UI -> CTRL : registerClincalAnalysisLaboratory()
+UI --> CTRL : getAllTestTypes()
 activate CTRL
-CTRL -> CMP : cal = registerClinicalAnalysisLaboratory()
-activate CMP
-CMP --> CAL ** : create()
-deactivate CMP
-deactivate CTRL
-UI --> ADMIN : Requests data (i.e., labID)
-deactivate UI
-
-ADMIN -> UI : Types requested data
-activate UI
-UI -> CTRL : setData(labID)
-activate CTRL
-CTRL -> CAL: setLabID(labID)
-activate CAL
-deactivate CAL
-CTRL -> CMP : validateClinicalAnalysisLaboratory(cal)
-activate CMP
-CMP -> CAL : validate()
-activate CAL
-deactivate CAL
-deactivate CMP
-deactivate CTRL
-UI --> ADMIN : Shows the data and requests a confirmation
-deactivate UI
-
-ADMIN -> UI : Confirms the data
-activate UI
-UI -> CTRL : saveChemicalAnalysisLaboratory()
-activate CTRL
-CTRL -> CMP : saveChemicalAnalysisLaboratory(cal)
-activate CMP
-CMP -> CMP : validateChemicalAnalysisLaboratory(cal)
+CTRL -> CMP : store = getTestTypeStore()
 activate CMP
 deactivate CMP
-CMP -> CMP :addChemicalAnalysisLaboratory(cal)
-activate CMP
-deactivate CMP
-deactivate CMP
+CTRL --> LTT ** : create()
+CTRL --> TTS : listTestTypes = getAllTestTypes()
+CTRL --> TTM : testTypesDto = toDto(listTestTypes)
 deactivate CTRL
 
 loop for how many test types the lab operates
 UI --> ADMIN : Shows list with test types and asks to select the ones the lab operates
 deactivate UI 
-
-
 ADMIN -> UI : Selects corresponding test types
-activate UI 
 end
 
-UI -> ADMIN : Informs the success of the operation
-deactivate UI
+UI -> ADMIN : Requests data (name, address, phoneNumber, TIN, labID)
+ADMIN -> UI : Types requested data
+activate UI
+UI -> CTRL : cal = getTestTypeByCode(TestTypeDto.getCode())
+activate CTRL
+UI -> CTRL : registerClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID)
+CTRL -> CMP : store = getClinicalAnalysisLaboratoryStore()
+CTRL -> CALS : cal = registerClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID)
+activate CALS
+CALS -> CAL ** : create(name, address, phoneNumber, TIN, labID)
+deactivate CALS
+deactivate CTRL
 
+UI --> ADMIN : Shows the data and requests a confirmation
+deactivate UI
+ADMIN -> UI : Confirms the data
+activate UI
+UI -> CTRL : saveChemicalAnalysisLaboratory()
+activate CTRL
+CTRL -> CALS : saveChemicalAnalysisLaboratory(cal)
+activate CALS
+CALS -> CALS : validateChemicalAnalysisLaboratory(cal)
+activate CALS
+deactivate CALS
+CALS -> CALS :addChemicalAnalysisLaboratory(cal)
+activate CALS
+deactivate CALS
+deactivate CALS
+deactivate CTRL
+
+
+UI -> ADMIN : Adds clinical analysis laboratory to list and informs the success of the operation
+deactivate UI
 deactivate ADMIN
 
 @enduml
