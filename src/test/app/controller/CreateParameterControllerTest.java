@@ -1,3 +1,5 @@
+package app.controller;
+
 import app.controller.CreateParameterController;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;

@@ -1,3 +1,5 @@
+package app.domain.model;
+
 import app.domain.model.Client;
 import org.junit.Assert;
 

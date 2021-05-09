@@ -1,3 +1,5 @@
+package auth.domain.store;
+
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import auth.domain.store.ParameterStore;
