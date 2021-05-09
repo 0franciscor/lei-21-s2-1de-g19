@@ -55,12 +55,12 @@ class CreateParameterUI {
 }
 
 CreateParameterUI ..> CreateParameterController
-CreateParameterController ..> ParameterCategory
 CreateParameterController ..> ParameterCategoryMapper
-CreateParameterController ..> Parameter
 CreateParameterController ..> Company
 Company ..> ParameterStore
 Company ..> ParameterCategoryStore
+ParameterStore ..> Parameter
+ParameterCategoryStore ..> ParameterCategory
 
 Company "1" -- "*" Parameter : > capable of analysing
 Company "1" -- "*" ParameterCategory : > adopts
