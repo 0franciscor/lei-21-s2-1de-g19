@@ -12,9 +12,6 @@ import static org.junit.Assert.*;
 
 public class EmpStoreTest {
 
-    @Test
-    public void getEmployeeStore() {
-    }
 
     @Test
     public void saveEmployee() {

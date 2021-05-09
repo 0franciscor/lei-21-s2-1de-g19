@@ -61,11 +61,19 @@ public class EmployeeTest {
     }
 
     @org.junit.Test(expected = IllegalArgumentException.class)
-    public void checkPhoneNumberRulesInvalidLength() {
+    public void checkPhoneNumberRulesInvalidLengthMoreThan11() {
 
         Employee emp = new Employee();
 
         String phoneNumber = "123456789091";
+        emp.checkPhoneNumberRules(phoneNumber);
+    }
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void checkPhoneNumberRulesInvalidLengthLessThan11() {
+
+        Employee emp = new Employee();
+
+        String phoneNumber = "1234567891";
         emp.checkPhoneNumberRules(phoneNumber);
     }
 

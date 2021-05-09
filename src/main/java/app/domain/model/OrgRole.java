@@ -34,8 +34,8 @@ public class OrgRole {
             this.designation = "RECEPCIONIST";
         if (designation.equalsIgnoreCase("LAB COORDINATOR"))
             this.designation = "LAB COORDINATOR";
-        if (designation.equalsIgnoreCase("CLINICALCHEMTECH"))
-            this.designation = "CLINICALCHEMTECH";
+        if (designation.equalsIgnoreCase("CLINICALCHEMTEC"))
+            this.designation = "CLINICALCHEMTEC";
     }
     /**
      * Method responsible for checking the acceptance criteria for the Employee's role.
