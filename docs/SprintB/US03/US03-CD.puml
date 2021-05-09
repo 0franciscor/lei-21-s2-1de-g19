@@ -65,10 +65,11 @@ class "ClientMapper" as CM {
 RCUI ..> RCC
 RCC ..> C
 RCC ..> CS
-CS ..> CM
+C ..> CM
 CM ..> CDTO
 CM ..> cl
 RCC ..> AF
+RCC ..> cl
 
 
 @enduml
