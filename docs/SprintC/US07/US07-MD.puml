@@ -1,0 +1,22 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Company {
+-designation
+}
+class Administrator
+class Employee {
+ - employee ID
+ - organization role
+ - name
+ - address
+ - phone number
+  - e-mail
+ - Standard Occupational Classification code
+ - Doctor Index Number
+  }
+
+
+Company "1" -- "1" Administrator : > knows
+Company "1" -- "*" Employee : > knows
+Administrator "1" -- "*" Employee : > registers
+@enduml

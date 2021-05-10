@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Administrator" as A
+activate A
+A -> System ++: register an employee
+System --> A --: shows the employee role list and ask to select one
+A -> System ++: selects an employee role
+System -->  A --: request data (employee ID, organization role, name, address , phone number, e-mail, Standard Occupational Classification (SOC) code and Doctor Index Number)
+A -> System ++: types requested data
+System --> A --: shows the data and requests a confirmation
+A -> System ++: confirms the data
+System --> A --: informs operation success
+@enduml

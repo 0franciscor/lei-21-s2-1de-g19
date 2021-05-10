@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Receptionist" as R
+activate R
+
+
+R -> ":RegisterClientUI" : register a client
+activate ":RegisterClientUI"
+":RegisterClientUI" --> R: request data (citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name)
+deactivate ":RegisterClientUI"
+R -> ":RegisterClientUI" : types requested data
+activate ":RegisterClientUI"
+":RegisterClientUI" -> ":RegisterClientController": registerClient(dto)
+activate ":RegisterClientController"
+":RegisterClientController" -> ":Company": cl = registerClient(dto)
+activate ":Company"
+
+
+
+
+deactivate ":AuthFacade"
+
+":Company" -> ":ClientMapper": cl = toModel (dto)
+deactivate ":Company"
+activate ":ClientMapper"
+":ClientMapper" -> "dto: ClientDto" : citizenID = getCitizenID()
+activate "dto: ClientDto"
+deactivate "dto: ClientDto"
+":ClientMapper" -> "dto: ClientDto" : nhsID = getNhsID()
+activate "dto: ClientDto"
+deactivate "dto: ClientDto"
+":ClientMapper" -> "dto: ClientDto" : birthDate = getBirthDate()
+activate "dto: ClientDto"
+deactivate "dto: ClientDto"
+":ClientMapper" -> "dto: ClientDto" : sex = getSex()
+activate "dto: ClientDto"
+deactivate "dto: ClientDto"
+":ClientMapper" -> "dto: ClientDto" : TIN = getTIN()
+activate "dto: ClientDto"
+deactivate "dto: ClientDto"
+":ClientMapper" -> "dto: ClientDto" : phoneNumber = getPhoneNumber()
+activate "dto: ClientDto"
+deactivate "dto: ClientDto"
+":ClientMapper" -> "dto: ClientDto" : email = getEmail()
+activate "dto: ClientDto"
+deactivate "dto: ClientDto"
+":ClientMapper" -> "dto: ClientDto" : name = getName()
+activate "dto: ClientDto"
+deactivate "dto: ClientDto"
+create "cl: Client"
+":ClientMapper" --> "cl: Client": create(citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name)
+deactivate ":ClientMapper"
+deactivate ":RegisterClientController"
+":RegisterClientUI" --> R: shows the data and requests a confirmation
+deactivate ":RegisterClientUI"
+R -> ":RegisterClientUI": confirms the data
+activate ":RegisterClientUI"
+":RegisterClientUI" -> ":RegisterClientController": saveClient(cl)
+activate ":RegisterClientController"
+":RegisterClientController" -> ":Company" ++: getClientStore()
+deactivate ":Company"
+":RegisterClientController" -> ":ClientStore" : saveClient(cl)
+activate ":ClientStore"
+":ClientStore" -> ":ClientStore": validateClient(cl)
+activate ":ClientStore"
+deactivate ":ClientStore"
+":ClientStore" -> ":ClientStore": addClient(cl)
+activate ":ClientStore"
+deactivate ":ClientStore"
+":RegisterClientController" -> "cl: Client": pwd = generatePwd()
+activate "cl: Client"
+deactivate "cl: Client"
+deactivate ":ClientStore"
+":RegisterClientController" -> ":AuthFacade" : user = addUser (email, name, pwd)
+activate ":AuthFacade"
+deactivate ":AuthFacade"
+
+":RegisterClientUI" --> R: informs operation success
+deactivate ":RegisterClientUI"
+
+@enduml

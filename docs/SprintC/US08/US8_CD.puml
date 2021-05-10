@@ -1,0 +1,61 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+
+class "Company" as C {
+-designation
++getClinicalAnalysisLaboratoryStore()
++getTestTypeStore()
+}
+
+class "ClinicalAnalysisLaboratory" as CAL {
+-name
+-address
+-phoneNumber
+-TIN
+-labID
++ClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID)
+}
+
+
+class "ClinicalAnalysisLaboratoryStore" as CALS {
++ClinicalAnalysisLaboratory registerClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID, TestTypes)
++boolean saveClinicalAnalysisLaboratory(cal)
++boolean validateClinicalAnalysisLaboratory(cal)
++boolean addClinicalAnalysisLaboratory(cal)
++List<ClinicalAnalysisLaboratory> getAllClinicalAnalysisLaboratories()
+}
+  
+
+class "TestType" as TT {
+-code
+-description
+-collectingMethod
++TestType(code, description, collectingMethod)
+}
+
+class "RegisterClinicalAnalysisLaboratoryController" as RCALC {
++RegisterClinicalAnalysisLaboratoryController()
++List<ClinicalAnalysisLaboratoryDto>getAllClinicalAnalysisLaboratoriesDto()
++boolean registerClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID, TestTypesList)
++boolean saveClinicalAnalysisLaboratory()  
++List<ClinicalAnalysisLaboratory> getClinicalAnalysisLaboratories()
+}
+
+class "RegisterClinicalAnalysisLaboratoryUI" as RCALUI {  
+}
+
+class "ClinicalAnalysisLaboratoryMapper" as CALM {
++List<ClinicalAnalysisLaboratoryDto>toDto(List<ChemicalAnalysisLaboratory>)  
+}
+
+
+RCALUI ..> RCALC
+RCALC ..> C
+RCALC ..> CALM
+CALS ..> C
+C "1" --> "*" CAL : owns
+C "1" --> "*" TT : performs
+CAL "1" --> "*" TT : operates
+
+@enduml

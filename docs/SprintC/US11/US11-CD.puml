@@ -1,0 +1,58 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+
+class "Company" as COMP {
+-designation
++getParameterCategoryStore()
+}
+
+class "ParameterCategory" as PC {
+-name
+-code
++ParameterCategory(name, code)
+}
+
+class "Parameter" as P{
+-code
+-description
+-designation
+}
+
+class "ParameterCategoryDto" as pcDto{
++toDto(List<ParameterCategory> parameterCategory)
+}
+
+class "CreateParameterCategoryController" as CPCC {
++CreateParameterCategoryController()
++getAllParameterCategoriesDto()
++createParameterCategory(name, code)
++saveParameterCategory()
++getParameterCategoryByCode(code)
++getAllParameterCategories()
+}
+
+class "ParameterCategoryStore" as PCS {
++ParameterCategoryStore()
++createParameterCategory(name, code)
++saveParameterCategory(pc)
++validateParameterCategory(pc)
++addParameterCategory(pc)
++getParameterCategoryByCode(code)
++getAllParameterCategories()
+}
+
+class "CreateParameterCategoryUI" as CPCUI
+class "ParameterCategory" as PC
+class "CreateParameterCategoryController" as CPCC
+
+CPCUI ..> CPCC
+COMP ..> PCS
+PCS ..> PC  :creates
+CPCC ..> PC
+CPCC ..> COMP
+CPCC ..> pcDto
+PC "1" <-- "1" P : presented under
+COMP "1" --> "*" PC : adopts
+
+@enduml

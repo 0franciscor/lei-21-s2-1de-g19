@@ -1,0 +1,106 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+'hide footbox
+actor "Administrator" as ADM
+
+participant ":CreateParameterUI" as CPUI
+participant ":CreateParameterController" as CPC
+participant ":Company" as COMP
+participant "lpc\n:List<ParameterCategory>" as LIST_CAT
+participant "store: ParameterCategoryStore" as PCS
+participant ":ParameterCategoryMapper" as PCM
+participant "store: ParameterStore" as PS
+participant "parameter\n:Parameter" as PARAM
+participant "pcat\n:ParameterCategory" as CAT
+
+loop
+activate ADM
+ADM -> CPUI : asks to create a new parameter
+activate CPUI
+CPUI --> ADM : requests data (code, description, designation)
+deactivate CPUI
+
+ADM -> CPUI : types requested data
+activate CPUI
+
+CPUI -> CPC : getAllParameterCategories()
+activate CPC
+
+CPC -> COMP : store = getParameterCategoryStore()
+activate COMP
+deactivate COMP
+
+CPC --> LIST_CAT** : create()
+
+CPC -> PCS : lpc=getAllParameterCategories()
+activate PCS
+deactivate PCS
+
+
+CPC -> PCM : lpcDto=toDto(lpc)
+activate PCM
+deactivate PCM
+
+deactivate CPC
+
+CPUI --> ADM : shows the existing parameter categories and asks to select one
+deactivate COMP
+deactivate CPUI
+
+ADM -> CPUI : selects one parameter category
+activate CPUI
+
+
+CPUI -> CPC : pcat=getParameterCategoryByCode(parameterCategoryDto.getCode())
+activate CPC
+CPUI -> CPC : createParameter(code, description, designation, catCode)
+
+
+
+CPC -> COMP: store = getParameterStore()
+activate COMP
+deactivate COMP
+
+CPC -> PS: parameter=createParameter(code, description, designation, pcat)
+activate PS
+
+PS --> PARAM**: create(code, description, designation, pcat)
+
+
+CPC --> CPUI: result
+deactivate PS
+end
+deactivate CPC
+CPUI --> ADM: shows all data and requests confirmation
+
+
+deactivate CPUI
+
+ADM -> CPUI : confirms the data
+activate CPUI
+CPUI -> CPC : saveParameter()
+activate CPC
+
+CPC -> PS : saveParameter(parameter)
+activate PS
+
+PS -> PS: validate(parameter)
+activate PS
+deactivate PS
+PS -> PS: add(parameter)
+activate PS
+deactivate PS
+
+
+CPC --> CPUI: result
+deactivate PS
+CPUI --> ADM : informs operation success
+
+deactivate CPC
+deactivate CPUI
+
+deactivate ADM
+
+@enduml

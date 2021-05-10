@@ -1,0 +1,71 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+class ParameterStore{
+  +createParameter(code, designation, description, pcat)
+  +saveParameter(parameter)
+  -validate(parameter)
+  -add(parameter)
+  +getAllParameters()
+}
+
+class ParameterCategoryStore{
+  +getAllParameterCategories()
+  +getParameterCategoryByCode(code)
+}
+
+
+class Parameter {
+  - String designation
+  - String description
+  - String code
+  +Parameter(code,description,designation,pcat)
+}
+
+class Company {
+  -String designation
+  +getParameterCategoryStore()
+  +getParameterStore()
+}
+
+class ParameterCategory {
+  -String name
+  -String code
+  +ParameterCategory(name, code)
+}
+
+
+
+class ParameterCategoryMapper{
+  +toDto(lpc)
+}
+
+
+class CreateParameterController {
+  +CreateParameterController()
+  +toDto()
+  +getParameterCategoryByCode(code)
+  +createParameter(code,designation,description,code)
+  +saveParameter()
+  +getAllParameters()
+}
+
+class CreateParameterUI {
+}
+
+CreateParameterUI ..> CreateParameterController
+CreateParameterController ..> ParameterCategoryMapper
+CreateParameterController ..> Company
+CreateParameterController ..> ParameterStore
+CreateParameterController ..> ParameterCategoryStore
+ParameterStore ..> Parameter
+ParameterCategoryStore ..> ParameterCategory
+
+Company "1" -- "*" Parameter : > capable of analysing
+Company "1" -- "*" ParameterCategory : > adopts
+ParameterCategory "1" -- "*" Parameter : < presented under
+
+
+
+@enduml

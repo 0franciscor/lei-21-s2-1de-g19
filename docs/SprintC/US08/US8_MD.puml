@@ -1,0 +1,45 @@
+@startuml
+hide methods
+left to right direction
+
+
+Administrator "1" -- "*" ChemicalAnalysisLaboratory : < registered by
+ChemicalAnalysisLaboratory "1" -- "*" TestTy : > operates 
+
+Company "1" -- "1" Administrator : > knows
+Company "1" -- "*" ChemicalAnalysisLaboratory : > owns
+Company "1" -- "*" TestType : > conducts
+
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+
+class Administrator{
+-name
+-adress
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCode
+}
+
+class ChemicalAnalysisLaboratory{
+-name
+-address
+-phoneNumber
+-TIN
+-labID
+}
+
+class TestType{
+-code
+-description
+-collectingMethod
+}
+
+
+@enduml

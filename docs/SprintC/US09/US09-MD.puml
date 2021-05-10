@@ -1,0 +1,50 @@
+@startuml
+hide methods
+left to right direction
+
+class Company
+class Administrator
+class ParameterCategory
+class TestType
+class Employee
+
+Employee "1" <|-- "1..*" Administrator
+
+TestType "*" -- "1" Company : < conducts
+
+TestType "*" -- "1" Administrator : < creates
+
+Administrator "1" -- "*" ParameterCategory : < created by
+
+skinparam classAttributeIconSize 0
+
+class Employee{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+class Company{
+-designation
+}
+
+class Administrator{
+}
+
+class ParameterCategory{
+-code
+-description
+-nhsID
+}
+
+class TestType{
+-code
+-description
+-collectingMethod
+}
+
+@enduml

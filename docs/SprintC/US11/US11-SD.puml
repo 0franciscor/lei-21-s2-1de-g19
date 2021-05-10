@@ -1,0 +1,57 @@
+@startuml
+
+autonumber
+actor "Administrator" as A
+activate A
+
+A -> ":CreateParameterCategoryUI" : starts new parameter category
+activate ":CreateParameterCategoryUI"
+":CreateParameterCategoryUI" --> A: request data (name, code)
+deactivate ":CreateParameterCategoryUI"
+
+
+A -> ":CreateParameterCategoryUI" : types requested data
+activate ":CreateParameterCategoryUI"
+
+":CreateParameterCategoryUI" -> ":CreateParameterCategoryController": createParameterCategory(name, code)
+activate ":CreateParameterCategoryController"
+
+":CreateParameterCategoryController" -> ":Company": store = getParameterCategoryStore()
+activate ":Company"
+deactivate ":Company"
+
+
+
+":CreateParameterCategoryController" -> "store:ParameterCategoryStore" : pc = createParameterCategory(name, code)
+create "pc: ParameterCategory"
+activate "store:ParameterCategoryStore"
+"store:ParameterCategoryStore" --> "pc: ParameterCategory": createParameterCategory(name, code)
+deactivate "store:ParameterCategoryStore"
+
+deactivate ":CreateParameterCategoryController"
+deactivate ":Company"
+
+
+
+":CreateParameterCategoryUI" --> A: shows the data and requests a confirmation
+deactivate ":CreateParameterCategoryUI"
+A -> ":CreateParameterCategoryUI": confirms the data
+activate ":CreateParameterCategoryUI"
+":CreateParameterCategoryUI" -> ":CreateParameterCategoryController": saveParameterCategory()
+
+activate ":CreateParameterCategoryController"
+":CreateParameterCategoryController" -> "store:ParameterCategoryStore" ++: saveParameterCategory(pc)
+
+
+"store:ParameterCategoryStore" -> "store:ParameterCategoryStore": validateParameterCategory(pc)
+activate "store:ParameterCategoryStore"
+deactivate "store:ParameterCategoryStore"
+"store:ParameterCategoryStore" -> "store:ParameterCategoryStore": addParameterCategory(pc)
+activate "store:ParameterCategoryStore"
+deactivate "store:ParameterCategoryStore"
+
+":CreateParameterCategoryUI" --> A: informs operation success
+deactivate ":CreateParameterCategoryController"
+deactivate ":CreateParameterCategoryUI"
+
+@enduml
