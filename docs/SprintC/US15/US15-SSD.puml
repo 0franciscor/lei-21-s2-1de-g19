@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Laboratory Coordinator" as labC
+activate labC
+
+labC -> System ++: validate a Test Result/Diagnosis
+System --> labC --: shows a list of to-be validated tests
+labC -> System ++: selects a test from the list
+System -->  labC --: displays its data and requests to chose a validation state
+labC ->  System ++: selects the desired state
+System --> labC --: shows it and requests a confirmation
+labC -> System ++: confirms the selected state
+System --> labC --: saves the selected state and informs about the operation success
+
+@enduml
