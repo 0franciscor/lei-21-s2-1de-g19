@@ -13,6 +13,6 @@ System -->  labC --: displays its data and requests to chose a validation state
 labC ->  System ++: selects the desired state
 System --> labC --: shows it and requests a confirmation
 labC -> System ++: confirms the selected state
-System --> labC --: saves the selected state and informs about the operation success
+System --> labC --: informs about the operation success
 
 @enduml
