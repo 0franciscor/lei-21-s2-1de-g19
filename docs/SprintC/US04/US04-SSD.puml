@@ -10,7 +10,7 @@ System -->  R --: request data (citizenID)
 R -> System ++: types requested data
 System --> R --: shows the test types and ask to select one
 R -> System ++: selects the test type
-System --> R --: show all parameters according to the test type and ask to select one
-R -> System ++: selects the parameter to be analysed
+System --> R --: show all parameters according to the test type and ask to select one or more
+R -> System ++: selects the parameter(s) to be analysed
 System --> R --: register test and informs operation success
 @enduml
