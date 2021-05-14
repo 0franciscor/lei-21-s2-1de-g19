@@ -24,8 +24,8 @@
         <option value="UML Use Case" />
         <option value="JUnit4 Test Class" />
         <option value="Class" />
-        <option value="UML Sequence" />
         <option value="UML Class" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -41,7 +41,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Sequence" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -76,7 +76,7 @@
       <recent name="app.domain.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClinicalAnalysisLaboratoryTest">
+  <component name="RunManager" selected="JUnit.ClientStoreTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -95,10 +95,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in Sem2App" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="auth.domain.store.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="auth.domain.store" />
+      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ClientStoreTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClientTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,20 +134,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClinicalAnalysisLaboratoryTest.setName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterClientControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.ClinicalAnalysisLaboratoryTest" />
-      <option name="METHOD_NAME" value="setName" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestTypeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.controller" />
+      <option name="MAIN_CLASS_NAME" value="app.controller.RegisterClientControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,18 +151,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.All in Sem2App" />
       <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest" />
-      <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest.setName" />
-      <item itemvalue="JUnit.TestTypeTest" />
+      <item itemvalue="JUnit.RegisterClientControllerTest" />
+      <item itemvalue="JUnit.ClientTest" />
+      <item itemvalue="JUnit.ClientStoreTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest" />
-        <item itemvalue="JUnit.TestTypeTest" />
-        <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest.setName" />
+        <item itemvalue="JUnit.ClientStoreTest" />
+        <item itemvalue="JUnit.ClientTest" />
+        <item itemvalue="JUnit.RegisterClientControllerTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="JUnit.ClinicalAnalysisLaboratoryTest" />
       </list>
     </recent_temporary>
   </component>
