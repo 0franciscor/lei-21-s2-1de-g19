@@ -6,8 +6,8 @@ activate labC
 
 labC -> System ++: validate a Test Result/Diagnosis
 System --> labC --: shows a list of to-be validated tests
-labC -> System ++: selects a test from the list
-System -->  labC --: displays its data (registration date, chemical analysis date, diagnosis date) and requests to choose if it's valid
+labC -> System ++: selects all tests from the list
+System -->  labC --: displays their data (registration date, chemical analysis date, diagnosis date) and requests to choose if it's valid
 labC ->  System ++: selects the desired state
 System --> labC --: shows it and requests a confirmation
 labC -> System ++: confirms the selected state
