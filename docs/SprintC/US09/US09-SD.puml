@@ -25,9 +25,9 @@ activate "store:ParameterCategoryStore"
 deactivate "store:ParameterCategoryStore"
 
 
-":createTestTypeController" -> ":ParameterCategoryMapper": categoriesDto = toDto(listCategories)
-activate ":ParameterCategoryMapper"
-deactivate ":ParameterCategoryMapper"
+":createTestTypeController" -> "ParameterCategoryMapper": categoriesDto = toDto(listCategories)
+activate "ParameterCategoryMapper"
+deactivate "ParameterCategoryMapper"
 deactivate ":createTestTypeController"
 
 loop for how many Categories the Administrator wants the new Test Type to have
