@@ -13,10 +13,6 @@ System -->  admin --: request data (code, description, collectingMethod)
 admin ->  System ++: types requested data
 System --> admin --: validates the data, shows it and requests a confirmation
 admin -> System ++: confirms the data
-
-
-
-
 System --> admin --: adds test to list and informs operation success
 
 @enduml
