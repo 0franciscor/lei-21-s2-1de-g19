@@ -45,91 +45,109 @@ public class CreateTestTypeUI implements Runnable {
 
         int option = 0;
 
+
         do{
-            option = Utils.showAndSelectIndex(options, "\n\nTest Type menu:");
+            boolean exceptionThrown = false;
 
-            if(option == 0 && pcController.getAllParameterCategoriesDto().isEmpty())
-                System.out.printf("\nThere aren't any Parameter Categories available at the moment. Once you have one, you'll be able to create a test type.\n");
+            try {
+                option = Utils.showAndSelectIndex(options, "\n\nTest Type menu:");
+            } catch (Exception e) {
+                System.out.printf("\n\nUnavailable option.");
+                exceptionThrown = true;
+            }
 
-            else if(option == 0 && !pcController.getAllParameterCategoriesDto().isEmpty()) {
-                System.out.printf("\nYou are now creating a Test Type!\n");
+            if (!exceptionThrown) {
+                if (option == 0 && pcController.getAllParameterCategoriesDto().isEmpty())
+                    System.out.printf("\nThere aren't any Parameter Categories available at the moment. Once you have one, you'll be able to create a test type.\n");
 
-                List<ParameterCategoryDto> categoryDto = pcController.getAllParameterCategoriesDto();
+                else if (option == 0 && !pcController.getAllParameterCategoriesDto().isEmpty()) {
+                    System.out.printf("\nYou are now creating a Test Type!\n");
 
-                boolean createSuccess, save = false, saveSuccess = false;
+                    List<ParameterCategoryDto> categoryDto = pcController.getAllParameterCategoriesDto();
 
-                System.out.printf("\nChoose at least one or more Parameter Categories.\n");
+                    boolean createSuccess = false, save = false, saveSuccess = false;
 
-                List<ParameterCategory> chosenCategoriesList = new ArrayList<ParameterCategory>();
-                int chosenCategories, x = 0;
+                    System.out.printf("\nChoose at least one or more Parameter Categories.\n");
 
-                do {
+                    List<ParameterCategory> chosenCategoriesList = new ArrayList<ParameterCategory>();
+                    int chosenCategories = 0, x = 0;
 
-                    System.out.printf("\nAvailable Parameter Categories:\n");
+                    do {
 
-                    for (int i = 0; i< categoryDto.size(); i++)
-                        if(categoryDto != null && !chosenCategoriesList.contains(pcController.getParameterCategoryByCode(categoryDto.get(i).getCode())))
-                            System.out.printf("\n" + (i+1)+ ". " + categoryDto.get(i));
+                        System.out.printf("\nAvailable Parameter Categories:\n");
+                        for (int i = 0; i < categoryDto.size(); i++)
+                            if (categoryDto != null && !chosenCategoriesList.contains(pcController.getParameterCategoryByCode(categoryDto.get(i).getCode())))
+                                System.out.printf("\n" + (i + 1) + ". " + categoryDto.get(i));
 
-                    chosenCategories = Utils.readIntegerFromConsole("Insert your option (Press -1 to exit selecting categories):");
-                    chosenCategories = chosenCategories - 1;
+                        try {
+                            chosenCategories = Utils.readIntegerFromConsole("Insert your option (Press -1 to exit selecting categories):");
+                            chosenCategories = chosenCategories - 1;
 
-                    if (chosenCategories > -1) {
-                        chosenCategoriesList.add(pcController.getParameterCategoryByCode(categoryDto.get(chosenCategories).getCode()));
-                        x++;
+                            if (chosenCategories > -1) {
+                                chosenCategoriesList.add(pcController.getParameterCategoryByCode(categoryDto.get(chosenCategories).getCode()));
+                                x++;
+                            }
+
+                        } catch (Exception e) {
+                            System.out.printf("\n\nUnavailable number, please select again.\n");
+                        }
+
+                    } while (x == 0 || (x < categoryDto.size() && chosenCategories != -2));
+
+
+                    String code, description, collectingMethod;
+
+                    code = leituraDados("code");
+                    description = leituraDados("description");
+                    collectingMethod = leituraDados("collecting method");
+
+
+                    try {
+                        if (chosenCategoriesList.size() == 1)
+                            createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList.get(0));
+                        else
+                            createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList);
+
+                    } catch (Exception e) {
+                        System.out.printf("\n\nError when creating a new type of test, please try again.\n");
                     }
 
-                } while (x== 0 || (x < categoryDto.size() && chosenCategories != -2));
+                    if (createSuccess)
+                        save = Utils.confirm("The test type was created successfully. Do you want to add it to the system? If so, press \"s\", if not, press \"n\".");
 
+                    if (save)
+                        saveSuccess = ttController.saveTestType();
 
-                String code, description, collectingMethod;
+                    if (saveSuccess)
+                        System.out.printf("\nYour test type has been successfully saved!");
+                    else
+                        System.out.printf("\nYour test types has not been successfully saved.");
 
+                }
 
-                do {
-                    code = Utils.readLineFromConsole("Please insert the code of the test type:");
-                } while (!Utils.confirm("Are you sure your code is correct? If so, press \"s\", if not, press \"n\"."));
+                if (option == 1) {
+                    List<TestTypeDto> availableTestTypesDto = ttController.getAllTestTypesDto();
 
-                do {
-                    description = Utils.readLineFromConsole("Please insert the description of the test type:");
-                } while (!Utils.confirm("Are you sure your description is correct? If so, press \"s\", if not, press \"n\"."));
-
-                do {
-                    collectingMethod = Utils.readLineFromConsole("Please insert the collecting method of the test type:");
-                } while (!Utils.confirm("Are you sure your collecting method is correct? If so, press \"s\", if not, press \"n\"."));
-
-
-                if(chosenCategoriesList.size() == 1)
-                    createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList.get(0));
-                else
-                    createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList);
-
-
-                if (createSuccess)
-                    save = Utils.confirm("The test type was created successfully. Do you want to add it to the system? If so, press \"s\", if not, press \"n\".");
-
-                if (save)
-                    saveSuccess = ttController.saveTestType();
-
-                if (saveSuccess)
-                    System.out.printf("\nYour test type has been successfully saved!");
-                else
-                    System.out.printf("\nYour test types has not been successfully saved.");
-
-            }
-
-            if(option == 1) {
-                List<TestTypeDto> availableTestTypesDto = ttController.getAllTestTypesDto();
-
-                if (availableTestTypesDto.isEmpty())
-                    System.out.printf("\nThere are no available Test Types at the moment.");
-                else {
-                    System.out.printf("\nAvailable Test Types:");
-                    for (int i = 0; i< availableTestTypesDto.size(); i++)
-                        System.out.printf("\n" + (i+1)+ ". " + availableTestTypesDto.get(i));
+                    if (availableTestTypesDto.isEmpty())
+                        System.out.printf("\nThere are no available Test Types at the moment.");
+                    else {
+                        System.out.printf("\nAvailable Test Types:");
+                        for (int i = 0; i < availableTestTypesDto.size(); i++)
+                            System.out.printf("\n" + (i + 1) + ". " + availableTestTypesDto.get(i));
+                    }
                 }
             }
-
         } while (option != -1);
-
     }
+
+    public static String leituraDados(String atributo){
+        String dadoInserido;
+
+        do {
+            dadoInserido = Utils.readLineFromConsole("Please insert the " + atributo + " of the test type:");
+        } while (!Utils.confirm("Are you sure your " + atributo + " is correct? If so, press \"s\", if not, press \"n\"."));
+
+        return dadoInserido;
+    }
+
 }

@@ -27,9 +27,15 @@ public class AdminUI implements Runnable{
         int option = 0;
         do
         {
-            option = Utils.showAndSelectIndex(options, "\n\nAdmin Menu:");
+            boolean exceptionThrown = false;
+            try{
+                option = Utils.showAndSelectIndex(options, "\n\nAdmin Menu:");
+            } catch (Exception e) {
+                System.out.printf("\n\nUnavailable option.");
+                exceptionThrown = true;
+            }
 
-            if ( (option >= 0) && (option < options.size()))
+            if ( (option >= 0) && (option < options.size()) && !exceptionThrown)
             {
                 options.get(option).run();
             }

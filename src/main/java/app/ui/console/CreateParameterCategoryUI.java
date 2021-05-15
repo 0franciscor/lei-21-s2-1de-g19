@@ -35,27 +35,36 @@ public class CreateParameterCategoryUI implements Runnable{
         options.add(new MenuItem("See the available Parameter Categories", new ShowTextUI("You have chosen to specify a new parameter.")));
 
         int option = 0;
+
+
         do {
-            option = Utils.showAndSelectIndex(options, "\n\nParameter Category menu:");
+            boolean exceptionThrown = false;
 
-            if (option == 0) {
+            try {
+                option = Utils.showAndSelectIndex(options, "\n\nParameter Category menu:");
+            } catch (Exception e) {
+                System.out.printf("\n\nUnavailable option.");
+                exceptionThrown = true;
+            }
 
-                String name, code;
-                System.out.printf("\nYou are now creating a Parameter Category!\n");
-                do {
-                    name = Utils.readLineFromConsole("Please insert the name of the category:");
-                } while (!Utils.confirm("Are you sure your name is correct? If so, press \"s\", if not, press \"n\"."));
+            if (!exceptionThrown) {
+                if (option == 0) {
+                    System.out.printf("\nYou are now creating a Parameter Category!\n");
 
-                do {
-                    code = Utils.readLineFromConsole("Please insert the code of the category:");
-                } while (!Utils.confirm("Are you sure your code is correct? If so, press \"s\", if not, press \"n\"."));
+                    String name = leituraDados("name");
+                    String code = leituraDados("code");
 
-                boolean save;
+                    boolean create = false, save = false, saveSuccess = false;
 
-                if (pcController.createParameterCategory(name, code)) {
-                    save = Utils.confirm("The parameter category has been created successfully!\nDo you wish to save it? If so, press \"s\", if not, press \"n\".");
+                    try {
+                        create = pcController.createParameterCategory(name, code);
+                    } catch (Exception e) {
+                        System.out.printf("\n\nError when creating a new parameter category, please try again.\n");
+                    }
 
-                    boolean saveSuccess = false;
+                    if (create)
+                        save = Utils.confirm("The parameter category has been created successfully!\nDo you wish to save it? If so, press \"s\", if not, press \"n\".");
+
                     if (save)
                         saveSuccess = pcController.saveParameterCategory();
 
@@ -63,19 +72,30 @@ public class CreateParameterCategoryUI implements Runnable{
                         System.out.printf("\nYour parameter category has been successfully saved!");
                     else
                         System.out.printf("\nYour parameter category has not been successfully saved.");
+
                 }
-            }
 
-            if(option == 1) {
-                parameterCategoriesListDto = pcController.getAllParameterCategoriesDto();
-                if (!parameterCategoriesListDto.isEmpty()) {
-                    System.out.printf("\nAvailable Parameter Categories:\n");
-                    for(ParameterCategoryDto pc: parameterCategoriesListDto)
-                        System.out.printf("\n" + pc);
-                } else
-                    System.out.printf("\nThere are no Parameter categories available.");
-            }
+                if (option == 1) {
+                    parameterCategoriesListDto = pcController.getAllParameterCategoriesDto();
+                    if (!parameterCategoriesListDto.isEmpty()) {
+                        System.out.printf("\nAvailable Parameter Categories:\n");
+                        for (ParameterCategoryDto pc : parameterCategoriesListDto)
+                            System.out.printf("\n" + pc);
+                    } else
+                        System.out.printf("\nThere are no Parameter categories available.");
+                }
 
+            }
         } while (option != -1);
+    }
+
+    public static String leituraDados(String atributo){
+        String dadoInserido;
+
+        do {
+            dadoInserido = Utils.readLineFromConsole("Please insert the " + atributo + " of the parameter category:");
+        } while (!Utils.confirm("Are you sure your " + atributo + " is correct? If so, press \"s\", if not, press \"n\"."));
+
+        return dadoInserido;
     }
 }

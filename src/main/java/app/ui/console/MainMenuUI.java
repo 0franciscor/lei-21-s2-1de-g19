@@ -23,17 +23,22 @@ public class MainMenuUI {
         options.add(new MenuItem("Do Login", new AuthUI()));
         options.add(new MenuItem("Know the Development Team",new DevTeamUI()));
         int option = 0;
+
         do
         {
-            option = Utils.showAndSelectIndex(options, "\n\nMain Menu");
+            boolean exceptionThrown = false;
+            try{
+                option = Utils.showAndSelectIndex(options, "\n\nMain Menu");
+            } catch (Exception e) {
+                System.out.printf("\n\nUnavailable option.");
+                exceptionThrown = true;
+            }
 
-            if ( (option >= 0) && (option < options.size()))
+            if ((option >= 0) && (option < options.size()) && !exceptionThrown)
             {
                 options.get(option).run();
             }
         }
         while (option != -1 );
     }
-
-
 }
