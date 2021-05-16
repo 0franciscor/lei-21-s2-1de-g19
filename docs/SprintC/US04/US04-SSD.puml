@@ -8,6 +8,8 @@ activate R
 R -> System ++: register a test to be performed to a registered client
 System -->  R --: request data (citizenID)
 R -> System ++: types requested data
+System -->  R --: shows the client's information and request a confirmation
+R -> System ++: confirms the data
 System --> R --: shows the test types and ask to select one
 R -> System ++: selects the test type
 System --> R --: show all parameters according to the test type and ask to select one or more
