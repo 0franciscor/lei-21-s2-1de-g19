@@ -1,0 +1,147 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Receptionist" as R
+activate R
+
+
+R -> ":RegisterTestUI" : register a test to be performed to a registered client
+activate ":RegisterTestUI"
+":RegisterTestUI" --> R: request data (citizenID)
+deactivate ":RegisterTestUI"
+R -> ":RegisterTestUI" : types requested data
+
+
+activate ":RegisterTestUI"
+
+
+":RegisterTestUI" -> ":RegisterTestController": getClient(citizenID)
+
+
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company" : store = getClientStore()
+activate ":Company"
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: ClientStore" : cl = getClient(citizenID)
+activate ":store: ClientStore"
+deactivate ":store: ClientStore"
+
+":RegisterTestController" -> ":ClientMapper" : clientDto = toDto(cl)
+activate ":ClientMapper"
+deactivate ":ClientMapper"
+
+
+deactivate ":RegisterTestController"
+
+
+
+":RegisterTestUI" --> R: shows the client's information and request a confirmation
+deactivate ":RegisterTestUI"
+
+
+
+
+R -> ":RegisterTestUI" : confirms the data
+activate ":RegisterTestUI"
+
+
+":RegisterTestUI" -> ":RegisterTestController": getAllTestType()
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company": store = getTestTypeStore()
+activate ":Company"
+
+deactivate ":Company"
+":RegisterTestController" -> ":store: TestTypeStore": listTestType = getAllTestType()
+activate ":store: TestTypeStore"
+deactivate ":store: TestTypeStore"
+
+":RegisterTestController" -> ":TestTypeMapper": tesTypeDto = toDto(listTestType)
+activate ":TestTypeMapper"
+deactivate ":TestTypeMapper"
+deactivate ":RegisterTestController"
+":RegisterTestUI" --> R: shows the test types and ask to select one
+deactivate ":RegisterTestUI"
+R -> ":RegisterTestUI": selects the test type
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": getAllParametersByTestType(testTypeDto)
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company": store = getParametersStore()
+activate ":Company"
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: ParametersStore": listParameters = getAllParametersByTestType(testTypeDto)
+activate ":store: ParametersStore"
+deactivate ":store: ParametersStore"
+
+":RegisterTestController" -> ":ParametersMapper": list <parametersDto>  = toDto(listParameters)
+activate ":ParametersMapper"
+deactivate ":ParametersMapper"
+
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" --> R: show all parameters according to the test type and ask to select one or more
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the parameter(s) to be analysed
+activate ":RegisterTestUI"
+
+
+
+
+
+
+
+":RegisterTestUI" -> ":RegisterTestController": createTest(list <parametersDto>)
+activate ":RegisterTestController"
+
+":RegisterTestController" -> ":TestTypeMapper": tt = toModel(testTypeDto)
+activate ":TestTypeMapper"
+deactivate ":TestTypeMapper"
+
+":RegisterTestController" -> ":ParametersMapper": parameters = toModel (list <parametersDto> )
+activate ":ParametersMapper"
+deactivate ":ParametersMapper"
+
+
+
+
+
+
+":RegisterTestController" -> ":Company" ++: store = getTestStore()
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters)
+
+create "test: Test"
+deactivate "test: Test"
+
+":store: TestStore" --> "test: Test" ++: create (tt, parameters)
+deactivate ":store: TestStore"
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" --> R: show all data and request a confirmation
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI" : confirms the data
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": saveTest(test)
+
+activate ":RegisterTestController"
+
+":RegisterTestController" -> ":store: TestStore" ++: saveTest(test)
+":store: TestStore" -> ":store: TestStore": validateTest(test)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+":store: TestStore" -> ":store: TestStore": addTest(test)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+
+
+":RegisterTestUI" --> R: register test and informs operation success
+deactivate ":RegisterTestUI"
+@enduml
