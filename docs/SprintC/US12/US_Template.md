@@ -1,4 +1,4 @@
-# US XXX - XXXX XXXX
+# US 12 - As a clinical chemistry technologist, I intend to record the results of a given test.
 
 ## 1. Requirements Engineering
 
