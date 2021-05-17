@@ -11,6 +11,6 @@ System -->  labC --: displays its data (registration date, chemical analysis dat
 labC ->  System ++: selects the desired state
 System --> labC --: shows it and requests a confirmation
 labC -> System ++: confirms the selected state
-System --> labC --: informs about the operation success
+System --> labC --: saves it and informs about the operation success
 
 @enduml
