@@ -29,7 +29,7 @@ deactivate ":Company"
 activate ":store: ClientStore"
 deactivate ":store: ClientStore"
 
-":RegisterTestController" -> ":ClientMapper" : clientDto = toDto(cl)
+":RegisterTestController" -> ":ClientMapper" : ClientDto = toDto(cl)
 activate ":ClientMapper"
 deactivate ":ClientMapper"
 
