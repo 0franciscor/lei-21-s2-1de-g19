@@ -7,28 +7,28 @@ admin -> ":createTestTypeUI" : register a type of test
 
 
 activate ":createTestTypeUI"
-":createTestTypeUI" -> ":createTestTypeController": getAllParameterCategories()
+":createTestTypeUI" -> ":createParameterCategoryController": getAllParameterCategoriesDto()
 
 
-activate ":createTestTypeController"
-":createTestTypeController" -> ":Company": store = getParameterCategoryStore()
+activate ":createParameterCategoryController"
+":createParameterCategoryController" -> ":Company": pcstore = getParameterCategoryStore()
 activate ":Company"
 deactivate ":Company"
 
 
 create "listCategories: list<ParameterCategory>"
-":createTestTypeController" --> "listCategories: list<ParameterCategory>": create()
+":createParameterCategoryController" --> "listCategories: list<ParameterCategory>": create()
 
 
-":createTestTypeController" -> "store:ParameterCategoryStore": listCategories = getAllParameterCategories()
+":createParameterCategoryController" -> "store:ParameterCategoryStore": parameterCategoriesList = getAllParameterCategories()
 activate "store:ParameterCategoryStore"
 deactivate "store:ParameterCategoryStore"
 
 
-":createTestTypeController" -> "ParameterCategoryMapper": categoriesDto = toDto(listCategories)
+":createParameterCategoryController" -> "ParameterCategoryMapper": parameterCategoriesListDto = toDto(parameterCategoriesList)
 activate "ParameterCategoryMapper"
 deactivate "ParameterCategoryMapper"
-deactivate ":createTestTypeController"
+deactivate ":createParameterCategoryController"
 
 loop for how many Categories the Administrator wants the new Test Type to have
 ":createTestTypeUI" --> admin: shows a list of Parameter Categories
@@ -47,7 +47,7 @@ activate ":createTestTypeUI"
 activate ":createTestTypeController"
 ":createTestTypeUI" -> ":createTestTypeController": createTestType(code, description, collectingMethod, pc)
 
-":createTestTypeController" -> ":Company" : store = getTestTypeStore()
+":createTestTypeController" -> ":Company" : ttstore = getTestTypeStore()
 activate ":Company"
 deactivate ":Company"
 ":createTestTypeController" -> "store:TestTypeStore" : tt = createTestType(code, description, collectingMethod, parameterCategory)
