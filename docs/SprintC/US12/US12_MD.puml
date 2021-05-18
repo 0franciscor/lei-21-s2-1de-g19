@@ -1,0 +1,68 @@
+@startuml
+hide methods
+left to right direction
+
+
+ClinicalChemistryTechnologist "1" --> "*" Test : > records results of
+
+Test "*" --> "1" TestType : > is of
+Test "1" --> "1..*" TestParameter : > requests analysis of
+
+TestParameter "*" --> "1" Parameter : refers to
+TestParameter "1" --> "0..1" TestParameterResult : contains
+
+TestParameterResult "1" --> "1" ReferenceValue : records
+
+skinparam classAttributeIconSize 0
+
+class ClinicalChemistryTechnologist{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+
+class Test{
+-code
+-NhsCode
+-createdAt
++addTestResult(parameterCode, result, metric)
+-getTestParameterFor(parameterCode)
+}
+
+
+class TestType{
+-code
+-description
+-collectionMethod
++getExternalModule()
+}
+
+class TestParameter{
++getParameter()
++addResult(result, metric, refValue)
+}
+
+class Parameter{
+-code
+-shortName
+-description
+}
+
+class TestParameterResult{
+-createdAt
+-value
+-metric
++TestParameterResult(value, metric, refValue)
+}
+
+class ReferenceValue{
+  
+}
+
+
+@enduml
