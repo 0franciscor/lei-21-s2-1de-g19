@@ -31,6 +31,7 @@ public class Company {
     private List<OrgRole> roleList;
     private OrgRole orgRole;
     public int numEmp;
+    private TestStore testStore;
 
     public Company(String designation) {
         if (StringUtils.isBlank(designation))
@@ -52,6 +53,7 @@ public class Company {
         this.roleList.add(new OrgRole("ADMINISTRATOR"));
         this.roleList.add(new OrgRole("CLINICALCHEMTEC"));
         this.numEmp = 1;
+        this.testStore = new TestStore();
     }
 
     public String getDesignation() {
@@ -136,5 +138,12 @@ public class Company {
     public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore() {
         return this.calStore;
     }
+
+    public TestStore getTestStore (){
+
+        return this.testStore;
+    }
+
+
 
 }

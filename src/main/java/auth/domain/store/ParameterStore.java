@@ -1,7 +1,9 @@
 package auth.domain.store;
 
+import app.domain.model.Company;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
+import auth.mappers.dto.TestTypeDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,8 @@ public class ParameterStore {
      * The store's parameters list.
      */
     private List<Parameter> parameterStoreList;
+
+
 
     /**
      * Builds a Parameter Store without receiving parameters.
@@ -84,4 +88,16 @@ public class ParameterStore {
         parameterStoreList.add(parameter);
     }
 
+    public List<Parameter> getAllParametersByTestType (TestTypeDto testTypeDto){
+
+        List<Parameter> parameterStoreListTestType = new ArrayList<>();
+
+        for (Parameter p: parameterStoreList ) {
+
+            if (testTypeDto.getParameterCategory().equals(p.getPcat())){
+                parameterStoreListTestType.add(p);
+            }
+        }
+        return parameterStoreListTestType;
+    }
 }

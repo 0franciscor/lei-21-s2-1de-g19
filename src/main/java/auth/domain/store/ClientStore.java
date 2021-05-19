@@ -20,6 +20,7 @@ public class ClientStore {
     /**
      * Builds a ClientStore without receiving parameters.
      */
+
     public ClientStore (){
 
         this.ClientList = new ArrayList<>();
@@ -75,9 +76,17 @@ public class ClientStore {
     }
 
 
-    /**
-     * Returns the list of clients.
-     *
-     * @return list of clients
-     */
+
+    public Client getClient (String citizenID) {
+
+        for (Client c : ClientList ) {
+
+            if (citizenID.equals(c.getCitizenID()))
+                return c;
+
+        }
+        return null;
+    }
+
+
 }

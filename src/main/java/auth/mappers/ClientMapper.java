@@ -27,4 +27,20 @@ public class ClientMapper {
 
         return c;
     }
+
+    public static ClientDto toDto (Client client) {
+
+        ClientDto c1 = new ClientDto(
+                client.getCitizenID(),
+                client.getNhsID(),
+                client.getBirthDate(),
+                client.getSex(),
+                client.getTIN(),
+                client.getPhoneNumber(),
+                client.getEmail(),
+                client.getName());
+
+        return c1;
+
+    }
 }

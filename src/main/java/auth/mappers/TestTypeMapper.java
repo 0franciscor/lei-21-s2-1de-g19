@@ -1,5 +1,6 @@
 package auth.mappers;
 
+import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import auth.mappers.dto.TestTypeDto;
 import java.util.ArrayList;
@@ -29,5 +30,22 @@ public class TestTypeMapper {
                 testTypeDto.add(new TestTypeDto(testTypeEach.getCode(), testTypeEach.getDescription(), testTypeEach.getCollectingMethod(), testTypeEach.getParameterCategoriesList()));
 
         return testTypeDto;
+    }
+
+    public static TestType toModel (TestTypeDto testTypeDto) {
+
+        String code = testTypeDto.getCode();
+        String description = testTypeDto.getDescription();
+        String collectingMethod = testTypeDto.getCollectingMethod();
+        ParameterCategory parameterCategory = testTypeDto.getParameterCategory();
+        List<ParameterCategory> parameterCategoryList = testTypeDto.getParameterCategoriesList();
+
+        if (testTypeDto.getParameterCategoriesList() == null){
+            TestType testType = new TestType(code, description, collectingMethod, parameterCategory);
+            return testType;
+        } else {
+            TestType testType1 = new TestType(code, description, collectingMethod, parameterCategoryList);
+            return testType1;
+        }
     }
 }
