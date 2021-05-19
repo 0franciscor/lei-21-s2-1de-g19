@@ -2,28 +2,19 @@
 skinparam classAttributeIconSize 0
 left to right direction
 
+package Core{
+
+package Domain{
 class "Company" as C {
 -String designation
 +getTestTypeStore()
 +getParameterCategoryStore()
 }
 
-class "TestTypeMapper" as ttM{
-+List <TestTypeDto> toDto(List<TestType>)
-}
-
-class "TestTypeStore" as TTS{
-+TestType createTestType(code, description, collectingMethod, parameterCategory)
-+TestType createTestType(code, description, collectingMethod, parameterCategoriesList)
-+boolean saveTestType(tt)
-+boolean validateTestType(tt)
-+boolean addTestType(tt)
-+List <TestType> getAllTestTypes()
-}
-
-class "CreateParameterCategoryController" as PCS{
-+List <ParameterCategoryDto> getAllParameterCategoriesDto()
-+ParameterCategory getParameterCategoryByCode(code)
+class "ParameterCategory" as PC{
+-String name
+-String code
++ParameterCategory(name, code)
 }
 
 class "TestType" as TT {
@@ -36,6 +27,24 @@ class "TestType" as TT {
 +TestType(code, description, collectingMethod, parameterCategoriesList)
 }
 
+}
+
+
+
+package Stores{
+class "TestTypeStore" as TTS{
++TestType createTestType(code, description, collectingMethod, parameterCategory)
++TestType createTestType(code, description, collectingMethod, parameterCategoriesList)
++boolean saveTestType(tt)
++boolean validateTestType(tt)
++boolean addTestType(tt)
++List <TestType> getAllTestTypes()
+}
+}
+
+
+
+package Controllers{
 class "CreateTestTypeController" as CTTC {
 +CreateTestTypeController()
 +List<TestTypeDto> getAllTestTypesDto()
@@ -45,28 +54,40 @@ class "CreateTestTypeController" as CTTC {
 +List<TestType> getAllTestTypes()
 }
 
-class "ParameterCategory" as PC{
--String name
--String code
-+ParameterCategory(name, code)
+
+
+class "CreateParameterCategoryController" as PCS{
++List <ParameterCategoryDto> getAllParameterCategoriesDto()
++ParameterCategory getParameterCategoryByCode(code)
 }
 
+}
+
+package Mappers{
+class "TestTypeMapper" as ttM{
++List <TestTypeDto> toDto(List<TestType>)
+}
+}
+
+
+package Dto{
+class "TestTypeDto" as ttDto
+}
+}
+
+package UI{
 class "CreateTestTypeUI" as CTTUI
-class "TestType" as TT
-class "CreateTestTypeController" as CTTC
+}
 
 CTTUI ..> CTTC
-
 C ..> PCS
-
 C ..> TTS
-
-
 CTTC ..> C
 CTTC ..> ttM
-
+CTTC ..> ttDto
 TT "*" -- "1" PC : > analyzes a
 TTS ..> TT
+ttM ..> ttDto
 
 C "1" -- "*" TT : > adopts
 C "1" -- "*" PC : > adopts
