@@ -4,10 +4,10 @@
 autonumber
 
 actor MedicalLabTechnician as MLT
-activate MLT
 
-MLT -> System ++: asks to see all the available tests with no samples collected
-System --> MLT --: shows the tests
+activate MLT
+MLT -> System ++: requests to see the tests with samples to be collected
+System --> MLT --: shows the tests and asks to select one
 MLT -> System ++: selects one test
 System --> MLT --: requests data (number of samples to be collected)
 MLT -> System ++: types requested data
