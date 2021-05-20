@@ -8,6 +8,7 @@ participant ":validateTestController" as validateTestCont
 participant "store:TestStore" as TestStore
 participant ":Company" as comp
 participant "TestMapper" as TestMapper
+participant "store:ReportStore" as ReportStore
 
 labC -> validateTestUI : validate a Test Result/Diagnosis
 
@@ -33,22 +34,38 @@ deactivate TestStore
 create "testsListDto: list<TestDto>" as testsListDto
 validateTestCont --> testsListDto : create()
 
-ref over validateTestCont
-validateTestCont -> TestMapper : testsListDto = toDto(testsList)
-activate TestMapper
-deactivate TestMapper
-end ref
+
+
+ref over validateTestCont, TestMapper : testsListDto = toDto(testsList)
+
+
+
 
 deactivate validateTestCont
+
+
 validateTestUI --> labC : shows a list of to-be validated tests
 deactivate validateTestUI
 
-alt
-labC -> validateTestUI : selects a test from the list
-end alt
-activate validateTestUI
 
+alt testsListDto.size() == 1
+labC -> validateTestUI : selects a test from the list
+activate validateTestUI
 validateTestUI --> labC : displays its data (registration date, chemical analysis date, diagnosis date) and request to chose if its valid
+deactivate validateTestUI
+
+else testsListDto.size() != 1
+
+loop for how many tests the Laboratory Coordinator wants to validate
+labC -> validateTestUI : selects a test from the list
+activate validateTestUI
+validateTestUI --> labC : displays its data (registration date, chemical analysis date, diagnosis date) and request to chose if its valid
+deactivate validateTestUI
+end
+end alt
+
+
+
 deactivate validateTestUI
 
 
@@ -64,4 +81,29 @@ labC -> validateTestUI : confirms the selected state
 activate validateTestUI
 end
 
+
+validateTestUI -> validateTestCont : validateTest(testDto.getCode())
+
+
+activate validateTestCont
+validateTestCont -> ReportStore : validateReport(code)
+activate ReportStore
+deactivate ReportStore
+
+validateTestCont -> TestStore : validateTest()
+activate TestStore
+
+
+TestStore -> Test : checkTestStatus()
+activate est
+deactivate Test
+deactivate TestStore
+
+
+
+
+
+validateTestUI --> labC
+deactivate validateTestCont
+deactivate validateTestUI
 @enduml
