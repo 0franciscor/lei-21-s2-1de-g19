@@ -61,6 +61,18 @@ public class RegisterTestController {
         return listParametersDto;
     }
 
+    public Test createTest (List<ParametersDto> parameters, TestTypeDto testTypeDto, String citizenID){
+
+        // ADICIONAR NO SD PASSO 22 O TESTTYPEDTO E O CITIZENID
+
+        TestType testType = TestTypeMapper.toModel(testTypeDto);
+        List<Parameter> parameters1 = ParametersMapper.toModel(parameters);
+        TestStore store = company.getTestStore();
+        Test test = testStore.createTest(testType, parameters1, citizenID);
+
+        return test;
+    }
+
     public boolean saveTest (Test test) {
 
         if (this.testStore.saveTest(test))
