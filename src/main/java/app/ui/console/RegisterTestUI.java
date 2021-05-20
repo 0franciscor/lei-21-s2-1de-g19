@@ -58,6 +58,7 @@ public class RegisterTestUI implements Runnable {
 
                             System.out.println(index + ". " + parametersDto.toString());
                         }
+                        Utils.readLineFromConsole("Choose the parameters that you want to associate to the test type.");
 
 
                     } else {

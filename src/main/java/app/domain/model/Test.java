@@ -1,5 +1,8 @@
 package app.domain.model;
 
+import app.controller.App;
+import auth.domain.store.ClientStore;
+
 import java.util.List;
 
 public class Test {
@@ -13,11 +16,17 @@ public class Test {
     private String validationDateTime;
     private TestType testType;
     private List<Parameter> parameters;
+    private Client client;
+    private Company company;
+    private ClientStore clientStore;
 
-    public Test (TestType testType, List<Parameter> parameters){
+    public Test (TestType testType, List<Parameter> parameters, String citizenID ){
 
+        this.company = App.getInstance().getCompany();
         this.testType = testType;
         this.parameters = parameters;
+        this.clientStore = company.getClientStore();
+        this.client = clientStore.getClient(citizenID);
     }
 
     public String getDescription() {

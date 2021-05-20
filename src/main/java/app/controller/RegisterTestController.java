@@ -1,12 +1,10 @@
 package app.controller;
 
 
-import app.domain.model.Client;
-import app.domain.model.Company;
-import app.domain.model.Parameter;
-import app.domain.model.TestType;
+import app.domain.model.*;
 import auth.domain.store.ClientStore;
 import auth.domain.store.ParameterStore;
+import auth.domain.store.TestStore;
 import auth.domain.store.TestTypeStore;
 import auth.mappers.ClientMapper;
 import auth.mappers.ParametersMapper;
@@ -23,12 +21,14 @@ public class RegisterTestController {
     private App app;
     private Company company;
     public ClientStore clientstore;
+    public TestStore testStore;
 
 
     public RegisterTestController () {
         this.app = App.getInstance();
         this.company = app.getCompany();
         this.clientstore = company.getClientStore();
+        this.testStore = company.getTestStore();
 
     }
 
@@ -59,5 +59,12 @@ public class RegisterTestController {
         List<ParametersDto> listParametersDto = ParametersMapper.toDto(listParameters);
 
         return listParametersDto;
+    }
+
+    public boolean saveTest (Test test) {
+
+        if (this.testStore.saveTest(test))
+            return true;
+        return false;
     }
 }
