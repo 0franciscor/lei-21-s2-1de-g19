@@ -25,10 +25,14 @@ deactivate "Test"
 SD -> "WriteTestReportUI" : types the requested data
 "WriteTestReportUI" -> SD : shows the typed data and requests confirmation
 SD -> "WriteTestReportUI" :  confirms the data
+"WriteTestReportController" -> "Test" : testcode = getTestCode(test)
+activate "Test"
+deactivate "Test"
 "WriteTestReportUI" -> "WriteTestReportController" : saveReport(report, testcode)
 "WriteTestReportController" -> "rep: Report" : saveReport(report, testcode)
 activate "rep: Report"
-"rep: Report" -> "rep: Report" : validateReport()
+"rep: Report" -> "rep: Report" : validateReport(report)
+"rep: Report" -> "rep: Report" : rep = create(report, testcode)
 "rep: Report" -> "ReportStore" : addReport(rep)
 "WriteTestReportUI" -> SD : informs the success of the operation
 

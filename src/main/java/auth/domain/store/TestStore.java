@@ -43,4 +43,19 @@ public class TestStore {
         else
             return true;
     }
+    public List<Test> getAnalyzedTests() {
+        List<Test> analyzedTestsList = new ArrayList<Test>();
+        for (Test c : TestList)
+            if (c.getStatus() == "Analyzed Test")
+                analyzedTestsList.add(c);
+
+        return analyzedTestsList;
+    }
+    public Test getTestByCode(String testcode) {
+        for(Test c : TestList)
+            if(c.getCode() == testcode)
+                return c;
+
+        return new Test();
+    }
 }

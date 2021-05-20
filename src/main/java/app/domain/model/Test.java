@@ -20,6 +20,8 @@ public class Test {
     private Company company;
     private ClientStore clientStore;
 
+    public Test() { }
+
     public Test (TestType testType, List<Parameter> parameters, String citizenID ){
 
         this.company = App.getInstance().getCompany();
@@ -64,4 +66,7 @@ public class Test {
     public List<Parameter> getParameters() {
         return parameters;
     }
+
+    public String getStatus() { return status;  }
+    public String getValues() { return values;  }
 }

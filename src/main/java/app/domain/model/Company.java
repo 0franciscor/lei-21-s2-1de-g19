@@ -27,6 +27,7 @@ public class Company {
     private ClinicalAnalysisLaboratoryStore calStore;
     private ParameterStore parameterStore;
     private ParameterCategoryStore parameterCategoryStore;
+    private ReportStore reportStore;
     private EmpStore employeeStore;
     private List<OrgRole> roleList;
     private OrgRole orgRole;
@@ -45,6 +46,7 @@ public class Company {
         this.calStore = new ClinicalAnalysisLaboratoryStore();
         this.parameterStore = new ParameterStore();
         this.employeeStore = new EmpStore();
+        this.reportStore = new ReportStore();
         this.roleList = new ArrayList<OrgRole>();
         this.roleList.add(new OrgRole("SPEC DOCTOR"));
         this.roleList.add(new OrgRole("MED LAB TECH"));
@@ -142,6 +144,11 @@ public class Company {
     public TestStore getTestStore (){
 
         return this.testStore;
+    }
+
+    public ReportStore getReportStore (){
+
+        return this.reportStore;
     }
 
 
