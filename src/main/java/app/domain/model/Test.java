@@ -69,4 +69,9 @@ public class Test {
 
     public String getStatus() { return status;  }
     public String getValues() { return values;  }
+
+    public String toString (){
+
+        return String.format("Test with test type %s, parameters %s, citizen card number %s",this.testType, this.parameters, this.client.getCitizenID());
+    }
 }

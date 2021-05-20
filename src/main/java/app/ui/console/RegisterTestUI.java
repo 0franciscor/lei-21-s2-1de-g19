@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.RegisterTestController;
+import app.domain.model.Test;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.ParametersDto;
@@ -59,6 +60,10 @@ public class RegisterTestUI implements Runnable {
                             System.out.println(index + ". " + parametersDto.toString());
                         }
                         Utils.readLineFromConsole("Choose the parameters that you want to associate to the test type.");
+
+                        Test test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID());
+                        System.out.println(test.toString());
+
 
 
                     } else {
