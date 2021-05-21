@@ -67,10 +67,29 @@ public class Test {
         return parameters;
     }
 
-    public String getStatus() { return status;  }
-    public String getValues() { return values;  }
+
+    /*
+    public String getStatus() {
+
+        return status;
+    }
+    public String getValues() {
+
+        return values;
+    }
+
+     */
 
     public String toString (){
+
+        System.out.println("----- TEST -----");
+        System.out.println("The test that is being registered has: ");
+
+       /* for (Parameter parameter : parameters) {
+            System.out.println(parameter.toString());
+        }
+
+        */
 
         return String.format("Test with test type %s, parameters %s, citizen card number %s",this.testType, this.parameters, this.client.getCitizenID());
     }
