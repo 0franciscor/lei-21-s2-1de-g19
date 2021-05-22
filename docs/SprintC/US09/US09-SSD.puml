@@ -13,8 +13,8 @@ admin -> System ++: selects a category from the list
 end
 System -->  admin --: request data (code, description, collectingMethod)
 admin ->  System ++: types requested data
-System --> admin --: validates the data, shows it and requests a confirmation
+System --> admin --: shows it and requests a confirmation
 admin -> System ++: confirms the data
-System --> admin --: adds test to list and informs operation success
+System --> admin --: informs operation success
 
 @enduml
