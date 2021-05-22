@@ -63,6 +63,7 @@ class "Test" as T {
 -diagnosisDateTime
 -validationDateTime
 +Test(tt, parameters)
++generateCode()
 }
 
 RTUI ..> RTC

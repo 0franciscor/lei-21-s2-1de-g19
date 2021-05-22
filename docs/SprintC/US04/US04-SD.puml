@@ -117,9 +117,8 @@ deactivate ":Company"
 ":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters)
 
 create "test: Test"
-deactivate "test: Test"
 
-":store: TestStore" --> "test: Test" ++: create (tt, parameters)
+":store: TestStore" --> "test: Test" : create (tt, parameters)
 deactivate ":store: TestStore"
 deactivate ":RegisterTestController"
 
@@ -133,13 +132,23 @@ activate ":RegisterTestUI"
 
 activate ":RegisterTestController"
 
-":RegisterTestController" -> ":store: TestStore" ++: saveTest(test)
+":RegisterTestController" -> ":store: TestStore" : saveTest(test)
+
+activate ":store: TestStore"
+
 ":store: TestStore" -> ":store: TestStore": validateTest(test)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 ":store: TestStore" -> ":store: TestStore": addTest(test)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
+
+deactivate ":store: TestStore"
+
+":RegisterTestController" -> "test: Test" : code = generateCode()
+
+activate "test: Test"
+deactivate "test: Test"
 
 
 ":RegisterTestUI" --> R: register test and informs operation success
