@@ -2,26 +2,17 @@
 skinparam classAttributeIconSize 0
 left to right direction
 
-class "Company" as COMP {
--designation
-+getParameterCategoryStore()
-}
+package "Core"{
 
-class "ParameterCategory" as PC {
--name
--code
-+ParameterCategory(name, code)
-}
-
-class "Parameter" as P{
--code
--description
--designation
-}
+package "DTO"{
 
 class "ParameterCategoryDto" as pcDto{
 +toDto(List<ParameterCategory> parameterCategory)
 }
+
+}
+
+package "Controllers"{
 
 class "CreateParameterCategoryController" as CPCC {
 +CreateParameterCategoryController()
@@ -31,6 +22,10 @@ class "CreateParameterCategoryController" as CPCC {
 +getParameterCategoryByCode(code)
 +getAllParameterCategories()
 }
+
+}
+
+package "Stores"{
 
 class "ParameterCategoryStore" as PCS {
 +ParameterCategoryStore()
@@ -42,9 +37,28 @@ class "ParameterCategoryStore" as PCS {
 +getAllParameterCategories()
 }
 
+}
+
+package "Domain"{
+class "Company" as COMP {
+-designation
++getParameterCategoryStore()
+}
+
+class "ParameterCategory" as PC {
+-name
+-code
++ParameterCategory(name, code)
+}
+
+}
+
+}
+
+package "UI"{
 class "CreateParameterCategoryUI" as CPCUI
-class "ParameterCategory" as PC
-class "CreateParameterCategoryController" as CPCC
+}
+
 
 CPCUI ..> CPCC
 COMP ..> PCS
@@ -52,7 +66,6 @@ PCS ..> PC  :creates
 CPCC ..> PC
 CPCC ..> COMP
 CPCC ..> pcDto
-PC "1" <-- "1" P : presented under
 COMP "1" --> "*" PC : adopts
 
 @enduml

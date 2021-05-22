@@ -6,11 +6,7 @@ hide methods
 class Company {
 -designation
 }
-class Parameter{
--designation
--description
--code
-}
+
 class ParameterCategory {
 -code
 -description
@@ -19,18 +15,6 @@ class ParameterCategory {
 
 class Administrator
 
-class Employee{
--name
--address
--phoneNumber
--employeeID
--orgRole
--email
--SOCcode
-}
-
-Employee "1" <|-- "1..*" Administrator
-ParameterCategory "1" -- "*" Parameter : < presented under
 ParameterCategory "*" -- "1" Administrator : > created by
 Company "1" -- "*" Administrator : > knows
 @enduml
