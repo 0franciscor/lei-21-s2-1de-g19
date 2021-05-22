@@ -21,11 +21,11 @@ public class ReportStore {
         return reportList;
     }
 
-    public Report getReportByCode(String code){
+    /*public Report getReportByCode(String code){
         for(Report reportRequested : reportList){
             if(reportRequested.getCode().equalsIgnoreCase(code))
                 return reportRequested;
         }
         return null;
-    }
+    }*/
 }

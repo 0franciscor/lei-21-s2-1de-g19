@@ -39,12 +39,14 @@ public class ParameterCategoryStore {
     /**
      * @param pc
      *
-     * Saves the received ParameterCategory Object, after validating it (then adding it).
+     * Adds a certain ParameterCategory after validating if it exists in the store list.
      *
-     * @returna a boolean stating the success of saving the received ParameterCategory (true if successful, false if it can't save)
+     * @return a boolean stating if the ParameterCategory gotten by parameter was successfully added
      */
-    public boolean saveParameterCategory(ParameterCategory pc){
-        return addParameterCategory(pc);
+    public boolean addParameterCategory(ParameterCategory pc) {
+        if (!validateParameterCategory(pc))
+            return false;
+        return this.parameterCategoryList.add(pc);
     }
 
     /**
@@ -58,19 +60,6 @@ public class ParameterCategoryStore {
         if(pc == null)
             return false;
         return !this.parameterCategoryList.contains(pc);
-    }
-
-    /**
-     * @param pc
-     *
-     * Adds a certain ParameterCategory after validating if it exists in the store list.
-     *
-     * @return a boolean stating if the ParameterCategory gotten by parameter was successfully added
-     */
-    public boolean addParameterCategory(ParameterCategory pc) {
-        if (!validateParameterCategory(pc))
-            return false;
-        return this.parameterCategoryList.add(pc);
     }
 
     /**

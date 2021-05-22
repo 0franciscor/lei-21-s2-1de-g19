@@ -63,7 +63,8 @@ public class CreateTestTypeUI implements Runnable {
                 else if (option == 0 && !pcController.getAllParameterCategoriesDto().isEmpty()) {
                     System.out.printf("\nYou are now creating a Test Type!\n");
 
-                    List<ParameterCategoryDto> categoryDto = pcController.getAllParameterCategoriesDto();
+                    List<ParameterCategoryDto> parameterCategoriesListDto = pcController.getAllParameterCategoriesDto();
+
 
                     boolean createSuccess = false, save = false, saveSuccess = false;
 
@@ -75,16 +76,16 @@ public class CreateTestTypeUI implements Runnable {
                     do {
 
                         System.out.printf("\nAvailable Parameter Categories:\n");
-                        for (int i = 0; i < categoryDto.size(); i++)
-                            if (categoryDto != null && !chosenCategoriesList.contains(pcController.getParameterCategoryByCode(categoryDto.get(i).getCode())))
-                                System.out.printf("\n" + (i + 1) + ". " + categoryDto.get(i));
+                        for (int i = 0; i < parameterCategoriesListDto.size(); i++)
+                            if (parameterCategoriesListDto != null && !chosenCategoriesList.contains(pcController.getParameterCategoryByCode(parameterCategoriesListDto.get(i).getCode())))
+                                System.out.printf("\n" + (i + 1) + ". " + parameterCategoriesListDto.get(i));
 
                         try {
                             chosenCategories = Utils.readIntegerFromConsole("Insert your option (Press -1 to exit selecting categories):");
                             chosenCategories = chosenCategories - 1;
 
                             if (chosenCategories > -1) {
-                                chosenCategoriesList.add(pcController.getParameterCategoryByCode(categoryDto.get(chosenCategories).getCode()));
+                                chosenCategoriesList.add(pcController.getParameterCategoryByCode(parameterCategoriesListDto.get(chosenCategories).getCode()));
                                 x++;
                             }
 
@@ -92,7 +93,7 @@ public class CreateTestTypeUI implements Runnable {
                             System.out.printf("\n\nUnavailable number, please select again.\n");
                         }
 
-                    } while (x == 0 || (x < categoryDto.size() && chosenCategories != -2));
+                    } while (x == 0 || (x < parameterCategoriesListDto.size() && chosenCategories != -2));
 
 
                     String code, description, collectingMethod;

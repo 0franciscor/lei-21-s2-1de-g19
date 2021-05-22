@@ -56,7 +56,7 @@ class "CreateTestTypeController" as CTTC {
 
 
 
-class "CreateParameterCategoryController" as PCS{
+class "CreateParameterCategoryController" as CPCS{
 +List <ParameterCategoryDto> getAllParameterCategoriesDto()
 +ParameterCategory getParameterCategoryByCode(code)
 }
@@ -67,20 +67,30 @@ package Mappers{
 class "TestTypeMapper" as ttM{
 +List <TestTypeDto> toDto(List<TestType>)
 }
+
+class "ParameterCategoryMapper" as pcM{
++List <ParameterCategoryDto> toDto(List<ParameterCategory>)
+}
+
 }
 
 
 package Dto{
-class "TestTypeDto" as ttDto
-}
+class "TestTypeDto" as ttDto{
 }
 
+class "ParameterCategoryDto" as pcDto{
+}
+
+}
+
+}
 package UI{
 class "CreateTestTypeUI" as CTTUI
 }
 
 CTTUI ..> CTTC
-C ..> PCS
+C ..> CPCS
 C ..> TTS
 CTTC ..> C
 CTTC ..> ttM
@@ -88,6 +98,8 @@ CTTC ..> ttDto
 TT "*" -- "1" PC : > analyzes a
 TTS ..> TT
 ttM ..> ttDto
+pcM ..> pcDto
+CPCS ..> pcM
 
 C "1" -- "*" TT : > adopts
 C "1" -- "*" PC : > adopts

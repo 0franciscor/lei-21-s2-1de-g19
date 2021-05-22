@@ -6,9 +6,6 @@ class Company
 class Administrator
 class ParameterCategory
 class TestType
-class Employee
-
-Employee "1" <|-- "1..*" Administrator
 
 TestType "*" -- "1" Company : < conducts
 
@@ -16,17 +13,9 @@ TestType "*" -- "1" Administrator : < creates
 
 Administrator "1" -- "*" ParameterCategory : < created by
 
-skinparam classAttributeIconSize 0
+Company "1" -- "*" ParameterCategory : > adopts
 
-class Employee{
--name
--address
--phoneNumber
--employeeID
--orgRole
--email
--SOCcode
-}
+skinparam classAttributeIconSize 0
 
 class Company{
 -designation

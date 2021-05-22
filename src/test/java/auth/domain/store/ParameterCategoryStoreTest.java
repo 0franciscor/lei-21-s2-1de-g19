@@ -21,13 +21,6 @@ public class ParameterCategoryStoreTest {
     }
 
     @Test
-    public void saveParameterCategory() {
-        ParameterCategoryStore pcStoreTest = new ParameterCategoryStore();
-        ParameterCategory pc1 = pcStoreTest.createParameterCategory("test", "test0");
-        assertTrue(pcStoreTest.saveParameterCategory(pc1));
-    }
-
-    @Test
     public void validateParameterCategory() {
         ParameterCategoryStore pcStoreTest = new ParameterCategoryStore();
         ParameterCategory pc1 = pcStoreTest.createParameterCategory("test", "test0");
@@ -45,7 +38,7 @@ public class ParameterCategoryStoreTest {
     public void getParameterCategoryByCode() {
         ParameterCategoryStore pcStoreTest = new ParameterCategoryStore();
         ParameterCategory pc1 = pcStoreTest.createParameterCategory("test", "test0");
-        pcStoreTest.saveParameterCategory(pc1);
+        pcStoreTest.addParameterCategory(pc1);
         assertEquals(pc1.toString(), pcStoreTest.getParameterCategoryByCode(pc1.getCode()).toString());
     }
 

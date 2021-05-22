@@ -34,7 +34,6 @@ public class CreateParameterCategoryController {
      */
     private ParameterCategory pc;
 
-
     /**
      * Builds the ParameterCategoryController, instantiating the app, the company and the ParameterCategoryStore
      *
@@ -53,9 +52,12 @@ public class CreateParameterCategoryController {
      *
      */
     public List<ParameterCategoryDto> getAllParameterCategoriesDto(){
-        return ParameterCategoryMapper.toDto(pcStore.getAllParameterCategories());
-    }
+        List <ParameterCategory> parameterCategoriesList = pcStore.getAllParameterCategories();
+        List <ParameterCategoryDto> pcListDto = ParameterCategoryMapper.toDto(parameterCategoriesList);
+        return pcListDto;
 
+        //return ParameterCategoryMapper.toDto(pcStore.getAllParameterCategories());
+    }
 
     /**
      * @param name
@@ -70,16 +72,14 @@ public class CreateParameterCategoryController {
         return true;
     }
 
-
     /**
      * Invokes the save method in the ParameterCategoryStore, which is then saved in the ParameterCategoryStore list.
      *
      * @return a boolean stating the process success
      */
     public boolean saveParameterCategory(){
-        return pcStore.saveParameterCategory(pc);
+        return pcStore.addParameterCategory(pc);
     }
-
 
     /**
      * @param code
