@@ -3,6 +3,7 @@ package app.ui.console;
 import app.controller.RegisterTestController;
 import app.domain.model.Test;
 import app.ui.console.utils.Utils;
+import auth.domain.store.TestStore;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.ParametersDto;
 import auth.mappers.dto.TestTypeDto;
@@ -61,27 +62,37 @@ public class RegisterTestUI implements Runnable {
                         }
                         Utils.readLineFromConsole("Choose the parameters that you want to associate to the test type.");
 
-                        Test test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID());
-                        System.out.println(test.toString());
 
 
+                        boolean confirmation1 = Utils.confirm(String.format("Are you sure this is the info of the test type ? If so type s, if not type n. \n\n Test type: %s", opcao.toString()));
+
+                        for (ParametersDto parametersDto: listParametersDto) {
+
+                            System.out.println(parametersDto.toString());
+                        }
+
+                        boolean confirmation2 = Utils.confirm("Are u sure this is the info of parameters associated to the test type ?");
+
+                        if (confirmation1 && confirmation2){
+                            Test test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID());
+                            ctrl.saveTest(test);
+                            System.out.println("Operation was a success and the test was registered.");
+
+                            /* VER SE O TEST ESTA NA TEST LIST
+                            List<Test> x = ctrl.testStore.ola();
+                            for (Test yy: x ) {
+                                System.out.printf(yy.toString());
+                            }
+                             */
+
+                        }
+                        //System.out.println(test.toString());
 
                     } else {
                         System.out.println("Não quer selecionar nenhum test type da lista.");
                     }
                 }
-
-
-
-
-
-
-
-
-
-
-
-
+                
             } else {
                 System.out.println("Corrigir dados");
             }

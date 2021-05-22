@@ -19,7 +19,7 @@ public class Report {
         this.reportStore = company.getReportStore();
         checkReportRules(report);
         this.diagnosisReport = report;
-        this.test = testStore.getTestByCode(testcode);
+        //this.test = testStore.getTestByCode(testcode);
     }
     public boolean validateReport(String report, String testcode) {
         Report diagnosisReport = new Report(report, testcode);

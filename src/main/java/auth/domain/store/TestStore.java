@@ -43,6 +43,7 @@ public class TestStore {
         else
             return true;
     }
+    /*
     public List<Test> getAnalyzedTests() {
         List<Test> analyzedTestsList = new ArrayList<Test>();
         for (Test c : TestList)
@@ -58,4 +59,13 @@ public class TestStore {
 
         return new Test();
     }
+
+     */
+
+    public List<Test> ola (){
+
+        return TestList;
+
+    }
+
 }

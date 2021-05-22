@@ -18,6 +18,7 @@ public class WriteTestReportController {
         this.company = App.getInstance().getCompany();
         this.testStore = company.getTestStore();
     }
+    /*
     public List<Test> getAnalyzedTests() {
         List<Test> analyzedTestsList = testStore.getAnalyzedTest();
         List<TestDto> analyzedTestsListDto = testMapperToDto(analyzedTestsList);
@@ -31,4 +32,6 @@ public class WriteTestReportController {
             return true;
         return false;
     }
+
+     */
 }

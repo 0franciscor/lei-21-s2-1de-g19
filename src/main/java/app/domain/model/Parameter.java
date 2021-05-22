@@ -148,10 +148,10 @@ public class Parameter {
      *
      * @return parameter characteristics.
      */
-    /*@Override
+
     public String toString(){
         return String.format("Parameter with code %s, description %s, and designation %s. %s", this.code, this.description, this.designation, this.pcat);
-    }*/
+    }
 
 
     /**
