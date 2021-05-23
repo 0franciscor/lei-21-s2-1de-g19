@@ -28,6 +28,12 @@ public class ClientMapper {
         return c;
     }
 
+    /**
+     * Responsible for converting a client into a client Dto.
+     *
+     * @param client a client
+     * @return a client Dto
+     */
     public static ClientDto toDto (Client client) {
 
         ClientDto c1 = new ClientDto(

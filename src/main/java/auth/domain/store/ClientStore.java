@@ -75,8 +75,12 @@ public class ClientStore {
             return true;
     }
 
-
-
+    /**
+     * If there is a client with the citizen card number equal to what is passed by parameter returns his data, otherwise returns null.
+     *
+     * @param citizenID Client's citizen card number
+     * @return Client's data if there is a client with the citizen card number equal to what is passed by parameter, otherwise returns null
+     */
     public Client getClient (String citizenID) {
 
         for (Client c : ClientList ) {
@@ -87,6 +91,4 @@ public class ClientStore {
         }
         return null;
     }
-
-
 }

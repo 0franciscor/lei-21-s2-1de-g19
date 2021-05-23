@@ -88,6 +88,13 @@ public class ParameterStore {
         parameterStoreList.add(parameter);
     }
 
+
+    /**
+     * Returns the parameter list associated with test type through the parameter category.
+     *
+     * @param testTypeDto a testTypeDto
+     * @return parameter list associated with test type through the parameter category
+     */
     public List<Parameter> getAllParametersByTestType (TestTypeDto testTypeDto){
 
         List<Parameter> parameterStoreListTestType = new ArrayList<>();

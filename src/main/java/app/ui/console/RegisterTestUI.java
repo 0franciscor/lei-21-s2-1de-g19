@@ -7,15 +7,25 @@ import auth.domain.store.TestStore;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.ParametersDto;
 import auth.mappers.dto.TestTypeDto;
-
 import java.util.List;
 
+/**
+ * Represents the register client UI.
+ *
+ * @author Eduardo Gonçalves
+ */
 public class RegisterTestUI implements Runnable {
 
 
+    /**
+     * Register Test Controller.
+     */
     private RegisterTestController ctrl;
 
 
+    /**
+     * Allows access to register test controller methods.
+     */
     public RegisterTestUI (){
 
         ctrl = new RegisterTestController();
@@ -23,6 +33,9 @@ public class RegisterTestUI implements Runnable {
 
     }
 
+    /**
+     * It allows you to enter the data necessary to register a test associated to a registered client, select the test type and the parameter(s) to register a test, make the confirmation and see if the operation was successful or not.
+     */
     public void run() {
 
         int option = 0;
@@ -60,31 +73,51 @@ public class RegisterTestUI implements Runnable {
 
                             System.out.println(index + ". " + parametersDto.toString());
                         }
-                        Utils.readLineFromConsole("Choose the parameters that you want to associate to the test type.");
 
+                        // ACRESCENTEI O STRING AUX = E O ARRAY
+                        String aux = Utils.readLineFromConsole("Choose the parameters that you want to associate to the test type.");
+                        String [] aux1 = aux.split(" ");
 
 
                         boolean confirmation1 = Utils.confirm(String.format("Are you sure this is the info of the test type ? If so type s, if not type n. \n\n Test type: %s", opcao.toString()));
 
-                        for (ParametersDto parametersDto: listParametersDto) {
 
-                            System.out.println(parametersDto.toString());
+                        for (int i=0; i<aux1.length; i++){
+                            if (aux1[i].charAt(i) == listParametersDto.indexOf(i))
+                                System.out.println(listParametersDto.indexOf(i));
                         }
 
-                        boolean confirmation2 = Utils.confirm("Are u sure this is the info of parameters associated to the test type ?");
+
+                        /*
+                        if (confirmation1){
+                            for (ParametersDto parametersDto: listParametersDto) {
+
+                                System.out.println(parametersDto.toString());
+                            }
+                        }
+
+                         */
+
+                        //aparecer só o(s) parameter(s) mediante a opção que escreve no teclado
+                        //validação para não poder registar o mesmo teste
+                        // Não deixar o programa ir abaixo quando entro para registar um teste e o client não existe
+
+
+                        boolean confirmation2 = Utils.confirm("Are you sure this is the info of parameter(s) associated to the test type ?");
 
                         if (confirmation1 && confirmation2){
+
                             Test test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID());
                             ctrl.saveTest(test);
                             System.out.println("Operation was a success and the test was registered.");
 
-                            /* VER SE O TEST ESTA NA TEST LIST
-                            List<Test> x = ctrl.testStore.ola();
+
+                            /*VER SE O TEST ESTA NA TEST LIST
+                            List<Test> x = ctrl.testStore.SeeList();
                             for (Test yy: x ) {
                                 System.out.printf(yy.toString());
                             }
                              */
-
                         }
                         //System.out.println(test.toString());
 

@@ -1,6 +1,5 @@
 package app.controller;
 
-
 import app.domain.model.*;
 import auth.domain.store.ClientStore;
 import auth.domain.store.ParameterStore;
@@ -14,16 +13,38 @@ import auth.mappers.dto.ParametersDto;
 import auth.mappers.dto.TestTypeDto;
 import java.util.List;
 
-
+/**
+ * Represents the controller that serves at intermediary between the UI and the domain layer.
+ *
+ * @author Eduardo Gonçalves
+ */
 public class RegisterTestController {
 
 
+    /**
+     * The controller's App object.
+     */
     private App app;
+
+    /**
+     *  The controller's Company.
+     */
     private Company company;
+
+    /**
+     * The controller's Client store.
+     */
     public ClientStore clientstore;
+
+    /**
+     * The controller's Test store.
+     */
     public TestStore testStore;
 
 
+    /**
+     * Builds a RegisterTestController without receiving parameters.
+     */
     public RegisterTestController () {
         this.app = App.getInstance();
         this.company = app.getCompany();
@@ -32,6 +53,12 @@ public class RegisterTestController {
 
     }
 
+    /**
+     * Returns a client Dto that receives the citizen card number as a parameter.
+     *
+     * @param citizenID citizen card number
+     * @return client Dto that receives the citizen card number as a parameter.
+     */
     public ClientDto getClient (String citizenID) {
 
         ClientStore store = company.getClientStore();
@@ -43,6 +70,11 @@ public class RegisterTestController {
 
     }
 
+    /**
+     * Creates a Dto which is able to return a copy of all test types.
+     *
+     * @return a Dto containing a copy of all test types.
+     */
     public List<TestTypeDto> getAllTestType (){
 
         TestTypeStore store = company.getTestTypeStore();
@@ -52,6 +84,11 @@ public class RegisterTestController {
         return listTestTypeDto;
     }
 
+    /**
+     * Creates a Dto which is able to return a copy of all parameters associated to the test type through the parameter category.
+     *
+     * @return a Dto which is able to return a copy of all parameters associated to the test type through the parameter category.
+     */
     public List<ParametersDto> getAllParametersByTestType (TestTypeDto testTypeDto){
 
         ParameterStore store = company.getParameterStore();
@@ -61,6 +98,14 @@ public class RegisterTestController {
         return listParametersDto;
     }
 
+    /**
+     * Create a test that receives a list of parameters Dto, a test type Dto and a citizen card number as parameters.
+     *
+     * @param parameters the parameters Dto list
+     * @param testTypeDto the test type Dto
+     * @param citizenID the citizen card number
+     * @return test.
+     */
     public Test createTest (List<ParametersDto> parameters, TestTypeDto testTypeDto, String citizenID){
 
         // ADICIONAR NO SD PASSO 22 O TESTTYPEDTO E O CITIZENID
@@ -73,10 +118,18 @@ public class RegisterTestController {
         return test;
     }
 
+    /**
+     * If the saveTest method of the Test store is true then a code is generated and returns true, otherwise returns false.
+     *
+     * @return true if the saveTest method of the test store is true, otherwise return false.
+     */
     public boolean saveTest (Test test) {
 
-        if (this.testStore.saveTest(test))
+        if (this.testStore.saveTest(test)){
+            String code = test.generateCode();
             return true;
+        }
+
         return false;
     }
 }

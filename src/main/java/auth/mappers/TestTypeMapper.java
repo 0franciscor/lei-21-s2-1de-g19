@@ -32,6 +32,12 @@ public class TestTypeMapper {
         return testTypeDto;
     }
 
+    /**
+     * Builds a test type instance, receiving the testTypeDto.
+     *
+     * @param testTypeDto a testTypeDto
+     * @return testType if the parameterCategoryList is null, otherwise returns testType1
+     */
     public static TestType toModel (TestTypeDto testTypeDto) {
 
         String code = testTypeDto.getCode();

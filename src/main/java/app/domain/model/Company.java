@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import auth.AuthFacade;
+
 import auth.domain.store.*;
 import auth.mappers.ClientMapper;
 import auth.mappers.EmployeeMapper;
@@ -32,6 +33,7 @@ public class Company {
     private List<OrgRole> roleList;
     private OrgRole orgRole;
     public int numEmp;
+    public int numTeste;
     private TestStore testStore;
 
     public Company(String designation) {
@@ -55,6 +57,7 @@ public class Company {
         this.roleList.add(new OrgRole("ADMINISTRATOR"));
         this.roleList.add(new OrgRole("CLINICALCHEMTEC"));
         this.numEmp = 1;
+        this.numTeste = 0;
         this.testStore = new TestStore();
     }
 
@@ -141,6 +144,11 @@ public class Company {
         return this.calStore;
     }
 
+    /**
+     * Returns the test store.
+     *
+     * @return test store
+     */
     public TestStore getTestStore (){
 
         return this.testStore;
