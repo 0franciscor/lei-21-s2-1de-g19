@@ -4,30 +4,92 @@
 autonumber
 
 actor MedicalLabTechnician as MLT
-participant RecordSamplesUI as RSUI
-participant RecordSamplesController as RSC
+participant ":RecordSamplesUI" as RSUI
+participant ":RecordSamplesController" as RSC
+participant ":Company" as COMP
+participant "tStore: TestStore" as TS
+participant "TestMapper" as TM
+participant "t: Test" as T
+participant "a: APIBarcodeAdapter" as APIBA
+participant "<<Interface>>\ne: ExternalModuleAPIBarcode" as EMAPIB
+participant "s: Sample" as S
+participant "ListSamples: ArrayList <Sample>" as LS
 
 activate MLT
-MLT -> RSUI : requests to see the tests with samples to be collected
+MLT -> RSUI : asks to record new sample(s)
 activate RSUI
-RSUI --> MLT : shows the tests and asks to select one
+RSUI -> RSC : lRTDto = getRegisteredTests()
+activate RSC
+RSC -> COMP : tStore = getTestStore()
+activate COMP
+deactivate COMP
+RSC -> TS : lRT = getRegisteredTests()
+activate TS
+deactivate TS
+RSC -> TM : lRTDto = toDto(lRT)
+activate TM
+deactivate TM
+deactivate RSC
+RSUI --> MLT : shows the tests and requests data (i.e.: test, number of samples to be collected)
 deactivate RSUI
-MLT -> RSUI : selects one test
+
+MLT -> RSUI : selects one test and types requested data
 activate RSUI
-RSUI --> MLT : requests data (number of samples to be collected)
+RSUI -> RSC : testDto = recordSample(tDto, nSamples)
+activate RSC
+RSC -> TM : t = toModel(tDto)
+activate TM
+deactivate TM
+RSC -> T : containsSamples()
+activate T
+deactivate T
+RSC -> APIBA : listBarcodes = generateBarcodes(nSamples)
+activate APIBA
+APIBA -> EMAPIB : generate (nSamples)
+activate EMAPIB
+deactivate EMAPIB
+note over EMAPIB : Also exports jpeg
+deactivate APIBA
+RSC -> RSC : listBarcodesNotRepeated
+activate RSC
+deactivate RSC
+loop for each barcode generated in listBarcodes
+RSC -> TS : isUnique(barcode)
+activate TS
+deactivate TS
+end
+RSC -> T : addAll(listBarcodesNotRepeated)
+activate T
+loop for each barcode in listBarcodesNotRepeated
+T --> S** : create(barcode)
+T -> LS : add(s)
+activate LS
+deactivate LS
+end
+T -> T : updateCollectDateTime()
+activate T
+deactivate T
+deactivate T
+RSC -> TM : toDto(t)
+activate TM
+deactivate TM
+deactivate RSC
+RSUI --> MLT : shows the data (samples generated and test to be associated with) and requests a confirmation
 deactivate RSUI
-MLT -> RSUI : types requested data
-activate RSUI
-RSUI --> MLT : shows the data and requests a confirmation
-deactivate RSUI
+
 MLT -> RSUI : confirms the data
 activate RSUI
-RSUI --> MLT : generates the sample barcode and informs operation success
+RSUI -> RSC : save()
+activate RSC
+RSC -> T : validate()
+activate T
+deactivate T
+RSC -> TS : save(t)
+activate TS
+deactivate TS
+deactivate RSC
+RSUI --> MLT : informs operation success
 deactivate RSUI
 
 deactivate MLT
-
-
-
-
 @enduml
