@@ -4,30 +4,15 @@ hide methods
 skinparam classAttributeIconSize 0
 left to right direction
 
-class MedicalLabTechnician
 class Test
-class Employee
 class Sample
-class ClinicalAnalysisLaboratory
 
-Employee "*" <|-- "*" MedicalLabTechnician
-MedicalLabTechnician "1..*" -- "*" ClinicalAnalysisLaboratory : > works at
-Sample "1..*" -- "1..*" MedicalLabTechnician : < registers
+Test "*" -- "1" Company : < performs
 Sample "*" -- "1" Test : < collects
 
 
-class ClinicalAnalysisLaboratory{
--labID
-}
-
-class Employee{
--name
--address
--phoneNumber
--employeeID
--orgRole
--email
--SOCcode
+class Company{
+-designation
 }
 
 class Sample{
