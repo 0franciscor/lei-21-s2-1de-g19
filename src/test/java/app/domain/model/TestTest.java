@@ -49,20 +49,20 @@ public class TestTest {
     @Test
     public void generateCode() {
 
-//        Company company = new Company("Many Labs");
-//
-//        ParameterCategory parameterCategory = new ParameterCategory("a", "12345");
-//        TestType testType = new TestType("34567","assdf","swab", parameterCategory);
-//
-//        List<Parameter> parameters = new ArrayList<>();
-//        Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);
-//        parameters.add(parameter);
-//
-//        int codeLengthResult = 12;
-//
-//        String code = company.getTestStore().createTest(testType,parameters,"1234567890987654").generateCode();
-//        int codeLengthExpected = code.length();
-//
-//        assertEquals(codeLengthResult,codeLengthExpected);
+        Company company = new Company("Many Labs");
+
+        ParameterCategory parameterCategory = new ParameterCategory("a", "12345");
+        TestType testType = new TestType("34567","assdf","swab", parameterCategory);
+
+        List<Parameter> parameters = new ArrayList<>();
+        Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);
+        parameters.add(parameter);
+
+        int codeLengthResult = 12;
+
+        String code = company.getTestStore().createTest(testType,parameters,"1234567890987654").generateCode();
+        int codeLengthExpected = code.length();
+
+        assertEquals(codeLengthResult,codeLengthExpected);
     }
 }

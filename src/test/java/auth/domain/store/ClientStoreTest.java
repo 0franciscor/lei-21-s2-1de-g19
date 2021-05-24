@@ -70,30 +70,30 @@ public class ClientStoreTest {
     @Test
     public void getClient (){
 
-//        ClientStore clientStore = new ClientStore();
-//
-//        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
-//        clientStore.addClient(cl);
-//
-//        Client clientResult = clientStore.getClient("1234567890123456");
-//        Client clientExpected = cl;
-//
-//        Assert.assertEquals(clientResult,clientExpected);
+        ClientStore clientStore = new ClientStore();
+
+        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        clientStore.addClient(cl);
+
+        Client clientResult = clientStore.getClient("1234567890123456");
+        Client clientExpected = cl;
+
+        Assert.assertEquals(clientResult,clientExpected);
 
     }
 
     @Test
     public void getClientNull (){
 
-//        ClientStore clientStore = new ClientStore();
-//
-//        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
-//        clientStore.addClient(cl);
-//
-//        Client clientResult = clientStore.getClient("5467890213456789");
-//        Client clientExpected = null;
-//
-//        Assert.assertEquals(clientResult,clientExpected);
+        ClientStore clientStore = new ClientStore();
+
+        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        clientStore.addClient(cl);
+
+        Client clientResult = clientStore.getClient("5467890213456789");
+        Client clientExpected = null;
+
+        Assert.assertEquals(clientResult,clientExpected);
 
     }
 }
