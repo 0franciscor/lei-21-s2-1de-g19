@@ -76,7 +76,7 @@
       <recent name="app.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in Sem2App">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -101,17 +101,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientStoreTest.getClientNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in Sem2App" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
+          <option name="PATTERN" value="app.domain.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ClientStoreTest" />
-      <option name="METHOD_NAME" value="getClientNull" />
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.EmployeeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest.generateID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.EmployeeTest" />
+      <option name="METHOD_NAME" value="generateID" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,51 +156,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTypeStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.TestTypeStoreTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestTypeStoreTest.DoesNotsaveTestType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.TestTypeStoreTest" />
-      <option name="METHOD_NAME" value="DoesNotsaveTestType" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="JUnit.ClientStoreTest.getClientNull" />
-      <item itemvalue="JUnit.TestTypeStoreTest.DoesNotsaveTestType" />
-      <item itemvalue="JUnit.TestTypeStoreTest" />
-      <item itemvalue="JUnit.TestStoreTest.createTest" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.TestStoreTest.createTest" />
+      <item itemvalue="JUnit.All in Sem2App" />
+      <item itemvalue="JUnit.EmployeeTest.generateID" />
+      <item itemvalue="JUnit.EmployeeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="JUnit.EmployeeTest" />
+        <item itemvalue="JUnit.EmployeeTest.generateID" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestStoreTest.createTest" />
-        <item itemvalue="JUnit.TestTypeStoreTest" />
-        <item itemvalue="JUnit.TestTypeStoreTest.DoesNotsaveTestType" />
-        <item itemvalue="JUnit.ClientStoreTest.getClientNull" />
       </list>
     </recent_temporary>
   </component>
