@@ -1,7 +1,6 @@
 package app.controller;
 
 import app.domain.model.ParameterCategory;
-import auth.domain.store.ParameterCategoryStore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -17,7 +16,7 @@ public class CreateParameterCategoryControllerTest {
     public void createParameterCategory() {
         CreateParameterCategoryController pcControllerTest = new CreateParameterCategoryController();
         boolean pcTest = pcControllerTest.createParameterCategory("CovidTest", "c0vid");
-        assertEquals(true, pcTest);
+        assertTrue(pcTest);
 
     }
 
@@ -25,7 +24,7 @@ public class CreateParameterCategoryControllerTest {
     public void saveParameterCategory() {
         CreateParameterCategoryController pcControllerTest = new CreateParameterCategoryController();
         boolean pcTest = pcControllerTest.saveParameterCategory();
-        assertEquals(false, pcTest);
+        assertFalse(pcTest);
     }
 
     @Test
