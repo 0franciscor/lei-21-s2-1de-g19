@@ -97,7 +97,7 @@ public class Test {
     /**
      * Validates the acceptance criteria of Test's National Healthcare Service number.
      */
-    public void checknhsCode (String nhsCode){
+    public void checknhsCodeRules (String nhsCode){
 
         if (StringUtils.isBlank(nhsCode))
             throw new IllegalArgumentException("NHS Code cannot be blank.");
