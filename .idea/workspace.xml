@@ -50,7 +50,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintC/US09" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -76,7 +76,7 @@
       <recent name="app.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Sem2App">
+  <component name="RunManager" selected="JUnit.TestTest.generateCode">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -109,6 +109,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClientStoreTest.getClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="auth.domain.store.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="auth.domain.store" />
+      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ClientStoreTest" />
+      <option name="METHOD_NAME" value="getClient" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
@@ -124,7 +140,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeTest.generateID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTest.generateCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -133,24 +149,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.EmployeeTest" />
-      <option name="METHOD_NAME" value="generateID" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestStoreTest.createTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.TestStoreTest" />
-      <option name="METHOD_NAME" value="createTest" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTest" />
+      <option name="METHOD_NAME" value="generateCode" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,18 +158,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.TestStoreTest.createTest" />
       <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.EmployeeTest.generateID" />
       <item itemvalue="JUnit.EmployeeTest" />
+      <item itemvalue="JUnit.TestTest.generateCode" />
+      <item itemvalue="JUnit.ClientStoreTest.getClient" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClientStoreTest.getClient" />
+        <item itemvalue="JUnit.TestTest.generateCode" />
+        <item itemvalue="JUnit.EmployeeTest" />
         <item itemvalue="JUnit.All in Sem2App" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.EmployeeTest" />
-        <item itemvalue="JUnit.EmployeeTest.generateID" />
-        <item itemvalue="JUnit.TestStoreTest.createTest" />
       </list>
     </recent_temporary>
   </component>
@@ -206,5 +206,11 @@
         <watch expression="listParametersDto" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/US14_SSD_puml$TestTest_generateCode.ic" NAME="TestTest.generateCode Coverage Results" MODIFIED="1621879517895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.domain.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/US14_SSD_puml$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621879529971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
