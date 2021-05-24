@@ -57,7 +57,7 @@ admin -> CreateTestTypeUI: selects a category from the list
 activate CreateTestTypeUI
 
 
-CreateTestTypeUI -> pcDto: categoryCode = getParameterCategoryByCode()
+CreateTestTypeUI -> pcDto: categoryCode = getCode()
 activate pcDto
 deactivate pcDto
 
@@ -112,7 +112,7 @@ deactivate CreateTestTypeUI
 admin -> CreateTestTypeUI: selects a category from the list
 activate CreateTestTypeUI
 
-CreateTestTypeUI -> pcDto: categoryCode = getParameterCategoryByCode()
+CreateTestTypeUI -> pcDto: categoryCode = getCode()
 activate pcDto
 deactivate pcDto
 
