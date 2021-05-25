@@ -1,8 +1,5 @@
 package app.domain.model;
 
-import app.domain.model.Client;
-import org.junit.Assert;
-
 import static org.junit.Assert.*;
 
 public class ClientTest {

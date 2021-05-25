@@ -1,12 +1,9 @@
 package app.controller;
 
-import app.domain.model.Client;
 import app.domain.model.Employee;
 import app.domain.model.OrgRole;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class RegisterNewEmployeeControllerTest {
 

@@ -1,13 +1,8 @@
 package app.domain.model;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * TestTypeTest class, which is responsible for testing the TestType.

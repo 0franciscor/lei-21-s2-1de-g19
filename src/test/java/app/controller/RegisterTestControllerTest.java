@@ -1,20 +1,12 @@
 package app.controller;
 
-import app.domain.model.Client;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
-import auth.mappers.ClientMapper;
-import auth.mappers.dto.ClientDto;
-import auth.mappers.dto.ParametersDto;
-import auth.mappers.dto.TestTypeDto;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class RegisterTestControllerTest {
 

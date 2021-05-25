@@ -1,9 +1,5 @@
 package app.domain.model;
 
-import app.domain.model.Parameter;
-
-import static org.junit.Assert.*;
-
 public class ParameterTest {
 
     @org.junit.Test

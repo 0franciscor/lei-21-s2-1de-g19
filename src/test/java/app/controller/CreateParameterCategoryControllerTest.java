@@ -2,7 +2,6 @@ package app.controller;
 
 import app.domain.model.ParameterCategory;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 /**

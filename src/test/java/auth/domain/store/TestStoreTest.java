@@ -1,16 +1,13 @@
 package auth.domain.store;
 
-import app.domain.model.Client;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 
 public class TestStoreTest {
 

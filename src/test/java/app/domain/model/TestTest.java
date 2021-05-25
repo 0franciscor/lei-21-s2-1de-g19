@@ -1,8 +1,6 @@
 package app.domain.model;
 
-import app.controller.RegisterTestController;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 

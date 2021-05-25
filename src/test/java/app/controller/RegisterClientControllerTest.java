@@ -1,11 +1,8 @@
 package app.controller;
 
 import app.domain.model.Client;
-import auth.domain.store.ClientStore;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class RegisterClientControllerTest {
 

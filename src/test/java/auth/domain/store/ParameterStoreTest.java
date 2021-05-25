@@ -2,14 +2,8 @@ package auth.domain.store;
 
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
-import auth.domain.store.ParameterStore;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class ParameterStoreTest {
 

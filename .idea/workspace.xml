@@ -82,7 +82,7 @@
       <command value="mvn compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ParameterCategoryStoreTest">
+  <component name="RunManager" selected="JUnit.All in Sem2App">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -170,8 +170,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ParameterCategoryStoreTest" />
         <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="JUnit.ParameterCategoryStoreTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
         <item itemvalue="JUnit.TestTest.generateCode" />
