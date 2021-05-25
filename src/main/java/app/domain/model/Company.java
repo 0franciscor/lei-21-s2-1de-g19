@@ -153,7 +153,11 @@ public class Company {
 
         return this.testStore;
     }
-
+    /**
+     * Returns the report store.
+     *
+     * @return report store
+     */
     public ReportStore getReportStore (){
 
         return this.reportStore;
