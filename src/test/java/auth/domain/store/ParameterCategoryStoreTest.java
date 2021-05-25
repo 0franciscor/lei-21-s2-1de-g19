@@ -2,6 +2,7 @@ package auth.domain.store;
 
 import app.domain.model.ParameterCategory;
 import org.junit.Test;
+import auth.domain.store.ParameterCategoryStore;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

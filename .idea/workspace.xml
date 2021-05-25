@@ -82,7 +82,7 @@
       <command value="mvn compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in Sem2App">
+  <component name="RunManager" selected="JUnit.ParameterCategoryStoreTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -115,22 +115,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientStoreTest.getClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ClientStoreTest" />
-      <option name="METHOD_NAME" value="getClient" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CreateParameterCategoryControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
@@ -141,6 +125,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="app.controller" />
       <option name="MAIN_CLASS_NAME" value="app.controller.CreateParameterCategoryControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParameterCategoryStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="auth.domain.store.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="auth.domain.store" />
+      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ParameterCategoryStoreTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,16 +165,16 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in Sem2App" />
       <item itemvalue="JUnit.TestTest.generateCode" />
-      <item itemvalue="JUnit.ClientStoreTest.getClient" />
       <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
+      <item itemvalue="JUnit.ParameterCategoryStoreTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ParameterCategoryStoreTest" />
         <item itemvalue="JUnit.All in Sem2App" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
         <item itemvalue="JUnit.TestTest.generateCode" />
-        <item itemvalue="JUnit.ClientStoreTest.getClient" />
       </list>
     </recent_temporary>
   </component>
