@@ -42,8 +42,15 @@ public class RegisterTestUI implements Runnable {
 
         System.out.printf("\n--- Requested data to register a test ---");
         String citizenID = Utils.readLineFromConsole("\nType the client's citizen card numer:");
+        String nhsCode = Utils.readLineFromConsole("\nType the NHS Code test:");
 
-        ClientDto cl = ctrl.getClient(citizenID);
+        ClientDto cl;
+        try {
+            cl = ctrl.getClient(citizenID);
+        } catch (Exception e) {
+            System.out.println("\nInvalid citizen card number or the client has not been registered yet.");
+            return;
+        }
 
         if (cl != null) {
 
@@ -83,7 +90,8 @@ public class RegisterTestUI implements Runnable {
 
 
                         for (int i=0; i<aux1.length; i++){
-                            if (aux1[i].charAt(i) == listParametersDto.indexOf(i))
+
+                            if (aux1[i].charAt(i) == listParametersDto.indexOf(i+1))
                                 System.out.println(listParametersDto.indexOf(i));
                         }
 
@@ -100,24 +108,35 @@ public class RegisterTestUI implements Runnable {
 
                         //aparecer só o(s) parameter(s) mediante a opção que escreve no teclado
                         //validação para não poder registar o mesmo teste
-                        // Não deixar o programa ir abaixo quando entro para registar um teste e o client não existe
+                        // o code do teste não está a aparecer
 
 
                         boolean confirmation2 = Utils.confirm("Are you sure this is the info of parameter(s) associated to the test type ?");
 
                         if (confirmation1 && confirmation2){
 
-                            Test test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID());
+                            Test test;
+
+                            try {
+                                test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID(),nhsCode);
+                            } catch (Exception e) {
+                                System.out.println("Impossible to register the test due to a problem with National Healthcare Service number. Check if it is right.");
+                                return;
+
+                            }
                             ctrl.saveTest(test);
                             System.out.println("Operation was a success and the test was registered.");
 
 
-                            /*VER SE O TEST ESTA NA TEST LIST
+                            //VER SE O TEST ESTA NA TEST LIST
+                            /*
                             List<Test> x = ctrl.testStore.SeeList();
                             for (Test yy: x ) {
                                 System.out.printf(yy.toString());
                             }
+
                              */
+
                         }
                         //System.out.println(test.toString());
 

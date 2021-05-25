@@ -106,14 +106,12 @@ public class RegisterTestController {
      * @param citizenID the citizen card number
      * @return test.
      */
-    public Test createTest (List<ParametersDto> parameters, TestTypeDto testTypeDto, String citizenID){
-
-        // ADICIONAR NO SD PASSO 22 O TESTTYPEDTO E O CITIZENID
+    public Test createTest (List<ParametersDto> parameters, TestTypeDto testTypeDto, String citizenID, String nhsCode){
 
         TestType testType = TestTypeMapper.toModel(testTypeDto);
         List<Parameter> parameters1 = ParametersMapper.toModel(parameters);
         TestStore store = company.getTestStore();
-        Test test = testStore.createTest(testType, parameters1, citizenID);
+        Test test = testStore.createTest(testType, parameters1, citizenID, nhsCode);
 
         return test;
     }

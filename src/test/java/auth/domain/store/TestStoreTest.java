@@ -48,7 +48,7 @@ public class TestStoreTest {
         Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);
         parameters.add(parameter);
 
-        app.domain.model.Test test = new app.domain.model.Test(testType,parameters,"1234567890987654");
+        app.domain.model.Test test = new app.domain.model.Test(testType,parameters,"1234567890987654","123456789098");
 
         TestStore testStore = new TestStore();
 
@@ -68,7 +68,7 @@ public class TestStoreTest {
         Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);
         parameters.add(parameter);
 
-        app.domain.model.Test test = new app.domain.model.Test(testType,parameters,"1234567890987654");
+        app.domain.model.Test test = new app.domain.model.Test(testType,parameters,"1234567890987654","123456789098");
 
         TestStore testStore = new TestStore();
 
@@ -89,7 +89,7 @@ public class TestStoreTest {
         Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);
         parameters.add(parameter);
 
-        app.domain.model.Test test = new app.domain.model.Test(testType,parameters,"1234567890987654");
+        app.domain.model.Test test = new app.domain.model.Test(testType,parameters,"1234567890987654","123456789098");
 
         TestStore testStore = new TestStore();
 
@@ -110,7 +110,7 @@ public class TestStoreTest {
         Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);
         parameters.add(parameter);
 
-        app.domain.model.Test test = new app.domain.model.Test(testType,parameters,"1234567890987654");
+        app.domain.model.Test test = new app.domain.model.Test(testType,parameters,"1234567890987654","123456789098");
 
         TestStore testStore = new TestStore();
 

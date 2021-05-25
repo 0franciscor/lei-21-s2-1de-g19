@@ -40,9 +40,9 @@ public class TestStore {
      * @param citizenID citizen card number
      * @return created Test
      */
-    public Test createTest (TestType testType, List<Parameter> parameters, String citizenID ){
+    public Test createTest (TestType testType, List<Parameter> parameters, String citizenID, String nhsCode){
 
-        return new Test(testType,parameters, citizenID);
+        return new Test(testType,parameters, citizenID, nhsCode);
     }
 
     /**
@@ -84,6 +84,7 @@ public class TestStore {
             return true;
     }
 
+    /*
     public List<Test> getAnalyzedTests() {
         List<Test> analyzedTestsList = new ArrayList<Test>();
         for (Test c : TestList)
@@ -92,6 +93,8 @@ public class TestStore {
 
         return analyzedTestsList;
     }
+
+     */
 
     /**
      *

@@ -19,15 +19,21 @@ public class WriteTestReportController {
         this.company = App.getInstance().getCompany();
     }
 
+    /*
     public List<TestDto> getAnalyzedTests() {
         testStore = company.getTestStore();
         List<Test> analyzedTestsList = testStore.getAnalyzedTests();
         List<TestDto> analyzedTestsListDto = testMapperToDto(analyzedTestsList);
         return analyzedTestsListDto;
     }
+
+     */
+    /*
     public List<Test> getReferenceValues(Test test){
 
     }
+
+     */
     public boolean saveReport(TestDto test ,String reportTxt) {
         String testCode = test.getTestCode();
         reportStore = company.getReportStore();

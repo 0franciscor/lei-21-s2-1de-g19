@@ -48,7 +48,7 @@ class "ParametersMapper" as PM {
 }
 
 class "TestStore" as TS {
-+createTest(tt, parameters, nhsCode)
++createTest(tt, parameters,citizenID, nhsCode)
 +saveTest(test)
 +validateTest(test)
 +addTest(test)
@@ -62,7 +62,7 @@ class "Test" as T {
 -chemicalAnalysisDateTime
 -diagnosisDateTime
 -validationDateTime
-+Test(tt, parameters, nhsCode)
++Test(tt, parameters, citizenID, nhsCode)
 +generateCode()
 }
 

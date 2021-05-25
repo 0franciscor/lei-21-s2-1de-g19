@@ -60,7 +60,7 @@ public class TestTest {
 
         int codeLengthResult = 12;
 
-        String code = company.getTestStore().createTest(testType,parameters,"1234567890987654").generateCode();
+        String code = company.getTestStore().createTest(testType,parameters,"1234567890987654", "123456789098").generateCode();
         int codeLengthExpected = code.length();
 
         assertEquals(codeLengthResult,codeLengthExpected);

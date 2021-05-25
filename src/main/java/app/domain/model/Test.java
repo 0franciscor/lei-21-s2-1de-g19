@@ -86,13 +86,15 @@ public class Test {
      * @param parameters parameters list
      * @param citizenID Client's citizen card number
      */
-    public Test (TestType testType, List<Parameter> parameters, String citizenID ){
+    public Test (TestType testType, List<Parameter> parameters, String citizenID, String nhsCode){
 
+        checknhsCodeRules(nhsCode);
         this.company = App.getInstance().getCompany();
         this.testType = testType;
         this.parameters = parameters;
         this.clientStore = company.getClientStore();
         this.client = clientStore.getClient(citizenID);
+        this.nhsCode = nhsCode;
     }
 
     /**
@@ -244,16 +246,7 @@ public class Test {
      */
     public String toString (){
 
-        System.out.println("----- TEST -----");
-        System.out.println("The test that is being registered has: ");
-
-       /* for (Parameter parameter : parameters) {
-            System.out.println(parameter.toString());
-        }
-
-        */
-
-        return String.format("Test with test type %s, parameters %s, citizen card number %s",this.testType, this.parameters, this.client.getCitizenID());
+        return String.format("Test code: %s \nNHS code: %s ",this.code, this.nhsCode);
     }
 
     /**

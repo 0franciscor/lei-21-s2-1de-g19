@@ -114,11 +114,11 @@ deactivate ":ParametersMapper"
 ":RegisterTestController" -> ":Company" ++: store = getTestStore()
 deactivate ":Company"
 
-":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters, nhsCode)
+":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters, citizenID, nhsCode)
 
 create "test: Test"
 
-":store: TestStore" --> "test: Test" : create (tt, parameters, nhsCode)
+":store: TestStore" --> "test: Test" : create (tt, parameters, citizenID, nhsCode)
 deactivate ":store: TestStore"
 deactivate ":RegisterTestController"
 
