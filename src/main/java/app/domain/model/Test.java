@@ -4,6 +4,7 @@ import app.controller.App;
 import auth.domain.store.ClientStore;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,22 +32,22 @@ public class Test {
     /**
      * Test's collect date and time.
      */
-    private String collectDateTime;
+    private Date collectDateTime;
 
     /**
      * Test's chemical analysis date and time.
      */
-    private String chemicalAnalysisDateTime;
+    private Date chemicalAnalysisDateTime;
 
     /**
      * Test's diagnosis date and time.
      */
-    private String diagnosisDateTime;
+    private Date diagnosisDateTime;
 
     /**
      * Test's validation date and time.
      */
-    private String validationDateTime;
+    private Date validationDateTime;
 
     /**
      * The test type.
@@ -148,7 +149,7 @@ public class Test {
      *
      * @return Test's collect date and time.
      */
-    public String getCollectDateTime() {
+    public Date getCollectDateTime() {
         return collectDateTime;
     }
 
@@ -157,7 +158,7 @@ public class Test {
      *
      * @return Test's chemical analysis date and time.
      */
-    public String getChemicalAnalysisDateTime() {
+    public Date getChemicalAnalysisDateTime() {
         return chemicalAnalysisDateTime;
     }
 
@@ -166,7 +167,7 @@ public class Test {
      *
      * @return Test's diagnosis date and time.
      */
-    public String getDiagnosisDateTime() {
+    public Date getDiagnosisDateTime() {
         return diagnosisDateTime;
     }
 
@@ -175,7 +176,7 @@ public class Test {
      *
      * @return Test's validation date and time.
      */
-    public String getValidationDateTime() {
+    public Date getValidationDateTime() {
         return validationDateTime;
     }
 
