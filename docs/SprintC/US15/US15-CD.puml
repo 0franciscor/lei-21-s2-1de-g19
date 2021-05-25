@@ -26,7 +26,7 @@ class "Test" as T {
 class "Report" as R{
 -boolean validation
 +boolean getValidation()
-+ setValidation()
++setValidation()
 }
 
 class "Notification" as N{
@@ -37,8 +37,9 @@ class "Notification" as N{
 
 package Stores{
 class "TestStore" as TS{
--List<Test> testList
-+List <Test> getAllTests()
+-List<Test> TestList
++List <Test> getTestList()
++Test getTestByCode()
 +boolean validateTest()
 }
 

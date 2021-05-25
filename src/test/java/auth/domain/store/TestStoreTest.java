@@ -92,7 +92,7 @@ public class TestStoreTest {
 
         boolean result = false;
         testStore.addTest(test);
-        boolean expected = testStore.validateTest(test);
+        boolean expected = testStore.containsTest(test);
 
         Assert.assertEquals(result,expected);
     }
@@ -112,7 +112,7 @@ public class TestStoreTest {
         TestStore testStore = new TestStore();
 
         boolean result = true;
-        boolean expected = testStore.validateTest(test);
+        boolean expected = testStore.containsTest(test);
 
         Assert.assertEquals(result,expected);
     }

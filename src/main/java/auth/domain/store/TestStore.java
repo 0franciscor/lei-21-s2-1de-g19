@@ -53,7 +53,7 @@ public class TestStore {
      */
     public boolean saveTest (Test test){
 
-        if (validateTest(test)){
+        if (containsTest(test)){
             addTest(test);
             return true;
         }
@@ -76,7 +76,7 @@ public class TestStore {
      * @param test test to check
      * @return false if the test belongs to the test list, otherwise returns true.
      */
-    public boolean validateTest (Test test){
+    public boolean containsTest(Test test){
 
         if (TestList.contains(test))
             return false;
@@ -92,17 +92,40 @@ public class TestStore {
                 analyzedTestsList.add(c);
 
         return analyzedTestsList;
-    }
-
-     */
+    }*/
 
     /**
      *
      * @return all tests that exist in the test list
      */
-    public List<Test> SeeList (){
-
+    public List<Test> getTestList (){
         return TestList;
-
     }
+
+    /**
+     * @param code the code that represents a test.
+     *
+     * This method searches for a test via code.
+     *
+     * @return the test that matches the code (if it exists).
+     */
+    public Test getTestByCode(String code){
+        for(Test test : TestList) {
+            if (test.getCode().equalsIgnoreCase(code))
+                return test;
+        }
+        return null;
+    }
+
+    /**
+     * @param test that the user wants to validate.
+     *
+     * Validates a certain test.
+     *
+     * @return if the operation was successful (true if so and false if not).
+     */
+    public boolean validateTest(Test test){
+        return test.updateValidationDateTime();
+    }
+
 }
