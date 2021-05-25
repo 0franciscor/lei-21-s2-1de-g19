@@ -10,7 +10,7 @@ class "RegisterTestController" as RTC {
 +getClient(citizenID)
 +getAllTestType()
 +getAllParametersByTestType(testTypeDto)
-+createTest(list <parametersDto>)
++createTest(list <parametersDto>, testTypeDto, citizenID, nhsCode)
 +saveTest(test)
 }
 
@@ -48,7 +48,7 @@ class "ParametersMapper" as PM {
 }
 
 class "TestStore" as TS {
-+createTest(tt, parameters)
++createTest(tt, parameters, nhsCode)
 +saveTest(test)
 +validateTest(test)
 +addTest(test)
@@ -62,7 +62,7 @@ class "Test" as T {
 -chemicalAnalysisDateTime
 -diagnosisDateTime
 -validationDateTime
-+Test(tt, parameters)
++Test(tt, parameters, nhsCode)
 +generateCode()
 }
 

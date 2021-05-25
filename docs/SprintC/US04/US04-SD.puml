@@ -9,7 +9,7 @@ activate R
 
 R -> ":RegisterTestUI" : register a test to be performed to a registered client
 activate ":RegisterTestUI"
-":RegisterTestUI" --> R: request data (citizenID)
+":RegisterTestUI" --> R: request data (citizenID, nhsCode)
 deactivate ":RegisterTestUI"
 R -> ":RegisterTestUI" : types requested data
 
@@ -95,7 +95,7 @@ activate ":RegisterTestUI"
 
 
 
-":RegisterTestUI" -> ":RegisterTestController": createTest(list <parametersDto>)
+":RegisterTestUI" -> ":RegisterTestController": createTest(list <parametersDto>, tesTypeDto, citizenID, nhsCode)
 activate ":RegisterTestController"
 
 ":RegisterTestController" -> ":TestTypeMapper": tt = toModel(testTypeDto)
@@ -114,11 +114,11 @@ deactivate ":ParametersMapper"
 ":RegisterTestController" -> ":Company" ++: store = getTestStore()
 deactivate ":Company"
 
-":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters)
+":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters, nhsCode)
 
 create "test: Test"
 
-":store: TestStore" --> "test: Test" : create (tt, parameters)
+":store: TestStore" --> "test: Test" : create (tt, parameters, nhsCode)
 deactivate ":store: TestStore"
 deactivate ":RegisterTestController"
 
