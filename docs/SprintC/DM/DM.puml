@@ -39,6 +39,8 @@ Company "1" -- "*" ParameterCategory : > adopts
 
 Company "1" -- "*" Administrator : > knows
 
+Company "1" -- "*" Client : > knows
+
 User "1" -- "1" Role : > plays a
 
 Employee "1" -- "1" User : > is a
