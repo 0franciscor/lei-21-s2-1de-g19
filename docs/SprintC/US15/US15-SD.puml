@@ -32,7 +32,7 @@ activate comp
 deactivate comp
 
 
-validateTestCont -> TestStore : testsList = getAllTests()
+validateTestCont -> TestStore : testsList = getTestList()
 activate TestStore
 deactivate TestStore
 
@@ -108,7 +108,11 @@ validateTestCont -> ReportStore : validateReport(code)
 activate ReportStore
 deactivate ReportStore
 
-validateTestCont -> TestStore : validateTest()
+validateTestCont -> TestStore : test = getTestByCode(code)
+activate TestStore
+deactivate TestStore
+
+validateTestCont -> TestStore : validateTest(test)
 activate TestStore
 
 
