@@ -9,6 +9,7 @@ public class Report {
     private Company company;
     private String diagnosisReport;
     private String testCode;
+    private boolean validation;
 
 
     public Report(String report, String testcode){
@@ -16,15 +17,36 @@ public class Report {
         this.testCode = testcode;
         checkReportRules(report);
         this.diagnosisReport = report;
+        this.validation = false;
 
     }
+
     public void checkReportRules (String report) {
         if (StringUtils.isBlank(report))
             throw new IllegalArgumentException("Name cannot be blank.");
         if (report.length() > 400)
             throw new IllegalArgumentException("Name must have a maximum of 400 characters.");
     }
+
     public String getTestCode() {
         return testCode;
+    }
+
+    /**
+     * Is responsible for informing about the validation state of a certain Report object.
+     *
+     * @return the current validation state
+     */
+    public boolean getValidation() {
+        return validation;
+    }
+
+    /**
+     * Responsible for changing the validation state of a Report object.
+     *
+     * @param validation is the new validation state for a report
+     */
+    public void setValidation(boolean validation){
+        this.validation = validation;
     }
 }

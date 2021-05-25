@@ -7,34 +7,44 @@ package Core{
 package Domain{
 class "Company" as C {
 -String designation
-+getTestStore()
++TestStore getTestStore()
++ReportStore getReportStore()
++Notification getNotificationService()
 }
 
-class "ParameterCategory" as PC{
--String name
--String code
-+ParameterCategory(name, code)
+class "Test" as T {
+-Date registrationDateTime
+-Date collectDateTime
+-Date chemicalAnalysisDateTime
+-Date diagnosisDateTime
+-Date validationDateTime
++String getStatus()
++updateValidationDateTime()
++updateTestStatus()
 }
 
-class "TestType" as TT {
--String code
--String description
--String collectingMethod
--ParameterCategory parameterCategory
--List <ParameterCategory> parameterCategoriesList
-+TestType(code, description, collectingMethod, parameterCategory)
-+TestType(code, description, collectingMethod, parameterCategoriesList)
+class "Report" as R{
+-boolean validation
++boolean getValidation()
++ setValidation()
+}
+
+class "Notification" as N{
++ writeToFile(message)
 }
 
 }
-
-
 
 package Stores{
 class "TestStore" as TS{
 -List<Test> testList
 +List <Test> getAllTests()
 +boolean validateTest()
+}
+
+class "ReportStore" as RS{
+-List<Report> ReportList
++boolean validateReport(code)
 }
 }
 
@@ -54,23 +64,23 @@ class "ValidateTestController" as VTC {
 }
 
 package Mappers{
-class "TestTypeMapper" as ttM{
-+List <TestTypeDto> toDto(List<TestType>)
-}
-
-class "ParameterCategoryMapper" as pcM{
-+List <ParameterCategoryDto> toDto(List<ParameterCategory>)
+class "TestMapper" as tM{
++List <TestDto> toDtoLabC(List<Test>)
 }
 
 }
 
 
 package Dto{
-class "TestTypeDto" as ttDto{
+class "TestDto" as tDto{
++TestDto(registrationDateTime, chemicalAnalysisDateTime, diagnosisDateTime, code)
++Date getRegistrationDate()
++Date getChemicalAnalysisDate()
++Date getDiagnosisDate()
++String getCode()
 }
 
-class "ParameterCategoryDto" as pcDto{
-}
+
 
 }
 
@@ -82,16 +92,19 @@ class "ValidateTestUI" as VTUI
 VTUI ..> VTC
 
 C ..> TS
+C ..> RS
 VTC ..> C
-VTC ..> ttM
-VTC ..> ttDto
-TT "*" -- "1" PC : > analyzes a
-TS ..> TT
-ttM ..> ttDto
-pcM ..> pcDto
+VTC ..> tM
+VTC ..> tDto
+VTC ..> N
 
+TS ..> T
+tM ..> tDto
 
-C "1" -- "*" TT : > adopts
-C "1" -- "*" PC : > adopts
+C "1" -- "*" T : > performs
+
+RS ..> R
+R "1" -- "1" T : > associated with
+R "1" -- "1" N : > associated with
 
 @enduml

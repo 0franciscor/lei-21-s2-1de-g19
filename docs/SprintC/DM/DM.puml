@@ -21,7 +21,7 @@ class Receptionist
 class Client
 class LabOrder
 class Result
-class DiagnosisReport
+class Report
 class NHSReport
 class ParameterCategory
 class Parameter
@@ -99,11 +99,11 @@ Result "*" -- "1..*" ClinicalChemistryTechnologist : < registers
 
 Result "*" -- "1..*" Notification : > is associated with
 
-DiagnosisReport "1" -- "1" SpecialistDoctor : < registers
+Report "1" -- "1" SpecialistDoctor : < registers
 
-DiagnosisReport "1" -- "1" Client : > is sent to
+Report "1" -- "1" Client : > is sent to
 
-DiagnosisReport "*" -- "1" LaboratoryCoordinator : < validates
+Report "*" -- "1" LaboratoryCoordinator : < validates
 
 NHSReport "1..*" -- "1" Result : < generates
 
@@ -129,7 +129,7 @@ Test "*" -- "*" ClinicalAnalysisLaboratory : < performs
 
 Test "*" -- "1..*" Receptionist : < registers
 
-Test "1" -- "1" DiagnosisReport : < associated with
+Test "1" -- "1" Report : < associated with
 
 Sample "*" -- "1" Test : < collects
 
@@ -209,7 +209,7 @@ class LabOrder{
 class Result{
 }
 
-class DiagnosisReport{
+class Report{
 }
 
 class ParameterCategory{

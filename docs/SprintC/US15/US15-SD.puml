@@ -37,7 +37,7 @@ activate TestStore
 deactivate TestStore
 
 
-validateTestCont -> TestMapper : testsListDto = toDto(testsList)
+validateTestCont -> TestMapper : testsListDto = toDtoLabC(testsList)
 activate TestMapper
 deactivate TestMapper
 
@@ -49,7 +49,7 @@ validateTestUI --> labC : shows a list of to-be validated tests
 deactivate validateTestUI
 
 
-loop for how many tests the Laboratory Coordinator chooses
+loop for the chosen tests
 labC -> validateTestUI : selects a test from the list
 activate validateTestUI
 
@@ -59,7 +59,7 @@ activate TestDto
 deactivate TestDto
 
 
-validateTestUI -> TestDto : chemAnalysisDate = getChemAnalysisDate()
+validateTestUI -> TestDto : chemicalAnalysisDate = getChemicalAnalysisDate()
 activate TestDto
 deactivate TestDto
 
@@ -71,14 +71,10 @@ deactivate TestDto
 
 validateTestUI --> labC : displays its data (registration date, chemical analysis date, diagnosis date) and request to chose if its valid
 deactivate validateTestUI
-end
-
-
 
 
 deactivate validateTestUI
 
-loop for each chosen test
 
 loop until the Laboratory Coordinator confirms the selected state of the chosen tests
 labC -> validateTestUI : selects the desired state
@@ -102,6 +98,12 @@ validateTestUI -> validateTestCont : validateTest(code)
 
 
 activate validateTestCont
+
+validateTestCont -> comp: store = getReportStore()
+activate comp
+deactivate comp
+
+
 validateTestCont -> ReportStore : validateReport(code)
 activate ReportStore
 deactivate ReportStore
@@ -110,13 +112,11 @@ validateTestCont -> TestStore : validateTest()
 activate TestStore
 
 
-TestStore -> test : setValidationDateTime()
-activate test
+TestStore -> test ++: updateValidationDateTime()
+
+
+test -> test ++: updateTestStatus()
 deactivate test
-
-
-TestStore -> test : updateTestStatus()
-activate test
 deactivate test
 deactivate TestStore
 
@@ -124,6 +124,7 @@ deactivate TestStore
 validateTestCont -> comp: sendNotification = getNotificationService()
 activate comp
 deactivate comp
+
 
 validateTestCont -> notification: sendNotification(message)
 activate notification
