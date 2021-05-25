@@ -19,7 +19,7 @@ class "Test" as T {
 -Date diagnosisDateTime
 -Date validationDateTime
 +String getStatus()
-+updateValidationDateTime()
++boolean updateValidationDateTime()
 +updateTestStatus()
 }
 

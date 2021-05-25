@@ -302,7 +302,26 @@ public class Test {
     }
 
     /**
-     * A method that is responsible for automatically changing its state.
+     * A method that is responsible for automatically changing the Test validation date and time.
+     *
+     * @return the success of the operation (true if the operation was successful and false if not).
+     */
+    public boolean updateValidationDateTime(){
+        try {
+            if (App.getInstance().getCompany().getReportStore().getReportValidation(this.code)) {
+                this.validationDateTime = new Date();
+                updateTestStatus();
+                return true;
+            }
+        } catch (Exception e){
+            System.out.println("There was an error when updating the validation date and time. Please try again.");
+            return false;
+        }
+        return false;
+    }
+
+    /**
+     * A method that is responsible for automatically changing the Test state.
      *
      */
     public void updateTestStatus(){

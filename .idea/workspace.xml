@@ -49,7 +49,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintC/US03" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintC/US15" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -82,7 +82,7 @@
       <command value="mvn compile" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in Sem2App">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -131,16 +131,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateParameterCategoryControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="PATTERN" value="app.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.EmployeeTest" />
+      <option name="PACKAGE_NAME" value="app.controller" />
+      <option name="MAIN_CLASS_NAME" value="app.controller.CreateParameterCategoryControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -165,17 +165,17 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.EmployeeTest" />
       <item itemvalue="JUnit.TestTest.generateCode" />
       <item itemvalue="JUnit.ClientStoreTest.getClient" />
+      <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TestTest.generateCode" />
         <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
+        <item itemvalue="JUnit.TestTest.generateCode" />
         <item itemvalue="JUnit.ClientStoreTest.getClient" />
-        <item itemvalue="JUnit.EmployeeTest" />
       </list>
     </recent_temporary>
   </component>

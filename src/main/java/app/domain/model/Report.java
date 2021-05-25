@@ -6,9 +6,25 @@ import auth.domain.store.TestStore;
 import org.apache.commons.lang3.StringUtils;
 
 public class Report {
+
+    /**
+     * The Report's company.
+     */
     private Company company;
+
+    /**
+     * The Report's string, containing information written by the Specialist Doctor.
+     */
     private String diagnosisReport;
+
+    /**
+     * The Report's code (equal to the matching test code).
+     */
     private String testCode;
+
+    /**
+     * The Report's validation state.
+     */
     private boolean validation;
 
 
