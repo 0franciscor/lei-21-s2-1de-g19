@@ -54,17 +54,17 @@ labC -> validateTestUI : selects a test from the list
 activate validateTestUI
 
 
-validateTestUI -> TestDto : registrationDate = getRegistrationDate()
+validateTestUI -> TestDto : registrationDateTime = getRegistrationDateTime()
 activate TestDto
 deactivate TestDto
 
 
-validateTestUI -> TestDto : chemicalAnalysisDate = getChemicalAnalysisDate()
+validateTestUI -> TestDto : chemicalAnalysisDateTime = getChemicalAnalysisDateTime()
 activate TestDto
 deactivate TestDto
 
 
-validateTestUI -> TestDto : diagnosisDate = getDiagnosisDate()
+validateTestUI -> TestDto : diagnosisDateTime = getDiagnosisDateTime()
 activate TestDto
 deactivate TestDto
 

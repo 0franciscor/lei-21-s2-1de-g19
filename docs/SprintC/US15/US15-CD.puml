@@ -49,8 +49,6 @@ class "ReportStore" as RS{
 }
 }
 
-
-
 package Controllers{
 class "ValidateTestController" as VTC {
 +ValidateTestController()
@@ -75,9 +73,9 @@ class "TestMapper" as tM{
 package Dto{
 class "TestDto" as tDto{
 +TestDto(registrationDateTime, chemicalAnalysisDateTime, diagnosisDateTime, code)
-+Date getRegistrationDate()
-+Date getChemicalAnalysisDate()
-+Date getDiagnosisDate()
++Date getRegistrationDateTime()
++Date getChemicalAnalysisDateTime()
++Date getDiagnosisDateTime()
 +String getCode()
 }
 

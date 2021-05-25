@@ -1,10 +1,9 @@
 package auth.mappers;
 
 import app.domain.model.Test;
-import app.domain.model.TestType;
 import auth.mappers.dto.TestDto;
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TestMapper {
@@ -19,5 +18,20 @@ public class TestMapper {
             listAnalyzedTestsDto.add(testDto);
         }
         return listAnalyzedTestsDto;
+    }
+
+    public static List<TestDto> toDtoLabC (List<Test> testsList) {
+        List<TestDto> testsListDto = new ArrayList<>();
+        for(Test test: testsList) {
+            Date registrationDateTime = test.getRegistrationDateTime();
+            Date chemicalAnalysisDateTime = test.getChemicalAnalysisDateTime();
+            Date diagnosisDateTime = test.getDiagnosisDateTime();
+            String code = test.getCode();
+            if(registrationDateTime != null && chemicalAnalysisDateTime != null && diagnosisDateTime != null && code != null){
+                TestDto testDto = new TestDto(registrationDateTime, chemicalAnalysisDateTime, diagnosisDateTime, code);
+                testsListDto.add(testDto);
+            }
+        }
+        return testsListDto;
     }
 }

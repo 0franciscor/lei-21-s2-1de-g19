@@ -10,6 +10,7 @@ import auth.mappers.dto.EmployeeDto;
 import auth.mappers.dto.OrgRoleDto;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +36,9 @@ public class Company {
     public int numEmp;
     public int numTeste;
     private TestStore testStore;
+    private Notification notification;
 
-    public Company(String designation) {
+    public Company(String designation) throws FileNotFoundException {
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -59,6 +61,7 @@ public class Company {
         this.numEmp = 1;
         this.numTeste = 0;
         this.testStore = new TestStore();
+        this.notification = new Notification();
     }
 
     public String getDesignation() {
@@ -163,7 +166,13 @@ public class Company {
         return this.reportStore;
     }
 
-
-
+    /**
+     * Class responsible for providing to other classes a file writing object.
+     *
+     * @return a Notification object which allows to write to a file.
+     */
+    public Notification getNotificationService(){
+        return notification;
+    }
 
 }
