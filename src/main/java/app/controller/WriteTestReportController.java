@@ -9,7 +9,7 @@ import auth.mappers.dto.TestDto;
 
 import java.util.List;
 
-import static auth.mappers.TestMapper.testMapperToDto;
+import static auth.mappers.TestMapper.toDto;
 
 public class WriteTestReportController {
     private Company company;
@@ -19,15 +19,15 @@ public class WriteTestReportController {
         this.company = App.getInstance().getCompany();
     }
 
-    /*
+
     public List<TestDto> getAnalyzedTests() {
         testStore = company.getTestStore();
         List<Test> analyzedTestsList = testStore.getAnalyzedTests();
-        List<TestDto> analyzedTestsListDto = testMapperToDto(analyzedTestsList);
+        List<TestDto> analyzedTestsListDto = toDto(analyzedTestsList);
         return analyzedTestsListDto;
     }
 
-     */
+
     /*
     public List<Test> getReferenceValues(Test test){
 

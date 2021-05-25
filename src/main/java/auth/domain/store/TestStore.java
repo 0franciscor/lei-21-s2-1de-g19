@@ -84,17 +84,17 @@ public class TestStore {
             return true;
     }
 
-    /*
+
     public List<Test> getAnalyzedTests() {
         List<Test> analyzedTestsList = new ArrayList<Test>();
         for (Test c : TestList)
-            if (c.getStatus() = c.Status.Analyzed)
+            if (c.getStatus().toString() == Test.Status.Analyzed.toString())
                 analyzedTestsList.add(c);
 
         return analyzedTestsList;
     }
 
-     */
+
 
     /**
      *

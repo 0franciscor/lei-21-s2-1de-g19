@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TestMapper {
 
-    public static List<TestDto> testMapperToDto (List<Test> listTest) {
+    public static List<TestDto> toDto (List<Test> listTest) {
         List<TestDto> listAnalyzedTestsDto = new ArrayList<TestDto>();
         for(Test c: listTest) {
             String description = c.getDescription();
