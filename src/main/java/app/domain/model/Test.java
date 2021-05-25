@@ -30,6 +30,11 @@ public class Test {
     private String nhsCode;
 
     /**
+     * Test's registration date and time.
+     */
+    private Date registrationDateTime;
+
+    /**
      * Test's collect date and time.
      */
     private Date collectDateTime;
@@ -75,9 +80,23 @@ public class Test {
     private ClientStore clientStore;
 
     /**
-     * Builds an empty Test instance.
+     * The test's status.
      */
-    public Test() { }
+    private Status state;
+
+    /**
+     * The available states for a test.
+     */
+    public static enum Status {
+        Registered, Collected, Analyzed, Reported, Validated
+    }
+
+    /**
+     * Builds an empty Test instance, which only registers the created state.
+     */
+    public Test() {
+        this.state = Status.Registered;
+    }
 
     /**
      * Builds a test instance, receiving the testType, parameters and citizenID.
@@ -95,6 +114,7 @@ public class Test {
         this.clientStore = company.getClientStore();
         this.client = clientStore.getClient(citizenID);
         this.nhsCode = nhsCode;
+        this.state = Status.Registered;
     }
 
     /**
@@ -144,6 +164,15 @@ public class Test {
      */
     public String getNhsCode() {
         return nhsCode;
+    }
+
+    /**
+     * Returns the Test's registration date and time.
+     *
+     * @return Test's registration date and time.
+     */
+    public Date getRegistrationDateTime() {
+        return registrationDateTime;
     }
 
     /**
@@ -227,17 +256,18 @@ public class Test {
         return clientStore;
     }
 
-    /*
-    public String getStatus() {
-
-        return status;
-    }
-    public String getValues() {
-
-        return values;
-    }
-
+    /**
+     * Returns the test's status.
+     *
+     * @return test's status.
      */
+    public String getStatus() {
+        return this.state.toString();
+    }
+
+//    public String getValues() {
+//        return values;
+//    }
 
     /**
      * Returns a textual representation of the object, which contains all of its attributes.
@@ -245,8 +275,8 @@ public class Test {
      * @return Test characteristics.
      */
     public String toString (){
-
-        return String.format("Test code: %s \nNHS code: %s ",this.code, this.nhsCode);
+        return String.format("Test with test type %s, parameters %s, citizen card number %s",this.testType, this.parameters, this.client.getCitizenID());
+        //return String.format("Test code: %s \nNHS code: %s ",this.code, this.nhsCode);
     }
 
     /**
@@ -269,5 +299,25 @@ public class Test {
 
         return code;
 
+    }
+
+    /**
+     * A method that is responsible for automatically changing its state.
+     *
+     */
+    public void updateTestStatus(){
+        try {
+            if (this.getCollectDateTime() != null)
+                state = Status.Collected;
+            if (this.getChemicalAnalysisDateTime() != null)
+                state = Status.Analyzed;
+            if (this.getDiagnosisDateTime() != null)
+                state = Status.Reported;
+            if (this.getValidationDateTime() != null)
+                state = Status.Validated;
+
+        } catch (Exception e){
+            System.out.println("There was an error when updating the Test Status. Please try again.");
+        }
     }
 }
