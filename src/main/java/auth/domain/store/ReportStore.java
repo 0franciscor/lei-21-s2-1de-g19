@@ -1,6 +1,7 @@
 package auth.domain.store;
 
 import app.domain.model.Report;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -10,22 +11,21 @@ public class ReportStore {
     public ReportStore() {
 
     }
-    public boolean addReport (Report report) {
-        if (reportList.contains(report)){
-            reportList.add(report);
+    public boolean saveReport(String reportTxt, String testCode) {
+        Report rep = new Report(reportTxt, testCode);
+        if (validateReport(rep)) {
+            reportList.add(rep);
             return true;
         }
         return false;
     }
-    public List<Report> getReportList()  {
-        return reportList;
+    public boolean validateReport(Report rep) {
+       for (Report c : reportList){
+           if (c.getTestCode().equalsIgnoreCase(rep.getTestCode())) {
+               return true;
+           }
+       }
+       return false;
     }
 
-    /*public Report getReportByCode(String code){
-        for(Report reportRequested : reportList){
-            if(reportRequested.getCode().equalsIgnoreCase(code))
-                return reportRequested;
-        }
-        return null;
-    }*/
 }
