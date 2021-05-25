@@ -33,6 +33,7 @@ class "TestType" as TT {
 
 package Stores{
 class "TestTypeStore" as TTS{
+-List<TestType> testTypeList
 +TestType createTestType(code, description, collectingMethod, parameterCategory)
 +TestType createTestType(code, description, collectingMethod, parameterCategoriesList)
 +boolean saveTestType(tt)

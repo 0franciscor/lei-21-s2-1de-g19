@@ -129,7 +129,7 @@ public class EmployeeTest {
     @Test
     public void generateID() {
         Employee emp = new Employee();
-        String expected = "AWS00002";
+        String expected = "AWS00003";
         String name = "Alex Williams Soares";
         String result = emp.generateID(name);
         assertEquals(expected.trim(),String.valueOf(result).trim());

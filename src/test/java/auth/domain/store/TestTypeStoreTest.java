@@ -28,6 +28,14 @@ public class TestTypeStoreTest {
     }
 
     @Test
+    public void DoesNotSaveTestType() {
+        TestTypeStore ttStoreTest = new TestTypeStore();
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        ttStoreTest.addTestType(tt1);
+        assertFalse(ttStoreTest.saveTestType(tt1));
+    }
+
+    @Test
     public void validateTestType() {
         TestTypeStore ttStoreTest = new TestTypeStore();
         TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));

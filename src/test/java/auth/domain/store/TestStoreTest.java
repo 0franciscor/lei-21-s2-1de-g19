@@ -1,5 +1,6 @@
 package auth.domain.store;
 
+import app.domain.model.Client;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
@@ -12,6 +13,30 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class TestStoreTest {
+
+    @Test
+    public void createTest (){
+
+        /*
+        TestStore testStore = new TestStore();
+
+        Client cl = new Client("1234567890987654","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+
+        ParameterCategory parameterCategory = new ParameterCategory("rfgvb","45678");
+
+        TestType testType = new TestType("12345", "cvfrt", "derfc", parameterCategory);
+        List<Parameter> parameterList = new ArrayList<>();
+
+        Parameter parameter = new Parameter("69870","fcvbn","yuhbc", parameterCategory);
+        parameterList.add(parameter);
+
+        app.domain.model.Test test = testStore.createTest(testType,parameterList, cl.getCitizenID());
+
+        assertEquals(test.toString(),testStore.createTest(testType, parameterList,cl.getCitizenID()));
+
+         */
+
+    }
 
     @Test
     public void saveTestInStore() {

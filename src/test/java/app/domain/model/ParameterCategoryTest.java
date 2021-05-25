@@ -2,8 +2,6 @@ package app.domain.model;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * ParameterCategoryTest class, which is responsible for testing the ParameterCategory.
  *

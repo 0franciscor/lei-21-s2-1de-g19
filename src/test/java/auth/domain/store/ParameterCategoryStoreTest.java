@@ -1,10 +1,10 @@
 package auth.domain.store;
 
 import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * ParameterCategoryStoreTest class, which is responsible for testing the ParameterCategoryStore.

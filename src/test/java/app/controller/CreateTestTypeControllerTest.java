@@ -4,12 +4,10 @@ import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * CreateTestTypeControllerTest class, which is responsible for testing the CreateTestTypeController.
@@ -22,14 +20,14 @@ public class CreateTestTypeControllerTest {
     public void createTestType() {
         CreateTestTypeController ttControllerTest = new CreateTestTypeController();
         boolean ttTest = ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
-        assertEquals(true, ttTest);
+        assertTrue(ttTest);
     }
 
     @Test
     public void saveTestType() {
         CreateTestTypeController ttControllerTest = new CreateTestTypeController();
         boolean ttTest = ttControllerTest.saveTestType();
-        assertEquals(false, ttTest);
+        assertFalse(ttTest);
     }
 
     @Test

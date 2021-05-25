@@ -63,4 +63,13 @@ public class ParameterStoreTest {
         Assert.assertEquals(result,expected);
     }
 
+    @Test
+    public void getAllParametersByTestType (){
+
+
+
+
+
+    }
+
 }

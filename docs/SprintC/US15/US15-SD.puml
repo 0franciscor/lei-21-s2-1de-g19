@@ -1,44 +1,45 @@
 @startuml
 autonumber
+
 actor "LaboratoryCoordinator" as labC
 activate labC
 
-participant ":validateTestUI" as validateTestUI
-participant ":validateTestController" as validateTestCont
-participant "store:TestStore" as TestStore
+participant ":ValidateTestUI" as validateTestUI
+participant ":ValidateTestController" as validateTestCont
 participant ":Company" as comp
+participant "store: TestStore" as TestStore
 participant "TestMapper" as TestMapper
+participant "testDto: TestDto" as TestDto
 participant "store:ReportStore" as ReportStore
+participant "testsList: list<Test>" as testsList
+participant "testsListDto: list<TestDto>" as testsListDto
+participant "sendNotification: Notification" as notification
+participant "test: Test" as test
+
 
 labC -> validateTestUI : validate a Test Result/Diagnosis
 
+
 activate validateTestUI
-validateTestUI -> validateTestCont: getAllTestsDto()
+validateTestUI -> validateTestCont: testsListDto = getAllTestsDto()
 
 
 activate validateTestCont
 
-validateTestCont -> comp : store = getParameterCategoryStore()
+
+validateTestCont -> comp : store = getTestStore()
 activate comp
 deactivate comp
 
-
-create "testsList: list<Test>" as testsList
-
-validateTestCont --> testsList : create()
 
 validateTestCont -> TestStore : testsList = getAllTests()
 activate TestStore
 deactivate TestStore
 
-create "testsListDto: list<TestDto>" as testsListDto
-validateTestCont --> testsListDto : create()
 
-
-
-ref over validateTestCont, TestMapper : testsListDto = toDto(testsList)
-
-
+validateTestCont -> TestMapper : testsListDto = toDto(testsList)
+activate TestMapper
+deactivate TestMapper
 
 
 deactivate validateTestCont
@@ -48,28 +49,38 @@ validateTestUI --> labC : shows a list of to-be validated tests
 deactivate validateTestUI
 
 
-alt testsListDto.size() == 1
+loop for how many tests the Laboratory Coordinator chooses
 labC -> validateTestUI : selects a test from the list
 activate validateTestUI
-validateTestUI --> labC : displays its data (registration date, chemical analysis date, diagnosis date) and request to chose if its valid
-deactivate validateTestUI
 
-else testsListDto.size() != 1
 
-loop for how many tests the Laboratory Coordinator wants to validate
-labC -> validateTestUI : selects a test from the list
-activate validateTestUI
+validateTestUI -> TestDto : registrationDate = getRegistrationDate()
+activate TestDto
+deactivate TestDto
+
+
+validateTestUI -> TestDto : chemAnalysisDate = getChemAnalysisDate()
+activate TestDto
+deactivate TestDto
+
+
+validateTestUI -> TestDto : diagnosisDate = getDiagnosisDate()
+activate TestDto
+deactivate TestDto
+
+
 validateTestUI --> labC : displays its data (registration date, chemical analysis date, diagnosis date) and request to chose if its valid
 deactivate validateTestUI
 end
-end alt
+
 
 
 
 deactivate validateTestUI
 
+loop for each chosen test
 
-loop until the user confirms the selected state
+loop until the Laboratory Coordinator confirms the selected state of the chosen tests
 labC -> validateTestUI : selects the desired state
 activate validateTestUI
 
@@ -82,7 +93,12 @@ activate validateTestUI
 end
 
 
-validateTestUI -> validateTestCont : validateTest(testDto.getCode())
+validateTestUI -> TestDto : code = getCode()
+activate TestDto
+deactivate TestDto
+
+
+validateTestUI -> validateTestCont : validateTest(code)
 
 
 activate validateTestCont
@@ -94,16 +110,30 @@ validateTestCont -> TestStore : validateTest()
 activate TestStore
 
 
-TestStore -> Test : checkTestStatus()
-activate est
-deactivate Test
+TestStore -> test : setValidationDateTime()
+activate test
+deactivate test
+
+
+TestStore -> test : updateTestStatus()
+activate test
+deactivate test
 deactivate TestStore
 
 
+validateTestCont -> comp: sendNotification = getNotificationService()
+activate comp
+deactivate comp
+
+validateTestCont -> notification: sendNotification(message)
+activate notification
+deactivate notification
+deactivate validateTestCont
 
 
-
-validateTestUI --> labC
+validateTestUI --> labC : informs about operation success
 deactivate validateTestCont
 deactivate validateTestUI
+
+end
 @enduml
