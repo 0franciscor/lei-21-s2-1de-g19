@@ -7,37 +7,21 @@ left to right direction
 
 
 class Client
-class LabOrder
-class Receptionist
-class Employee
+class Company
 class ParameterCategory
 class Parameter
 class TestType
 class Test
 
-LabOrder "1" -- "*" Client : > brought by
-LabOrder "1" -- "1..*" Receptionist : < receives
-Employee "*" <|-- "1..*" Receptionist
-LabOrder "1" -- "1" Test : < is associated
-LabOrder "1" -- "1" TestType : > contains
 TestType "*" -- "1" ParameterCategory : > analyzes a
 TestType "1" -- "*" Test: < is of
 ParameterCategory "1" -- "*" Parameter : < presented under
 Parameter "1..*" -- "*" Test : < requests analysis of
-Test "*" -- "1..*" Receptionist : < registers
 Client "1" -- "*" Test : < requested by
+Company "1" -- "*" Client : > knows
 
-class Employee{
--name
--address
--phoneNumber
--employeeID
--orgRole
--email
--SOCcode
-}
-
-class Receptionist{
+class Company{
+-designation
 }
 
 class Client{
@@ -49,9 +33,6 @@ class Client{
 -phoneNumber
 -email
 -name
-}
-
-class LabOrder{
 }
 
 class ParameterCategory{
