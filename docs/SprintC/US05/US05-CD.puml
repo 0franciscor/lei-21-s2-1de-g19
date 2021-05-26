@@ -10,7 +10,7 @@ class RecordSamplesController{
 
 class TestMapper{
   +toDto(lRT)
-  +toModel(lRTDto)
+  +toModel(tDto)
   +toDto(t)
 }
 
@@ -21,7 +21,7 @@ class Company{
 
 class TestStore{
   +getRegisteredTests()
-  +isUnique(barcode)
+  +globallyUnique(listBarcodes)
   +save(t)
 }
 
@@ -33,8 +33,10 @@ class Test{
   -chemicalAnalysisDateTime
   -diagnosisDateTime
   -validationDateTime
-  +containsSamples()
-  +addAll(listBarcodesNotRepested)
+  +updateTestStatus()
+  +isListUnique(listBarcodes)
+  +addAll(listBarcodes)
+  +createSample(barcode)
   +updateCollectDateTime()
   +validate()
 }
@@ -44,7 +46,7 @@ class APIBarcodeAdapter{
 }
 
 interface ExternalModuleAPIBarcode{
-  generate(nSamples)
+  +generate(nSamples)
 }
 
 class Sample{
