@@ -40,9 +40,10 @@ activate RSC
 RSC -> TM : t = toModel(tDto)
 activate TM
 deactivate TM
-RSC -> T : containsSamples()
+RSC -> T : updateTestStatus()
 activate T
 deactivate T
+loop while bool1 == false or bool2 == false
 RSC -> APIBA : listBarcodes = generateBarcodes(nSamples)
 activate APIBA
 APIBA -> EMAPIB : generate (nSamples)
@@ -50,23 +51,26 @@ activate EMAPIB
 deactivate EMAPIB
 note over EMAPIB : Also exports jpeg
 deactivate APIBA
-RSC -> RSC : listBarcodesNotRepeated
-activate RSC
-deactivate RSC
-loop for each barcode generated in listBarcodes
-RSC -> TS : isUnique(barcode)
+RSC -> TS : bool1 = globallyUnique(listBarcodes)
 activate TS
 deactivate TS
-end
-RSC -> T : addAll(listBarcodesNotRepeated)
+RSC -> T : bool2 = isListUnique(listBarcodes)
 activate T
-loop for each barcode in listBarcodesNotRepeated
+deactivate T
+end
+RSC -> T : addAll(listBarcodes)
+activate T
+T --> LS** : listSamples = create()
+loop for each barcode in listBarcodes
 T --> S** : create(barcode)
 T -> LS : add(s)
 activate LS
 deactivate LS
 end
 T -> T : updateCollectDateTime()
+activate T
+deactivate T
+T -> T : updateTestStatus()
 activate T
 deactivate T
 deactivate T
