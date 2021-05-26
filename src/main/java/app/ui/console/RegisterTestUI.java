@@ -42,7 +42,7 @@ public class RegisterTestUI implements Runnable {
 
         System.out.printf("\n--- Requested data to register a test ---");
         String citizenID = Utils.readLineFromConsole("\nType the client's citizen card numer:");
-        String nhsCode = Utils.readLineFromConsole("\nType the NHS Code test:");
+        String nhsCode = Utils.readLineFromConsole("Type the NHS Code test:");
 
         ClientDto cl;
         try {
@@ -65,13 +65,25 @@ public class RegisterTestUI implements Runnable {
 
                     List<TestTypeDto> listTestTypeDto = ctrl.getAllTestType();
 
-                    Utils.showList(listTestTypeDto, "Available test types.");
+                    // FORMA ANTIGA
+                   // Utils.showList(listTestTypeDto, "\nAvailable test types:");
+                    // TestTypeDto opcao = (TestTypeDto) Utils.selectsObject(listTestTypeDto);
+
+                    System.out.println("\nAvailable test types:");
+
+                    int index1 = 0;
+                    for (TestTypeDto testTypeDto: listTestTypeDto){
+                        index1 ++;
+
+                        System.out.println(index1 + ". " + testTypeDto.toString());
+                    }
+
                     TestTypeDto opcao = (TestTypeDto) Utils.selectsObject(listTestTypeDto);
 
                     if (opcao != null){
                         List<ParametersDto> listParametersDto = ctrl.getAllParametersByTestType(opcao);
 
-                        System.out.println("Available parameters associated to the test type.");
+                        System.out.println("\nAvailable parameters associated to the test type:");
 
                         int index = 0;
                         for (ParametersDto parametersDto : listParametersDto)
@@ -81,74 +93,66 @@ public class RegisterTestUI implements Runnable {
                             System.out.println(index + ". " + parametersDto.toString());
                         }
 
-                        // ACRESCENTEI O STRING AUX = E O ARRAY
-                        String aux = Utils.readLineFromConsole("Choose the parameters that you want to associate to the test type.");
-                        String [] aux1 = aux.split(" ");
+                        String aux = Utils.readLineFromConsole("Type your option:");
+                        String [] aux1 = aux.trim().split(" ");
 
 
-                        boolean confirmation1 = Utils.confirm(String.format("Are you sure this is the info of the test type ? If so type s, if not type n. \n\n Test type: %s", opcao.toString()));
+                        int validarOpcoes = 0;
+                        for (int x=0; x<aux1.length; x++){
 
-
-                        for (int i=0; i<aux1.length; i++){
-
-                            if (aux1[i].charAt(i) == listParametersDto.indexOf(i+1))
-                                System.out.println(listParametersDto.indexOf(i));
+                            if (Integer.parseInt(aux1[x]) <= 0 || Integer.parseInt(aux1[x]) > listParametersDto.size())
+                                validarOpcoes++;
                         }
 
+                        if (validarOpcoes == 0) {
 
-                        /*
-                        if (confirmation1){
-                            for (ParametersDto parametersDto: listParametersDto) {
+                            boolean confirmation1 = Utils.confirm(String.format("Are you sure this is the info of the test type ? If so type s, if not type n.\n\n %s", opcao.toString()));
 
-                                System.out.println(parametersDto.toString());
+
+                            for (int i=0; i<aux1.length; i++){
+
+                                if (Integer.parseInt(aux1[i]) == i+1)
+                                    System.out.println(listParametersDto.get(i));
                             }
+
+                            boolean confirmation2 = Utils.confirm("Are you sure this is the info of parameter(s) associated to the test type ?");
+
+                            if (confirmation1 && confirmation2){
+
+                                Test test;
+
+                                try {
+                                    test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID(),nhsCode);
+                                } catch (Exception e) {
+                                    System.out.println("Impossible to register the test due to a problem with National Healthcare Service number. Check if it is right.");
+                                    return;
+
+                                }
+                                ctrl.saveTest(test);
+                                System.out.println("Operation was a success and the test was registered.");
+
+
+                                //VER SE O TEST ESTA NA TEST LIST
+                                /*
+                                List<Test> x = ctrl.testStore.SeeList();
+                                for (Test yy: x ) {
+                                    System.out.printf(yy.toString());
+                                }
+
+                                 */
+                            }
+
+                        } else {
+                            System.out.println("\nThe test was not registered due to invalid option(s). Check the selected option(s).");
                         }
-
-                         */
-
-                        //aparecer só o(s) parameter(s) mediante a opção que escreve no teclado
-                        //validação para não poder registar o mesmo teste
-                        // o code do teste não está a aparecer
-
-
-                        boolean confirmation2 = Utils.confirm("Are you sure this is the info of parameter(s) associated to the test type ?");
-
-                        if (confirmation1 && confirmation2){
-
-                            Test test;
-
-                            try {
-                                test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID(),nhsCode);
-                            } catch (Exception e) {
-                                System.out.println("Impossible to register the test due to a problem with National Healthcare Service number. Check if it is right.");
-                                return;
-
-                            }
-                            ctrl.saveTest(test);
-                            System.out.println("Operation was a success and the test was registered.");
-
-
-                            //VER SE O TEST ESTA NA TEST LIST
-                            /*
-                            List<Test> x = ctrl.testStore.SeeList();
-                            for (Test yy: x ) {
-                                System.out.printf(yy.toString());
-                            }
-
-                             */
-
-                        }
-                        //System.out.println(test.toString());
-
                     } else {
-                        System.out.println("Não quer selecionar nenhum test type da lista.");
+                        System.out.println("A opção selecionada não existe e, por isso, o registo do teste foi cancelado.");
                     }
                 }
-                
+
             } else {
                 System.out.println("Corrigir dados");
             }
-
         }
     }
 }

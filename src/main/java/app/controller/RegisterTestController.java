@@ -124,7 +124,7 @@ public class RegisterTestController {
     public boolean saveTest (Test test) {
 
         if (this.testStore.saveTest(test)){
-            String code = test.generateCode();
+            test.generateCode();
             return true;
         }
 

@@ -145,7 +145,7 @@ deactivate ":store: TestStore"
 
 deactivate ":store: TestStore"
 
-":RegisterTestController" -> "test: Test" : code = generateCode()
+":RegisterTestController" -> "test: Test" : generateCode()
 
 activate "test: Test"
 deactivate "test: Test"

@@ -275,8 +275,8 @@ public class Test {
      * @return Test characteristics.
      */
     public String toString (){
-        return String.format("Test with test type %s, parameters %s, citizen card number %s",this.testType, this.parameters, this.client.getCitizenID());
-        //return String.format("Test code: %s \nNHS code: %s ",this.code, this.nhsCode);
+        //return String.format("Test with test type %s, parameters %s, citizen card number %s",this.testType, this.parameters, this.client.getCitizenID());
+        return String.format("Test code: %s \nNHS code: %s ",this.code, this.nhsCode);
     }
 
     /**
@@ -284,7 +284,7 @@ public class Test {
      *
      * @return sequential number code.
      */
-    public String generateCode () {
+    public void generateCode () {
         String code = "";
         int lengthCode = 12;
         String aux = String.valueOf(company.numTeste);
@@ -297,7 +297,7 @@ public class Test {
         code = code + (company.numTeste+1);
         company.numTeste++;
 
-        return code;
+        this.code = code;
 
     }
 

@@ -58,8 +58,9 @@ public class TestTest {
 
         int codeLengthResult = 12;
 
-        String code = company.getTestStore().createTest(testType,parameters,"1234567890987654", "123456789098").generateCode();
-        int codeLengthExpected = code.length();
+        app.domain.model.Test teste = company.getTestStore().createTest(testType,parameters,"1234567890987654", "123456789098");
+        teste.generateCode();
+        int codeLengthExpected = teste.getCode().length();
 
         assertEquals(codeLengthResult,codeLengthExpected);
     }
