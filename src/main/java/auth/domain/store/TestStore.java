@@ -1,8 +1,10 @@
 package auth.domain.store;
 
 import app.domain.model.Parameter;
+import app.domain.model.Sample;
 import app.domain.model.Test;
 import app.domain.model.TestType;
+import net.sourceforge.barbecue.Barcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +94,36 @@ public class TestStore {
         return analyzedTestsList;
     }
 
+    public List<Test> getRegisteredTests(){
+        List<Test> registeredTests = new ArrayList<>();
+        for(Test t: TestList){
+            if(t.getStatus().equals("Registered"))
+            registeredTests.add(t);
+        }
+        return registeredTests;
+    }
+
+    public Test getTest(String code){
+        for(Test t: TestList){
+            if(code.equals(t.getCode()))
+                return t;
+        }
+        return null;
+    }
+
+    public boolean globallyUnique(List<Barcode> listBarcodes){
+
+        for(Test t: TestList){
+            List<Sample> sampleList = t.getListSamples();
+            for(Sample s: sampleList){
+                for(Barcode b: listBarcodes){
+                    if(s.getBarcode().equals(b))
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
 
 
     /**

@@ -2,8 +2,10 @@ package app.domain.model;
 
 import app.controller.App;
 import auth.domain.store.ClientStore;
+import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -84,6 +86,12 @@ public class Test {
      */
     private Status state;
 
+    private Sample sample;
+
+    private ArrayList<Sample> listSamples;
+
+    private List<Barcode> testBarcodesList;
+
     /**
      * The available states for a test.
      */
@@ -138,6 +146,8 @@ public class Test {
             }
         }
     }
+
+
 
     /**
      * Returns the Test's description.
@@ -265,6 +275,10 @@ public class Test {
         return this.state.toString();
     }
 
+    public ArrayList<Sample> getListSamples(){
+        return this.listSamples;
+    }
+
 //    public String getValues() {
 //        return values;
 //    }
@@ -301,6 +315,14 @@ public class Test {
 
     }
 
+    public Sample create(Barcode barcode){
+        Sample sample = new Sample(barcode);
+        listSamples.add(sample);
+        return sample;
+    }
+
+
+
     /**
      * A method that is responsible for automatically changing the Test validation date and time.
      *
@@ -319,6 +341,53 @@ public class Test {
         }
         return false;
     }
+
+    public boolean isListUnique(List<Barcode> listBarcodes){
+        for(Barcode b: listBarcodes){
+            int no=0;
+            for(Barcode b1: listBarcodes){
+                if(b1.equals(b))
+                    no++;
+            }
+            if(no>1)
+                return false;
+        }
+        return true;
+    }
+
+    public void addAll(List<Barcode> listBarcodes){
+        for(Barcode b: listBarcodes){
+            testBarcodesList.add(b);
+        }
+    }
+
+    public List<Sample> create(){
+        for(Barcode b: testBarcodesList){
+            Sample sample=new Sample(b);
+            listSamples.add(sample);
+        }
+        return listSamples;
+    }
+
+    public boolean updateCollectDateTime(){
+        try{
+            if(listSamples!=null){
+                this.collectDateTime=new Date();
+                return true;
+            }
+        }catch(Exception e){
+            System.out.println("There was an error when updating the validation date and time. Please try again.");
+            return false;
+        }
+        return false;
+    }
+
+    public boolean validate(){
+        if(getStatus().equals("Collected"))
+            return true;
+        return false;
+    }
+
 
     /**
      * A method that is responsible for automatically changing the Test state.
