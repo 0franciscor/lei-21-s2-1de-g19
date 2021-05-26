@@ -3,6 +3,7 @@ package app.domain.model;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 public class Notification {
 
@@ -13,6 +14,6 @@ public class Notification {
     }
 
     public void writeToFile(String message){
-        out.println(message);
+        out.println(new Date() + ": " + message);
     }
 }

@@ -38,7 +38,7 @@ public class Company {
     private TestStore testStore;
     private Notification notification;
 
-    public Company(String designation) throws FileNotFoundException {
+    public Company(String designation) /*throws FileNotFoundException*/ {
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -61,7 +61,7 @@ public class Company {
         this.numEmp = 1;
         this.numTeste = 0;
         this.testStore = new TestStore();
-        this.notification = new Notification();
+        //this.notification = new Notification();
     }
 
     public String getDesignation() {
