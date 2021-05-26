@@ -1,5 +1,6 @@
 @startuml
 'https://plantuml.com/class-diagram
+
 skinparam classAttributeIconSize 0
 
 class RecordSamplesUI{
@@ -9,9 +10,9 @@ class RecordSamplesController{
 }
 
 class TestMapper{
-  +toDto(lRT)
-  +toModel(tDto)
-  +toDto(t)
+  +ModelToDto(lRT)
+  +DtoToModel(tDto)
+  +ModelToDto(t)
 }
 
 class Company{
@@ -21,8 +22,8 @@ class Company{
 
 class TestStore{
   +getRegisteredTests()
+  +getTest(tCode)
   +globallyUnique(listBarcodes)
-  +save(t)
 }
 
 class Test{
@@ -36,7 +37,7 @@ class Test{
   +updateTestStatus()
   +isListUnique(listBarcodes)
   +addAll(listBarcodes)
-  +createSample(barcode)
+  +createSample()
   +updateCollectDateTime()
   +validate()
 }
