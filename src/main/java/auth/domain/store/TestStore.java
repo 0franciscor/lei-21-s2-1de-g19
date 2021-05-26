@@ -17,7 +17,7 @@ public class TestStore {
     /**
      * List of tests.
      */
-    List<Test> TestList;
+    private List<Test> TestList;
 
     /**
      * Citizen card number.
@@ -28,7 +28,6 @@ public class TestStore {
      * Builds a TestStore without receiving parameters.
      */
     public TestStore (){
-
         this.TestList = new ArrayList<>();
     }
 
@@ -53,7 +52,7 @@ public class TestStore {
      */
     public boolean saveTest (Test test){
 
-        if (validateTest(test)){
+        if (hasTest(test)){
             addTest(test);
             return true;
         }
@@ -76,8 +75,7 @@ public class TestStore {
      * @param test test to check
      * @return false if the test belongs to the test list, otherwise returns true.
      */
-    public boolean validateTest (Test test){
-
+    public boolean hasTest(Test test){
         if (TestList.contains(test))
             return false;
         else
@@ -101,8 +99,46 @@ public class TestStore {
      * @return all tests that exist in the test list
      */
     public List<Test> SeeList (){
-
         return TestList;
+    }
 
+    /**
+     * A method responsible for returning a list of tests that are reported, which means they are ready to be validated.
+     *
+     * @return a list of tests ready to be validated by the laboratory coordinator.
+     */
+    public List<Test> getDiagnosedTests() {
+        List<Test> diagnosedTestsList = new ArrayList<>();
+        for (Test test : TestList){
+            if (test != null && test.getStatus().equalsIgnoreCase(Test.Status.Reported.toString()))
+                diagnosedTestsList.add(test);
+        }
+        return diagnosedTestsList;
+    }
+
+    /**
+     * @param code that identifies a test.
+     *
+     * Method responsible for fetching a test through its code.
+     *
+     * @return the test which is identified by the code or a new test.
+     */
+    public Test getTestByCode(String code){
+        for(Test test : TestList) {
+            if (test.getCode().equalsIgnoreCase(code))
+                return test;
+        }
+        return new Test();
+    }
+
+    /**
+     * @param test that the laboratory coordinator wants to validate.
+     *
+     * Method responsible for validating a test after a report has been validated.
+     *
+     * @return success of the operation (true if successful and false if not).
+     */
+    public boolean validateTest(Test test){
+        return test.updateValidationDateTime();
     }
 }

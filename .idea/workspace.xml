@@ -31,8 +31,8 @@
         <option value="UML Use Case" />
         <option value="UML Sequence" />
         <option value="UML Class" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -85,8 +85,8 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
       <command value="mvn compile" />
+      <command value="mvn clean" />
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">

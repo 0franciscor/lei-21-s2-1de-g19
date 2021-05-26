@@ -32,7 +32,7 @@ activate comp
 deactivate comp
 
 
-validateTestCont -> TestStore : testsList = getTestList()
+validateTestCont -> TestStore : testsList = getDiagnosedTests()
 activate TestStore
 deactivate TestStore
 
@@ -140,7 +140,7 @@ activate comp
 deactivate comp
 
 
-validateTestCont -> notification: sendNotification(message)
+validateTestCont -> notification: writeToFile(message)
 activate notification
 deactivate notification
 deactivate validateTestCont

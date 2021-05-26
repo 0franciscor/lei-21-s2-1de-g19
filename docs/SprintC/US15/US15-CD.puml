@@ -38,15 +38,17 @@ class "Notification" as N{
 package Stores{
 class "TestStore" as TS{
 -List<Test> TestList
-+List <Test> getTestList()
-+Test getTestByCode()
-+boolean validateTest()
++List <Test> getDiagnosedTests()
++Test getTestByCode(code)
++boolean validateTest(test)
 }
 
 class "ReportStore" as RS{
 -List<Report> ReportList
 +boolean validateReport(code)
++boolean getReportValidation(code)
 }
+
 }
 
 package Controllers{
@@ -106,6 +108,6 @@ C "1" -- "*" T : > performs
 
 RS ..> R
 R "1" -- "1" T : > associated with
-R "1" -- "1" N : > associated with
+R "1" -- "1" N : < associated with
 
 @enduml
