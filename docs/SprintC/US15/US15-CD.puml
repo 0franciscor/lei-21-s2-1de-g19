@@ -53,7 +53,9 @@ package Controllers{
 class "ValidateTestController" as VTC {
 +ValidateTestController()
 +List<TestDto> getAllTestsDto()
-+boolean validateTest()
++boolean validateReport(code)
++boolean validateTest(code)
++sendNotification()
 }
 
 

@@ -94,11 +94,11 @@ activate TestDto
 deactivate TestDto
 
 
-validateTestUI -> validateTestCont : validateTest(code)
+validateTestUI -> validateTestCont : validateReport(code)
+
 
 
 activate validateTestCont
-
 validateTestCont -> comp: store = getReportStore()
 activate comp
 deactivate comp
@@ -107,8 +107,14 @@ deactivate comp
 validateTestCont -> ReportStore : validateReport(code)
 activate ReportStore
 deactivate ReportStore
+deactivate validateTestCont
+
+validateTestUI -> validateTestCont : validateTest(code)
+activate validateTestCont
+
 
 validateTestCont -> TestStore : test = getTestByCode(code)
+
 activate TestStore
 deactivate TestStore
 
@@ -123,6 +129,10 @@ test -> test ++: updateTestStatus()
 deactivate test
 deactivate test
 deactivate TestStore
+deactivate validateTestCont
+
+validateTestUI -> validateTestCont : sendNotification()
+activate validateTestCont
 
 
 validateTestCont -> comp: sendNotification = getNotificationService()
