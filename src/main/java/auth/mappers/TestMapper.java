@@ -1,5 +1,6 @@
 package auth.mappers;
 
+import app.domain.model.Sample;
 import app.domain.model.Test;
 import auth.mappers.dto.TestDto;
 import java.util.ArrayList;
@@ -33,5 +34,27 @@ public class TestMapper {
                     test.getDiagnosisDateTime(), test.getCode()));
         }
         return testsListDto;
+    }
+
+    public static List<TestDto> ModelToDto (List<Test> listTest){
+        List<TestDto> listTestsDto = new ArrayList<>();
+        for(Test t: listTest){
+            String code = t.getCode();
+            TestDto testDto = new TestDto(code);
+            listTestsDto.add(testDto);
+        }
+        return listTestsDto;
+    }
+
+    public static TestDto ModelToDto (Test test){
+        ArrayList<Sample> listSamplesTest = test.getListSamples();
+        TestDto testDto = new TestDto(listSamplesTest);
+
+        return testDto;
+    }
+
+    public static String DtoToModel (TestDto testDto){
+        String code = testDto.getCode();
+        return code;
     }
 }
