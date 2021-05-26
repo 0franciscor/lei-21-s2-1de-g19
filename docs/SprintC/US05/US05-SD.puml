@@ -26,7 +26,7 @@ deactivate COMP
 RSC -> TS : lRT = getRegisteredTests()
 activate TS
 deactivate TS
-RSC -> TM : lRTDto = toDto(lRT)
+RSC -> TM : lRTDto = ModelToDto(lRT)
 activate TM
 deactivate TM
 deactivate RSC
@@ -37,12 +37,13 @@ MLT -> RSUI : selects one test and types requested data
 activate RSUI
 RSUI -> RSC : testDto = recordSample(tDto, nSamples)
 activate RSC
-RSC -> TM : t = toModel(tDto)
+RSC -> TM : tCode = DtoToModel(tDto)
 activate TM
 deactivate TM
-RSC -> T : updateTestStatus()
-activate T
-deactivate T
+RSC -> TS : t = getTest(tCode)
+activate TS
+deactivate TS
+
 loop while bool1 == false or bool2 == false
 RSC -> APIBA : listBarcodes = generateBarcodes(nSamples)
 activate APIBA
@@ -70,11 +71,8 @@ end
 T -> T : updateCollectDateTime()
 activate T
 deactivate T
-T -> T : updateTestStatus()
-activate T
 deactivate T
-deactivate T
-RSC -> TM : toDto(t)
+RSC -> TM : ModelToDto(t)
 activate TM
 deactivate TM
 deactivate RSC
@@ -87,10 +85,10 @@ RSUI -> RSC : save()
 activate RSC
 RSC -> T : validate()
 activate T
+T -> T : updateTestStatus()
+activate T
 deactivate T
-RSC -> TS : save(t)
-activate TS
-deactivate TS
+deactivate T
 deactivate RSC
 RSUI --> MLT : informs operation success
 deactivate RSUI
