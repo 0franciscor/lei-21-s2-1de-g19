@@ -136,7 +136,7 @@ activate ":RegisterTestController"
 
 activate ":store: TestStore"
 
-":store: TestStore" -> ":store: TestStore": validateTest(test)
+":store: TestStore" -> ":store: TestStore": hasTest(test)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 ":store: TestStore" -> ":store: TestStore": addTest(test)

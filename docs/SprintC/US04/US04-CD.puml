@@ -50,7 +50,7 @@ class "ParametersMapper" as PM {
 class "TestStore" as TS {
 +createTest(tt, parameters,citizenID, nhsCode)
 +saveTest(test)
-+validateTest(test)
++hasTest(test)
 +addTest(test)
 }
 
