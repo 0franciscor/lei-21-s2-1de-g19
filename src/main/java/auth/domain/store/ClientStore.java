@@ -78,14 +78,14 @@ public class ClientStore {
     /**
      * If there is a client with the citizen card number equal to what is passed by parameter returns his data, otherwise returns null.
      *
-     * @param citizenID Client's citizen card number
+     * @param TIN Client's Tax Identification number
      * @return Client's data if there is a client with the citizen card number equal to what is passed by parameter, otherwise returns null
      */
-    public Client getClient (String citizenID) {
+    public Client getClient (String TIN) {
 
         for (Client c : ClientList ) {
 
-            if (citizenID.equals(c.getCitizenID()))
+            if (TIN.equals(c.getTIN()))
                 return c;
 
         }

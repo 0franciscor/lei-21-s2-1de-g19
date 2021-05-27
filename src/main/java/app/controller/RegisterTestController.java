@@ -56,13 +56,13 @@ public class RegisterTestController {
     /**
      * Returns a client Dto that receives the citizen card number as a parameter.
      *
-     * @param citizenID citizen card number
+     * @param TIN Tax Identification number
      * @return client Dto that receives the citizen card number as a parameter.
      */
-    public ClientDto getClient (String citizenID) {
+    public ClientDto getClient (String TIN) {
 
         ClientStore store = company.getClientStore();
-        Client cl = store.getClient(citizenID);
+        Client cl = store.getClient(TIN);
         ClientDto cl1 = ClientMapper.toDto(cl);
 
 
@@ -103,15 +103,15 @@ public class RegisterTestController {
      *
      * @param parameters the parameters Dto list
      * @param testTypeDto the test type Dto
-     * @param citizenID the citizen card number
+     * @param TIN the Tax Identification number
      * @return test.
      */
-    public Test createTest (List<ParametersDto> parameters, TestTypeDto testTypeDto, String citizenID, String nhsCode){
+    public Test createTest (List<ParametersDto> parameters, TestTypeDto testTypeDto, String TIN, String nhsCode){
 
         TestType testType = TestTypeMapper.toModel(testTypeDto);
         List<Parameter> parameters1 = ParametersMapper.toModel(parameters);
         TestStore store = company.getTestStore();
-        Test test = testStore.createTest(testType, parameters1, citizenID, nhsCode);
+        Test test = testStore.createTest(testType, parameters1, TIN, nhsCode);
 
         return test;
     }
