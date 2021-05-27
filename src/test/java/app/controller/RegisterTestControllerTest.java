@@ -97,7 +97,9 @@ public class RegisterTestControllerTest {
     public void saveTestTrue() {
 
         ParameterCategory parameterCategory = new ParameterCategory("a", "12345");
-        TestType testType = new TestType("34567","assdf","swab", parameterCategory);
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType testType = new TestType("34567","assdf","swab", pcList);
 
         List<Parameter> parameters = new ArrayList<>();
         Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);
@@ -118,7 +120,9 @@ public class RegisterTestControllerTest {
     public void saveTestFalse() {
 
         ParameterCategory parameterCategory = new ParameterCategory("a", "12345");
-        TestType testType = new TestType("34567","assdf","swab", parameterCategory);
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType testType = new TestType("34567","assdf","swab", pcList);
 
         List<Parameter> parameters = new ArrayList<>();
         Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);

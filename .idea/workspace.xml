@@ -49,7 +49,6 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintC/US09" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintC/US04" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -83,7 +82,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestTypeTest.setParameterCategoriesList">
+  <component name="RunManager" selected="JUnit.All in Sem2App">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -116,7 +115,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParameterCategoryStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientStoreTest.getClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -125,8 +124,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ParameterCategoryStoreTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ClientStoreTest" />
+      <option name="METHOD_NAME" value="getClient" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,17 +166,17 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.ParameterCategoryStoreTest" />
       <item itemvalue="JUnit.TestTest.generateCode" />
       <item itemvalue="JUnit.TestTypeTest.setParameterCategoriesList" />
+      <item itemvalue="JUnit.ClientStoreTest.getClient" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="JUnit.ClientStoreTest.getClient" />
         <item itemvalue="JUnit.TestTypeTest.setParameterCategoriesList" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestTest.generateCode" />
-        <item itemvalue="JUnit.All in Sem2App" />
-        <item itemvalue="JUnit.ParameterCategoryStoreTest" />
       </list>
     </recent_temporary>
   </component>
@@ -208,6 +208,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/auth/domain/store/ClientStoreTest.java</url>
+          <line>65</line>
+          <properties class="auth.domain.store.ClientStoreTest" method="getClient">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="listParametersDto" />

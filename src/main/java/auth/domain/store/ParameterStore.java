@@ -101,7 +101,7 @@ public class ParameterStore {
 
         for (Parameter p: parameterStoreList ) {
 
-            if (testTypeDto.getParameterCategory().equals(p.getPcat())){
+            if (testTypeDto.getParameterCategoriesList().equals(p.getPcat())){
                 parameterStoreListTestType.add(p);
             }
         }

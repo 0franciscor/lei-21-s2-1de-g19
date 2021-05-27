@@ -20,7 +20,9 @@ public class RegisterClinicalAnalysisLaboratoryControllerTest {
     @Test
     public void RegisterClinicalAnalysisLaboratory() {
         List<TestType> TestTypesList1 = new ArrayList<>();
-        TestTypesList1.add(new TestType("12345", "Description", "Collect1", new ParameterCategory("null", "pcnul")));
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList));
         RegisterClinicalAnalysisLaboratoryController calControllerTest = new RegisterClinicalAnalysisLaboratoryController();
         boolean calTest = calControllerTest.registerClinicalAnalysisLaboratory("Lab", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
         assertEquals(true, calTest);
@@ -36,7 +38,9 @@ public class RegisterClinicalAnalysisLaboratoryControllerTest {
     @Test
     public void getAllTestTypes() {
         List<TestType> TestTypesList1 = new ArrayList<>();
-        TestTypesList1.add(new TestType("12345", "Description", "Collect1", new ParameterCategory("null", "pcnul")));
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList));
         RegisterClinicalAnalysisLaboratoryController calControllerTest = new RegisterClinicalAnalysisLaboratoryController();
         ClinicalAnalysisLaboratory cal1 = new ClinicalAnalysisLaboratory("Lab1", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
         ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("Lab2", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
