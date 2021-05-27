@@ -4,7 +4,7 @@ import app.domain.model.Parameter;
 import app.domain.model.Sample;
 import app.domain.model.Test;
 import app.domain.model.TestType;
-import net.sourceforge.barbecue.Barcode;
+//import net.sourceforge.barbecue.Barcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,12 +38,12 @@ public class TestStore {
      *
      * @param testType test type
      * @param parameters list of parameters
-     * @param citizenID citizen card number
+     * @param TIN Tax Identification number
      * @return created Test
      */
-    public Test createTest (TestType testType, List<Parameter> parameters, String citizenID, String nhsCode){
+    public Test createTest (TestType testType, List<Parameter> parameters, String TIN, String nhsCode){
 
-        return new Test(testType,parameters, citizenID, nhsCode);
+        return new Test(testType,parameters, TIN, nhsCode);
     }
 
     /**
@@ -111,6 +111,7 @@ public class TestStore {
         return null;
     }
 
+    /*
     public boolean globallyUnique(List<Barcode> listBarcodes){
 
         for(Test t: TestList){
@@ -124,6 +125,8 @@ public class TestStore {
         }
         return true;
     }
+
+     */
 
 
     /**

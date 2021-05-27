@@ -41,14 +41,14 @@ public class RegisterTestUI implements Runnable {
         int option = 0;
 
         System.out.printf("\n--- Requested data to register a test ---");
-        String citizenID = Utils.readLineFromConsole("\nType the client's citizen card numer:");
+        String citizenID = Utils.readLineFromConsole("\nType the Client's Tax Identification Number:");
         String nhsCode = Utils.readLineFromConsole("Type the NHS Code test:");
 
         ClientDto cl;
         try {
             cl = ctrl.getClient(citizenID);
         } catch (Exception e) {
-            System.out.println("\nInvalid citizen card number or the client has not been registered yet.");
+            System.out.println("\nInvalid Tax Identification Number or the client has not been registered yet.");
             return;
         }
 
@@ -106,16 +106,20 @@ public class RegisterTestUI implements Runnable {
 
                         if (validarOpcoes == 0) {
 
-                            boolean confirmation1 = Utils.confirm(String.format("Are you sure this is the info of the test type ? If so type s, if not type n.\n\n %s", opcao.toString()));
+                            System.out.println("\n"+opcao.toString());
 
+                            //FORMA ANTIGA
+                            //boolean confirmation1 = Utils.confirm(String.format("Are you sure this is the info of the test type ? If so type s, if not type n.\n\n %s", opcao.toString()));
+                            boolean confirmation1 = Utils.confirm("Are you sure this is the info of the test type ? If so type s, if not type n.");
 
+                            System.out.println();
                             for (int i=0; i<aux1.length; i++){
-
-                                if (Integer.parseInt(aux1[i]) == i+1)
+                                if (Integer.parseInt(aux1[i]) == i+1){
                                     System.out.println(listParametersDto.get(i));
+                                }
                             }
 
-                            boolean confirmation2 = Utils.confirm("Are you sure this is the info of parameter(s) associated to the test type ?");
+                            boolean confirmation2 = Utils.confirm("Are you sure this is the info of parameter(s) associated to the test type ? If so type s, if not type n.");
 
                             if (confirmation1 && confirmation2){
 

@@ -7,10 +7,10 @@ left to right direction
 class "RegisterTestUI" as RTUI
 
 class "RegisterTestController" as RTC {
-+getClient(citizenID)
++getClient(TIN)
 +getAllTestType()
 +getAllParametersByTestType(testTypeDto)
-+createTest(list <parametersDto>, testTypeDto, citizenID, nhsCode)
++createTest(list <parametersDto>, testTypeDto, TIN, nhsCode)
 +saveTest(test)
 }
 
@@ -23,7 +23,7 @@ class "Company" as C {
 }
 
 class "ClientStore" as CS {
-+getClient(citizenID)
++getClient(TIN)
 }
 
 class "ClientMapper" as CM {
@@ -48,7 +48,7 @@ class "ParametersMapper" as PM {
 }
 
 class "TestStore" as TS {
-+createTest(tt, parameters,citizenID, nhsCode)
++createTest(tt, parameters,TIN, nhsCode)
 +saveTest(test)
 +hasTest(test)
 +addTest(test)
@@ -62,7 +62,7 @@ class "Test" as T {
 -chemicalAnalysisDateTime
 -diagnosisDateTime
 -validationDateTime
-+Test(tt, parameters, citizenID, nhsCode)
++Test(tt, parameters, TIN, nhsCode)
 +generateCode()
 }
 
