@@ -65,7 +65,7 @@ public class Test {
      * The parameters list.
      */
     private List<Parameter> parameters;
-
+    private List<ParameterResult> parameterResults;
     /**
      * Client.
      */
@@ -120,6 +120,7 @@ public class Test {
         this.company = App.getInstance().getCompany();
         this.testType = testType;
         this.parameters = parameters;
+        this.parameterResults = new ArrayList<ParameterResult>();
         this.clientStore = company.getClientStore();
         this.client = clientStore.getClient(TIN);
         this.nhsCode = nhsCode;
@@ -413,5 +414,9 @@ public class Test {
         } catch (Exception e){
             System.out.println("There was an error when updating the Test Status. Please try again.");
         }
+    }
+    public boolean addParameterResult (Test test, Parameter parameter, String value, String metric) {
+        parameterResults.add(new ParameterResult(test, parameter, value, metric));
+        return true;
     }
 }

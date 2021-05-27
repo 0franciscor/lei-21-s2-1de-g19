@@ -54,11 +54,13 @@ public class TestType {
      * @param collectingMethod the Test Type collecting method
      * @param parameterCategoriesList the list of Test Type's parameter categories
      */
-    public TestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList){
+    public TestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList, ExternalModule em){
         setCode(code);
         setDescription(description);
         setCollectingMethod(collectingMethod);
         setParameterCategoriesList(parameterCategoriesList);
+        this.em = em;
+
     }
 
     /**
@@ -182,7 +184,7 @@ public class TestType {
 //                && this.parameterCategoriesList.equals(obj2.parameterCategoriesList);
 //    }
 
-    private ExternalModule getExternalModule(){
+    public ExternalModule getExternalModule(){
         return em;
     }
 }

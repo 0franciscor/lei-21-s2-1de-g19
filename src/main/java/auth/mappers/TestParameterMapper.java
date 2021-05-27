@@ -12,13 +12,13 @@ public class TestParameterMapper {
     /**
      * Responsible for converting a list of test parameters into a list of test parameters DTO.
      *
-     * @param testParameterList that needs to be converted to a Dto.
+     * @param parameterResultList that needs to be converted to a Dto.
      * @return a List of Dto Test Parameters
      */
-    public static List<TestParameterDto> toDto(List<TestParameter> testParameterList) {
+    public static List<TestParameterDto> toDto(List<ParameterResult> parameterResultList) {
         List<TestParameterDto> testParameterListDto = new ArrayList<>();
-        for(TestParameter testParameter: testParameterList) {
-            testParameterListDto.add(new TestParameterDto(testParameter.getParameter(), testParameter.getTestParameterResult()));
+        for(ParameterResult parameterResult : parameterResultList) {
+            testParameterListDto.add(new TestParameterDto(parameterResult.getParameter(), parameterResult.getTestParameterResult()));
         }
         return testParameterListDto;
     }
@@ -29,14 +29,14 @@ public class TestParameterMapper {
      * @param testParameterListDto a list of test parameters Dto
      * @return a list of test parameters
      */
-    public static List<TestParameter> toModel (List<TestParameterDto> testParameterListDto){
+    public static List<ParameterResult> toModel (List<TestParameterDto> testParameterListDto){
 
-        List<TestParameter> testParameters = new ArrayList<>();
+        List<ParameterResult> parameterResults = new ArrayList<>();
 
         for (TestParameterDto testParameterDto: testParameterListDto ) {
-            testParameters.add(new TestParameter(testParameterDto.getParameter(), testParameterDto.getTestParameterResult()));
+            parameterResults.add(new ParameterResult(testParameterDto.getParameter(), testParameterDto.getTestParameterResult()));
         }
-        return testParameters;
+        return parameterResults;
 
     }
 
