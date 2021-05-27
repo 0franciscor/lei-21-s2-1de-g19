@@ -1,5 +1,6 @@
 package auth.mappers;
 
+import app.domain.model.ParameterResult;
 import app.domain.model.Sample;
 import app.domain.model.Test;
 import auth.mappers.dto.TestDto;
@@ -14,7 +15,8 @@ public class TestMapper {
             String description = c.getDescription();
             String testType = c.getTestType().getDescription();
             String code = c.getCode();
-            TestDto testDto = new TestDto(description, testType, code);
+            List<ParameterResult> parameterResultList = c.getParameterResults();
+            TestDto testDto = new TestDto(description, testType, code, parameterResultList);
             listAnalyzedTestsDto.add(testDto);
         }
         return listAnalyzedTestsDto;

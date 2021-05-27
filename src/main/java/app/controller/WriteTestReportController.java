@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
+import app.domain.model.ParameterResult;
 import app.domain.model.Report;
 import app.domain.model.Test;
 import auth.domain.store.ReportStore;
@@ -28,12 +29,12 @@ public class WriteTestReportController {
     }
 
 
-    /*
-    public List<Test> getReferenceValues(Test test){
 
+    public List<ParameterResult> getValues(TestDto test){
+        return test.getValues();
     }
 
-     */
+
     public boolean saveReport(TestDto test ,String reportTxt) {
         String testCode = test.getTestCode();
         reportStore = company.getReportStore();

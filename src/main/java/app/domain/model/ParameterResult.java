@@ -46,4 +46,7 @@ public class ParameterResult {
         this.setMetric(metric);
         this.setRefValue(refValue);
     }
+    public String toString() {
+        return String.format("Reference Value: %s Result: %s", refValue, result);
+    }
 }
