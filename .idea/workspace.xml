@@ -10,20 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bffb5907-0083-478b-beab-7c3af9169160" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/CovidReferenceValues1API_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ExternalModule2API_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ExternalModule3API_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ClinicalChemistryTechnologist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ExternalModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ExternalModuleAdapter1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ExternalModuleAdapter2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ExternalModuleAdapter3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/ReferenceValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/TestParameter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/TestParameterResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/auth/domain/store/TestParameterStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/auth/mappers/TestParameterMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/auth/mappers/dto/TestParameterDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sem2App.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sem2App.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/TestType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/TestType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/domain/model/TestParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/domain/model/TestParameter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +198,7 @@
       <updated>1619801302995</updated>
       <workItem from="1620580459843" duration="818000" />
       <workItem from="1622118696745" duration="406000" />
-      <workItem from="1622119372357" duration="2810000" />
+      <workItem from="1622119372357" duration="3829000" />
     </task>
     <servers />
   </component>

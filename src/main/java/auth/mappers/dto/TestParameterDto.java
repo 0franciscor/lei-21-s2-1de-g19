@@ -1,13 +1,17 @@
-package app.domain.model;
+package auth.mappers.dto;
+
+import app.domain.model.Parameter;
+import app.domain.model.ReferenceValue;
+import app.domain.model.TestParameterResult;
 
 import java.util.Date;
 
-public class TestParameter {
+public class TestParameterDto {
 
     private Parameter parameter;
     private TestParameterResult tpr;
 
-    public TestParameter(Parameter parameter, TestParameterResult tpr){
+    public TestParameterDto(Parameter parameter, TestParameterResult tpr){
         this.parameter = parameter;
         this.tpr = tpr;
     }
@@ -22,6 +26,4 @@ public class TestParameter {
         tpr.setMetric(metric);
         tpr.setRefValue(refValue);
     }
-
-
 }
