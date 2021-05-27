@@ -8,13 +8,10 @@ public class EmployeeTest {
 
     @Test
     public void generateID() {
-//        Employee emp = new Employee();
-//        EmpStore store = new EmpStore();
-//        String name = "Alex Williams Soares";
-//        String result = emp.generateID(name);
-//        int numEmp = store.getEmpList().size();
-//        String expected = "AWS0000" + String.valueOf(numEmp);
-//        assertEquals(expected.trim(),String.valueOf(result).trim());
+        Employee emp = new Employee();
+        String result = emp.generateID("Alex Williams Soares");
+
+        assertEquals("AWS00002",String.valueOf(result).trim());
     }
 
     @org.junit.Test
