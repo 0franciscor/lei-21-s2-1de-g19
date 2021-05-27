@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.RegisterTestController;
+import app.domain.model.Parameter;
 import app.domain.model.Test;
 import app.ui.console.utils.Utils;
 import auth.domain.store.TestStore;
