@@ -44,6 +44,8 @@ public class TestType {
      */
     private static final int COLLECTING_METHOD_MAX_LENGTH = 20;
 
+    private ExternalModule em;
+
     /**
      * Builds the TestType object.
      *
@@ -179,4 +181,8 @@ public class TestType {
 //        return this.code.equals(obj2.code) && this.description.equals(obj2.description) && this.collectingMethod.equals(obj2.collectingMethod)
 //                && this.parameterCategoriesList.equals(obj2.parameterCategoriesList);
 //    }
+
+    private ExternalModule getExternalModule(){
+        return em;
+    }
 }
