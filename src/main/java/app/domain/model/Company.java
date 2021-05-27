@@ -92,6 +92,15 @@ public class Company {
     }
 
     /**
+     * Returns the number of employees'.
+     *
+     * @return client store
+     */
+    public int getNumEmp(){
+        return this.numEmp;
+    }
+
+    /**
      * Returns the TestTypeStore.
      *
      * @return parameter store.

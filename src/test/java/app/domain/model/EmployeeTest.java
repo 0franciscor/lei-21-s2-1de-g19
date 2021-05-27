@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.controller.App;
 import auth.domain.store.EmpStore;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -10,8 +11,9 @@ public class EmployeeTest {
     public void generateID() {
         Employee emp = new Employee();
         String result = emp.generateID("Alex Williams Soares");
+        String expected = "AWS0000" + String.valueOf(App.getInstance().getCompany().getNumEmp());
 
-        assertEquals("AWS00002",String.valueOf(result).trim());
+        assertEquals(expected ,String.valueOf(result).trim());
     }
 
     @org.junit.Test

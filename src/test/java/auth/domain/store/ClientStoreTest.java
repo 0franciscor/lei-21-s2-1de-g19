@@ -86,10 +86,10 @@ public class ClientStoreTest {
         Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
         clientStore.addClient(cl);
 
-        Client clientResult = clientStore.getClient("5467890213456789");
+        Client clientResult = clientStore.getClient("1234567891");
         Client clientExpected = null;
 
-        Assert.assertEquals(clientResult,clientExpected);
+        Assert.assertEquals(clientExpected, clientResult);
 
     }
 }
