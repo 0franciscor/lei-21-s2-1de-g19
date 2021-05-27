@@ -20,6 +20,10 @@ public class TestParameterDto {
         return this.parameter;
     }
 
+    public TestParameterResult getTestParameterResult(){
+        return this.tpr;
+    }
+
     public void addResult(Date registrationDateTime, String result, String metric, ReferenceValue refValue){
         tpr.setRegistrationDateTime(registrationDateTime);
         tpr.setResult(result);
