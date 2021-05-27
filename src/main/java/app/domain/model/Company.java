@@ -37,6 +37,7 @@ public class Company {
     public int numTeste;
     private TestStore testStore;
     private Notification notification;
+    private TestParameterStore testParameterStore;
 
     public Company(String designation) /*throws FileNotFoundException*/ {
         if (StringUtils.isBlank(designation))
@@ -61,6 +62,7 @@ public class Company {
         this.numEmp = 1;
         this.numTeste = 0;
         this.testStore = new TestStore();
+        this.testParameterStore = new TestParameterStore();
         //this.notification = new Notification();
     }
 
@@ -175,6 +177,10 @@ public class Company {
         return this.reportStore;
     }
 
+    public TestParameterStore getTestParameterStore(){
+        return this.testParameterStore;
+    }
+    
     /**
      * Class responsible for providing to other classes a file writing object.
      *
