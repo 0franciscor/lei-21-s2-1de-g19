@@ -29,20 +29,6 @@ public class TestTypeStore {
      * @param code
      * @param description
      * @param collectingMethod
-     * @param parameterCategory
-     *
-     * Invokes the TestType Builder.
-     *
-     * @return created TestType, back to the controller
-     */
-    public TestType createTestType(String code, String description, String collectingMethod, ParameterCategory parameterCategory){
-        return new TestType(code, description, collectingMethod, parameterCategory);
-    }
-
-    /**
-     * @param code
-     * @param description
-     * @param collectingMethod
      * @param parameterCategoriesList
      *
      * Invokes the TestType Builder.
@@ -58,7 +44,7 @@ public class TestTypeStore {
      *
      * Saves the received TestType Object, after validating it (then adding it).
      *
-     * @returna a boolean stating the success of saving the received TestType (true if successful, false if it can't save)
+     * @return a boolean stating the success of saving the received TestType (true if successful, false if it can't save)
      */
     public boolean saveTestType(TestType tt){
         return addTestType(tt);
@@ -104,7 +90,7 @@ public class TestTypeStore {
                 return tt;
             }
         }
-        return new TestType("NOT_FOUND", "NOT_FOUND", "NOT_FOUND.", new ParameterCategory ("null", "pcnul"));
+        return new TestType("NOT_FOUND", "NOT_FOUND", "NOT_FOUND.", null);
     }
 
     /**

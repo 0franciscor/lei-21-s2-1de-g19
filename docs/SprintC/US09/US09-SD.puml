@@ -17,7 +17,6 @@ participant "pcList: List<ParameterCategory>" as pcList
 participant "pc: ParameterCategory"
 participant "parameterCategoriesList: List<ParameterCategory>" as ParameterCategoriesList
 participant "pcListDto: List<ParameterCategoryDto>" as pcListDto
-participant "parameterCategoriesListDto: List<ParameterCategoryDto>"
 
 
 admin -> CreateTestTypeUI : register a type of test
@@ -26,7 +25,7 @@ admin -> CreateTestTypeUI : register a type of test
 activate CreateTestTypeUI
 
 
-CreateTestTypeUI -> CreateParameterCategoryController: parameterCategoriesListDto=getAllParameterCategoriesDto()
+CreateTestTypeUI -> CreateParameterCategoryController: pcListDto = getAllParameterCategoriesDto()
 
 
 activate CreateParameterCategoryController
@@ -44,62 +43,6 @@ CreateParameterCategoryController -> ParameterCategoryMapper: pcListDto = toDto(
 activate ParameterCategoryMapper
 deactivate ParameterCategoryMapper
 deactivate CreateParameterCategoryController
-
-
-
-alt
-
-CreateTestTypeUI --> admin: shows a list of Parameter Categories
-deactivate CreateTestTypeUI
-
-
-admin -> CreateTestTypeUI: selects a category from the list
-activate CreateTestTypeUI
-
-
-CreateTestTypeUI -> pcDto: categoryCode = getCode()
-activate pcDto
-deactivate pcDto
-
-
-CreateTestTypeUI -> CreateTestTypeController: pc = getParameterCategoryByCode(categoryCode)
-activate CreateTestTypeController
-
-
-CreateTestTypeController -> ParameterCategoryStore : getParameterCategoryByCode(categoryCode)
-activate ParameterCategoryStore
-deactivate ParameterCategoryStore
-
-
-deactivate CreateTestTypeController
-
-
-CreateTestTypeUI --> admin: request data(code, description, collectingMethod)
-deactivate CreateTestTypeUI
-
-
-admin -> CreateTestTypeUI : types requested data
-activate CreateTestTypeUI
-
-
-CreateTestTypeUI -> CreateTestTypeController: createTestType(code, description, collectingMethod, pc)
-
-
-activate CreateTestTypeController
-
-CreateTestTypeController -> Company : ttStore = getTestTypeStore()
-activate Company
-deactivate Company
-
-CreateTestTypeController -> TestTypeStore : tt = createTestType(code, description, collectingMethod, pc)
-deactivate CreateTestTypeController
-activate TestTypeStore
-create TestType
-TestTypeStore --> TestType : create(code, description, collectingMethod, pc)
-deactivate TestTypeStore
-deactivate CreateTestTypeUI
-
-else if the administrator intends to create a type of test with more than 1 Parameter Category
 
 
 loop for how many Categories the Administrator wants the new Test Type to have
@@ -129,12 +72,9 @@ deactivate CreateTestTypeController
 
 
 
-end
-
-
-activate CreateTestTypeUI
 CreateTestTypeUI --> admin: request data(code, description, collectingMethod)
 deactivate CreateTestTypeUI
+
 
 
 admin -> CreateTestTypeUI : types requested data
@@ -144,21 +84,24 @@ activate CreateTestTypeUI
 CreateTestTypeUI -> CreateTestTypeController: createTestType(code, description, collectingMethod, pcList)
 activate CreateTestTypeController
 
+
 CreateTestTypeController -> Company : ttStore = getTestTypeStore()
 activate Company
 deactivate Company
+
+
 CreateTestTypeController -> TestTypeStore : tt = createTestType(code, description, collectingMethod, pcList)
 activate TestTypeStore
 create TestType
+
+
 TestTypeStore --> TestType : create(code, description, collectingMethod, pcList)
 deactivate TestTypeStore
 
 
-end
-
-
 deactivate CreateTestTypeController
 CreateTestTypeUI --> admin: shows it and requests a confirmation
+end
 
 
 deactivate CreateTestTypeUI

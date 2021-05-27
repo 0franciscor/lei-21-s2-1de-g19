@@ -4,6 +4,9 @@ import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -16,21 +19,27 @@ public class TestTypeStoreTest {
     @Test
     public void createTestType() {
         TestTypeStore ttStoreTest = new TestTypeStore();
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
-        assertEquals(tt1.toString(), ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0")).toString());
+        List<ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("pee","test0"));
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
+        assertEquals(tt1.toString(), ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList).toString());
     }
 
     @Test
     public void saveTestType() {
         TestTypeStore ttStoreTest = new TestTypeStore();
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        List<ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("pee","test0"));
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
         assertTrue(ttStoreTest.saveTestType(tt1));
     }
 
     @Test
     public void DoesNotSaveTestType() {
         TestTypeStore ttStoreTest = new TestTypeStore();
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        List<ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("pee","test0"));
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
         ttStoreTest.addTestType(tt1);
         assertFalse(ttStoreTest.saveTestType(tt1));
     }
@@ -38,14 +47,18 @@ public class TestTypeStoreTest {
     @Test
     public void validateTestType() {
         TestTypeStore ttStoreTest = new TestTypeStore();
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        List<ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("pee","test0"));
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
         assertTrue(ttStoreTest.validateTestType(tt1));
     }
 
     @Test
     public void addTestType() {
         TestTypeStore ttStoreTest = new TestTypeStore();
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        List<ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("pee","test0"));
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
         assertTrue(ttStoreTest.addTestType(tt1));
     }
 }

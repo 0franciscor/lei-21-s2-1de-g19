@@ -104,10 +104,7 @@ public class CreateTestTypeUI implements Runnable {
 
 
                     try {
-                        if (chosenCategoriesList.size() == 1)
-                            createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList.get(0));
-                        else
-                            createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList);
+                        createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList);
 
                     } catch (Exception e) {
                         System.out.printf("\n\nError when creating a new type of test, please try again.\n");
