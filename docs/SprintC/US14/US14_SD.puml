@@ -18,14 +18,15 @@ deactivate ":TestMapper"
 deactivate ":TestMapper"
 ":WriteTestReportUI" -> SD : shows list of analyzed test
 SD -> ":WriteTestReportUI" : selects a analyzed test to make a diagnosis report
-":WriteTestReportUI" -> ":WriteTestReportController" : getReferenceValues(choosenTestDto)
-":WriteTestReportController" -> ":TestDto" : getReferenceValues(choosenTestDto)
+":WriteTestReportUI" -> ":WriteTestReportController" : getValues(choosenTestDto)
+":WriteTestReportController" -> ":TestDto" : getValues(choosenTestDto)
 activate ":TestDto"
 ":TestDto" -> ":TestDto" ++ : getReferenceValues()
 deactivate ":TestDto"
-
+":TestDto" -> ":TestDto" ++ : getParameterValues()
 deactivate ":TestDto"
-":WriteTestReportUI" -> SD : shows the reference values and requests data
+deactivate ":TestDto"
+":WriteTestReportUI" -> SD : shows the parameter values \n and the reference values and requests data
 deactivate ":Test"
 SD -> ":WriteTestReportUI" : types the requested data
 ":WriteTestReportUI" -> SD : shows the typed data and requests confirmation
@@ -33,7 +34,7 @@ SD -> ":WriteTestReportUI" :  confirms the data
 
 ":WriteTestReportUI" -> ":WriteTestReportController" : saveReport(choosenTestDto, reportTxt)
 ":WriteTestReportController" -> ":TestDto" ++ : testcode = getTestCode(choosenTestDto)
-":TestDto" -> ":TestDto" : getTestCode((choosenTestDto)
+":TestDto" -> ":TestDto" : getTestCode(choosenTestDto)
 activate ":TestDto"
 deactivate ":TestDto"
 deactivate ":TestDto"

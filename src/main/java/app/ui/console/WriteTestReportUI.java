@@ -18,7 +18,7 @@ public class WriteTestReportUI implements Runnable {
         int confirmation = 0;
         do {
             List<TestDto> listDto = ctrl.getAnalyzedTests();
-            Object test = Utils.showAndSelectOne(listDto,"------ List of Tests available do to diagnosis report. ------" );
+            TestDto test = (TestDto) Utils.showAndSelectOne(listDto,"------ List of Tests available do to diagnosis report. ------" );
 
         } while (confirmation != 0);
     }
