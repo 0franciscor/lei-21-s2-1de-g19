@@ -100,10 +100,10 @@ public class ParameterStore {
         List<Parameter> parameterStoreListTestType = new ArrayList<>();
 
         for (Parameter p: parameterStoreList ) {
-
-            if (testTypeDto.getParameterCategoriesList().equals(p.getPcat())){
-                parameterStoreListTestType.add(p);
-            }
+            for(ParameterCategory pc : testTypeDto.getParameterCategoriesList())
+                if (pc.equals(p.getPcat())){
+                    parameterStoreListTestType.add(p);
+                }
         }
         return parameterStoreListTestType;
     }

@@ -153,4 +153,13 @@ public class Utils {
 
         return value - 1;
     }
+
+    static public int[] convertStringArray(String[] arrayToConvert){
+        int [] convertedArray = new int[arrayToConvert.length];
+
+        for(int i= 0; i< convertedArray.length; i++){
+            convertedArray[i] = Integer.parseInt(arrayToConvert[i])-1;
+        }
+        return convertedArray;
+    }
 }
