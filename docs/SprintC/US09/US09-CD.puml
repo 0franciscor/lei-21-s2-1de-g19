@@ -21,9 +21,7 @@ class "TestType" as TT {
 -String code
 -String description
 -String collectingMethod
--ParameterCategory parameterCategory
 -List <ParameterCategory> parameterCategoriesList
-+TestType(code, description, collectingMethod, parameterCategory)
 +TestType(code, description, collectingMethod, parameterCategoriesList)
 }
 
@@ -34,7 +32,6 @@ class "TestType" as TT {
 package Stores{
 class "TestTypeStore" as TTS{
 -List<TestType> testTypeList
-+TestType createTestType(code, description, collectingMethod, parameterCategory)
 +TestType createTestType(code, description, collectingMethod, parameterCategoriesList)
 +boolean saveTestType(tt)
 +boolean validateTestType(tt)
@@ -49,7 +46,6 @@ package Controllers{
 class "CreateTestTypeController" as CTTC {
 +CreateTestTypeController()
 +List<TestTypeDto> getAllTestTypesDto()
-+boolean createTestType(code, description, collectingMethod, parameterCategory)
 +boolean createTestType(code, description, collectingMethod, parameterCategoriesList)
 +boolean saveTestType()
 +List<TestType> getAllTestTypes()

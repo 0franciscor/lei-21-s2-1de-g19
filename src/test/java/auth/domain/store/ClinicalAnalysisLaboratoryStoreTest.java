@@ -20,7 +20,9 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     @Test
     public void registerClinicalAnalysisLaboratory() {
         List<TestType> TestTypesList1 = new ArrayList<>();
-        TestTypesList1.add(new TestType("12345", "Description", "Collect1", new ParameterCategory("null", "pcnul")));
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList));
         ClinicalAnalysisLaboratoryStore calStoreTest = new ClinicalAnalysisLaboratoryStore();
         ClinicalAnalysisLaboratory cal1 = calStoreTest.registerClinicalAnalysisLaboratory("Lab", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
         assertEquals(cal1.toString(), calStoreTest.registerClinicalAnalysisLaboratory("Lab", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1).toString());
@@ -29,7 +31,9 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     @Test
     public void saveClinicalAnalysisLaboratory() {
         List<TestType> TestTypesList1 = new ArrayList<>();
-        TestTypesList1.add(new TestType("12345", "Description", "Collect1", new ParameterCategory("null", "pcnul")));
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList));
         ClinicalAnalysisLaboratoryStore calStoreTest = new ClinicalAnalysisLaboratoryStore();
         ClinicalAnalysisLaboratory cal1 = calStoreTest.registerClinicalAnalysisLaboratory("Lab", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
         assertTrue(calStoreTest.saveClinicalAnalysisLaboratory(cal1));
@@ -38,7 +42,9 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     @Test
     public void validateClinicalAnalysisLaboratory() {
         List<TestType> TestTypesList1 = new ArrayList<>();
-        TestTypesList1.add(new TestType("12345", "Description", "Collect1", new ParameterCategory("null", "pcnul")));
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList));
         ClinicalAnalysisLaboratoryStore calStoreTest = new ClinicalAnalysisLaboratoryStore();
         ClinicalAnalysisLaboratory cal1 = calStoreTest.registerClinicalAnalysisLaboratory("Lab", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
         assertTrue(calStoreTest.validateClinicalAnalysisLaboratory(cal1));
@@ -47,7 +53,9 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     @Test
     public void addClinicalAnalysisLaboratory() {
         List<TestType> TestTypesList1 = new ArrayList<>();
-        TestTypesList1.add(new TestType("12345", "Description", "Collect1", new ParameterCategory("null", "pcnul")));
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList));
         ClinicalAnalysisLaboratoryStore calStoreTest = new ClinicalAnalysisLaboratoryStore();
         ClinicalAnalysisLaboratory cal1 = calStoreTest.registerClinicalAnalysisLaboratory("Lab", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
         assertTrue(calStoreTest.addClinicalAnalysisLaboratory(cal1));

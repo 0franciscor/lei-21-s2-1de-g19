@@ -1,9 +1,10 @@
 package app.domain.model;
 
-import net.sourceforge.barbecue.Barcode;
+//import net.sourceforge.barbecue.Barcode;
 
 public class Sample {
 
+    /*
     private Barcode barcode;
 
     public Sample(Barcode barcode){
@@ -16,4 +17,6 @@ public class Sample {
     public Barcode getBarcode(){
         return this.barcode;
     }
+
+     */
 }

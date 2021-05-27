@@ -26,11 +26,6 @@ public class TestType {
     private String collectingMethod;
 
     /**
-     * The TestType Parameter category (created by the ParameterCategory class).
-     */
-    private ParameterCategory parameterCategory;
-
-    /**
      * The Parameter Categories List (since a TestType can have more than 1 ParameterCategory).
      */
     private List<ParameterCategory> parameterCategoriesList;
@@ -49,20 +44,7 @@ public class TestType {
      */
     private static final int COLLECTING_METHOD_MAX_LENGTH = 20;
 
-    /**
-     * Builds the TestType object.
-     *
-     * @param code the Test Type code
-     * @param description the Test Type description
-     * @param collectingMethod the Test Type collecting method
-     * @param parameterCategory the TestType ParameterCategory
-     */
-    public TestType(String code, String description, String collectingMethod, ParameterCategory parameterCategory){
-        setCode(code);
-        setDescription(description);
-        setCollectingMethod(collectingMethod);
-        setParameterCategory(parameterCategory);
-    }
+    private ExternalModule em;
 
     /**
      * Builds the TestType object.
@@ -107,15 +89,6 @@ public class TestType {
     }
 
     /**
-     * Returns the TestType Parameter Category.
-     *
-     * @return TestType parameterCategory
-     */
-    public ParameterCategory getParameterCategory(){
-        return this.parameterCategory;
-    }
-
-    /**
      * Returns the TestType list of parameter categories.
      *
      * @return TestType parameterCategoriesList
@@ -128,7 +101,7 @@ public class TestType {
     /**
      * Modifies and checks the inserted parameter.
      *
-     * @param code
+     * @param code that is passed as parameter on the TestType Builder.
      */
     public void setCode(String code){
         if(StringUtils.isBlank(code))
@@ -142,7 +115,7 @@ public class TestType {
     /**
      * Modifies and checks the inserted description.
      *
-     * @param description
+     * @param description that is passed as parameter on the TestType Builder.
      */
     public void setDescription(String description){
         if(StringUtils.isBlank(description))
@@ -156,7 +129,7 @@ public class TestType {
     /**
      * Modifies and checks the inserted collecting method.
      *
-     * @param collectingMethod
+     * @param collectingMethod that is passed as parameter on the TestType Builder.
      */
     public void setCollectingMethod(String collectingMethod){
         if(StringUtils.isBlank(collectingMethod))
@@ -168,21 +141,9 @@ public class TestType {
     }
 
     /**
-     * Modifies and checks the inserted parameter category.
-     *
-     * @param parameterCategory
-     */
-    public void setParameterCategory(ParameterCategory parameterCategory){
-        if(parameterCategory == null)
-            throw new NullPointerException("The parameter category is null.");
-
-        this.parameterCategory = parameterCategory;
-    }
-
-    /**
      * Modifies and checks the inserted parameter categories list.
      *
-     * @param parameterCategoriesList
+     * @param parameterCategoriesList that is passed as parameter on the TestType Builder.
      */
     public void setParameterCategoriesList(List<ParameterCategory> parameterCategoriesList){
         if(parameterCategoriesList.isEmpty())
@@ -198,10 +159,7 @@ public class TestType {
      */
     @Override
     public String toString(){
-        if(this.parameterCategoriesList == null)
-            return String.format("Test type with code %s, analyses %s, and it's collecting method is %s. %s", this.code, this.description, this.collectingMethod, this.parameterCategory);
-        else
-            return String.format("Test type with code %s, analyses %s, and it's collecting method is %s. %s", this.code, this.description, this.collectingMethod, this.parameterCategoriesList);
+        return String.format("Test type with code %s, analyses %s, and it's collecting method is %s. %s", this.code, this.description, this.collectingMethod, this.parameterCategoriesList);
     }
 
     /**
@@ -220,7 +178,11 @@ public class TestType {
 //
 //        TestType obj2 = (TestType) obj;
 //
-//        return (this.code.equals(obj2.code) && this.description.equals(obj2.description) && this.collectingMethod.equals(obj2.collectingMethod)
-//                && this.parameterCategory.equals(obj2.parameterCategory) && this.parameterCategoriesList.equals(obj2.parameterCategoriesList));
+//        return this.code.equals(obj2.code) && this.description.equals(obj2.description) && this.collectingMethod.equals(obj2.collectingMethod)
+//                && this.parameterCategoriesList.equals(obj2.parameterCategoriesList);
 //    }
+
+    private ExternalModule getExternalModule(){
+        return em;
+    }
 }

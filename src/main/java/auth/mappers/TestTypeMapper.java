@@ -24,10 +24,7 @@ public class TestTypeMapper {
         List<TestTypeDto> testTypeDto= new ArrayList<>();
 
         for(TestType testTypeEach : testType)
-            if(testTypeEach.getParameterCategoriesList() == null)
-                testTypeDto.add(new TestTypeDto(testTypeEach.getCode(), testTypeEach.getDescription(), testTypeEach.getCollectingMethod(), testTypeEach.getParameterCategory()));
-            else
-                testTypeDto.add(new TestTypeDto(testTypeEach.getCode(), testTypeEach.getDescription(), testTypeEach.getCollectingMethod(), testTypeEach.getParameterCategoriesList()));
+            testTypeDto.add(new TestTypeDto(testTypeEach.getCode(), testTypeEach.getDescription(), testTypeEach.getCollectingMethod(), testTypeEach.getParameterCategoriesList()));
 
         return testTypeDto;
     }
@@ -43,15 +40,10 @@ public class TestTypeMapper {
         String code = testTypeDto.getCode();
         String description = testTypeDto.getDescription();
         String collectingMethod = testTypeDto.getCollectingMethod();
-        ParameterCategory parameterCategory = testTypeDto.getParameterCategory();
         List<ParameterCategory> parameterCategoryList = testTypeDto.getParameterCategoriesList();
 
-        if (testTypeDto.getParameterCategoriesList() == null){
-            TestType testType = new TestType(code, description, collectingMethod, parameterCategory);
-            return testType;
-        } else {
-            TestType testType1 = new TestType(code, description, collectingMethod, parameterCategoryList);
-            return testType1;
-        }
+        TestType testType1 = new TestType(code, description, collectingMethod, parameterCategoryList);
+        return testType1;
+
     }
 }

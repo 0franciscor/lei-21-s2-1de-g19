@@ -50,7 +50,9 @@ public class TestTest {
         Company company = new Company("Many Labs");
 
         ParameterCategory parameterCategory = new ParameterCategory("a", "12345");
-        TestType testType = new TestType("34567","assdf","swab", parameterCategory);
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType testType = new TestType("34567","assdf","swab", pcList);
 
         List<Parameter> parameters = new ArrayList<>();
         Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);

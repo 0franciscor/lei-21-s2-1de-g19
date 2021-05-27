@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bffb5907-0083-478b-beab-7c3af9169160" name="Default Changelist" comment="" />
+    <list default="true" id="bffb5907-0083-478b-beab-7c3af9169160" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/controller/RecordTestResultController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/ui/console/utils/RecordTestResultUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +28,7 @@
         <option value="UML Sequence" />
         <option value="UML Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -44,13 +48,14 @@
     <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintC/US15" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/ExternalModule3API-1.0.0.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -82,7 +87,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in Sem2App">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -115,22 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateParameterCategoryControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.controller" />
-      <option name="MAIN_CLASS_NAME" value="app.controller.CreateParameterCategoryControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParameterCategoryStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientStoreTest.getClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -139,8 +129,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ParameterCategoryStoreTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ClientStoreTest" />
+      <option name="METHOD_NAME" value="getClient" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,20 +152,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestTypeTest.setParameterCategoriesList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
+      <option name="METHOD_NAME" value="setParameterCategoriesList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
-      <item itemvalue="JUnit.ParameterCategoryStoreTest" />
       <item itemvalue="JUnit.TestTest.generateCode" />
+      <item itemvalue="JUnit.TestTypeTest.setParameterCategoriesList" />
+      <item itemvalue="JUnit.ClientStoreTest.getClient" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="JUnit.ClientStoreTest.getClient" />
+        <item itemvalue="JUnit.TestTypeTest.setParameterCategoriesList" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestTest.generateCode" />
-        <item itemvalue="JUnit.All in Sem2App" />
-        <item itemvalue="JUnit.ParameterCategoryStoreTest" />
-        <item itemvalue="JUnit.CreateParameterCategoryControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -187,6 +194,8 @@
       <option name="presentableId" value="Default" />
       <updated>1619801302995</updated>
       <workItem from="1620580459843" duration="818000" />
+      <workItem from="1622118696745" duration="406000" />
+      <workItem from="1622119372357" duration="6070000" />
     </task>
     <servers />
   </component>
@@ -206,6 +215,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/auth/domain/store/ClientStoreTest.java</url>
+          <line>65</line>
+          <properties class="auth.domain.store.ClientStoreTest" method="getClient">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="listParametersDto" />

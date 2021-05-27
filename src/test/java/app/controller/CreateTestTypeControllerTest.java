@@ -19,7 +19,9 @@ public class CreateTestTypeControllerTest {
     @Test
     public void createTestType() {
         CreateTestTypeController ttControllerTest = new CreateTestTypeController();
-        boolean ttTest = ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        List<ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("pee","test0"));
+        boolean ttTest = ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", pcList);
         assertTrue(ttTest);
     }
 
@@ -33,12 +35,14 @@ public class CreateTestTypeControllerTest {
     @Test
     public void getAllTestTypes() {
         CreateTestTypeController ttControllerTest = new CreateTestTypeController();
-        TestType tt1 = new TestType("test0", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
-        TestType tt2 = new TestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        List<ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("pee","test0"));
+        TestType tt1 = new TestType("test0", "testJunit", "TestjUnit", pcList);
+        TestType tt2 = new TestType("test1", "testJunit", "TestjUnit", pcList);
 
-        ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", pcList);
         ttControllerTest.saveTestType();
-        ttControllerTest.createTestType("test1", "testJunit", "TestjUnit", new ParameterCategory("test", "test0"));
+        ttControllerTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
         ttControllerTest.saveTestType();
 
         List<TestType> testTypesExpected = new ArrayList<>();

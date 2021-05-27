@@ -60,21 +60,6 @@ public class CreateTestTypeController {
      * @param code the Test Type code
      * @param description the Test Type description
      * @param collectingMethod the Test Type collecting method
-     * @param parameterCategory the TestType ParameterCategory
-     *
-     * Invokes the creator method in the TestTypeStore, and saves the created TestType as a class attribute.
-     *
-     * @return a boolean stating the process success
-     */
-    public boolean createTestType(String code, String description, String collectingMethod, ParameterCategory parameterCategory){
-        this.tt = ttStore.createTestType(code, description, collectingMethod, parameterCategory);
-        return true;
-    }
-
-    /**
-     * @param code the Test Type code
-     * @param description the Test Type description
-     * @param collectingMethod the Test Type collecting method
      * @param parameterCategoriesList the TestType ParameterCategory List
      *
      * Invokes the creator method in the TestTypeStore, and saves the created TestType as a class attribute.

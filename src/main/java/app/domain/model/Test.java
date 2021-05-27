@@ -2,7 +2,7 @@ package app.domain.model;
 
 import app.controller.App;
 import auth.domain.store.ClientStore;
-import net.sourceforge.barbecue.Barcode;
+//import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -90,7 +90,7 @@ public class Test {
 
     private ArrayList<Sample> listSamples;
 
-    private List<Barcode> testBarcodesList;
+    //private List<Barcode> testBarcodesList;
 
     /**
      * The available states for a test.
@@ -104,6 +104,7 @@ public class Test {
      */
     public Test() {
         this.state = Status.Registered;
+        this.registrationDateTime = new Date();
     }
 
     /**
@@ -111,18 +112,19 @@ public class Test {
      *
      * @param testType test type
      * @param parameters parameters list
-     * @param citizenID Client's citizen card number
+     * @param TIN Client's Tax Identification number
      */
-    public Test (TestType testType, List<Parameter> parameters, String citizenID, String nhsCode){
+    public Test (TestType testType, List<Parameter> parameters, String TIN, String nhsCode){
 
         checknhsCodeRules(nhsCode);
         this.company = App.getInstance().getCompany();
         this.testType = testType;
         this.parameters = parameters;
         this.clientStore = company.getClientStore();
-        this.client = clientStore.getClient(citizenID);
+        this.client = clientStore.getClient(TIN);
         this.nhsCode = nhsCode;
         this.state = Status.Registered;
+        this.registrationDateTime = new Date();
     }
 
     /**
@@ -146,8 +148,6 @@ public class Test {
             }
         }
     }
-
-
 
     /**
      * Returns the Test's description.
@@ -290,7 +290,7 @@ public class Test {
      */
     public String toString (){
         //return String.format("Test with test type %s, parameters %s, citizen card number %s",this.testType, this.parameters, this.client.getCitizenID());
-        return String.format("Test code: %s \nNHS code: %s ",this.code, this.nhsCode);
+        return String.format("\nTest code: %s \nNHS code: %s \nRegistration date and time: %s ",this.code, this.nhsCode, this.registrationDateTime);
     }
 
     /**
@@ -315,11 +315,14 @@ public class Test {
 
     }
 
+    /*
     public Sample create(Barcode barcode){
         Sample sample = new Sample(barcode);
         listSamples.add(sample);
         return sample;
     }
+
+     */
 
 
 
@@ -342,6 +345,7 @@ public class Test {
         return false;
     }
 
+    /*
     public boolean isListUnique(List<Barcode> listBarcodes){
         for(Barcode b: listBarcodes){
             int no=0;
@@ -368,6 +372,8 @@ public class Test {
         }
         return listSamples;
     }
+
+     */
 
     public boolean updateCollectDateTime(){
         try{
