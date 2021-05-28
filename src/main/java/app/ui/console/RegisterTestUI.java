@@ -157,7 +157,7 @@ public class RegisterTestUI implements Runnable {
                                 Test test;
 
                                 try {
-                                    test = ctrl.createTest(listParametersDto,opcao, listParameterCategoryDto,cl.getCitizenID(),nhsCode);
+                                    test = ctrl.createTest(listParametersDto,opcao, listParameterCategoryDto,cl.getTIN(),nhsCode);
                                 } catch (Exception e) {
                                     System.out.println("Impossible to register the test due to a problem with National Healthcare Service number. Check if it is right.");
                                     return;

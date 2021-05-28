@@ -4,8 +4,9 @@
 skinparam classAttributeIconSize 0
 left to right direction
 
-class "RegisterTestUI" as RTUI
+package Core{
 
+package Controllers{
 class "RegisterTestController" as RTC {
 +getClient(TIN)
 +getAllTestType()
@@ -14,7 +15,9 @@ class "RegisterTestController" as RTC {
 +createTest(listParametersDto, tesTypeDto, listParameterCategoriesDto, TIN, nhsCode)
 +saveTest(test)
 }
+}
 
+package Domain{
 class "Company" as C {
 -designation
 +getClientStore()
@@ -22,48 +25,6 @@ class "Company" as C {
 +getParameterCategoryStore()
 +getParametersStore()
 +getTestStore()
-}
-
-class "ClientStore" as CS {
-+getClient(TIN)
-}
-
-class "ClientMapper" as CM {
-+toDto(cl)
-}
-
-class "TestTypeStore" as TTS {
-+getAllTestType()
-}
-
-class "TestTypeMapper" as TTM {
-+toDto(listTestType)
-+toModel(testTypeDto)
-}
-
-class "ParameterCategoryStore" as PCS {
-+getAllParameterCategoriesByTestType(testTypeDto)
-}
-
-class "ParameterCategoryMapper" as PCM {
-+toDto(listParameterCategories)
-+toModel(listParameterCategoriesDto)
-}
-
-class "ParametersStore" as PS {
-getAllParametersByParameterCategory(listParameterCategoriesDto)
-}
-
-class "ParametersMapper" as PM {
-+toDto(listParameters)
-+toModel(listParametersDto)
-}
-
-class "TestStore" as TS {
-createTest (tt, parameters, parameterCategories, TIN, nhsCode)
-+saveTest(test)
-+hasTest(test)
-+addTest(test)
 }
 
 class "Test" as T {
@@ -78,6 +39,58 @@ class "Test" as T {
 +generateCode()
 +updateTestStatus()
 }
+}
+
+package Stores{
+class "ClientStore" as CS {
++getClient(TIN)
+}
+
+class "TestTypeStore" as TTS {
++getAllTestType()
+}
+
+class "TestStore" as TS {
+createTest (tt, parameters, parameterCategories, TIN, nhsCode)
++saveTest(test)
++hasTest(test)
++addTest(test)
+}
+
+class "ParametersStore" as PS {
+getAllParametersByParameterCategory(listParameterCategoriesDto)
+}
+
+class "ParameterCategoryStore" as PCS {
++getAllParameterCategoriesByTestType(testTypeDto)
+}
+}
+
+package Mappers{
+class "ClientMapper" as CM {
++toDto(cl)
+}
+
+class "TestTypeMapper" as TTM {
++toDto(listTestType)
++toModel(testTypeDto)
+}
+
+class "ParametersMapper" as PM {
++toDto(listParameters)
++toModel(listParametersDto)
+}
+
+class "ParameterCategoryMapper" as PCM {
++toDto(listParameterCategories)
++toModel(listParameterCategoriesDto)
+}
+}
+}
+
+package UI{
+class "RegisterTestUI" as RTUI
+}
 
 RTUI ..> RTC
 RTC ..> CS
@@ -91,6 +104,5 @@ RTC ..> PS
 RTC ..> PM
 RTC ..> TS
 TS ..> T
-
 
 @enduml
