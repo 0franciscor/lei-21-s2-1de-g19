@@ -12,7 +12,9 @@ System -->  R --: shows the client's information and request a confirmation
 R -> System ++: confirms the data
 System --> R --: shows the test types and ask to select one
 R -> System ++: selects the test type
-System --> R --: show all parameters according to the test type and ask to select one or more
+System --> R --: show all parameter categories according to the test type and ask to select one or more
+R -> System ++: selects the parameter category(ies)
+System --> R --: show all parameters according to the parameter category(ies) and ask to select one or more
 R -> System ++: selects the parameter(s) to be analysed
 System --> R --: show all data and request a confirmation
 R -> System ++: confirms the data

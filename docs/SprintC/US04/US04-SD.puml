@@ -33,16 +33,10 @@ deactivate ":store: ClientStore"
 activate ":ClientMapper"
 deactivate ":ClientMapper"
 
-
 deactivate ":RegisterTestController"
-
-
 
 ":RegisterTestUI" --> R: shows the client's information and request a confirmation
 deactivate ":RegisterTestUI"
-
-
-
 
 R -> ":RegisterTestUI" : confirms the data
 activate ":RegisterTestUI"
@@ -64,16 +58,37 @@ deactivate ":TestTypeMapper"
 deactivate ":RegisterTestController"
 ":RegisterTestUI" --> R: shows the test types and ask to select one
 deactivate ":RegisterTestUI"
+
 R -> ":RegisterTestUI": selects the test type
 activate ":RegisterTestUI"
 
-":RegisterTestUI" -> ":RegisterTestController": getAllParametersByTestType(testTypeDto)
+":RegisterTestUI" -> ":RegisterTestController": getAllParameterCategoriesByTestType(testTypeDto)
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company" : store = getParameterCategoryStore()
+activate ":Company"
+
+deactivate ":Company"
+":RegisterTestController" -> ":store: ParameterCategoryStore": listParameterCategories = getAllParameterCategoriesByTestType(testTypeDto)
+activate ":store: ParameterCategoryStore"
+deactivate ":store: ParameterCategoryStore"
+
+":RegisterTestController" -> ":ParameterCategoryMapper": list <parameterCategoriesDto> = toDto(listParameterCategories)
+activate ":ParameterCategoryMapper"
+deactivate ":ParameterCategoryMapper"
+deactivate ":RegisterTestController"
+":RegisterTestUI" --> R: show all parameter categories according to the test type and ask to select one or more
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the parameter category(ies)
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": getAllParametersByParameterCategory(list <parameterCategoriesDto>)
 activate ":RegisterTestController"
 ":RegisterTestController" -> ":Company": store = getParametersStore()
 activate ":Company"
 deactivate ":Company"
 
-":RegisterTestController" -> ":store: ParametersStore": listParameters = getAllParametersByTestType(testTypeDto)
+":RegisterTestController" -> ":store: ParametersStore": listParameters = getAllParametersByParameterCategory(list <parameterCategoriesDto>)
 activate ":store: ParametersStore"
 deactivate ":store: ParametersStore"
 
@@ -83,7 +98,7 @@ deactivate ":ParametersMapper"
 
 deactivate ":RegisterTestController"
 
-":RegisterTestUI" --> R: show all parameters according to the test type and ask to select one or more
+":RegisterTestUI" --> R: show all parameters according to the parameter category(ies) and ask to select one or more
 deactivate ":RegisterTestUI"
 
 R -> ":RegisterTestUI": selects the parameter(s) to be analysed
@@ -95,12 +110,17 @@ activate ":RegisterTestUI"
 
 
 
-":RegisterTestUI" -> ":RegisterTestController": createTest(list <parametersDto>, tesTypeDto, TIN, nhsCode)
+":RegisterTestUI" -> ":RegisterTestController": createTest(list <parametersDto>, tesTypeDto, list <parameterCategoriesDto>, TIN, nhsCode)
 activate ":RegisterTestController"
 
 ":RegisterTestController" -> ":TestTypeMapper": tt = toModel(testTypeDto)
 activate ":TestTypeMapper"
 deactivate ":TestTypeMapper"
+
+":RegisterTestController" -> ":ParameterCategoryMapper": parameterCategories = toModel(list <parameterCategoriesDto>)
+activate ":ParameterCategoryMapper"
+deactivate ":ParameterCategoryMapper"
+
 
 ":RegisterTestController" -> ":ParametersMapper": parameters = toModel (list <parametersDto> )
 activate ":ParametersMapper"
@@ -114,11 +134,11 @@ deactivate ":ParametersMapper"
 ":RegisterTestController" -> ":Company" ++: store = getTestStore()
 deactivate ":Company"
 
-":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters, TIN, nhsCode)
+":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters, parameterCategories, TIN, nhsCode)
 
 create "test: Test"
 
-":store: TestStore" --> "test: Test" : create (tt, parameters, TIN, nhsCode)
+":store: TestStore" --> "test: Test" : create (tt, parameters, parameterCategories, TIN, nhsCode)
 deactivate ":store: TestStore"
 deactivate ":RegisterTestController"
 

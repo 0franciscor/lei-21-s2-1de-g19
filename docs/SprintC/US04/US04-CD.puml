@@ -9,8 +9,9 @@ class "RegisterTestUI" as RTUI
 class "RegisterTestController" as RTC {
 +getClient(TIN)
 +getAllTestType()
-+getAllParametersByTestType(testTypeDto)
-+createTest(list <parametersDto>, testTypeDto, TIN, nhsCode)
++getAllParameterCategoriesByTestType(testTypeDto)
++getAllParametersByParameterCategory(list <parameterCategoriesDto>)
++createTest(list <parametersDto>, tesTypeDto, list <parameterCategoriesDto>, TIN, nhsCode)
 +saveTest(test)
 }
 
@@ -18,6 +19,7 @@ class "Company" as C {
 -designation
 +getClientStore()
 +getTestTypeStore()
++getParameterCategoryStore()
 +getParametersStore()
 +getTestStore()
 }
@@ -36,10 +38,20 @@ class "TestTypeStore" as TTS {
 
 class "TestTypeMapper" as TTM {
 +toDto(listTestType)
++toModel(testTypeDto)
+}
+
+class "ParameterCategoryStore" as PCS {
++getAllParameterCategoriesByTestType(testTypeDto)
+}
+
+class "ParameterCategoryMapper" as PCM {
++toDto(listParameterCategories)
++toModel(list <parameterCategoriesDto>)
 }
 
 class "ParametersStore" as PS {
-+getAllParametersByTestType(testTypeDto)
+getAllParametersByParameterCategory(list <parameterCategoriesDto>)
 }
 
 class "ParametersMapper" as PM {
@@ -48,7 +60,7 @@ class "ParametersMapper" as PM {
 }
 
 class "TestStore" as TS {
-+createTest(tt, parameters,TIN, nhsCode)
+createTest (tt, parameters, parameterCategories, TIN, nhsCode)
 +saveTest(test)
 +hasTest(test)
 +addTest(test)
@@ -62,7 +74,7 @@ class "Test" as T {
 -chemicalAnalysisDateTime
 -diagnosisDateTime
 -validationDateTime
-+Test(tt, parameters, TIN, nhsCode)
++Test(tt, parameters, parameterCategories, TIN, nhsCode)
 +generateCode()
 }
 
@@ -72,6 +84,8 @@ RTC ..> CM
 RTC ..> C
 RTC ..> TTS
 RTC ..> TTM
+RTC ..> PCS
+RTC ..> PCM
 RTC ..> PS
 RTC ..> PM
 RTC ..> TS
