@@ -2,6 +2,8 @@ package auth.mappers.dto;
 
 import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
+import app.domain.model.TestType;
+
 import java.util.List;
 
 /**
@@ -88,6 +90,11 @@ public class TestTypeDto {
         return parameterCategoriesList;
     }
 
+    /**
+     * Returns the TestTypeDto external module.
+     *
+     * @return the TestTypeDto external module.
+     */
     public ExternalModule getExternalModule(){
         return externalModule;
     }
@@ -101,4 +108,18 @@ public class TestTypeDto {
     public String toString(){
         return String.format("Test type with code %s, analyses %s, and it's collecting method is %s. %s %s", this.code, this.description, this.collectingMethod, this.parameterCategoriesList, this.externalModule);
     }
+
+//    @Override
+//    public boolean equals(Object obj){
+//        if(this == obj)
+//            return true;
+//
+//        if(obj == null)
+//            return false;
+//
+//        TestTypeDto obj2 = (TestTypeDto) obj;
+//
+//        return this.code.equals(obj2.code) && this.description.equals(obj2.description) && this.collectingMethod.equals(obj2.collectingMethod)
+//                && this.parameterCategoriesList.equals(obj2.parameterCategoriesList) && this.externalModule.equals(obj2.externalModule);
+//    }
 }

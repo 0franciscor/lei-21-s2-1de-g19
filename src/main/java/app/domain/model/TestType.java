@@ -187,6 +187,7 @@ public class TestType {
      *
      * @return boolean result stating if the compared objects are equal
      */
+
 //    @Override
 //    public boolean equals(Object obj){
 //        if(this == obj)
@@ -198,7 +199,7 @@ public class TestType {
 //        TestType obj2 = (TestType) obj;
 //
 //        return this.code.equals(obj2.code) && this.description.equals(obj2.description) && this.collectingMethod.equals(obj2.collectingMethod)
-//                && this.parameterCategoriesList.equals(obj2.parameterCategoriesList);
+//                && this.parameterCategoriesList.equals(obj2.parameterCategoriesList) && this.externalModule.equals(obj2.externalModule);
 //    }
 
 

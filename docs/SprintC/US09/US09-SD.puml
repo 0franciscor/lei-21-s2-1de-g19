@@ -13,10 +13,12 @@ participant "ttStore:TestTypeStore" as TestTypeStore
 participant "ParameterCategoryMapper" as ParameterCategoryMapper
 participant "tt: TestType" as TestType
 participant "pcDto: ParameterCategoryDto" as pcDto
-participant "pcList: List<ParameterCategory>" as pcList
 participant "pc: ParameterCategory"
+participant "pcList: List<ParameterCategory>" as pcList
 participant "parameterCategoriesList: List<ParameterCategory>" as ParameterCategoriesList
 participant "pcListDto: List<ParameterCategoryDto>" as pcListDto
+participant "externalModule: ExternalModule"
+participant "externalModuleList: List<ExternalModule>"
 
 
 admin -> CreateTestTypeUI : register a type of test
@@ -26,6 +28,7 @@ activate CreateTestTypeUI
 
 
 CreateTestTypeUI -> CreateParameterCategoryController: pcListDto = getAllParameterCategoriesDto()
+
 
 
 activate CreateParameterCategoryController
@@ -55,6 +58,7 @@ deactivate CreateTestTypeUI
 admin -> CreateTestTypeUI: selects a category from the list
 activate CreateTestTypeUI
 
+
 CreateTestTypeUI -> pcDto: categoryCode = getCode()
 activate pcDto
 deactivate pcDto
@@ -64,12 +68,31 @@ CreateTestTypeUI -> CreateTestTypeController: pc = getParameterCategoryByCode(ca
 activate CreateTestTypeController
 
 
-
 CreateTestTypeController -> ParameterCategoryStore : getParameterCategoryByCode(categoryCode)
 activate ParameterCategoryStore
 deactivate ParameterCategoryStore
+end
 deactivate CreateTestTypeController
 
+
+CreateTestTypeUI -> CreateTestTypeController : externalModulesList = getExternalModules()
+activate CreateTestTypeController
+
+
+CreateTestTypeController -> Company : externalModulesList = getExternalModules()
+activate Company
+deactivate CreateTestTypeController
+deactivate Company
+
+
+
+
+CreateTestTypeUI --> admin : shows a list of External Modules
+deactivate CreateTestTypeUI
+
+
+admin -> CreateTestTypeUI : selects an External Module from the list
+activate CreateTestTypeUI
 
 
 CreateTestTypeUI --> admin: request data(code, description, collectingMethod)
@@ -81,7 +104,7 @@ admin -> CreateTestTypeUI : types requested data
 activate CreateTestTypeUI
 
 
-CreateTestTypeUI -> CreateTestTypeController: createTestType(code, description, collectingMethod, pcList)
+CreateTestTypeUI -> CreateTestTypeController: createTestType(code, description, collectingMethod, pcList, externalModule)
 activate CreateTestTypeController
 
 
@@ -90,18 +113,18 @@ activate Company
 deactivate Company
 
 
-CreateTestTypeController -> TestTypeStore : tt = createTestType(code, description, collectingMethod, pcList)
+CreateTestTypeController -> TestTypeStore : tt = createTestType(code, description, collectingMethod, pcList, externalModule)
 activate TestTypeStore
 create TestType
 
 
-TestTypeStore --> TestType : create(code, description, collectingMethod, pcList)
+TestTypeStore --> TestType : create(code, description, collectingMethod, pcList, externalModule)
 deactivate TestTypeStore
 
 
 deactivate CreateTestTypeController
 CreateTestTypeUI --> admin: shows it and requests a confirmation
-end
+
 
 
 deactivate CreateTestTypeUI

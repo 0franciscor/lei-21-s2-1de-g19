@@ -12,30 +12,37 @@ import java.util.List;
 public class TestTypeTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void setCode() {
+    public void setCodeIncorrect() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
         TestType test = new TestType("", "Covid_test", "Swab", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void setDescription() {
+    public void setDescriptionIncorrect() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
         TestType test2 = new TestType("c0vid", "", "Swab", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void setCollectingMethod() {
+    public void setCollectingMethodIncorrect() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
         TestType test3 = new TestType("c0vid", "Covid_test", "", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void setParameterCategoriesList() {
+    public void setParameterCategoriesListEmpty() {
         List<ParameterCategory> pcList = new ArrayList<>();
         TestType test5 = new TestType("c0vid", "Covid_test", "", pcList, new ExternalModuleBloodWithoutKey());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setExternalModuleIncorrect(){
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test3 = new TestType("c0vid", "Covid_test", "", pcList, null);
     }
 
     //Correct Tests
@@ -67,5 +74,12 @@ public class TestTypeTest {
         pcList.add(new ParameterCategory("pee","test0"));
         TestType test4 = new TestType("test4", "skin_test", "skinExtract", pcList, new ExternalModuleBloodWithoutKey());
 
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setExternalModuleCorrect(){
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test3 = new TestType("c0vid", "Covid_test", "", pcList, new ExternalModuleBloodWithoutKey());
     }
 }
