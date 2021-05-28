@@ -65,6 +65,9 @@ public class Test {
      * The parameters list.
      */
     private List<Parameter> parameters;
+
+    private List<ParameterCategory> parameterCategories;
+
     private List<ParameterResult> parameterResults;
     /**
      * Client.
@@ -108,18 +111,21 @@ public class Test {
     }
 
     /**
-     * Builds a test instance, receiving the testType, parameters and citizenID.
+     * Builds a test instance, receiving the testType, parameters, parameterCategories, TIN and nhsCode.
      *
      * @param testType test type
      * @param parameters parameters list
+     * @param parameterCategories parameter categories list
      * @param TIN Client's Tax Identification number
+     * @param nhsCode National Healthcare Service number
      */
-    public Test (TestType testType, List<Parameter> parameters, String TIN, String nhsCode){
+    public Test (TestType testType, List<Parameter> parameters, List<ParameterCategory> parameterCategories, String TIN, String nhsCode){
 
         checknhsCodeRules(nhsCode);
         this.company = App.getInstance().getCompany();
         this.testType = testType;
         this.parameters = parameters;
+        this.parameterCategories = parameterCategories;
         this.parameterResults = new ArrayList<ParameterResult>();
         this.clientStore = company.getClientStore();
         this.client = clientStore.getClient(TIN);

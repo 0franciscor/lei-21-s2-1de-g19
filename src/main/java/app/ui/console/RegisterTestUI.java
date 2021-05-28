@@ -6,6 +6,7 @@ import app.domain.model.Test;
 import app.ui.console.utils.Utils;
 import auth.domain.store.TestStore;
 import auth.mappers.dto.ClientDto;
+import auth.mappers.dto.ParameterCategoryDto;
 import auth.mappers.dto.ParametersDto;
 import auth.mappers.dto.TestTypeDto;
 import java.util.List;
@@ -66,9 +67,6 @@ public class RegisterTestUI implements Runnable {
 
                     List<TestTypeDto> listTestTypeDto = ctrl.getAllTestType();
 
-                    // FORMA ANTIGA
-                   // Utils.showList(listTestTypeDto, "\nAvailable test types:");
-                    // TestTypeDto opcao = (TestTypeDto) Utils.selectsObject(listTestTypeDto);
 
                     System.out.println("\nAvailable test types:");
 
@@ -82,16 +80,16 @@ public class RegisterTestUI implements Runnable {
                     TestTypeDto opcao = (TestTypeDto) Utils.selectsObject(listTestTypeDto);
 
                     if (opcao != null){
-                        List<ParametersDto> listParametersDto = ctrl.getAllParametersByTestType(opcao);
+                        List<ParameterCategoryDto> listParameterCategoryDto = ctrl.getAllParameterCategoriesByTestType(opcao);
 
-                        System.out.println("\nAvailable parameters associated to the test type:");
+                        System.out.println("\nAvailable parameter Categories associated to the test type:");
 
                         int index = 0;
-                        for (ParametersDto parametersDto : listParametersDto)
+                        for (ParameterCategoryDto parameterCategoryDto : listParameterCategoryDto)
                         {
                             index++;
 
-                            System.out.println(index + ". " + parametersDto.toString());
+                            System.out.println(index + ". " + parameterCategoryDto.toString());
                         }
 
                         String aux = Utils.readLineFromConsole("Type your option:");
@@ -101,11 +99,33 @@ public class RegisterTestUI implements Runnable {
                         int validarOpcoes = 0;
                         for (int x=0; x<aux1.length; x++){
 
-                            if (Integer.parseInt(aux1[x]) <= 0 || Integer.parseInt(aux1[x]) > listParametersDto.size())
+                            if (Integer.parseInt(aux1[x]) <= 0 || Integer.parseInt(aux1[x]) > listParameterCategoryDto.size())
                                 validarOpcoes++;
                         }
 
-                        if (validarOpcoes == 0) {
+                        List<ParametersDto> listParametersDto = ctrl.getAllParametersByParameterCategory(listParameterCategoryDto);
+
+                        System.out.println("\nAvailable parameter(s) associated to the parameter category(ies):");
+
+                        int index2 = 0;
+                        for (ParametersDto parametersDto: listParametersDto){
+                            index2++;
+
+                            System.out.println(index2 + ". " + parametersDto.toString());
+                        }
+
+                        String aux2 = Utils.readLineFromConsole("Type your option:");
+                        String [] aux3 = aux2.trim().split(" ");
+
+                        int validarOpcoes1 = 0;
+                        for (int x=0; x<aux1.length; x++){
+
+                            if (Integer.parseInt(aux1[x]) <= 0 || Integer.parseInt(aux1[x]) > listParametersDto.size())
+                                validarOpcoes1++;
+                        }
+
+
+                        if (validarOpcoes == 0 && validarOpcoes1 == 0) {
 
                             System.out.println("\n"+opcao.toString());
 
@@ -116,18 +136,28 @@ public class RegisterTestUI implements Runnable {
                             System.out.println();
                             for (int i=0; i<aux1.length; i++){
                                 if (Integer.parseInt(aux1[i]) == i+1){
+                                    System.out.println(listParameterCategoryDto.get(i));
+                                }
+                            }
+
+                            boolean confirmation2 = Utils.confirm("Are you sure this is the info of parameter category(ies) associated to the test type ? If so type s, if not type n.");
+
+                            System.out.println();
+                            for (int i=0; i<aux3.length; i++){
+                                if (Integer.parseInt(aux3[i]) == i+1){
                                     System.out.println(listParametersDto.get(i));
                                 }
                             }
 
-                            boolean confirmation2 = Utils.confirm("Are you sure this is the info of parameter(s) associated to the test type ? If so type s, if not type n.");
+                            boolean confirmation3 = Utils.confirm("Are you sure this is the info of parameter(s) associated to the parameter category(ies) ? If so type s, if not type n.");
 
-                            if (confirmation1 && confirmation2){
+
+                            if (confirmation1 && confirmation2 && confirmation3){
 
                                 Test test;
 
                                 try {
-                                    test = ctrl.createTest(listParametersDto,opcao,cl.getCitizenID(),nhsCode);
+                                    test = ctrl.createTest(listParametersDto,opcao, listParameterCategoryDto,cl.getCitizenID(),nhsCode);
                                 } catch (Exception e) {
                                     System.out.println("Impossible to register the test due to a problem with National Healthcare Service number. Check if it is right.");
                                     return;
@@ -151,12 +181,12 @@ public class RegisterTestUI implements Runnable {
                             System.out.println("\nThe test was not registered due to invalid option(s). Check the selected option(s).");
                         }
                     } else {
-                        System.out.println("A opção selecionada não existe e, por isso, o registo do teste foi cancelado.");
+                        System.out.println("The selected option does not exist and therefore the test registration has been canceled.");
                     }
                 }
 
             } else {
-                System.out.println("Corrigir dados");
+                System.out.println("Verify the information.");
             }
         }
     }

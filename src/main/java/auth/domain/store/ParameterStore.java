@@ -1,8 +1,10 @@
 package auth.domain.store;
 
+import app.controller.App;
 import app.domain.model.Company;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
+import auth.mappers.dto.ParameterCategoryDto;
 import auth.mappers.dto.TestTypeDto;
 
 import java.util.ArrayList;
@@ -89,22 +91,29 @@ public class ParameterStore {
     }
 
 
+
     /**
-     * Returns the parameter list associated with test type through the parameter category.
+     * If the parameter category of the listParameterCategoryDto passed as a parameter is equal to the parameter category of one of all the existing parameters,
+     * this parameter is added to a list and at the end the list is returned.
      *
-     * @param testTypeDto a testTypeDto
-     * @return parameter list associated with test type through the parameter category
+     * @param listParameterCategoryDto a list of parameter categories Dto
+     * @return a list that contains parameters, with specific parameter categories
      */
-    public List<Parameter> getAllParametersByTestType (TestTypeDto testTypeDto){
+    public List<Parameter> getAllParametersByParameterCategory (List<ParameterCategoryDto> listParameterCategoryDto){
 
-        List<Parameter> parameterStoreListTestType = new ArrayList<>();
+        List<Parameter> parameterStoreListByParameterCategory = new ArrayList<>();
 
-        for (Parameter p: parameterStoreList ) {
-            for(ParameterCategory pc : testTypeDto.getParameterCategoriesList())
-                if (pc.equals(p.getPcat())){
-                    parameterStoreListTestType.add(p);
+        ParameterCategoryStore store = App.getInstance().getCompany().getParameterCategoryStore();
+
+
+        for (ParameterCategoryDto pcdto : listParameterCategoryDto){
+            for (Parameter p: parameterStoreList){
+                if (p.getPcat().equals(store.getParameterCategoryByCode(pcdto.getCode()))){
+                    parameterStoreListByParameterCategory.add(p);
                 }
+            }
         }
-        return parameterStoreListTestType;
+
+       return parameterStoreListByParameterCategory;
     }
 }
