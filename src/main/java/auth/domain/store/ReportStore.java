@@ -24,10 +24,10 @@ public class ReportStore {
     public boolean validateReport(Report rep) {
        for (Report c : reportList){
            if (c.getTestCode().equalsIgnoreCase(rep.getTestCode())) {
-               return true;
+               return false;
            }
        }
-       return false;
+       return true;
     }
 
     /**
@@ -60,6 +60,10 @@ public class ReportStore {
                 return report.getValidation();
         }
         return false;
+    }
+
+    public List<Report> getReportList(){
+        return this.reportList;
     }
 
 }
