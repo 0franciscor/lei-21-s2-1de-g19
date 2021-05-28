@@ -178,7 +178,7 @@ public class TestType {
      */
     @Override
     public String toString(){
-        return String.format("Test type with code %s, analyses %s, and it's collecting method is %s. %s", this.code, this.description, this.collectingMethod, this.parameterCategoriesList);
+        return String.format("Test type with code %s, analyses %s, and it's collecting method is %s. %s %s", this.code, this.description, this.collectingMethod, this.parameterCategoriesList, this.externalModule);
     }
 
     /**

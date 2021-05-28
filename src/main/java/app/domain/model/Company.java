@@ -61,7 +61,7 @@ public class Company {
         this.externalModuleList = new ArrayList<>();
         externalModuleList.add(new ExternalModuleCovid());
         externalModuleList.add(new ExternalModuleBloodWithoutKey());
-        externalModuleList.add(new ExternalModuleBloodWithoutKey());
+        externalModuleList.add(new ExternalModuleBloodWithKey());
         //this.notification = new Notification();
     }
 
