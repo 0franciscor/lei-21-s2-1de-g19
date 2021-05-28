@@ -1,6 +1,11 @@
 package app.domain.model;
 
-public interface ExternalModule {
+public abstract class ExternalModule {
 
-    public ReferenceValue getReferenceValue(Parameter parameter);
+    public abstract ReferenceValue getReferenceValue(Parameter parameter);
+
+    @Override
+    public String toString(){
+        return String.format("External module");
+    }
 }

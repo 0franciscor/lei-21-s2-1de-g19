@@ -15,21 +15,6 @@ import java.util.List;
 public class CreateParameterCategoryController {
 
     /**
-     * The ParameterCategoryController App.
-     */
-    private App app;
-
-    /**
-     * The ParameterCategoryController Company.
-     */
-    private Company company;
-
-    /**
-     * The ParameterCategoryController ParameterCategoryStore.
-     */
-    private ParameterCategoryStore pcStore;
-
-    /**
      * The ParameterCategoryController ParameterCategory Object.
      */
     private ParameterCategory pc;
@@ -38,11 +23,7 @@ public class CreateParameterCategoryController {
      * Builds the ParameterCategoryController, instantiating the app, the company and the ParameterCategoryStore
      *
      */
-    public CreateParameterCategoryController(){
-        this.app = app.getInstance();
-        this.company = app.getCompany();
-        pcStore = company.getParameterCategoryStore();
-    }
+    public CreateParameterCategoryController(){}
 
     /**
      *
@@ -52,11 +33,11 @@ public class CreateParameterCategoryController {
      *
      */
     public List<ParameterCategoryDto> getAllParameterCategoriesDto(){
+        ParameterCategoryStore pcStore = App.getInstance().getCompany().getParameterCategoryStore();
         List <ParameterCategory> parameterCategoriesList = pcStore.getAllParameterCategories();
         List <ParameterCategoryDto> pcListDto = ParameterCategoryMapper.toDto(parameterCategoriesList);
         return pcListDto;
 
-        //return ParameterCategoryMapper.toDto(pcStore.getAllParameterCategories());
     }
 
     /**
@@ -68,6 +49,7 @@ public class CreateParameterCategoryController {
      * @return a boolean stating the process success
      */
     public boolean createParameterCategory(String name, String code){
+        ParameterCategoryStore pcStore = App.getInstance().getCompany().getParameterCategoryStore();
         this.pc = pcStore.createParameterCategory(name, code);
         return true;
     }
@@ -78,6 +60,7 @@ public class CreateParameterCategoryController {
      * @return a boolean stating the process success
      */
     public boolean saveParameterCategory(){
+        ParameterCategoryStore pcStore = App.getInstance().getCompany().getParameterCategoryStore();
         return pcStore.addParameterCategory(pc);
     }
 
@@ -88,6 +71,7 @@ public class CreateParameterCategoryController {
      * @return a ParameterCategory which is sent by the ParameterCategoryStore
      */
     public ParameterCategory getParameterCategoryByCode(String code){
+        ParameterCategoryStore pcStore = App.getInstance().getCompany().getParameterCategoryStore();
         return pcStore.getParameterCategoryByCode(code);
     }
 
@@ -97,6 +81,7 @@ public class CreateParameterCategoryController {
      * @return a list that contains all the Parameter Categories existent in the ParameterCategoryStore
      */
     public List<ParameterCategory> getAllParameterCategories(){
+        ParameterCategoryStore pcStore = App.getInstance().getCompany().getParameterCategoryStore();
         return pcStore.getAllParameterCategories();
     }
 }

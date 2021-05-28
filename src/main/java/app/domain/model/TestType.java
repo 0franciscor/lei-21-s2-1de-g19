@@ -31,6 +31,11 @@ public class TestType {
     private List<ParameterCategory> parameterCategoriesList;
 
     /**
+     * The test type external module.
+     */
+    private ExternalModule externalModule;
+
+    /**
      * The exact code length, specified by the client.
      */
     private static final int CODE_LENGTH = 5;
@@ -39,12 +44,11 @@ public class TestType {
      * The maximum description length, specified by the client.
      */
     private static final int DESCRIPTION_MAX_LENGTH = 15;
+
     /**
      * The maximum collection method length, specified by the client.
      */
     private static final int COLLECTING_METHOD_MAX_LENGTH = 20;
-
-    private ExternalModule em;
 
     /**
      * Builds the TestType object.
@@ -54,12 +58,12 @@ public class TestType {
      * @param collectingMethod the Test Type collecting method
      * @param parameterCategoriesList the list of Test Type's parameter categories
      */
-    public TestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList, ExternalModule em){
+    public TestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList, ExternalModule externalModule){
         setCode(code);
         setDescription(description);
         setCollectingMethod(collectingMethod);
         setParameterCategoriesList(parameterCategoriesList);
-        this.em = em;
+        setExternalModule(externalModule);
 
     }
 
@@ -99,6 +103,12 @@ public class TestType {
         return parameterCategoriesList;
     }
 
+    /**
+     * @return the correspondent external module.
+     */
+    public ExternalModule getExternalModule(){
+        return externalModule;
+    }
 
     /**
      * Modifies and checks the inserted parameter.
@@ -154,6 +164,13 @@ public class TestType {
         this.parameterCategoriesList = parameterCategoriesList;
     }
 
+    public void setExternalModule(ExternalModule externalModule){
+        if(externalModule == null)
+            throw new NullPointerException("The external module is null.");
+
+        this.externalModule = externalModule;
+    }
+
     /**
      * Returns a textual representation of the object, which contains all of its attributes.
      *
@@ -184,7 +201,5 @@ public class TestType {
 //                && this.parameterCategoriesList.equals(obj2.parameterCategoriesList);
 //    }
 
-    public ExternalModule getExternalModule(){
-        return em;
-    }
+
 }

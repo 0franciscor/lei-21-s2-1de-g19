@@ -1,5 +1,6 @@
 package auth.domain.store;
 
+import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import java.util.ArrayList;
@@ -35,8 +36,8 @@ public class TestTypeStore {
      *
      * @return created TestType, back to the controller
      */
-    public TestType createTestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList){
-        return new TestType(code, description, collectingMethod, parameterCategoriesList);
+    public TestType createTestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList, ExternalModule externalModule){
+        return new TestType(code, description, collectingMethod, parameterCategoriesList, externalModule);
     }
 
     /**
@@ -90,7 +91,7 @@ public class TestTypeStore {
                 return tt;
             }
         }
-        return new TestType("NOT_FOUND", "NOT_FOUND", "NOT_FOUND.", null);
+        return new TestType("NOT_FOUND", "NOT_FOUND", "NOT_FOUND.", null, null);
     }
 
     /**

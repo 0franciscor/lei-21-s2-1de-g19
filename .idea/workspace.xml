@@ -27,8 +27,8 @@
         <option value="UML Use Case" />
         <option value="UML Sequence" />
         <option value="UML Class" />
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -76,9 +76,9 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="app.controller" />
       <recent name="app.domain.model" />
       <recent name="auth.domain.store" />
-      <recent name="app.controller" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -87,7 +87,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in Sem2App">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -136,22 +136,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTest.generateCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTest" />
-      <option name="METHOD_NAME" value="generateCode" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestTypeTest.setParameterCategoriesList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
@@ -168,20 +152,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ValidateTestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.controller" />
+      <option name="MAIN_CLASS_NAME" value="app.controller.ValidateTestControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.TestTest.generateCode" />
       <item itemvalue="JUnit.TestTypeTest.setParameterCategoriesList" />
       <item itemvalue="JUnit.ClientStoreTest.getClient" />
+      <item itemvalue="JUnit.ValidateTestControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="JUnit.ValidateTestControllerTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ClientStoreTest.getClient" />
         <item itemvalue="JUnit.TestTypeTest.setParameterCategoriesList" />
-        <item itemvalue="JUnit.TestTest.generateCode" />
       </list>
     </recent_temporary>
   </component>
@@ -226,14 +225,6 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/app/ui/console/ValidateTestUI.java</url>
-          <line>22</line>
-          <properties class="app.ui.console.ValidateTestUI" method="run">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/auth/domain/store/ParameterStore.java</url>
           <line>97</line>
           <properties class="auth.domain.store.ParameterStore" method="getAllParametersByTestType">
@@ -250,10 +241,16 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Sem2App$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1622150386527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Sem2App$ValidateTestControllerTest.ic" NAME="ValidateTestControllerTest Coverage Results" MODIFIED="1622150723048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.controller.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/US14_SSD_puml$TestTest_generateCode.ic" NAME="TestTest.generateCode Coverage Results" MODIFIED="1621879517895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.domain.model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Sem2App$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621881212147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Sem2App$Main.ic" NAME="Main Coverage Results" MODIFIED="1622150360316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.ui.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/US14_SSD_puml$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621879529971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

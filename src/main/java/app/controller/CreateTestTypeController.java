@@ -2,6 +2,7 @@ package app.controller;
 
 import java.util.List;
 import app.domain.model.Company;
+import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import auth.domain.store.TestTypeStore;
@@ -66,8 +67,8 @@ public class CreateTestTypeController {
      *
      * @return a boolean stating the process success
      */
-    public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList){
-        this.tt = ttStore.createTestType(code, description, collectingMethod, parameterCategoriesList);
+    public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList, ExternalModule externalModule){
+        this.tt = ttStore.createTestType(code, description, collectingMethod, parameterCategoriesList, externalModule);
         return true;
     }
 

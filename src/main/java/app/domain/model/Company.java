@@ -7,14 +7,10 @@ import auth.mappers.ClientMapper;
 import auth.mappers.EmployeeMapper;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.EmployeeDto;
-import auth.mappers.dto.OrgRoleDto;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static auth.mappers.RolesMapper.toDto;
 
 /**
  *
@@ -38,6 +34,7 @@ public class Company {
     private TestStore testStore;
     private Notification notification;
     private TestParameterStore testParameterStore;
+    private List<ExternalModule> externalModuleList;
 
     public Company(String designation) /*throws FileNotFoundException*/ {
         if (StringUtils.isBlank(designation))
@@ -63,6 +60,10 @@ public class Company {
         this.numTeste = 0;
         this.testStore = new TestStore();
         this.testParameterStore = new TestParameterStore();
+        this.externalModuleList = new ArrayList<>();
+        externalModuleList.add(new ExternalModuleCovid());
+        externalModuleList.add(new ExternalModuleBloodWithoutKey());
+        externalModuleList.add(new ExternalModuleBloodWithoutKey());
         //this.notification = new Notification();
     }
 
@@ -189,5 +190,12 @@ public class Company {
     public Notification getNotificationService(){
         return notification;
     }
+
+    /**
+     * @return a list of External Modules
+     */
+//    public List<ExternalModuleInterface> getExternalModules(){
+//        return new
+//    }
 
 }
