@@ -1,14 +1,13 @@
 package app.controller;
 
 import app.domain.model.*;
-import auth.domain.store.ClientStore;
-import auth.domain.store.ParameterStore;
-import auth.domain.store.TestStore;
-import auth.domain.store.TestTypeStore;
+import auth.domain.store.*;
 import auth.mappers.ClientMapper;
+import auth.mappers.ParameterCategoryMapper;
 import auth.mappers.ParametersMapper;
 import auth.mappers.TestTypeMapper;
 import auth.mappers.dto.ClientDto;
+import auth.mappers.dto.ParameterCategoryDto;
 import auth.mappers.dto.ParametersDto;
 import auth.mappers.dto.TestTypeDto;
 import java.util.List;
@@ -85,33 +84,51 @@ public class RegisterTestController {
     }
 
     /**
-     * Creates a Dto which is able to return a copy of all parameters associated to the test type through the parameter category.
+     * Creates a Dto which is able to return a copy of all parameter categories associated to the test type.
      *
-     * @return a Dto which is able to return a copy of all parameters associated to the test type through the parameter category.
+     * @return a Dto which is able to return a copy of all parameter categories associated to the test type.
      */
-    public List<ParametersDto> getAllParametersByTestType (TestTypeDto testTypeDto){
+    public List<ParameterCategoryDto> getAllParameterCategoriesByTestType (TestTypeDto testTypeDto){
+
+        ParameterCategoryStore store = company.getParameterCategoryStore();
+        List<ParameterCategory> listParameterCategories = store.getAllParameterCategoriesByTestType(testTypeDto);
+        List<ParameterCategoryDto> listParameterCategoryDto = ParameterCategoryMapper.toDto(listParameterCategories);
+
+        return listParameterCategoryDto;
+    }
+
+
+    /**
+     * Creates a Dto which is able to return a copy of all parameters associated to the parameter category(ies).
+     *
+     * @return a Dto which is able to return a copy of all parameters associated to the parameter category(ies).
+     */
+    public List<ParametersDto> getAllParametersByParameterCategory (List<ParameterCategoryDto> listParameterCategoryDto){
 
         ParameterStore store = company.getParameterStore();
-        List<Parameter> listParameters = store.getAllParametersByTestType(testTypeDto);
+        List<Parameter> listParameters = store.getAllParametersByParameterCategory(listParameterCategoryDto);
         List<ParametersDto> listParametersDto = ParametersMapper.toDto(listParameters);
 
         return listParametersDto;
     }
 
     /**
-     * Create a test that receives a list of parameters Dto, a test type Dto and a citizen card number as parameters.
+     * Create a test that receives a list of parameters Dto, a test type Dto, a list of parameter categories, a Tax Identification Number and a National Healthcare Service number as parameters.
      *
      * @param parameters the parameters Dto list
      * @param testTypeDto the test type Dto
-     * @param TIN the Tax Identification number
+     * @param parameterCategories the parameter category(ies) list
+     * @param TIN the Tax Identification Number
+     * @param nhsCode the National Healthcare Service number
      * @return test.
      */
-    public Test createTest (List<ParametersDto> parameters, TestTypeDto testTypeDto, String TIN, String nhsCode){
+    public Test createTest (List<ParametersDto> parameters, TestTypeDto testTypeDto, List<ParameterCategoryDto> parameterCategories ,String TIN, String nhsCode){
 
         TestType testType = TestTypeMapper.toModel(testTypeDto);
         List<Parameter> parameters1 = ParametersMapper.toModel(parameters);
+        List<ParameterCategory> parameterCategories1 = ParameterCategoryMapper.toModel(parameterCategories);
         TestStore store = company.getTestStore();
-        Test test = testStore.createTest(testType, parameters1, TIN, nhsCode);
+        Test test = testStore.createTest(testType, parameters1,parameterCategories1, TIN, nhsCode);
 
         return test;
     }

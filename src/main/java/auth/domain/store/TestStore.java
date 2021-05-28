@@ -1,9 +1,6 @@
 package auth.domain.store;
 
-import app.domain.model.Parameter;
-import app.domain.model.Sample;
-import app.domain.model.Test;
-import app.domain.model.TestType;
+import app.domain.model.*;
 //import net.sourceforge.barbecue.Barcode;
 
 import java.util.ArrayList;
@@ -38,16 +35,18 @@ public class TestStore {
      *
      * @param testType test type
      * @param parameters list of parameters
+     * @param parameterCategories list of parameter categories
      * @param TIN Tax Identification number
+     * @param nhsCode National Healthcare Service number
      * @return created Test
      */
-    public Test createTest (TestType testType, List<Parameter> parameters, String TIN, String nhsCode){
+    public Test createTest (TestType testType, List<Parameter> parameters, List<ParameterCategory> parameterCategories, String TIN, String nhsCode){
 
-        return new Test(testType,parameters, TIN, nhsCode);
+        return new Test(testType,parameters, parameterCategories, TIN, nhsCode);
     }
 
     /**
-     * If the test does not belong to the test list adds it to that list and returns true, otherwise returns false.
+     * If the test does not belong to the test list adds it to that list, update the test status and returns true, otherwise returns false.
      *
      * @param test test to validate
      * @return true if the test is not already on the test list, otherwise returns false.
@@ -56,6 +55,7 @@ public class TestStore {
 
         if (hasTest(test)){
             addTest(test);
+            test.updateTestStatus();
             return true;
         }
         return false;

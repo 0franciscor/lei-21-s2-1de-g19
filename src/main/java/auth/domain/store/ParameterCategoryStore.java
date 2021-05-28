@@ -1,6 +1,10 @@
 package auth.domain.store;
 
+import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
+import app.domain.model.TestType;
+import auth.mappers.dto.TestTypeDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,5 +86,27 @@ public class ParameterCategoryStore {
      */
     public List<ParameterCategory> getAllParameterCategories(){
         return parameterCategoryList;
+    }
+
+
+
+    /**
+     * If the parameter category of the testTypeDto passed as a parameter is equal to a parameter category present in the parameterCategoryList,
+     * it is added to a list and at the end the list is returned.
+     *
+     * @param testTypeDto a testTypeDto
+     * @return a list that contains the testTypeDto parameter categories that are present in the parameterCategoryList
+     */
+    public List<ParameterCategory> getAllParameterCategoriesByTestType (TestTypeDto testTypeDto){
+
+        List<ParameterCategory> parameterCategoryListByTestType = new ArrayList<>();
+
+        for (ParameterCategory pc: parameterCategoryList ) {
+            for(ParameterCategory pc2 : testTypeDto.getParameterCategoriesList())
+                if (pc2.equals(pc)){
+                    parameterCategoryListByTestType.add(pc);
+                }
+        }
+        return parameterCategoryListByTestType;
     }
 }

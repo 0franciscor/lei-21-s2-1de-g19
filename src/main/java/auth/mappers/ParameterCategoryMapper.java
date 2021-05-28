@@ -1,7 +1,10 @@
 package auth.mappers;
 
+import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import auth.mappers.dto.ParameterCategoryDto;
+import auth.mappers.dto.ParametersDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,5 +29,23 @@ public class ParameterCategoryMapper {
             parameterCategoryDto.add(new ParameterCategoryDto(parameterCategoryEach.getName(), parameterCategoryEach.getCode()));
 
         return parameterCategoryDto;
+    }
+
+
+    /**
+     * Responsible for converting a list of parameter categories Dto into a list of parameter categories.
+     *
+     * @param parameterCategoryDtoList a list of parameter categories Dto
+     * @return a list of parameter categories
+     */
+    public static List<ParameterCategory> toModel (List<ParameterCategoryDto> parameterCategoryDtoList){
+
+        List<ParameterCategory> parameterCategories = new ArrayList<>();
+
+            for (ParameterCategoryDto parameterCategoryDto: parameterCategoryDtoList ) {
+            parameterCategories.add(new ParameterCategory(parameterCategoryDto.getName(), parameterCategoryDto.getCode()));
+        }
+        return parameterCategories;
+
     }
 }
