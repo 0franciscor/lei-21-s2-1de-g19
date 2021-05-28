@@ -15,9 +15,10 @@ public class ParameterResult {
         this.parameter = parameter;
         this.resultRegistrationDateTime = new Date();
         this.result = result;
-        this.metric = metric;
         ExternalModule em = test.getTestType().getExternalModule();
         refValue = em.getReferenceValue(parameter);
+        this.metric = em.getMetrics(parameter);
+
     }
 
     public void setRegistrationDateTime(Date registrationDateTime){

@@ -1,2 +1,4 @@
-package app.controller;public class RecordTestResultController {
+package app.controller;
+
+public class RecordTestResultController {
 }
