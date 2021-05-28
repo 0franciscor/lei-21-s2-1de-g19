@@ -1,5 +1,6 @@
 package auth.domain.store;
 
+import app.domain.model.ExternalModuleBloodWithoutKey;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import org.junit.Test;
@@ -21,8 +22,8 @@ public class TestTypeStoreTest {
         TestTypeStore ttStoreTest = new TestTypeStore();
         List<ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("pee","test0"));
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
-        assertEquals(tt1.toString(), ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList).toString());
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
+        assertEquals(tt1.toString(), ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey()).toString());
     }
 
     @Test
@@ -30,7 +31,7 @@ public class TestTypeStoreTest {
         TestTypeStore ttStoreTest = new TestTypeStore();
         List<ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("pee","test0"));
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
         assertTrue(ttStoreTest.saveTestType(tt1));
     }
 
@@ -39,7 +40,7 @@ public class TestTypeStoreTest {
         TestTypeStore ttStoreTest = new TestTypeStore();
         List<ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("pee","test0"));
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
         ttStoreTest.addTestType(tt1);
         assertFalse(ttStoreTest.saveTestType(tt1));
     }
@@ -49,7 +50,7 @@ public class TestTypeStoreTest {
         TestTypeStore ttStoreTest = new TestTypeStore();
         List<ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("pee","test0"));
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
         assertTrue(ttStoreTest.validateTestType(tt1));
     }
 
@@ -58,7 +59,7 @@ public class TestTypeStoreTest {
         TestTypeStore ttStoreTest = new TestTypeStore();
         List<ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("pee","test0"));
-        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
+        TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
         assertTrue(ttStoreTest.addTestType(tt1));
     }
 }

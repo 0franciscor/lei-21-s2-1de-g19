@@ -1,7 +1,9 @@
 package app.ui.console;
 
+import app.controller.App;
 import app.controller.CreateParameterCategoryController;
 import app.controller.CreateTestTypeController;
+import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.ParameterCategoryDto;
@@ -96,6 +98,14 @@ public class CreateTestTypeUI implements Runnable {
                     } while (x == 0 || (x < parameterCategoriesListDto.size() && chosenCategories != -2));
 
 
+                    ExternalModule externalModule;
+                    try {
+                         externalModule = (ExternalModule) Utils.selectsObject(App.getInstance().getCompany().getExternalModules());
+                    } catch(Exception e){
+                        System.out.println("There was an error when choosing the intended external module");
+                        return;
+                    }
+
                     String code, description, collectingMethod;
 
                     code = leituraDados("code");
@@ -104,7 +114,7 @@ public class CreateTestTypeUI implements Runnable {
 
 
                     try {
-                        createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList);
+                        createSuccess = ttController.createTestType(code, description, collectingMethod, chosenCategoriesList, externalModule);
 
                     } catch (Exception e) {
                         System.out.printf("\n\nError when creating a new type of test, please try again.\n");

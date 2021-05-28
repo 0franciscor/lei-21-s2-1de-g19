@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.model.ExternalModuleBloodWithoutKey;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import auth.domain.store.TestStore;
@@ -18,7 +19,7 @@ public class ValidateTestControllerTest {
         ParameterCategory pc = new ParameterCategory("covid", "c0vid");
         pcList.add(pc);
 
-        TestType testType = new TestType("c0vid", "isCovid", "swab", pcList);
+        TestType testType = new TestType("c0vid", "isCovid", "swab", pcList, new ExternalModuleBloodWithoutKey());
         TestStore store = new TestStore();
 
 

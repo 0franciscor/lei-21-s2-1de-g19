@@ -1,5 +1,6 @@
 package auth.mappers.dto;
 
+import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
 import java.util.List;
 
@@ -31,6 +32,11 @@ public class TestTypeDto {
     private List<ParameterCategory> parameterCategoriesList;
 
     /**
+     * The TestTypeDto External module.
+     */
+    private ExternalModule externalModule;
+
+    /**
      * Builds the TestType object.
      *
      * @param code the Test Type Dto code
@@ -38,11 +44,12 @@ public class TestTypeDto {
      * @param collectingMethod the Test Type Dto collecting method
      * @param parameterCategoriesList the list of Test Type's Dto parameter categories
      */
-    public TestTypeDto(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList){
+    public TestTypeDto(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList, ExternalModule externalModule){
         this.code = code;
         this.description = description;
         this.collectingMethod = collectingMethod;
         this.parameterCategoriesList = parameterCategoriesList;
+        this.externalModule = externalModule;
     }
 
     /**
@@ -79,6 +86,10 @@ public class TestTypeDto {
      */
     public List<ParameterCategory> getParameterCategoriesList(){
         return parameterCategoriesList;
+    }
+
+    public ExternalModule getExternalModule(){
+        return externalModule;
     }
 
     /**

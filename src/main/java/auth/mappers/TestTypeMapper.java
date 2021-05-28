@@ -1,5 +1,6 @@
 package auth.mappers;
 
+import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import auth.mappers.dto.TestTypeDto;
@@ -24,7 +25,7 @@ public class TestTypeMapper {
         List<TestTypeDto> testTypeDto= new ArrayList<>();
 
         for(TestType testTypeEach : testType)
-            testTypeDto.add(new TestTypeDto(testTypeEach.getCode(), testTypeEach.getDescription(), testTypeEach.getCollectingMethod(), testTypeEach.getParameterCategoriesList()));
+            testTypeDto.add(new TestTypeDto(testTypeEach.getCode(), testTypeEach.getDescription(), testTypeEach.getCollectingMethod(), testTypeEach.getParameterCategoriesList(), testTypeEach.getExternalModule()));
 
         return testTypeDto;
     }
@@ -41,8 +42,9 @@ public class TestTypeMapper {
         String description = testTypeDto.getDescription();
         String collectingMethod = testTypeDto.getCollectingMethod();
         List<ParameterCategory> parameterCategoryList = testTypeDto.getParameterCategoriesList();
+        ExternalModule externalModule = testTypeDto.getExternalModule();
 
-        TestType testType1 = new TestType(code, description, collectingMethod, parameterCategoryList);
+        TestType testType1 = new TestType(code, description, collectingMethod, parameterCategoryList, externalModule);
         return testType1;
 
     }

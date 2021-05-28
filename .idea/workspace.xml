@@ -120,33 +120,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientStoreTest.getClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateTestTypeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
+          <option name="PATTERN" value="app.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ClientStoreTest" />
-      <option name="METHOD_NAME" value="getClient" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="app.controller" />
+      <option name="MAIN_CLASS_NAME" value="app.controller.CreateTestTypeControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTypeTest.setParameterCategoriesList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateTestTypeControllerTest.createTestType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="PATTERN" value="app.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
-      <option name="METHOD_NAME" value="setParameterCategoriesList" />
+      <option name="PACKAGE_NAME" value="app.controller" />
+      <option name="MAIN_CLASS_NAME" value="app.controller.CreateTestTypeControllerTest" />
+      <option name="METHOD_NAME" value="createTestType" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -170,17 +169,17 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.TestTypeTest.setParameterCategoriesList" />
-      <item itemvalue="JUnit.ClientStoreTest.getClient" />
       <item itemvalue="JUnit.ValidateTestControllerTest" />
+      <item itemvalue="JUnit.CreateTestTypeControllerTest.createTestType" />
+      <item itemvalue="JUnit.CreateTestTypeControllerTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in Sem2App" />
+        <item itemvalue="JUnit.CreateTestTypeControllerTest" />
+        <item itemvalue="JUnit.CreateTestTypeControllerTest.createTestType" />
         <item itemvalue="JUnit.ValidateTestControllerTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ClientStoreTest.getClient" />
-        <item itemvalue="JUnit.TestTypeTest.setParameterCategoriesList" />
       </list>
     </recent_temporary>
   </component>

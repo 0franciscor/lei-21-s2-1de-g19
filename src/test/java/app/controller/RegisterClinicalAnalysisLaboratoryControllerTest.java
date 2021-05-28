@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
+import app.domain.model.ExternalModuleBloodWithoutKey;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class RegisterClinicalAnalysisLaboratoryControllerTest {
         List<TestType> TestTypesList1 = new ArrayList<>();
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList));
+        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList, new ExternalModuleBloodWithoutKey()));
         RegisterClinicalAnalysisLaboratoryController calControllerTest = new RegisterClinicalAnalysisLaboratoryController();
         boolean calTest = calControllerTest.registerClinicalAnalysisLaboratory("Lab", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
         assertEquals(true, calTest);
@@ -40,7 +41,7 @@ public class RegisterClinicalAnalysisLaboratoryControllerTest {
         List<TestType> TestTypesList1 = new ArrayList<>();
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList));
+        TestTypesList1.add(new TestType("12345", "Description", "Collect1", pcList, new ExternalModuleBloodWithoutKey()));
         RegisterClinicalAnalysisLaboratoryController calControllerTest = new RegisterClinicalAnalysisLaboratoryController();
         ClinicalAnalysisLaboratory cal1 = new ClinicalAnalysisLaboratory("Lab1", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);
         ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("Lab2", "Avenida da Boavista", "931234567", "12345", "123456789", TestTypesList1);

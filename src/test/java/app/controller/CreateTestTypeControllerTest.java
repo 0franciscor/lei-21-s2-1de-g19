@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.model.ExternalModuleBloodWithoutKey;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import org.junit.Assert;
@@ -21,7 +22,7 @@ public class CreateTestTypeControllerTest {
         CreateTestTypeController ttControllerTest = new CreateTestTypeController();
         List<ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("pee","test0"));
-        boolean ttTest = ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", pcList);
+        boolean ttTest = ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
         assertTrue(ttTest);
     }
 
@@ -37,12 +38,12 @@ public class CreateTestTypeControllerTest {
         CreateTestTypeController ttControllerTest = new CreateTestTypeController();
         List<ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("pee","test0"));
-        TestType tt1 = new TestType("test0", "testJunit", "TestjUnit", pcList);
-        TestType tt2 = new TestType("test1", "testJunit", "TestjUnit", pcList);
+        TestType tt1 = new TestType("test0", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
+        TestType tt2 = new TestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
 
-        ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", pcList);
+        ttControllerTest.createTestType("test0", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
         ttControllerTest.saveTestType();
-        ttControllerTest.createTestType("test1", "testJunit", "TestjUnit", pcList);
+        ttControllerTest.createTestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
         ttControllerTest.saveTestType();
 
         List<TestType> testTypesExpected = new ArrayList<>();

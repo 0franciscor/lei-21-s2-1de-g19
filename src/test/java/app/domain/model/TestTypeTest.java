@@ -15,27 +15,27 @@ public class TestTypeTest {
     public void setCode() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestType test = new TestType("", "Covid_test", "Swab", pcList);
+        TestType test = new TestType("", "Covid_test", "Swab", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setDescription() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestType test2 = new TestType("c0vid", "", "Swab", pcList);
+        TestType test2 = new TestType("c0vid", "", "Swab", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setCollectingMethod() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestType test3 = new TestType("c0vid", "Covid_test", "", pcList);
+        TestType test3 = new TestType("c0vid", "Covid_test", "", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void setParameterCategoriesList() {
         List<ParameterCategory> pcList = new ArrayList<>();
-        TestType test5 = new TestType("c0vid", "Covid_test", "", pcList);
+        TestType test5 = new TestType("c0vid", "Covid_test", "", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     //Correct Tests
@@ -44,28 +44,28 @@ public class TestTypeTest {
     public void setCodeCorrect() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestType test = new TestType("test1", "Covid_test", "Swab", pcList);
+        TestType test = new TestType("test1", "Covid_test", "Swab", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test
     public void setDescriptionCorrect() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestType test2 = new TestType("test2", "blood_test", "Syringe", pcList);
+        TestType test2 = new TestType("test2", "blood_test", "Syringe", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test
     public void setCollectingMethodCorrect() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestType test3 = new TestType("test3", "urine_test", "tube", pcList);
+        TestType test3 = new TestType("test3", "urine_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test
     public void setParameterCategoriesListCorrect() {
         List<ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("pee","test0"));
-        TestType test4 = new TestType("test4", "skin_test", "skinExtract", pcList);
+        TestType test4 = new TestType("test4", "skin_test", "skinExtract", pcList, new ExternalModuleBloodWithoutKey());
 
     }
 }
