@@ -19,5 +19,6 @@
     <orderEntry type="library" name="CovidReferenceValues1API-1.0.0" level="project" />
     <orderEntry type="library" name="ExternalModule2API-1.0.0" level="project" />
     <orderEntry type="library" name="ExternalModule3API-1.0.0" level="project" />
+    <orderEntry type="library" name="barbecue-2.0-dev" level="project" />
   </component>
 </module>
