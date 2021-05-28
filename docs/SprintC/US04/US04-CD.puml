@@ -10,8 +10,8 @@ class "RegisterTestController" as RTC {
 +getClient(TIN)
 +getAllTestType()
 +getAllParameterCategoriesByTestType(testTypeDto)
-+getAllParametersByParameterCategory(list <parameterCategoriesDto>)
-+createTest(list <parametersDto>, tesTypeDto, list <parameterCategoriesDto>, TIN, nhsCode)
++getAllParametersByParameterCategory(listParameterCategoriesDto)
++createTest(listParametersDto, tesTypeDto, listParameterCategoriesDto, TIN, nhsCode)
 +saveTest(test)
 }
 
@@ -47,16 +47,16 @@ class "ParameterCategoryStore" as PCS {
 
 class "ParameterCategoryMapper" as PCM {
 +toDto(listParameterCategories)
-+toModel(list <parameterCategoriesDto>)
++toModel(listParameterCategoriesDto)
 }
 
 class "ParametersStore" as PS {
-getAllParametersByParameterCategory(list <parameterCategoriesDto>)
+getAllParametersByParameterCategory(listParameterCategoriesDto)
 }
 
 class "ParametersMapper" as PM {
 +toDto(listParameters)
-+toModel (list <parametersDto>)
++toModel(listParametersDto)
 }
 
 class "TestStore" as TS {
@@ -76,6 +76,7 @@ class "Test" as T {
 -validationDateTime
 +Test(tt, parameters, parameterCategories, TIN, nhsCode)
 +generateCode()
++updateTestStatus()
 }
 
 RTUI ..> RTC
