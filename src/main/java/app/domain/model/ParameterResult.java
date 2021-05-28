@@ -11,7 +11,7 @@ public class ParameterResult {
     private ReferenceValue refValue;
 
 
-    public ParameterResult(Test test, Parameter parameter, String result, String metric){
+    /*public ParameterResult(Test test, Parameter parameter, String result, String metric){
         this.parameter = parameter;
         this.resultRegistrationDateTime = new Date();
         this.result = result;
@@ -19,7 +19,7 @@ public class ParameterResult {
         refValue = em.getReferenceValue(parameter);
         this.metric = em.getMetrics(parameter);
 
-    }
+    }*/
 
     public void setRegistrationDateTime(Date registrationDateTime){
         this.resultRegistrationDateTime = registrationDateTime;

@@ -1,3 +1,4 @@
+/*
 package app.ui.console.utils;
 
 import app.controller.RecordTestResultController;
@@ -14,3 +15,4 @@ public class RecordTestResultUI {
         } while (exit == 1);
     }
 }
+*/

@@ -415,10 +415,10 @@ public class Test {
             System.out.println("There was an error when updating the Test Status. Please try again.");
         }
     }
-    public boolean addParameterResult (Test test, Parameter parameter, String value, String metric) {
+   /* public boolean addParameterResult (Test test, Parameter parameter, String value, String metric) {
         parameterResults.add(new ParameterResult(test, parameter, value, metric));
         return true;
-    }
+    }*/
     public List<ParameterResult> getParameterResults() {
         return parameterResults;
     }
