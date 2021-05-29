@@ -11,22 +11,65 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Represents an External Module API Barcode
+ *
+ * @author Rita Lello
+ */
 public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
+
+    /**
+     * External Module's number of samples.
+     */
     private int nSamples;
+
+    /**
+     * External Module's boolean.
+     */
     private boolean a;
+
+    /**
+     * External Module's file name.
+     */
     private String fileName;
+
+    /**
+     * External Module's output file.
+     */
     private File outputFile;
+
+    /**
+     * External Module's path.
+     */
     private String path;
+
+    /**
+     * External Module's barcode code.
+     */
     private String barcodeCode;
-    private static int totalBarcodes=0;
+
+    /**
+     * External Module's list of generated barcodes.
+     */
     private List<Barcode> barcodeGenerated;
 
 
+    /**
+     * Builds a External Module instance
+     * @throws Exception
+     */
     public ExternalModuleAPIBarcode1 () throws Exception{
 
         this.barcodeGenerated= generate(nSamples, a);
     }
 
+    /**
+     * Method that calls another methods to create barcodes or delete them.
+     * @param nSamples
+     * @param a
+     * @return a list with the generated barcodes
+     * @throws Exception
+     */
     public List<Barcode> generate(int nSamples, boolean a) throws Exception {
         List<Barcode> barcodes = new ArrayList<>();
         for(int i=0; i<nSamples; i++){
@@ -46,6 +89,10 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
         return barcodes;
     }
 
+    /**
+     * Generates the code of the barcode
+     * @return code of the barcode
+     */
     public String generateCode(){
 
         Random random = new Random();
@@ -62,26 +109,37 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
         return strAux;
     }
 
+    /**
+     * Generates the file name
+     * @param totalBarcodes
+     * @return name of the file
+     */
     public static String generateFileName(int totalBarcodes){
         return String.format("barcode%03d.jpg",totalBarcodes);
     }
 
+    /**
+     * Writes in the console that the barcodes are being created
+     * @param image
+     */
     public void writeBarcode(BufferedImage image){
-        System.out.println("...writing image file...");
+        System.out.println("...creating image file...");
         try {
             ImageIO.write(image, "jpg", this.outputFile);
         }catch(Exception e){
             System.out.println("There was a mistake: "+e.getMessage());
         }
-        System.out.println("Image was written successfully");
+        System.out.println("Image was created successfully");
     }
 
+    /**
+     * Deletes the barcode and informs the operation success
+     */
     public void deleteBarcode(){
         if(this.outputFile.delete())
             System.out.println(String.format("File %s was deleted",this.fileName));
         else
             System.out.println("Occurred an error while deleting the file "+this.fileName);
-        totalBarcodes--;
     }
 
 }

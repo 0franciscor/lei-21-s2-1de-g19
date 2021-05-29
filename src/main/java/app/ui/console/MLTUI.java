@@ -6,9 +6,21 @@ import app.ui.console.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the medical lab technician UI.
+ *
+ * @author Rita Lello
+ */
 public class MLTUI implements Runnable{
+
+    /**
+     * Empty constructor.
+     */
     public MLTUI(){}
 
+    /**
+     * Allows you to select from a menu of options, the desired option.
+     */
     public void run(){
         List<MenuItem> options = new ArrayList<MenuItem>();
         try {

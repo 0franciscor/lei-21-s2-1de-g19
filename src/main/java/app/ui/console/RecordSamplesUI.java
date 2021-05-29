@@ -8,13 +8,29 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the Record Samples UI.
+ *
+ * @author Rita Lello
+ */
 public class RecordSamplesUI implements Runnable{
 
+    /**
+     * The UI's Record Samples Controller.
+     */
     private RecordSamplesController rsc;
 
+    /**
+     * Allows access to record samples controller methods.
+     * @throws Exception
+     */
     public RecordSamplesUI() throws Exception {
         this.rsc=new RecordSamplesController();
     }
+
+    /**
+     * It allows you to enter the data necessary to record samples in a test, make the confirmation and see if the operation was successful or not.
+     */
     public void run(){
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Record new Samples.", new ShowTextUI("You have chosen to record new samples.")));
