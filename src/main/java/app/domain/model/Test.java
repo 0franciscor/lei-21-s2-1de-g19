@@ -88,11 +88,21 @@ public class Test {
      */
     private Status state;
 
+
+    /**
+     * The test's sample.
+     */
     private Sample sample;
 
+    /**
+     * The test's list of samples.
+     */
     private ArrayList<Sample> listSamples;
 
-    //private List<Barcode> testBarcodesList;
+    /**
+     * The test's list of barcodes.
+     */
+    private List<Barcode> testBarcodesList;
 
     /**
      * The available states for a test.
@@ -330,17 +340,6 @@ public class Test {
 
     }
 
-    /*
-    public Sample create(Barcode barcode){
-        Sample sample = new Sample(barcode);
-        listSamples.add(sample);
-        return sample;
-    }
-
-     */
-
-
-
     /**
      * A method that is responsible for automatically changing the Test validation date and time.
      *
@@ -360,7 +359,13 @@ public class Test {
         return false;
     }
 
-    /*
+    /**
+     * Sees if there are 2 or more equal barcodes in the test barcodes list.
+     *
+     * @param listBarcodes
+     * @return true if there are no repeated barcodes in the test
+     * @return false if there is, at least, one barcode repeated in the test
+     */
     public boolean isListUnique(List<Barcode> listBarcodes){
         for(Barcode b: listBarcodes){
             int no=0;
@@ -374,12 +379,22 @@ public class Test {
         return true;
     }
 
+    /**
+     * Adds all the barcodes in the listBarcodes in the list of barcodes of the test and then calls the updateCollectDateTime method.
+     * @param listBarcodes
+     */
     public void addAll(List<Barcode> listBarcodes){
         for(Barcode b: listBarcodes){
             testBarcodesList.add(b);
         }
+        updateCollectDateTime();
     }
 
+    /**
+     * Creates a list with new samples by calling the sample class.
+     *
+     * @return a list with the created samples
+     */
     public List<Sample> create(){
         for(Barcode b: testBarcodesList){
             Sample sample=new Sample(b);
@@ -388,21 +403,28 @@ public class Test {
         return listSamples;
     }
 
-     */
 
-    public boolean updateCollectDateTime(){
+    /**
+     * A method that is responsible for automatically changing the Test collect date and time.
+     *
+     * @return the success of the operation (true if the operation was successful and false if not).
+     */
+    public void updateCollectDateTime(){
         try{
             if(listSamples!=null){
                 this.collectDateTime=new Date();
-                return true;
             }
         }catch(Exception e){
             System.out.println("There was an error when updating the validation date and time. Please try again.");
-            return false;
         }
-        return false;
     }
 
+    /**
+     * Calls the method to update the test status and checks if it is "Collected"
+     *
+     * @return true if the test was successfully updated
+     * @return false if the test was not updated
+     */
     public boolean validate(){
         if(getStatus().equals("Collected"))
             return true;

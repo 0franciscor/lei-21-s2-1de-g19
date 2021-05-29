@@ -31,10 +31,15 @@ public class TestDto {
         this.code = code;
     }
 
+
     public TestDto(String code){
         this.code=code;
     }
 
+    /**
+     * Builds a test in data transfer object that receives as parameters a list of samples.
+     * @param listSample
+     */
     public TestDto(ArrayList<Sample> listSample){
         this.listSamples=listSample;
     }

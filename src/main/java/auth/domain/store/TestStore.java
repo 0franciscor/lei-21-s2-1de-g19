@@ -1,7 +1,7 @@
 package auth.domain.store;
 
 import app.domain.model.*;
-//import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.Barcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +94,10 @@ public class TestStore {
         return analyzedTestsList;
     }
 
+    /**
+     * Creates a list with all the tests which status is "Registered"
+     * @return the list
+     */
     public List<Test> getRegisteredTests(){
         List<Test> registeredTests = new ArrayList<>();
         for(Test t: TestList){
@@ -103,6 +107,11 @@ public class TestStore {
         return registeredTests;
     }
 
+    /**
+     * Gets the test by its code.
+     * @param code
+     * @return test
+     */
     public Test getTest(String code){
         for(Test t: TestList){
             if(code.equals(t.getCode()))
@@ -111,22 +120,30 @@ public class TestStore {
         return null;
     }
 
-    /*
+    /**
+     * Sees in all the existing tests if there is any barcode repeated
+     *
+     * @param listBarcodes
+     * @return true if there are no barcodes repeated in all the tests
+     * @return false if there is, at least, a barcode repeated in all the tests
+     */
     public boolean globallyUnique(List<Barcode> listBarcodes){
 
         for(Test t: TestList){
             List<Sample> sampleList = t.getListSamples();
-            for(Sample s: sampleList){
-                for(Barcode b: listBarcodes){
-                    if(s.getBarcode().equals(b))
-                        return false;
+            if(sampleList.size()>0){
+                for(Sample s: sampleList){
+                    for(Barcode b: listBarcodes){
+                        if(s.getBarcode().equals(b))
+                            return false;
+                    }
                 }
             }
+
         }
         return true;
     }
 
-     */
 
 
     /**

@@ -38,6 +38,12 @@ public class TestMapper {
         return testsListDto;
     }
 
+    /**
+     * Responsible for converting a list of tests into a DTO list of tests.
+     *
+     * @param listTest
+     * @return a list of dto tests
+     */
     public static List<TestDto> ModelToDto (List<Test> listTest){
         List<TestDto> listTestsDto = new ArrayList<>();
         for(Test t: listTest){
@@ -48,6 +54,12 @@ public class TestMapper {
         return listTestsDto;
     }
 
+    /**
+     * Responsible for converting a test into a DTO test.
+     *
+     * @param test
+     * @return a test in data transfer object
+     */
     public static TestDto ModelToDto (Test test){
         ArrayList<Sample> listSamplesTest = test.getListSamples();
         TestDto testDto = new TestDto(listSamplesTest);
@@ -55,6 +67,12 @@ public class TestMapper {
         return testDto;
     }
 
+    /**
+     * Responsible for converting a DTO test, who only has a code, into a test code
+     *
+     * @param testDto
+     * @return a test code
+     */
     public static String DtoToModel (TestDto testDto){
         String code = testDto.getCode();
         return code;
