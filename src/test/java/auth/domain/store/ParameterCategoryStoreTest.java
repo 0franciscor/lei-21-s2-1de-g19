@@ -1,7 +1,18 @@
 package auth.domain.store;
 
+import app.controller.CreateParameterCategoryController;
+import app.controller.CreateTestTypeController;
+import app.controller.RegisterTestController;
+import app.domain.model.ExternalModuleBloodWithoutKey;
 import app.domain.model.ParameterCategory;
+import auth.mappers.dto.ParameterCategoryDto;
+import auth.mappers.dto.TestTypeDto;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -39,6 +50,25 @@ public class ParameterCategoryStoreTest {
         ParameterCategory pc1 = pcStoreTest.createParameterCategory("test", "test0");
         pcStoreTest.addParameterCategory(pc1);
         assertEquals(pc1.toString(), pcStoreTest.getParameterCategoryByCode(pc1.getCode()).toString());
+    }
+
+    @Test
+    public void getAllParameterCategoriesByTestType (){
+
+        ParameterCategoryStore parameterCategoryStore = new ParameterCategoryStore();
+
+        List<ParameterCategory> listParameterCategories = new ArrayList<>();
+        ParameterCategory parameterCategory = new ParameterCategory("cvfrt","78906");
+        listParameterCategories.add(parameterCategory);
+
+        TestTypeDto testTypeDto = new TestTypeDto("45678", "cvfgt", "tyghy", listParameterCategories, new ExternalModuleBloodWithoutKey());
+
+        parameterCategoryStore.addParameterCategory(parameterCategory);
+
+        List<ParameterCategory> parameterCategoryListResult = parameterCategoryStore.getAllParameterCategoriesByTestType(testTypeDto);
+
+        Assert.assertEquals(parameterCategoryListResult.toString(),listParameterCategories.toString());
+
     }
 
 }

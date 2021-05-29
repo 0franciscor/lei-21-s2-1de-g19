@@ -43,7 +43,7 @@ public class ParametersMapper {
         List<Parameter> parameters = new ArrayList<>();
 
         for (ParametersDto parametersDto: parametersDtoList ) {
-            parameters.add(new Parameter(parametersDto.getDesignation(), parametersDto.getDescription(), parametersDto.getCode(), parametersDto.getParameterCategory()));
+            parameters.add(new Parameter(parametersDto.getCode(), parametersDto.getDescription(), parametersDto.getDesignation() , parametersDto.getParameterCategory()));
         }
         return parameters;
 

@@ -46,7 +46,7 @@ public class TestTest {
 
     @Test
     public void generateCode() {
-        /*
+
 
         Company company = new Company("Many Labs");
 
@@ -59,14 +59,13 @@ public class TestTest {
         Parameter parameter = new Parameter("45678","asdfg","yujhk",parameterCategory);
         parameters.add(parameter);
 
+
         int codeLengthResult = 12;
 
-        app.domain.model.Test teste = company.getTestStore().createTest(testType,parameters,"1234567890987654", "123456789098");
+        app.domain.model.Test teste = company.getTestStore().createTest(testType,parameters,pcList, "123456789098", "121212121212");
         teste.generateCode();
         int codeLengthExpected = teste.getCode().length();
 
         assertEquals(codeLengthResult,codeLengthExpected);
-
-         */
     }
 }
