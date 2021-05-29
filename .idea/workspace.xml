@@ -84,7 +84,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.RegisterTestControllerTest.saveTestTrue">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -148,7 +148,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ValidateTestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTestControllerTest.saveTestTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -157,8 +157,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="app.controller" />
-      <option name="MAIN_CLASS_NAME" value="app.controller.ValidateTestControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="app.controller.RegisterTestControllerTest" />
+      <option name="METHOD_NAME" value="saveTestTrue" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,17 +167,17 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.ValidateTestControllerTest" />
       <item itemvalue="JUnit.CreateTestTypeControllerTest.createTestType" />
       <item itemvalue="JUnit.CreateTestTypeControllerTest" />
+      <item itemvalue="JUnit.RegisterTestControllerTest.saveTestTrue" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTestControllerTest.saveTestTrue" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in Sem2App" />
         <item itemvalue="JUnit.CreateTestTypeControllerTest" />
         <item itemvalue="JUnit.CreateTestTypeControllerTest.createTestType" />
-        <item itemvalue="JUnit.ValidateTestControllerTest" />
       </list>
     </recent_temporary>
   </component>
