@@ -3,27 +3,38 @@
 
 skinparam classAttributeIconSize 0
 
+package "UI" {
 class RecordSamplesUI{
 }
-
-class RecordSamplesController{
 }
 
+package "Core" {
+package "Controllers"{
+class RecordSamplesController{
+}
+}
+
+package "Mappers"{
 class TestMapper{
   +ModelToDto(lRT)
   +DtoToModel(tDto)
   +ModelToDto(t)
 }
-
-class Company{
-  -String designation
-  +getTestStore()
 }
 
+
+package "Stores"{
 class TestStore{
   +getRegisteredTests()
   +getTest(tCode)
   +globallyUnique(listBarcodes)
+}
+}
+
+package "Model"{
+class Company{
+  -String designation
+  +getTestStore()
 }
 
 class Test{
@@ -54,7 +65,10 @@ class Sample{
   -barcode
   +Sample(barcode)
 }
+}
 
+
+}
 RecordSamplesUI ..> RecordSamplesController
 RecordSamplesController ..> TestMapper
 RecordSamplesController ..> Company
