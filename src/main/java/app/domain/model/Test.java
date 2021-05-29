@@ -296,9 +296,36 @@ public class Test {
         return this.listSamples;
     }
 
+    /**
+     * Method used only for testing purposes
+     *
+     * @param state is the desired State
+     */
+    public void setStatus(Status state){
+        this.state = state;
+    }
+
 //    public String getValues() {
 //        return values;
 //    }
+
+    /**
+     * Method that changes the Chemical Analysis Date Time, used only for testing purposes.
+     *
+     * @param chemicalAnalysisDateTime is the desired Date
+     */
+    public void setChemicalAnalysisDateTime(Date chemicalAnalysisDateTime){
+        this.chemicalAnalysisDateTime = chemicalAnalysisDateTime;
+    }
+
+    /**
+     * Method that changes the Diagnosed Date Time, used only for testing purposes.
+     *
+     * @param diagnosisDateTime the wanted Diagnosed Date Time.
+     */
+    public void setDiagnosisDateTime(Date diagnosisDateTime){
+        this.diagnosisDateTime = diagnosisDateTime;
+    }
 
     /**
      * Returns the parameter categories list.
@@ -309,10 +336,10 @@ public class Test {
         return parameterCategories;
     }
 
-
     public List<Barcode> getTestBarcodesList(){
         return testBarcodesList;
     }
+
     /**
      * Returns a textual representation of the object, which contains all of its attributes.
      *

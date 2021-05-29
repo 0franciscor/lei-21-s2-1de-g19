@@ -84,7 +84,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTestControllerTest">
+  <component name="RunManager" selected="JUnit.TestStoreTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -180,9 +180,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestStoreTest" />
         <item itemvalue="JUnit.RegisterTestControllerTest" />
         <item itemvalue="JUnit.ParameterCategoryStoreTest" />
-        <item itemvalue="JUnit.TestStoreTest" />
         <item itemvalue="JUnit.TestTest" />
         <item itemvalue="JUnit.ParameterStoreTest" />
       </list>

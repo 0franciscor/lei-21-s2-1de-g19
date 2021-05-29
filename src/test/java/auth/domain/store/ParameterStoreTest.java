@@ -91,7 +91,7 @@ public class ParameterStoreTest {
         List<Parameter> parametersListExpected = new ArrayList<>();
         parametersListExpected.add(parameter1);
 
-        Assert.assertEquals(parametersListResult,parametersListExpected);
+        Assert.assertEquals(parametersListResult.toString(),parametersListExpected.toString());
 
     }
 }

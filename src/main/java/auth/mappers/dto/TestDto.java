@@ -87,4 +87,17 @@ public class TestDto {
     public ArrayList<Sample> getListSamples(){
         return this.listSamples;
     }
+
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;
+
+        if(obj == null)
+            return false;
+
+        TestDto obj2 = (TestDto) obj;
+
+        return this.registrationDateTime.equals(obj2.registrationDateTime) && this.chemicalAnalysisDateTime.equals(obj2.chemicalAnalysisDateTime)
+                && this.diagnosisDateTime.equals(obj2.diagnosisDateTime);
+    }
 }

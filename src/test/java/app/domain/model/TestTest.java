@@ -1,7 +1,10 @@
 package app.domain.model;
 
+import app.controller.App;
+import auth.domain.store.ReportStore;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -68,4 +71,83 @@ public class TestTest {
 
         assertEquals(codeLengthResult,codeLengthExpected);
     }
+
+    @Test
+    public void getStatus(){
+        List<ParameterCategory> pcList = new ArrayList<>();
+        ParameterCategory pc = new ParameterCategory("covid", "c0vid");
+        pcList.add(pc);
+
+        List<Parameter> pList = new ArrayList<>();
+        Parameter parameter1 = new Parameter("12345", "covid", "c0vid", pc);
+        pList.add(parameter1);
+
+        TestType testType = new TestType("c0vid", "isCovid", "swab", pcList, new ExternalModuleBloodWithoutKey());
+
+
+        app.domain.model.Test test = new app.domain.model.Test(testType, pList, pcList, "1123456780", "123456781233");
+
+        assertEquals(app.domain.model.Test.Status.Registered.toString(),test.getStatus());
+    }
+
+    @Test
+    public void updateValidationDateTime(){
+        List<ParameterCategory> pcList = new ArrayList<>();
+        ParameterCategory pc = new ParameterCategory("covid", "c0vid");
+        pcList.add(pc);
+
+        List<Parameter> pList = new ArrayList<>();
+        Parameter parameter1 = new Parameter("12345", "covid", "c0vid", pc);
+        pList.add(parameter1);
+
+        TestType testType = new TestType("c0vid", "isCovid", "swab", pcList, new ExternalModuleBloodWithoutKey());
+
+
+        app.domain.model.Test test = new app.domain.model.Test(testType, pList, pcList, "1123456780", "123456781233");
+        test.generateCode();
+
+        ReportStore reportStore = App.getInstance().getCompany().getReportStore();
+
+        reportStore.saveReport("Report", test.getCode());
+        reportStore.validateReport(test.getCode());
+
+        test.updateValidationDateTime();
+
+        assertEquals(app.domain.model.Test.Status.Validated.toString(), test.getStatus());
+    }
+
+    @Test
+    public void updateTestStatus(){
+        List<ParameterCategory> pcList = new ArrayList<>();
+        ParameterCategory pc = new ParameterCategory("covid", "c0vid");
+        pcList.add(pc);
+
+        List<Parameter> pList = new ArrayList<>();
+        Parameter parameter1 = new Parameter("12345", "covid", "c0vid", pc);
+        pList.add(parameter1);
+
+        TestType testType = new TestType("c0vid", "isCovid", "swab", pcList, new ExternalModuleBloodWithoutKey());
+
+
+        app.domain.model.Test test = new app.domain.model.Test(testType, pList, pcList, "1123456780", "123456781233");
+        test.generateCode();
+
+        ReportStore reportStore = App.getInstance().getCompany().getReportStore();
+
+        reportStore.saveReport("Report", test.getCode());
+        reportStore.validateReport(test.getCode());
+
+        test.setChemicalAnalysisDateTime(new Date());
+
+        test.updateTestStatus();
+
+        assertEquals(app.domain.model.Test.Status.Analyzed.toString(), test.getStatus());
+    }
+
+
+
+
+
+
+
 }

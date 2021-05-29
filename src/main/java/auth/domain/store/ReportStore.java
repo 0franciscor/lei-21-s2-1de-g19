@@ -12,6 +12,7 @@ public class ReportStore {
     public ReportStore() {
         reportList = new ArrayList<>();
     }
+
     public boolean saveReport(String reportTxt, String testCode) {
         Report rep = new Report(reportTxt, testCode);
         if (validateReport(rep)) {
