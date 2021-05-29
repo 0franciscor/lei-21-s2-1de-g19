@@ -23,6 +23,8 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
      */
     private int nSamples;
 
+    private int nBarcodes=0;
+
     /**
      * External Module's boolean.
      */
@@ -76,38 +78,22 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
             this.fileName=generateFileName(i);
             this.outputFile=new File("out\\"+fileName);
             this.path=outputFile.getAbsolutePath();
-            this.barcodeCode=generateCode();
+            this.barcodeCode=String.format("%011d",nBarcodes);
             if(a){
                 Barcode barcode = BarcodeFactory.createUPCA(barcodeCode);
                 barcode.setPreferredBarHeight(150);
                 BufferedImage barcodeImage = BarcodeImageHandler.getImage(barcode);
                 writeBarcode(barcodeImage);
                 barcodes.add(barcode);
-            }else
+                nBarcodes++;
+            }else{
                 deleteBarcode();
+                nBarcodes--;
+            }
         }
         return barcodes;
     }
 
-    /**
-     * Generates the code of the barcode
-     * @return code of the barcode
-     */
-    public String generateCode(){
-
-        Random random = new Random();
-
-        String str = "0123456789";
-        String strAux = "";
-
-        for (int i=0; i<11; i++){
-
-            int x = 1 + random.nextInt(9);
-            char aux = str.charAt(x);
-            strAux += aux;
-        }
-        return strAux;
-    }
 
     /**
      * Generates the file name

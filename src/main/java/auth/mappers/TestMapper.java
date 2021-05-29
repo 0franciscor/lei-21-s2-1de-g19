@@ -1,8 +1,6 @@
 package auth.mappers;
 
-import app.domain.model.ParameterResult;
-import app.domain.model.Sample;
-import app.domain.model.Test;
+import app.domain.model.*;
 import auth.mappers.dto.TestDto;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +45,13 @@ public class TestMapper {
     public static List<TestDto> ModelToDto (List<Test> listTest){
         List<TestDto> listTestsDto = new ArrayList<>();
         for(Test t: listTest){
-            String code = t.getCode();
-            TestDto testDto = new TestDto(code);
+            Client client=t.getClient();
+            String name=client.getName();
+            TestType testType = t.getTestType();
+            List<ParameterCategory> parameterCategories = t.getParameterCategories();
+            List<Parameter> parameters = t.getParameters();
+            String code=t.getCode();
+            TestDto testDto = new TestDto(name, testType, parameterCategories, parameters, code);
             listTestsDto.add(testDto);
         }
         return listTestsDto;

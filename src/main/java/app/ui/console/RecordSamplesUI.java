@@ -71,16 +71,17 @@ public class RecordSamplesUI implements Runnable{
                     boolean saveSuccess=false;
                     if(save)
                         saveSuccess=rsc.save();
-                    if(saveSuccess)
-                        System.out.println("Your barcodes were generated and saved.");
                     else{
                         try {
                             rsc.deleteBarcode(nSamples);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        System.out.println("Your barcodes were not saved.");
                     }
+                    if(saveSuccess)
+                        System.out.println("Your barcodes were generated and saved.");
+                    else
+                        System.out.println("Your barcodes were not saved.");
 
 
 

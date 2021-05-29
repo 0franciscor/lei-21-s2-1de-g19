@@ -35,7 +35,7 @@ public class APIBarcodeAdapter {
      * Calls the method in the ExternalModule to create or delete as many barcodes as the integer passed as parameter
      * @param nSamples
      * @param a
-     * @return
+     * @return a list with the generated barcodes
      * @throws Exception
      */
     public List<Barcode> generateBarcodes(int nSamples, boolean a) throws Exception {
