@@ -84,7 +84,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTestControllerTest.saveTestTrue">
+  <component name="RunManager" selected="JUnit.RegisterTestControllerTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -96,59 +96,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
+    <configuration name="ParameterCategoryStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.ui.*" />
+          <option name="PATTERN" value="auth.domain.store.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in Sem2App" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CreateTestTypeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.controller" />
-      <option name="MAIN_CLASS_NAME" value="app.controller.CreateTestTypeControllerTest" />
+      <option name="PACKAGE_NAME" value="auth.domain.store" />
+      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ParameterCategoryStoreTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateTestTypeControllerTest.createTestType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParameterStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.controller.*" />
+          <option name="PATTERN" value="auth.domain.store.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app.controller" />
-      <option name="MAIN_CLASS_NAME" value="app.controller.CreateTestTypeControllerTest" />
-      <option name="METHOD_NAME" value="createTestType" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="auth.domain.store" />
+      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ParameterStoreTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTestControllerTest.saveTestTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
@@ -158,26 +136,55 @@
       </extension>
       <option name="PACKAGE_NAME" value="app.controller" />
       <option name="MAIN_CLASS_NAME" value="app.controller.RegisterTestControllerTest" />
-      <option name="METHOD_NAME" value="saveTestTrue" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="auth.domain.store.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="auth.domain.store" />
+      <option name="MAIN_CLASS_NAME" value="auth.domain.store.TestStoreTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.All in Sem2App" />
-      <item itemvalue="JUnit.CreateTestTypeControllerTest.createTestType" />
-      <item itemvalue="JUnit.CreateTestTypeControllerTest" />
-      <item itemvalue="JUnit.RegisterTestControllerTest.saveTestTrue" />
+      <item itemvalue="JUnit.TestTest" />
+      <item itemvalue="JUnit.TestStoreTest" />
+      <item itemvalue="JUnit.ParameterStoreTest" />
+      <item itemvalue="JUnit.ParameterCategoryStoreTest" />
+      <item itemvalue="JUnit.RegisterTestControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisterTestControllerTest.saveTestTrue" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.All in Sem2App" />
-        <item itemvalue="JUnit.CreateTestTypeControllerTest" />
-        <item itemvalue="JUnit.CreateTestTypeControllerTest.createTestType" />
+        <item itemvalue="JUnit.RegisterTestControllerTest" />
+        <item itemvalue="JUnit.ParameterCategoryStoreTest" />
+        <item itemvalue="JUnit.TestStoreTest" />
+        <item itemvalue="JUnit.TestTest" />
+        <item itemvalue="JUnit.ParameterStoreTest" />
       </list>
     </recent_temporary>
   </component>
@@ -211,18 +218,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/auth/domain/store/ClientStoreTest.java</url>
-          <line>65</line>
-          <properties class="auth.domain.store.ClientStoreTest" method="getClient">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="listParametersDto" language="JAVA" />

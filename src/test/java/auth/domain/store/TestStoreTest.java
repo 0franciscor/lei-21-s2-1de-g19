@@ -79,7 +79,7 @@ public class TestStoreTest {
     }
 
     @Test
-    public void validateTestExists() {
+    public void hasTestExists() {
 
         ParameterCategory parameterCategory = new ParameterCategory("a", "12345");
         List <ParameterCategory> pcList = new ArrayList<>();
@@ -102,7 +102,7 @@ public class TestStoreTest {
     }
 
     @Test
-    public void validateTestDoesNotExist() {
+    public void hasTestDoesNotExist() {
 
         ParameterCategory parameterCategory = new ParameterCategory("a", "12345");
         List <ParameterCategory> pcList = new ArrayList<>();
