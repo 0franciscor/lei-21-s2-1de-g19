@@ -221,14 +221,6 @@
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/auth/domain/store/ParameterStore.java</url>
-          <line>97</line>
-          <properties class="auth.domain.store.ParameterStore" method="getAllParametersByParameterCategory">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

@@ -2,9 +2,8 @@ package app.domain.model;
 
 import app.controller.App;
 import auth.domain.store.ClientStore;
-//import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -289,6 +288,15 @@ public class Test {
 //    public String getValues() {
 //        return values;
 //    }
+
+    /**
+     * Returns the parameter categories list.
+     *
+     * @return parameter categories list.
+     */
+    public List<ParameterCategory> getParameterCategories() {
+        return parameterCategories;
+    }
 
     /**
      * Returns a textual representation of the object, which contains all of its attributes.
