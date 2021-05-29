@@ -39,8 +39,11 @@ public class TestDto {
         this.listSamples=listSample;
     }
 
-    public String toString() {
-        return String.format("This is a %s test and the type of test is %s.", description, testType);
+    public String toString(int opt) {
+        if(opt==0)
+            return String.format("This is a %s test and the type of test is %s.", description, testType);
+        else
+            return String.format("Test with code %s.", this.code);
     }
 
     public String getTestCode() {
