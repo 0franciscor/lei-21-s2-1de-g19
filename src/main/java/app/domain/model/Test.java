@@ -97,12 +97,12 @@ public class Test {
     /**
      * The test's list of samples.
      */
-    private ArrayList<Sample> listSamples;
+    private ArrayList<Sample> listSamples = new ArrayList<>();
 
     /**
      * The test's list of barcodes.
      */
-    private List<Barcode> testBarcodesList;
+    private List<Barcode> testBarcodesList = new ArrayList<>();
 
     /**
      * The available states for a test.
@@ -118,6 +118,7 @@ public class Test {
         this.state = Status.Registered;
         this.registrationDateTime = new Date();
     }
+
 
     /**
      * Builds a test instance, receiving the testType, parameters, parameterCategories, TIN and nhsCode.
@@ -308,6 +309,10 @@ public class Test {
         return parameterCategories;
     }
 
+
+    public List<Barcode> getTestBarcodesList(){
+        return testBarcodesList;
+    }
     /**
      * Returns a textual representation of the object, which contains all of its attributes.
      *
@@ -370,7 +375,7 @@ public class Test {
         for(Barcode b: listBarcodes){
             int no=0;
             for(Barcode b1: listBarcodes){
-                if(b1.equals(b))
+                if(b1.getData().equals(b.getData()))
                     no++;
             }
             if(no>1)
