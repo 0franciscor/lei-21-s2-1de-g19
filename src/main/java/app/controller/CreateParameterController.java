@@ -86,10 +86,9 @@ public class CreateParameterController {
      * @return true if the parameter was successfully created.
      * @return false if the parameter was not created.
      */
-    public boolean createParameter(String code, String description, String designation, ParameterCategoryDto catCode){
+    public void createParameter(String code, String description, String designation, ParameterCategoryDto catCode){
         ParameterCategory pcat = pcStore.getParameterCategoryByCode(catCode.getCode());
         this.parameter=parameterStore.create(code, description, designation, pcat);
-        return true;
     }
 
     /**

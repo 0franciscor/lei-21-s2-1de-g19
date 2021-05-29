@@ -46,7 +46,7 @@ public class CreateParameterUI implements Runnable{
         int option = 0;
         do
         {
-            option = Utils.showAndSelectIndex(options, "\n\nAdmin Menu:");
+            option = Utils.showAndSelectIndex(options, "\n\nParameter Menu:");
             CreateParameterController parameter = new CreateParameterController();
             String code, description, designation;
             if (option==0) {
@@ -55,32 +55,32 @@ public class CreateParameterUI implements Runnable{
                     System.out.printf("\nYou need to create a parameter category first.");
                 else{
                     System.out.printf("\n...creating a new parameter...\n");
-                    do{
-                        code = Utils.readLineFromConsole("Type the code of the new parameter.");
-                    }while(!Utils.confirm("Is the code of the new parameter correct? If so, press \"s\", if not, press \"n\"."));
-                    do{
-                        description = Utils.readLineFromConsole("Type the description of the new parameter.");
-                    }while(!Utils.confirm("Is the description of the new parameter correct? If so, press \"s\", if not, press \"n\"."));
-                    do{
-                        designation = Utils.readLineFromConsole("Type the designation of the new parameter.");
-                    }while(!Utils.confirm("Is the designation of the new parameter correct? If so, press \"s\", if not, press \"n\"."));
+                    code = Utils.readLineFromConsole("Type the code of the new parameter.");
+                    description = Utils.readLineFromConsole("Type the description of the new parameter.");
+                    designation = Utils.readLineFromConsole("Type the designation of the new parameter.");
                     List<ParameterCategoryDto> categoryDto = cpc.toDto();
                     Utils.showList(categoryDto, "Available Parameter Categories:");
                     ParameterCategoryDto opt;
                     opt=(ParameterCategoryDto) Utils.selectsObject(categoryDto);
                     boolean save;
                     if(opt!=null){
-                        if(parameter.createParameter(code,description,designation,opt)){
-                            save=Utils.confirm("The parameter has been created successfully!\nDo you wish to save it? If so, press \"s\", if not, press \"n\".");
-
-                            boolean saveSuccess=false;
-                            if(save)
-                                saveSuccess=parameter.saveParameter();
-                            if(saveSuccess)
-                                System.out.printf("Your parameter has been successfully saved!");
-                            else
-                                System.out.printf("Your parameter has not been successfully saved.");
+                        try {
+                            parameter.createParameter(code, description, designation, opt);
+                        }catch(Exception e ) {
+                            System.out.println(e.getMessage());
+                            System.out.println("The parameter was not created. Verify the inputted data and try again.");
+                            return;
                         }
+                        save=Utils.confirm(String.format("Is this information right?\nIf so, press \"s\", if not, press \"n\". \n\n Code: %s \n Description: %s \n Designation: %s \n Parameter Category: %s", code, description, designation, opt));
+
+                        boolean saveSuccess=false;
+                        if(save)
+                            saveSuccess=parameter.saveParameter();
+                        if(saveSuccess)
+                            System.out.printf("Your parameter has been successfully saved!");
+                        else
+                            System.out.printf("Your parameter has not been successfully saved.");
+
                     }else
                         System.out.printf("The creation of the parameter was cancelled.");
                 }
