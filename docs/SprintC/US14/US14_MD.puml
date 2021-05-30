@@ -5,7 +5,7 @@ class "Company" {
   }
 class "Test" {
   -description
-  -code
+  -testcode
   -nhsCode
   -collectDateTime
   -chemicalAnalysisDateTime
@@ -16,7 +16,10 @@ class "Result"
 class "SpecialistDoctor" {
   -doctorIndexNumber
   }
-class "DiagnosisReport"
+class "DiagnosisReport" {
+ -reportTxt
+ -testcode
+  }
 
 
 
@@ -24,6 +27,6 @@ class "DiagnosisReport"
 "Test" "1" -> "1" "Result" : > has
 "Result" "1..*" -> "1..*" "SpecialistDoctor" : > analyzed by
 "SpecialistDoctor" "1..*" -> "1..*" "DiagnosisReport"  : > registers
-"DiagnosisReport" "1" -> "1" "Test" : > is associated with
+
 
 @enduml

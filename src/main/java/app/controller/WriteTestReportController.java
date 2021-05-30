@@ -79,4 +79,8 @@ public class WriteTestReportController {
             return true;
         return false;
     }
+    public void setAnalyzed() {
+        for (Test c : testStore.SeeList())
+            c.setStatus(Test.Status.Analyzed);
+    }
 }

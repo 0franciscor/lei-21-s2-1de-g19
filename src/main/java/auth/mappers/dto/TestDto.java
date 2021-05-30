@@ -80,8 +80,18 @@ public class TestDto {
         return this.code;
     }
 
+    public void setValues(String result, ParameterResult parameter) {
+        for (int x = 0; x < parameterResultList.size(); x++)
+            if (parameterResultList.contains(parameter)) {
+                parameterResultList.get(x).setResult(result);
+            }
+    }
+
     public List<ParameterResult> getValues() {
         return this.parameterResultList;
+    }
+    public List<ParameterResult> getParameterResults() {
+        return parameterResultList;
     }
 
     public ArrayList<Sample> getListSamples(){
