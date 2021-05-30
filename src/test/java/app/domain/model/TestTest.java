@@ -148,7 +148,7 @@ public class TestTest {
     }
 
     @Test
-    public void isListUnique() throws BarcodeException {
+    public void isListUniqueFalse() throws BarcodeException {
         app.domain.model.Test t = new app.domain.model.Test();
         List<Barcode> list = new ArrayList<>();
         Barcode b1=new UPCABarcode("12345678901");
@@ -156,6 +156,19 @@ public class TestTest {
         list.add(b1);
         list.add(b2);
         boolean expected=false;
+        boolean result=t.isListUnique(list);
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void isListUniqueTrue() throws BarcodeException {
+        app.domain.model.Test t = new app.domain.model.Test();
+        List<Barcode> list = new ArrayList<>();
+        Barcode b1=new UPCABarcode("12345678901");
+        Barcode b2=new UPCABarcode("12364778908");
+        list.add(b1);
+        list.add(b2);
+        boolean expected=true;
         boolean result=t.isListUnique(list);
         assertEquals(expected,result);
     }

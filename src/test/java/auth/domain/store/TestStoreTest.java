@@ -2,6 +2,9 @@ package auth.domain.store;
 
 import app.controller.App;
 import app.domain.model.*;
+import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.linear.upc.UPCABarcode;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -208,5 +211,53 @@ public class TestStoreTest {
 
         assertTrue(testStore.validateTest(test));
 
+    }
+    
+    @Test
+    public void globallyUniqueTrue() throws BarcodeException {
+        TestStore ts = new TestStore();
+        app.domain.model.Test t = new app.domain.model.Test();
+        ts.addTest(t);
+        Barcode b1 = new UPCABarcode("12548796324");
+        Barcode b2 = new UPCABarcode("78965412352");
+        List<Barcode> barcodeList = new ArrayList<>();
+        barcodeList.add(b1);
+        barcodeList.add(b2);
+        t.addAll(barcodeList);
+        t.create();
+        app.domain.model.Test t1 = new app.domain.model.Test();
+        ts.addTest(t1);
+        Barcode b3 = new UPCABarcode("78945612301");
+        Barcode b4 = new UPCABarcode("45678912304");
+        List<Barcode> barcodeList1 = new ArrayList<>();
+        barcodeList1.add(b3);
+        barcodeList1.add(b4);
+        boolean expected = true;
+        boolean result = ts.globallyUnique(barcodeList1);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void globallyUniqueFalse() throws BarcodeException {
+        TestStore ts = new TestStore();
+        app.domain.model.Test t = new app.domain.model.Test();
+        ts.addTest(t);
+        Barcode b1 = new UPCABarcode("12548796324");
+        Barcode b2 = new UPCABarcode("78965412352");
+        List<Barcode> barcodeList = new ArrayList<>();
+        barcodeList.add(b1);
+        barcodeList.add(b2);
+        t.addAll(barcodeList);
+        t.create();
+        app.domain.model.Test t1 = new app.domain.model.Test();
+        ts.addTest(t1);
+        Barcode b3 = new UPCABarcode("12548796324");
+        Barcode b4 = new UPCABarcode("45678912304");
+        List<Barcode> barcodeList1 = new ArrayList<>();
+        barcodeList1.add(b3);
+        barcodeList1.add(b4);
+        boolean expected = false;
+        boolean result = ts.globallyUnique(barcodeList1);
+        assertEquals(expected, result);
     }
 }

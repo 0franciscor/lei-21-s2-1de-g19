@@ -134,7 +134,7 @@ public class TestStore {
             if(sampleList.size()>0){
                 for(Sample s: sampleList){
                     for(Barcode b: listBarcodes){
-                        if(s.getBarcode().equals(b))
+                        if(s.getBarcode().getData().equals(b.getData()))
                             return false;
                     }
                 }
