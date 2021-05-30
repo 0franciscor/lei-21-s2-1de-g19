@@ -1,14 +1,12 @@
 package app.controller;
 
-import app.domain.model.ExternalModuleBloodWithoutKey;
-import app.domain.model.Parameter;
-import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
+import app.domain.model.*;
 import auth.domain.store.ReportStore;
 import auth.domain.store.TestStore;
 import auth.mappers.dto.TestDto;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -93,5 +91,11 @@ public class ValidateTestControllerTest {
 
         assertEquals(app.domain.model.Test.Status.Validated.toString(),test.getStatus());
 
+    }
+
+    @Test
+    public void notificationService() throws FileNotFoundException {
+        boolean isNull = App.getInstance().getCompany().getNotificationService() != null;
+        assertTrue(isNull);
     }
 }
