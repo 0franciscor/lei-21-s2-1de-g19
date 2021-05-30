@@ -140,16 +140,13 @@ public class ValidateTestUI implements Runnable {
 
         if(validateTestSuccess) {
             System.out.println("The selected test has been successfully validated!");
-            if (Utils.confirm("Do you want to send a notification to the client? If so, press \"s\" and if not, press \"n\""))
-                try {
-                    validateTestController.sendNotification();
-                } catch (Exception e){
-                    System.out.println("There was an error when sending the notification.");
-                }
+            try {
+                validateTestController.sendNotification();
+                System.out.println("The notification of the test has been successfully sent!");
+            } catch (Exception e){
+                System.out.println("There was an error when sending the notification.");
+            }
         }
-
-        if(validateReportSuccess && validateTestSuccess)
-            System.out.println("\nThe test has been successfully validated!");
     }
 
 //    public void addTestTemp(){ //APENAS PARA SIMULAR US'S ANTERIORES TENDO EM CONTA QUE A US12 NAO FOI TERMINADA DEVIDO A DESISTÊNCIA
