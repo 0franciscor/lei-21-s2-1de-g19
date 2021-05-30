@@ -8,6 +8,11 @@ import auth.mappers.dto.TestDto;
 
 import java.util.List;
 
+/**
+ * The Write Test Report UI
+ *
+ * @author Alexandre Soares
+ */
 public class WriteTestReportUI implements Runnable {
     private WriteTestReportController ctrl;
     public WriteTestReportUI() { ctrl = new WriteTestReportController(); }

@@ -5,13 +5,33 @@ import app.domain.model.Report;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Report Store.
+ *
+ * @author Alexandre Soares
+ */
 public class ReportStore {
+
+    /**
+     * A list of Reports
+     */
     private List<Report> reportList;
 
+    /**
+     * The ReportStore builder.
+     */
     public ReportStore() {
         reportList = new ArrayList<>();
     }
 
+    /**
+     * @param reportTxt A sentence which contains the Report.
+     * @param testCode A code that identifies the Report.
+     *
+     * Method that is responsible for creating and saving a report.
+     *
+     * @return the success of the operation.
+     */
     public boolean saveReport(String reportTxt, String testCode) {
         Report rep = new Report(reportTxt, testCode);
         if (validateReport(rep)) {
@@ -21,6 +41,13 @@ public class ReportStore {
         return false;
     }
 
+    /**
+     * @param rep the report that is intended to be validated.
+     *
+     * Method that is responsible for validating a report.
+     *
+     * @return the success of the operation.
+     */
     public boolean validateReport(Report rep) {
        for (Report c : reportList){
            if (c.getTestCode().equalsIgnoreCase(rep.getTestCode())) {
@@ -62,6 +89,11 @@ public class ReportStore {
         return false;
     }
 
+    /**
+     * Method responsible for retrieving the reports list.
+     *
+     * @return a list of available reports.
+     */
     public List<Report> getReportList(){
         return this.reportList;
     }

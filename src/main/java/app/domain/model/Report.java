@@ -3,6 +3,11 @@ package app.domain.model;
 import app.controller.App;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * Report Class
+ *
+ * @author Alexandre Soares
+ */
 public class Report {
 
     /**
@@ -26,6 +31,12 @@ public class Report {
     private boolean validation;
 
 
+    /**
+     * @param report String.
+     * @param testcode Test code.
+     *
+     * The Report builder.
+     */
     public Report(String report, String testcode){
         this.company= App.getInstance().getCompany();
         this.testCode = testcode;
@@ -35,6 +46,11 @@ public class Report {
 
     }
 
+    /**
+     * @param report the report's String.
+     *
+     * Method that checks the report's String rules.
+     */
     public void checkReportRules (String report) {
         if (StringUtils.isBlank(report))
             throw new IllegalArgumentException("Name cannot be blank.");
@@ -42,6 +58,9 @@ public class Report {
             throw new IllegalArgumentException("Name must have a maximum of 400 characters.");
     }
 
+    /**
+     * @return the test's code.
+     */
     public String getTestCode() {
         return testCode;
     }

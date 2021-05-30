@@ -89,7 +89,11 @@ public class TestStore {
             return true;
     }
 
-
+    /**
+     * Method responsible for retrieving a list of Analyzed tests.
+     *
+     * @return a list of Analyzed tests.
+     */
     public List<Test> getAnalyzedTests() {
         List<Test> analyzedTestsList = new ArrayList<Test>();
         for (Test c : TestList)
