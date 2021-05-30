@@ -44,47 +44,61 @@ public class CreateParameterUI implements Runnable{
         //options.add(new MenuItem("See all the available parameters",new ShowTextUI("You have chosen to show all the existing parameters.")));
 
         int option = 0;
-        do
-        {
-            option = Utils.showAndSelectIndex(options, "\n\nParameter Menu:");
+        do {
+            boolean exceptionThrown = false;
+            try{
+                option = Utils.showAndSelectIndex(options, "\n\nParameter Menu:");
+            } catch (Exception e){
+                System.out.printf("\n\nUnavailable option.");
+                exceptionThrown = true;
+            }
             CreateParameterController parameter = new CreateParameterController();
             String code, description, designation;
-            if (option==0) {
-                //if(cpcc.getAllParameterCategoriesDto().isEmpty())
-                if(cpcc.getAllParameterCategories().isEmpty())
-                    System.out.printf("\nYou need to create a parameter category first.");
-                else{
-                    System.out.printf("\n...creating a new parameter...\n");
-                    code = Utils.readLineFromConsole("Type the code of the new parameter.");
-                    description = Utils.readLineFromConsole("Type the description of the new parameter.");
-                    designation = Utils.readLineFromConsole("Type the designation of the new parameter.");
-                    List<ParameterCategoryDto> categoryDto = cpc.toDto();
-                    Utils.showList(categoryDto, "Available Parameter Categories:");
-                    ParameterCategoryDto opt;
-                    opt=(ParameterCategoryDto) Utils.selectsObject(categoryDto);
-                    boolean save;
-                    if(opt!=null){
-                        try {
-                            parameter.createParameter(code, description, designation, opt);
-                        }catch(Exception e ) {
-                            System.out.println(e.getMessage());
-                            System.out.println("The parameter was not created. Verify the inputted data and try again.");
-                            return;
-                        }
-                        save=Utils.confirm(String.format("Is this information right?\nIf so, press \"s\", if not, press \"n\". \n\n Code: %s \n Description: %s \n Designation: %s \n Parameter Category: %s", code, description, designation, opt));
+            if(!exceptionThrown){
+                if (option==0) {
+                    //if(cpcc.getAllParameterCategoriesDto().isEmpty())
+                    if(cpcc.getAllParameterCategories().isEmpty())
+                        System.out.printf("\nYou need to create a parameter category first.");
+                    else{
+                        System.out.printf("\n...creating a new parameter...\n");
+                        code = Utils.readLineFromConsole("Type the code of the new parameter.");
+                        description = Utils.readLineFromConsole("Type the description of the new parameter.");
+                        designation = Utils.readLineFromConsole("Type the designation of the new parameter.");
+                        List<ParameterCategoryDto> categoryDto = cpc.toDto();
+                        Utils.showList(categoryDto, "Available Parameter Categories:");
+                        ParameterCategoryDto opt = null;
+                        do{
+                            exceptionThrown = false;
+                            try{
+                                opt=(ParameterCategoryDto) Utils.selectsObject(categoryDto);
+                            }catch(NumberFormatException e){
+                                System.out.println("There was a mistake while choosing the parameter category.");
+                                exceptionThrown=true;
+                            }
+                        }while (exceptionThrown);
+                        boolean save;
+                        if(opt!=null){
+                            try {
+                                parameter.createParameter(code, description, designation, opt);
+                            }catch(Exception e ) {
+                                System.out.println(e.getMessage());
+                                System.out.println("The parameter was not created. Verify the inputted data and try again.");
+                                return;
+                            }
+                            save=Utils.confirm(String.format("Is this information right?\nIf so, press \"s\", if not, press \"n\". \n\n Code: %s \n Description: %s \n Designation: %s \n Parameter Category: %s", code, description, designation, opt));
 
-                        boolean saveSuccess=false;
-                        if(save)
-                            saveSuccess=parameter.saveParameter();
-                        if(saveSuccess)
-                            System.out.printf("Your parameter has been successfully saved!");
-                        else
-                            System.out.printf("Your parameter has not been successfully saved.");
+                            boolean saveSuccess=false;
+                            if(save)
+                                saveSuccess=parameter.saveParameter();
+                            if(saveSuccess)
+                                System.out.printf("Your parameter has been successfully saved!");
+                            else
+                                System.out.printf("Your parameter has not been successfully saved.");
 
-                    }else
-                        System.out.printf("The creation of the parameter was cancelled.");
+                        }else
+                            System.out.printf("The creation of the parameter was cancelled.");
+                    }
                 }
-            }
             /*if(option==1){
                 List<Parameter> allParameters= cpc.getAllParameters();
                 if(allParameters.isEmpty())
@@ -95,6 +109,8 @@ public class CreateParameterUI implements Runnable{
                         System.out.printf("\n"+p);
                 }
             }*/
+            }
+
         }
         while (option != -1 );
     }
