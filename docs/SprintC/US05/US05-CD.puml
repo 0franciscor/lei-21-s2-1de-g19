@@ -11,6 +11,9 @@ class RecordSamplesUI{
 package "Core" {
 package "Controllers"{
 class RecordSamplesController{
+  +getRegisteredTests()
+  +recordSample(tDto, nSamples)
+  +save()
 }
 }
 
