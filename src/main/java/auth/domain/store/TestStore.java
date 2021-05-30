@@ -24,6 +24,11 @@ public class TestStore {
     private String citizenID;
 
     /**
+     * Allows storing National Healthcare Service numbers.
+     */
+    List<String> nhsCodeList = new ArrayList<>();
+
+    /**
      * Builds a TestStore without receiving parameters.
      */
     public TestStore (){
@@ -150,6 +155,14 @@ public class TestStore {
      */
     public List<Test> SeeList (){
         return TestList;
+    }
+
+    /**
+     *
+     * @return all National Healthcare Service numbers that exist in the nhsCode list
+     */
+    public List<String> getNhsCodeList (){
+        return nhsCodeList;
     }
 
     /**
