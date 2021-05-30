@@ -21,9 +21,7 @@ SD -> ":WriteTestReportUI" : selects a analyzed test to make a diagnosis report
 ":WriteTestReportUI" -> ":WriteTestReportController" : getValues(choosenTestDto)
 ":WriteTestReportController" -> ":TestDto" : getValues(choosenTestDto)
 activate ":TestDto"
-":TestDto" -> ":TestDto" ++ : getReferenceValues()
-deactivate ":TestDto"
-":TestDto" -> ":TestDto" ++ : getParameterValues()
+":TestDto" -> ":TestDto" ++ : getValues()
 deactivate ":TestDto"
 deactivate ":TestDto"
 ":WriteTestReportUI" -> SD : shows the parameter values \n and the reference values and requests data
