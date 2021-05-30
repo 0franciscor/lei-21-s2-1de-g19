@@ -50,7 +50,7 @@ public class RegisterClientUI implements Runnable {
             try {
                 cl = ctrl.registerClient(dto);
             } catch (Exception e) {
-                System.out.println("Erro ao registar o cliente. Verifique os dados introduzidos e faça um novo registo.");
+                System.out.println("Error registering the client. Check the data entered and re-register.");
                 return;
             }
 
