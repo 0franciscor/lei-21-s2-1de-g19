@@ -260,21 +260,4 @@ public class ClientTest {
 
         assertEquals(passwordLengthResult,passwordLengthExpected);
     }
-
-    @org.junit.Test
-    public void Exemplo(){
-
-        Client cl = new Client("1212121212121212","1212121212","12/12/2000","male","1212121212","12121212121","sdfs@gmail.com","Roberto");
-        
-        if (StringUtils.isBlank(cl.getCitizenID()))
-            throw new IllegalArgumentException("Citizen card number cannot be blank.");
-        if ( cl.getCitizenID().length() != 16 )
-            throw new IllegalArgumentException("Citizen card number must have 16 chars.");
-        for (int i = 0; i>=cl.getCitizenID().length(); i++){
-            char y = cl.getCitizenID().charAt(i);
-            if (y != 48 && y != 49 && y != 50 && y != 51 && y != 52 && y != 53 && y != 54 && y != 55 && y != 56 && y != 57 ){
-                throw new IllegalArgumentException("Citizen card number must be only numbers.");
-            }
-        }
-    }
 }
