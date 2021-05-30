@@ -108,8 +108,8 @@ public class ClinicalAnalysisLaboratory {
      * @param phoneNumber
      */
     public void setPhoneNumber(String phoneNumber) {
-        if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException("Code cannot be empty.");
+        if (StringUtils.isBlank(phoneNumber)) {
+            throw new IllegalArgumentException("Phone Number cannot be empty.");
         }
         this.phoneNumber = phoneNumber;
     }
@@ -147,7 +147,7 @@ public class ClinicalAnalysisLaboratory {
      * @param TestTypesList
      */
     public void setTestTypesList(List<TestType> TestTypesList) {
-        if (TestTypesList.isEmpty()) {
+        if (TestTypesList == null || TestTypesList.isEmpty()) {
             throw new NullPointerException("The test types list is null.");
         }
         this.TestTypesList = TestTypesList;
