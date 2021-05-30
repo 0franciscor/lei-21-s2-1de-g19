@@ -1,6 +1,5 @@
 package auth.mappers.dto;
 
-import app.domain.model.Employee;
 import app.domain.model.OrgRole;
 /**
  * Represents an Employee Data Transfer object.

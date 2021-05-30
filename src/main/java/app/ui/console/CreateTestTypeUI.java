@@ -8,6 +8,7 @@ import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.ParameterCategoryDto;
 import auth.mappers.dto.TestTypeDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,8 +101,9 @@ public class CreateTestTypeUI implements Runnable {
 
                     ExternalModule externalModule;
                     try {
-                        Utils.showList(App.getInstance().getCompany().getExternalModules(), "\nPlease choose an external module.");
-                         externalModule = (ExternalModule) Utils.selectsObject(App.getInstance().getCompany().getExternalModules());
+                        List<ExternalModule> externalModulesList = ttController.getExternalModules();
+                        Utils.showList(externalModulesList, "\nPlease choose an external module.");
+                        externalModule = (ExternalModule) Utils.selectsObject(App.getInstance().getCompany().getExternalModules());
                     } catch(Exception e){
                         System.out.println("There was an error when choosing the intended external module");
                         return;

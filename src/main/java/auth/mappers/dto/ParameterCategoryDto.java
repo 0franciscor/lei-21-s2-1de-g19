@@ -17,6 +17,7 @@ public class ParameterCategoryDto {
      */
     private String code;
 
+
     /**
      * Builds the ParameterCategory object.
      *
@@ -51,6 +52,7 @@ public class ParameterCategoryDto {
      *
      * @return ParameterCategoryDto characteristics
      */
+
     @Override
     public String toString(){
         return String.format("The parameter category name is %s and it's code is %s.", this.name, this.code);

@@ -3,11 +3,8 @@ package app.controller;
 import app.domain.model.Client;
 import app.domain.model.Company;
 import auth.AuthFacade;
-import auth.domain.model.Password;
 import auth.domain.store.ClientStore;
 import auth.mappers.dto.ClientDto;
-
-import java.util.Random;
 
 /**
  * Represents the controller that serves at intermediary between the UI and the domain layer.

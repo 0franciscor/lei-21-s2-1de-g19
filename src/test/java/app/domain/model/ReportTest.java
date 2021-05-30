@@ -42,4 +42,17 @@ public class ReportTest {
         boolean expected = false;
         Assert.assertEquals(result, expected);
     }
+
+    @Test
+    public void setValidationTrue() {
+        Report report = new Report("Report", "00000000001");
+        report.setValidation(true);
+        assertTrue(report.getValidation());
+    }
+
+    @Test
+    public void setValidationFalse(){
+        Report report = new Report("Report", "00000000001");
+        assertFalse(report.getValidation());
+    }
 }

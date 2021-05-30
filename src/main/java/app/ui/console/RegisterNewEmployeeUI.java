@@ -8,7 +8,6 @@ import app.ui.console.utils.Utils;
 import auth.mappers.dto.EmployeeDto;
 import auth.mappers.dto.OrgRoleDto;
 
-
 import java.util.List;
 
 public class RegisterNewEmployeeUI implements Runnable {

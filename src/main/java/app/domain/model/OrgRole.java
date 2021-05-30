@@ -1,9 +1,6 @@
 package app.domain.model;
 
-import app.controller.App;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.List;
 /**
  * Represents an Organization Role.
  *

@@ -1,7 +1,5 @@
 package app.controller;
 
-import java.util.List;
-import app.domain.model.Company;
 import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
@@ -9,27 +7,14 @@ import auth.domain.store.TestTypeStore;
 import auth.mappers.TestTypeMapper;
 import auth.mappers.dto.TestTypeDto;
 
+import java.util.List;
+
 /**
  * CreateTestTypeController class, which is responsible for creating the TestTypeController object.
  *
  * @author Francisco Redol (1201239)
  */
 public class CreateTestTypeController {
-
-    /**
-     * The TestTypeController App.
-     */
-    private App app;
-
-    /**
-     * The TestTypeController Company.
-     */
-    private Company company;
-
-    /**
-     * The TestTypeController ParameterCategoryStore.
-     */
-    private TestTypeStore ttStore;
 
     /**
      * The TestTypeController TestType Object.
@@ -40,11 +25,7 @@ public class CreateTestTypeController {
      * Builds the TestTypeController, instantiating the app, the company and the TestTypeStore
      *
      */
-    public CreateTestTypeController(){
-        this.app = app.getInstance();
-        this.company = app.getCompany();
-        this.ttStore = company.getTestTypeStore();
-    }
+    public CreateTestTypeController(){}
 
     /**
      *
@@ -54,6 +35,7 @@ public class CreateTestTypeController {
      *
      */
     public List<TestTypeDto> getAllTestTypesDto(){
+        TestTypeStore ttStore = App.getInstance().getCompany().getTestTypeStore();
         return TestTypeMapper.toDto(ttStore.getAllTestTypes());
     }
 
@@ -68,6 +50,7 @@ public class CreateTestTypeController {
      * @return a boolean stating the process success
      */
     public boolean createTestType(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoriesList, ExternalModule externalModule){
+        TestTypeStore ttStore = App.getInstance().getCompany().getTestTypeStore();
         this.tt = ttStore.createTestType(code, description, collectingMethod, parameterCategoriesList, externalModule);
         return true;
     }
@@ -77,8 +60,9 @@ public class CreateTestTypeController {
      *
      * @return a boolean stating the process success
      */
-    public boolean saveTestType(){
-       return ttStore.saveTestType(tt);
+    public boolean saveTestType() {
+        TestTypeStore ttStore = App.getInstance().getCompany().getTestTypeStore();
+        return ttStore.saveTestType(tt);
     }
 
     /**
@@ -88,6 +72,7 @@ public class CreateTestTypeController {
      * @return a TestType which is sent by the TestTypeStore
      */
     public TestType getTestTypeByCode(String code) {
+        TestTypeStore ttStore = App.getInstance().getCompany().getTestTypeStore();
         return ttStore.getTestTypeByCode(code);
     }
 
@@ -97,6 +82,19 @@ public class CreateTestTypeController {
      * @return a list that contains all the Test Types existent in the TestTypeStore
      */
     public List<TestType> getAllTestTypes(){
+        TestTypeStore ttStore = App.getInstance().getCompany().getTestTypeStore();
         return ttStore.getAllTestTypes();
+    }
+
+    /**
+     * Invokes the method in Company to retrieve the available external Modules
+     *
+     * @return a list that contains all the existent external Modules.
+     */
+    public List<ExternalModule> getExternalModules(){
+        List<ExternalModule> externalModulesList;
+        externalModulesList = App.getInstance().getCompany().getExternalModules();
+        return externalModulesList;
+
     }
 }

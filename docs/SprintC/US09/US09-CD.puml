@@ -9,6 +9,7 @@ class "Company" as C {
 -String designation
 +getTestTypeStore()
 +getParameterCategoryStore()
++List<ExternalModule> getExternalModules()
 }
 
 class "ParameterCategory" as PC{
@@ -22,7 +23,8 @@ class "TestType" as TT {
 -String description
 -String collectingMethod
 -List <ParameterCategory> parameterCategoriesList
-+TestType(code, description, collectingMethod, parameterCategoriesList)
+-ExternalModule externalModule
++TestType(code, description, collectingMethod, parameterCategoriesList, externalModule)
 }
 
 }
@@ -32,7 +34,7 @@ class "TestType" as TT {
 package Stores{
 class "TestTypeStore" as TTS{
 -List<TestType> testTypeList
-+TestType createTestType(code, description, collectingMethod, parameterCategoriesList)
++TestType createTestType(code, description, collectingMethod, parameterCategoriesList, externalModule)
 +boolean saveTestType(tt)
 +boolean validateTestType(tt)
 +boolean addTestType(tt)
@@ -46,9 +48,10 @@ package Controllers{
 class "CreateTestTypeController" as CTTC {
 +CreateTestTypeController()
 +List<TestTypeDto> getAllTestTypesDto()
-+boolean createTestType(code, description, collectingMethod, parameterCategoriesList)
++boolean createTestType(code, description, collectingMethod, parameterCategoriesList, externalModule)
 +boolean saveTestType()
 +List<TestType> getAllTestTypes()
++List<ExternalModule> getExternalModules()
 }
 
 

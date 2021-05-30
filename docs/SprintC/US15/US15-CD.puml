@@ -6,7 +6,9 @@ package Core{
 
 package Domain{
 class "Company" as C {
--String designation
+-ReportStore reportStore
+-TestStore testStore
+-Notification notification
 +TestStore getTestStore()
 +ReportStore getReportStore()
 +Notification getNotificationService()
@@ -25,6 +27,7 @@ class "Test" as T {
 
 class "Report" as R{
 -boolean validation
+-String testCode
 +boolean getValidation()
 +setValidation()
 }

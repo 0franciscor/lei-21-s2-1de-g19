@@ -6,7 +6,7 @@ autonumber
 actor "Receptionist" as R
 activate R
 R -> System ++: register a test to be performed to a registered client
-System -->  R --: request data (citizenID)
+System -->  R --: request data (TIN)
 R -> System ++: types requested data
 System -->  R --: shows the client's information and request a confirmation
 R -> System ++: confirms the data

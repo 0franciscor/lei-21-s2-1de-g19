@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import static org.junit.Assert.*;
 
 public class ClientTest {

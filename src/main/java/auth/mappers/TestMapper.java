@@ -1,9 +1,8 @@
 package auth.mappers;
 
-import app.domain.model.ParameterResult;
-import app.domain.model.Sample;
-import app.domain.model.Test;
+import app.domain.model.*;
 import auth.mappers.dto.TestDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,16 +37,33 @@ public class TestMapper {
         return testsListDto;
     }
 
+    /**
+     * Responsible for converting a list of tests into a DTO list of tests.
+     *
+     * @param listTest
+     * @return a list of dto tests
+     */
     public static List<TestDto> ModelToDto (List<Test> listTest){
         List<TestDto> listTestsDto = new ArrayList<>();
         for(Test t: listTest){
-            String code = t.getCode();
-            TestDto testDto = new TestDto(code);
+            Client client=t.getClient();
+            String name=client.getName();
+            TestType testType = t.getTestType();
+            List<ParameterCategory> parameterCategories = t.getParameterCategories();
+            List<Parameter> parameters = t.getParameters();
+            String code=t.getCode();
+            TestDto testDto = new TestDto(name, testType, parameterCategories, parameters, code);
             listTestsDto.add(testDto);
         }
         return listTestsDto;
     }
 
+    /**
+     * Responsible for converting a test into a DTO test.
+     *
+     * @param test
+     * @return a test in data transfer object
+     */
     public static TestDto ModelToDto (Test test){
         ArrayList<Sample> listSamplesTest = test.getListSamples();
         TestDto testDto = new TestDto(listSamplesTest);
@@ -55,6 +71,12 @@ public class TestMapper {
         return testDto;
     }
 
+    /**
+     * Responsible for converting a DTO test, who only has a code, into a test code
+     *
+     * @param testDto
+     * @return a test code
+     */
     public static String DtoToModel (TestDto testDto){
         String code = testDto.getCode();
         return code;

@@ -81,11 +81,6 @@ labC -> validateTestUI : selects the desired state
 activate validateTestUI
 
 
-validateTestUI --> labC : shows it and requests a confirmation
-deactivate validateTestUI
-
-labC -> validateTestUI : confirms the selected state
-activate validateTestUI
 end
 
 

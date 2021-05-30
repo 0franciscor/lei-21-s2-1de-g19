@@ -11,8 +11,6 @@ labC -> System ++: selects a test from the list
 System -->  labC --: displays its data (registration date, chemical analysis date, diagnosis date) and requests to choose if it's valid
 loop until the Laboratory Coordinator confirms the selected state of the chosen tests
 labC ->  System ++: selects the desired state
-System --> labC --: shows it and requests a confirmation
-labC -> System ++: confirms the selected state
 end
 System --> labC --: informs about the operation success
 end

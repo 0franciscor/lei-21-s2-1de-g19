@@ -1,17 +1,18 @@
 package app.ui.console;
 
 
-
 import app.controller.WriteTestReportController;
 import app.domain.model.ParameterResult;
 import app.ui.console.utils.Utils;
-import auth.mappers.dto.OrgRoleDto;
 import auth.mappers.dto.TestDto;
-import org.apache.commons.lang3.StringUtils;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
+/**
+ * The Write Test Report UI
+ *
+ * @author Alexandre Soares
+ */
 public class WriteTestReportUI implements Runnable {
     private WriteTestReportController ctrl;
     public WriteTestReportUI() { ctrl = new WriteTestReportController(); }
@@ -20,7 +21,11 @@ public class WriteTestReportUI implements Runnable {
         int exit = 1;
         do {
             List<TestDto> listDto = ctrl.getAnalyzedTests();
-            TestDto test = (TestDto) Utils.showAndSelectOne(listDto,"------ List of Tests available do to diagnosis report. ------" );
+            System.out.println("------ List of Tests available do to diagnosis report. ------");
+            for(int i=0; i<listDto.size();i++){
+                System.out.println(i+1+". "+listDto.get(i).toString(0));
+            }
+            TestDto test = (TestDto) Utils.selectsObject(listDto);
             if (test == null)
                 exit = 0;
             System.out.println("-------- Test Results. --------");

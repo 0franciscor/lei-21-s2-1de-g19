@@ -2,7 +2,7 @@ package app.domain.model;
 
 import app.controller.App;
 import auth.domain.store.ClientStore;
-//import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -65,6 +65,9 @@ public class Test {
      * The parameters list.
      */
     private List<Parameter> parameters;
+
+    private List<ParameterCategory> parameterCategories;
+
     private List<ParameterResult> parameterResults;
     /**
      * Client.
@@ -86,11 +89,21 @@ public class Test {
      */
     private Status state;
 
+
+    /**
+     * The test's sample.
+     */
     private Sample sample;
 
-    private ArrayList<Sample> listSamples;
+    /**
+     * The test's list of samples.
+     */
+    private ArrayList<Sample> listSamples = new ArrayList<>();
 
-    //private List<Barcode> testBarcodesList;
+    /**
+     * The test's list of barcodes.
+     */
+    private List<Barcode> testBarcodesList = new ArrayList<>();
 
     /**
      * The available states for a test.
@@ -107,19 +120,23 @@ public class Test {
         this.registrationDateTime = new Date();
     }
 
+
     /**
-     * Builds a test instance, receiving the testType, parameters and citizenID.
+     * Builds a test instance, receiving the testType, parameters, parameterCategories, TIN and nhsCode.
      *
      * @param testType test type
      * @param parameters parameters list
+     * @param parameterCategories parameter categories list
      * @param TIN Client's Tax Identification number
+     * @param nhsCode National Healthcare Service number
      */
-    public Test (TestType testType, List<Parameter> parameters, String TIN, String nhsCode){
+    public Test (TestType testType, List<Parameter> parameters, List<ParameterCategory> parameterCategories, String TIN, String nhsCode){
 
         checknhsCodeRules(nhsCode);
         this.company = App.getInstance().getCompany();
         this.testType = testType;
         this.parameters = parameters;
+        this.parameterCategories = parameterCategories;
         this.parameterResults = new ArrayList<ParameterResult>();
         this.clientStore = company.getClientStore();
         this.client = clientStore.getClient(TIN);
@@ -280,9 +297,49 @@ public class Test {
         return this.listSamples;
     }
 
+    /**
+     * Method used only for testing purposes
+     *
+     * @param state is the desired State
+     */
+    public void setStatus(Status state){
+        this.state = state;
+    }
+
 //    public String getValues() {
 //        return values;
 //    }
+
+    /**
+     * Method that changes the Chemical Analysis Date Time, used only for testing purposes.
+     *
+     * @param chemicalAnalysisDateTime is the desired Date
+     */
+    public void setChemicalAnalysisDateTime(Date chemicalAnalysisDateTime){
+        this.chemicalAnalysisDateTime = chemicalAnalysisDateTime;
+    }
+
+    /**
+     * Method that changes the Diagnosed Date Time, used only for testing purposes.
+     *
+     * @param diagnosisDateTime the wanted Diagnosed Date Time.
+     */
+    public void setDiagnosisDateTime(Date diagnosisDateTime){
+        this.diagnosisDateTime = diagnosisDateTime;
+    }
+
+    /**
+     * Returns the parameter categories list.
+     *
+     * @return parameter categories list.
+     */
+    public List<ParameterCategory> getParameterCategories() {
+        return parameterCategories;
+    }
+
+    public List<Barcode> getTestBarcodesList(){
+        return testBarcodesList;
+    }
 
     /**
      * Returns a textual representation of the object, which contains all of its attributes.
@@ -316,17 +373,6 @@ public class Test {
 
     }
 
-    /*
-    public Sample create(Barcode barcode){
-        Sample sample = new Sample(barcode);
-        listSamples.add(sample);
-        return sample;
-    }
-
-     */
-
-
-
     /**
      * A method that is responsible for automatically changing the Test validation date and time.
      *
@@ -346,12 +392,18 @@ public class Test {
         return false;
     }
 
-    /*
+    /**
+     * Sees if there are 2 or more equal barcodes in the test barcodes list.
+     *
+     * @param listBarcodes
+     * @return true if there are no repeated barcodes in the test
+     * @return false if there is, at least, one barcode repeated in the test
+     */
     public boolean isListUnique(List<Barcode> listBarcodes){
         for(Barcode b: listBarcodes){
             int no=0;
             for(Barcode b1: listBarcodes){
-                if(b1.equals(b))
+                if(b1.getData().equals(b.getData()))
                     no++;
             }
             if(no>1)
@@ -360,12 +412,22 @@ public class Test {
         return true;
     }
 
+    /**
+     * Adds all the barcodes in the listBarcodes in the list of barcodes of the test and then calls the updateCollectDateTime method.
+     * @param listBarcodes
+     */
     public void addAll(List<Barcode> listBarcodes){
         for(Barcode b: listBarcodes){
             testBarcodesList.add(b);
         }
+        updateCollectDateTime();
     }
 
+    /**
+     * Creates a list with new samples by calling the sample class.
+     *
+     * @return a list with the created samples
+     */
     public List<Sample> create(){
         for(Barcode b: testBarcodesList){
             Sample sample=new Sample(b);
@@ -374,21 +436,28 @@ public class Test {
         return listSamples;
     }
 
-     */
 
-    public boolean updateCollectDateTime(){
+    /**
+     * A method that is responsible for automatically changing the Test collect date and time.
+     *
+     * @return the success of the operation (true if the operation was successful and false if not).
+     */
+    public void updateCollectDateTime(){
         try{
             if(listSamples!=null){
                 this.collectDateTime=new Date();
-                return true;
             }
         }catch(Exception e){
             System.out.println("There was an error when updating the validation date and time. Please try again.");
-            return false;
         }
-        return false;
     }
 
+    /**
+     * Calls the method to update the test status and checks if it is "Collected"
+     *
+     * @return true if the test was successfully updated
+     * @return false if the test was not updated
+     */
     public boolean validate(){
         if(getStatus().equals("Collected"))
             return true;

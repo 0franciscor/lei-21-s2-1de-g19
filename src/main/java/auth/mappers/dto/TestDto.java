@@ -1,7 +1,6 @@
 package auth.mappers.dto;
 
-import app.domain.model.ParameterResult;
-import app.domain.model.Sample;
+import app.domain.model.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +9,11 @@ import java.util.List;
 public class TestDto {
     private String description;
     private String testType;
+    private TestType testTypet;
     private String code;
+    private String client;
+    private List<ParameterCategory> parameterCategories;
+    private List<Parameter> parameters;
     private List<ParameterResult> parameterResultList;
     private Date registrationDateTime;
     private Date chemicalAnalysisDateTime;
@@ -31,16 +34,30 @@ public class TestDto {
         this.code = code;
     }
 
-    public TestDto(String code){
+    public TestDto(String code){this.code=code;}
+
+
+    public TestDto(String c, TestType tt, List<ParameterCategory> lpc, List<Parameter> lp, String code){
+        this.client=c;
+        this.testTypet=tt;
+        this.parameterCategories=lpc;
+        this.parameters=lp;
         this.code=code;
     }
 
+    /**
+     * Builds a test in data transfer object that receives as parameters a list of samples.
+     * @param listSample
+     */
     public TestDto(ArrayList<Sample> listSample){
         this.listSamples=listSample;
     }
 
-    public String toString() {
-        return String.format("This is a %s test and the type of test is %s.", description, testType);
+    public String toString(int opt) {
+        if(opt==0)
+            return String.format("This is a %s test and the type of test is %s.", description, testType);
+        else
+            return String.format("Test with: \nClient %s. \n%s. \n%s. \n%s", this.client,this.testTypet,this.parameterCategories,this.parameters);
     }
 
     public String getTestCode() {
@@ -69,5 +86,18 @@ public class TestDto {
 
     public ArrayList<Sample> getListSamples(){
         return this.listSamples;
+    }
+
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;
+
+        if(obj == null)
+            return false;
+
+        TestDto obj2 = (TestDto) obj;
+
+        return this.registrationDateTime.equals(obj2.registrationDateTime) && this.chemicalAnalysisDateTime.equals(obj2.chemicalAnalysisDateTime)
+                && this.diagnosisDateTime.equals(obj2.diagnosisDateTime);
     }
 }

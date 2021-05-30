@@ -8,8 +8,16 @@
         </element>
         <element id="module-output" name="Sem2App" />
       </element>
+      <element id="library" level="module" name="Maven: com.example1:ExternalModule3API:1.0.0" module-name="Sem2App" />
+      <element id="library" level="module" name="Maven: com.example2:ExternalModule2API:1.0.0" module-name="Sem2App" />
       <element id="library" level="project" name="Maven: at.favre.lib:bcrypt:0.9.0" />
+      <element id="library" level="module" name="Maven: net.sourceforge.barbecue:barbecue:2.0-dev" module-name="Sem2App" />
       <element id="library" level="project" name="Maven: at.favre.lib:bytes:1.3.0" />
+      <element id="library" level="project" name="barbecue-2.0-dev" />
+      <element id="library" level="project" name="ExternalModule3API-1.0.0" />
+      <element id="library" level="project" name="ExternalModule2API-1.0.0" />
+      <element id="library" level="project" name="CovidReferenceValues1API-1.0.0" />
+      <element id="library" level="module" name="Maven: com.example3:CovidReferenceValues1API:1.0.0" module-name="Sem2App" />
       <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
     </root>
   </artifact>

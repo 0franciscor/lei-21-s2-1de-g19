@@ -163,7 +163,7 @@ public class Parameter {
      * @return false if there is not any object equals to the @param.
      */
     //@Override
-    /*public boolean equals(Object obj){
+    public boolean equals(Object obj){
         if(obj == null)
             return false;
 
@@ -173,5 +173,5 @@ public class Parameter {
         Parameter obj2 = (Parameter) obj;
 
         return (this.code.equals(obj2.code) && this.description.equals(obj2.description) && this.designation.equals(obj2.designation) && this.pcat.equals(obj2.pcat));
-    }*/
+    }
 }

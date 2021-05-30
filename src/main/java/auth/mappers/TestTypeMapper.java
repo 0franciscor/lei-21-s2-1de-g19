@@ -4,6 +4,7 @@ import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import auth.mappers.dto.TestTypeDto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class TestTypeMapper {
      * Builds a test type instance, receiving the testTypeDto.
      *
      * @param testTypeDto a testTypeDto
-     * @return testType if the parameterCategoryList is null, otherwise returns testType1
+     * @return a testType which contains the converted objects
      */
     public static TestType toModel (TestTypeDto testTypeDto) {
 
@@ -44,8 +45,8 @@ public class TestTypeMapper {
         List<ParameterCategory> parameterCategoryList = testTypeDto.getParameterCategoriesList();
         ExternalModule externalModule = testTypeDto.getExternalModule();
 
-        TestType testType1 = new TestType(code, description, collectingMethod, parameterCategoryList, externalModule);
-        return testType1;
+        TestType testType = new TestType(code, description, collectingMethod, parameterCategoryList, externalModule);
+        return testType;
 
     }
 }

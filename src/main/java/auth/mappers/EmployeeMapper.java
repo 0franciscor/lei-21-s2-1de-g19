@@ -1,14 +1,10 @@
 package auth.mappers;
 
 
-import app.domain.model.Company;
 import app.domain.model.Employee;
-
 import app.domain.model.OrgRole;
 import app.domain.model.SpecialistDoctor;
 import auth.mappers.dto.EmployeeDto;
-
-import java.util.List;
 /**
  * Class responsible for converting an Employee Data Transfer object to an Employee object.
  *

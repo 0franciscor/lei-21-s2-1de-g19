@@ -52,7 +52,7 @@ deactivate ":Company"
 activate ":store: TestTypeStore"
 deactivate ":store: TestTypeStore"
 
-":RegisterTestController" -> ":TestTypeMapper": tesTypeDto = toDto(listTestType)
+":RegisterTestController" -> ":TestTypeMapper": listTestTypeDto = toDto(listTestType)
 activate ":TestTypeMapper"
 deactivate ":TestTypeMapper"
 deactivate ":RegisterTestController"
@@ -72,7 +72,7 @@ deactivate ":Company"
 activate ":store: ParameterCategoryStore"
 deactivate ":store: ParameterCategoryStore"
 
-":RegisterTestController" -> ":ParameterCategoryMapper": list <parameterCategoriesDto> = toDto(listParameterCategories)
+":RegisterTestController" -> ":ParameterCategoryMapper": listParameterCategoriesDto = toDto(listParameterCategories)
 activate ":ParameterCategoryMapper"
 deactivate ":ParameterCategoryMapper"
 deactivate ":RegisterTestController"
@@ -82,17 +82,17 @@ deactivate ":RegisterTestUI"
 R -> ":RegisterTestUI": selects the parameter category(ies)
 activate ":RegisterTestUI"
 
-":RegisterTestUI" -> ":RegisterTestController": getAllParametersByParameterCategory(list <parameterCategoriesDto>)
+":RegisterTestUI" -> ":RegisterTestController": getAllParametersByParameterCategory(listParameterCategoriesDto)
 activate ":RegisterTestController"
 ":RegisterTestController" -> ":Company": store = getParametersStore()
 activate ":Company"
 deactivate ":Company"
 
-":RegisterTestController" -> ":store: ParametersStore": listParameters = getAllParametersByParameterCategory(list <parameterCategoriesDto>)
+":RegisterTestController" -> ":store: ParametersStore": listParameters = getAllParametersByParameterCategory(listParameterCategoriesDto)
 activate ":store: ParametersStore"
 deactivate ":store: ParametersStore"
 
-":RegisterTestController" -> ":ParametersMapper": list <parametersDto>  = toDto(listParameters)
+":RegisterTestController" -> ":ParametersMapper": listParametersDto  = toDto(listParameters)
 activate ":ParametersMapper"
 deactivate ":ParametersMapper"
 
@@ -110,19 +110,19 @@ activate ":RegisterTestUI"
 
 
 
-":RegisterTestUI" -> ":RegisterTestController": createTest(list <parametersDto>, tesTypeDto, list <parameterCategoriesDto>, TIN, nhsCode)
+":RegisterTestUI" -> ":RegisterTestController": createTest(listParametersDto, tesTypeDto, listParameterCategoriesDto, TIN, nhsCode)
 activate ":RegisterTestController"
 
 ":RegisterTestController" -> ":TestTypeMapper": tt = toModel(testTypeDto)
 activate ":TestTypeMapper"
 deactivate ":TestTypeMapper"
 
-":RegisterTestController" -> ":ParameterCategoryMapper": parameterCategories = toModel(list <parameterCategoriesDto>)
+":RegisterTestController" -> ":ParameterCategoryMapper": parameterCategories = toModel(listParameterCategoriesDto)
 activate ":ParameterCategoryMapper"
 deactivate ":ParameterCategoryMapper"
 
 
-":RegisterTestController" -> ":ParametersMapper": parameters = toModel (list <parametersDto> )
+":RegisterTestController" -> ":ParametersMapper": parameters = toModel (listParametersDto)
 activate ":ParametersMapper"
 deactivate ":ParametersMapper"
 
@@ -162,6 +162,10 @@ deactivate ":store: TestStore"
 ":store: TestStore" -> ":store: TestStore": addTest(test)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
+":store: TestStore" -> "test: Test": updateTestStatus()
+activate "test: Test"
+deactivate "test: Test"
+
 
 deactivate ":store: TestStore"
 

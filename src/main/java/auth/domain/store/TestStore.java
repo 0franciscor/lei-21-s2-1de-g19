@@ -1,10 +1,7 @@
 package auth.domain.store;
 
-import app.domain.model.Parameter;
-import app.domain.model.Sample;
-import app.domain.model.Test;
-import app.domain.model.TestType;
-//import net.sourceforge.barbecue.Barcode;
+import app.domain.model.*;
+import net.sourceforge.barbecue.Barcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +24,11 @@ public class TestStore {
     private String citizenID;
 
     /**
+     * Allows storing National Healthcare Service numbers.
+     */
+    List<String> nhsCodeList = new ArrayList<>();
+
+    /**
      * Builds a TestStore without receiving parameters.
      */
     public TestStore (){
@@ -38,16 +40,18 @@ public class TestStore {
      *
      * @param testType test type
      * @param parameters list of parameters
+     * @param parameterCategories list of parameter categories
      * @param TIN Tax Identification number
+     * @param nhsCode National Healthcare Service number
      * @return created Test
      */
-    public Test createTest (TestType testType, List<Parameter> parameters, String TIN, String nhsCode){
+    public Test createTest (TestType testType, List<Parameter> parameters, List<ParameterCategory> parameterCategories, String TIN, String nhsCode){
 
-        return new Test(testType,parameters, TIN, nhsCode);
+        return new Test(testType,parameters, parameterCategories, TIN, nhsCode);
     }
 
     /**
-     * If the test does not belong to the test list adds it to that list and returns true, otherwise returns false.
+     * If the test does not belong to the test list adds it to that list, update the test status and returns true, otherwise returns false.
      *
      * @param test test to validate
      * @return true if the test is not already on the test list, otherwise returns false.
@@ -56,6 +60,7 @@ public class TestStore {
 
         if (hasTest(test)){
             addTest(test);
+            test.updateTestStatus();
             return true;
         }
         return false;
@@ -84,16 +89,24 @@ public class TestStore {
             return true;
     }
 
-
+    /**
+     * Method responsible for retrieving a list of Analyzed tests.
+     *
+     * @return a list of Analyzed tests.
+     */
     public List<Test> getAnalyzedTests() {
         List<Test> analyzedTestsList = new ArrayList<Test>();
         for (Test c : TestList)
-            if (c.getStatus().toString() == Test.Status.Analyzed.toString())
+            if (c.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString()))
                 analyzedTestsList.add(c);
 
         return analyzedTestsList;
     }
 
+    /**
+     * Creates a list with all the tests which status is "Registered"
+     * @return the list
+     */
     public List<Test> getRegisteredTests(){
         List<Test> registeredTests = new ArrayList<>();
         for(Test t: TestList){
@@ -103,6 +116,11 @@ public class TestStore {
         return registeredTests;
     }
 
+    /**
+     * Gets the test by its code.
+     * @param code
+     * @return test
+     */
     public Test getTest(String code){
         for(Test t: TestList){
             if(code.equals(t.getCode()))
@@ -111,23 +129,29 @@ public class TestStore {
         return null;
     }
 
-    /*
+    /**
+     * Sees in all the existing tests if there is any barcode repeated
+     *
+     * @param listBarcodes
+     * @return true if there are no barcodes repeated in all the tests
+     * @return false if there is, at least, a barcode repeated in all the tests
+     */
     public boolean globallyUnique(List<Barcode> listBarcodes){
 
         for(Test t: TestList){
             List<Sample> sampleList = t.getListSamples();
-            for(Sample s: sampleList){
-                for(Barcode b: listBarcodes){
-                    if(s.getBarcode().equals(b))
-                        return false;
+            if(sampleList.size()>0){
+                for(Sample s: sampleList){
+                    for(Barcode b: listBarcodes){
+                        if(s.getBarcode().getData().equals(b.getData()))
+                            return false;
+                    }
                 }
             }
+
         }
         return true;
     }
-
-     */
-
 
     /**
      *
@@ -135,6 +159,14 @@ public class TestStore {
      */
     public List<Test> SeeList (){
         return TestList;
+    }
+
+    /**
+     *
+     * @return all National Healthcare Service numbers that exist in the nhsCode list
+     */
+    public List<String> getNhsCodeList (){
+        return nhsCodeList;
     }
 
     /**
