@@ -10,12 +10,12 @@ participant ":CreateParameterController" as CPC
 participant ":Company" as COMP
 participant "lpc\n:List<ParameterCategory>" as LIST_CAT
 participant "store: ParameterCategoryStore" as PCS
-participant ":ParameterCategoryMapper" as PCM
+participant "ParameterCategoryMapper" as PCM
 participant "store: ParameterStore" as PS
 participant "parameter\n:Parameter" as PARAM
 participant "pcat\n:ParameterCategory" as CAT
 
-loop
+
 activate ADM
 ADM -> CPUI : asks to create a new parameter
 activate CPUI
@@ -25,7 +25,7 @@ deactivate CPUI
 ADM -> CPUI : types requested data
 activate CPUI
 
-CPUI -> CPC : getAllParameterCategories()
+CPUI -> CPC : lpcDto=getAllParameterCategories()
 activate CPC
 
 CPC -> COMP : store = getParameterCategoryStore()
@@ -71,7 +71,6 @@ PS --> PARAM**: create(code, description, designation, pcat)
 
 CPC --> CPUI: result
 deactivate PS
-end
 deactivate CPC
 CPUI --> ADM: shows all data and requests confirmation
 
