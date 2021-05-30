@@ -28,10 +28,24 @@ public class TestTypeTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void setCollectingMethodIncorrect() {
+    public void setDescriptionAboveLength() {
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test2 = new TestType("c0vid", "1234567890123456789012345", "Swab", pcList, new ExternalModuleBloodWithoutKey());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setCollectingMethodEmpty() {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
         TestType test3 = new TestType("c0vid", "Covid_test", "", pcList, new ExternalModuleBloodWithoutKey());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setCollectingMethodNull() {
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test3 = new TestType("c0vid", "Covid_test", null, pcList, new ExternalModuleBloodWithoutKey());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -83,6 +97,46 @@ public class TestTypeTest {
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
         TestType test3 = new TestType("c0vid", "Covid_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
+    }
+
+    @Test
+    public void getCode(){
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test3 = new TestType("c0vid", "Covid_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
+        assertEquals("c0vid", test3.getCode());
+    }
+
+    @Test
+    public void getDescription(){
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test3 = new TestType("c0vid", "Covid_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
+        assertEquals("Covid_test", test3.getDescription());
+    }
+
+    @Test
+    public void getCollectingMethod(){
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test3 = new TestType("c0vid", "Covid_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
+        assertEquals("tube", test3.getCollectingMethod());
+    }
+
+    @Test
+    public void getPclist(){
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test3 = new TestType("c0vid", "Covid_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
+        assertEquals(pcList, test3.getParameterCategoriesList());
+    }
+
+    @Test
+    public void getExternalModule(){
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType test3 = new TestType("c0vid", "Covid_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
+        assertEquals(new ExternalModuleBloodWithoutKey().toString(), test3.getExternalModule().toString());
     }
 
     @Test

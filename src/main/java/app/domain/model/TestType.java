@@ -159,7 +159,7 @@ public class TestType {
      * @param parameterCategoriesList that is passed as parameter on the TestType Builder.
      */
     public void setParameterCategoriesList(List<ParameterCategory> parameterCategoriesList){
-        if(parameterCategoriesList.isEmpty())
+        if(parameterCategoriesList == null || parameterCategoriesList.isEmpty())
             throw new NullPointerException("The parameter categories list is null.");
 
         this.parameterCategoriesList = parameterCategoriesList;
@@ -182,12 +182,13 @@ public class TestType {
         return String.format("Test type with code %s, analyses %s, and it's collecting method is %s. %s %s", this.code, this.description, this.collectingMethod, this.parameterCategoriesList, this.externalModule);
     }
 
-    /**
-     * @param obj
-     * Verifies if a certain object is equal to other.
-     *
-     * @return boolean result stating if the compared objects are equal
-     */
+
+//    /**
+//     * @param obj
+//     * Verifies if a certain object is equal to other.
+//     *
+//     * @return boolean result stating if the compared objects are equal
+//     */
 
 //    @Override
 //    public boolean equals(Object obj){
