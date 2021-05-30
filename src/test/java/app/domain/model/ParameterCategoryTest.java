@@ -12,13 +12,23 @@ import static org.junit.Assert.assertEquals;
 public class ParameterCategoryTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void setName() {
+    public void setNameEmpty() {
         ParameterCategory test = new ParameterCategory("", "c0de1");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void setCode() {
+    public void setNameBeyondLimit() {
+        ParameterCategory test = new ParameterCategory("12345678912345678343524234234234234", "c0de1");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setCodeEmpty() {
         ParameterCategory test2 = new ParameterCategory("covid", "");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void setCodeBeyondLimit() {
+        ParameterCategory test2 = new ParameterCategory("covid", "22222222222222222222222");
     }
 
     @Test
