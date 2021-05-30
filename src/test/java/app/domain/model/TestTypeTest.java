@@ -4,6 +4,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * TestTypeTest class, which is responsible for testing the TestType.
  *
@@ -76,10 +78,22 @@ public class TestTypeTest {
 
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void setExternalModuleCorrect(){
         List <ParameterCategory> pcList = new ArrayList<>();
         pcList.add(new ParameterCategory("test","test0"));
-        TestType test3 = new TestType("c0vid", "Covid_test", "", pcList, new ExternalModuleBloodWithoutKey());
+        TestType test3 = new TestType("c0vid", "Covid_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
+    }
+
+    @Test
+    public void toStringTestType(){
+        List <ParameterCategory> pcList = new ArrayList<>();
+        pcList.add(new ParameterCategory("test","test0"));
+        TestType testType = new TestType("c0vid", "Covid_test", "tube", pcList, new ExternalModuleBloodWithoutKey());
+
+        String expected = "Test type with code c0vid, analyses Covid_test, and it's collecting method is tube. [Parameter Category name is test and it's code is test0] External Module Blood (without key).";
+
+        assertEquals(expected, testType.toString());
+
     }
 }

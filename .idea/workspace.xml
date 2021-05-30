@@ -84,71 +84,13 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.ValidateTestControllerTest.notificationService">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParameterCategoryStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ParameterCategoryStoreTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReportStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.ReportStoreTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestStoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="auth.domain.store.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="auth.domain.store" />
-      <option name="MAIN_CLASS_NAME" value="auth.domain.store.TestStoreTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -169,20 +111,84 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestTypeTest.setExternalModuleCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
+      <option name="METHOD_NAME" value="setExternalModuleCorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestTypeTest.toString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
+      <option name="METHOD_NAME" value="toString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestTypeTest.toStringTestType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
+      <option name="METHOD_NAME" value="toStringTestType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidateTestControllerTest.notificationService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.controller" />
+      <option name="MAIN_CLASS_NAME" value="app.controller.ValidateTestControllerTest" />
+      <option name="METHOD_NAME" value="notificationService" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.ParameterCategoryStoreTest" />
-      <item itemvalue="JUnit.ReportStoreTest" />
-      <item itemvalue="JUnit.TestStoreTest" />
       <item itemvalue="JUnit.TestTypeStoreTest" />
+      <item itemvalue="JUnit.TestTypeTest.setExternalModuleCorrect" />
+      <item itemvalue="JUnit.TestTypeTest.toString" />
+      <item itemvalue="JUnit.TestTypeTest.toStringTestType" />
+      <item itemvalue="JUnit.ValidateTestControllerTest.notificationService" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ValidateTestControllerTest.notificationService" />
+        <item itemvalue="JUnit.TestTypeTest.toStringTestType" />
+        <item itemvalue="JUnit.TestTypeTest.toString" />
+        <item itemvalue="JUnit.TestTypeTest.setExternalModuleCorrect" />
         <item itemvalue="JUnit.TestTypeStoreTest" />
-        <item itemvalue="JUnit.TestStoreTest" />
-        <item itemvalue="JUnit.ReportStoreTest" />
-        <item itemvalue="JUnit.ParameterCategoryStoreTest" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +227,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/app/domain/model/Company.java</url>
           <line>183</line>
-          <properties class="app.domain.model.Company" method="getNotificationService">
+          <properties class="app.domain.model.Company">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="4" />
@@ -235,16 +241,16 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Sem2App$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621881212147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Sem2App$ValidateTestControllerTest.ic" NAME="ValidateTestControllerTest Coverage Results" MODIFIED="1622150723048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.controller.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/US14_SSD_puml$TestTest_generateCode.ic" NAME="TestTest.generateCode Coverage Results" MODIFIED="1621879517895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.domain.model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Sem2App$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621881212147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Sem2App$Main.ic" NAME="Main Coverage Results" MODIFIED="1622150360316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.ui.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/US14_SSD_puml$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621879529971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Sem2App$ValidateTestControllerTest.ic" NAME="ValidateTestControllerTest Coverage Results" MODIFIED="1622150723048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>app.controller.*</FILTER>
-    </SUITE>
   </component>
 </project>

@@ -6,9 +6,12 @@ import auth.domain.store.TestStore;
 import auth.mappers.dto.TestDto;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
@@ -89,5 +92,18 @@ public class ValidateTestControllerTest {
 
         assertEquals(app.domain.model.Test.Status.Validated.toString(),test.getStatus());
 
+    }
+
+    @Test
+    public void notificationService() throws FileNotFoundException {
+        Notification notification = App.getInstance().getCompany().getNotificationService();
+        notification.writeToFile("test");
+        notification.close();
+
+        String expected = new Date() + ": " + "test";
+        Scanner readFile = new Scanner(new File("emailAndSMSMessages.txt"));
+
+        String lineResult = readFile.nextLine();
+        assertEquals(expected, lineResult);
     }
 }
