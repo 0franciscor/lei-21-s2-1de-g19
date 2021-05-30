@@ -2,8 +2,6 @@ package app.ui.console;
 
 import app.controller.CreateParameterCategoryController;
 import app.controller.CreateParameterController;
-import app.domain.model.Parameter;
-import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.ParameterCategoryDto;
 

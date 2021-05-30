@@ -5,10 +5,6 @@ import app.domain.model.Client;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.ClientDto;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 /**
  * Represents the register client UI.
  *

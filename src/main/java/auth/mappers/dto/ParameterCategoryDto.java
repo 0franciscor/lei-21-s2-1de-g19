@@ -1,9 +1,5 @@
 package auth.mappers.dto;
 
-import app.domain.model.ParameterCategory;
-
-import java.util.List;
-
 /**
  * ParameterCategoryDto class, which is responsible for converting a ParameterCategory List in a ParameterCategoryDto List.
  *

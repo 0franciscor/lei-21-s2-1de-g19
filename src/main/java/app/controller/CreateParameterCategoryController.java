@@ -1,10 +1,10 @@
 package app.controller;
 
-import app.domain.model.Company;
 import app.domain.model.ParameterCategory;
 import auth.domain.store.ParameterCategoryStore;
 import auth.mappers.ParameterCategoryMapper;
 import auth.mappers.dto.ParameterCategoryDto;
+
 import java.util.List;
 
 /**

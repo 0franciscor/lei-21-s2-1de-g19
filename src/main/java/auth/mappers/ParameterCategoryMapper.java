@@ -1,9 +1,7 @@
 package auth.mappers;
 
-import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import auth.mappers.dto.ParameterCategoryDto;
-import auth.mappers.dto.ParametersDto;
 
 import java.util.ArrayList;
 import java.util.List;

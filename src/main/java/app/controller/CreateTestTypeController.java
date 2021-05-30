@@ -1,14 +1,13 @@
 package app.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import app.domain.model.Company;
 import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import auth.domain.store.TestTypeStore;
 import auth.mappers.TestTypeMapper;
 import auth.mappers.dto.TestTypeDto;
+
+import java.util.List;
 
 /**
  * CreateTestTypeController class, which is responsible for creating the TestTypeController object.

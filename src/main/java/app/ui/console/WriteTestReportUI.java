@@ -1,15 +1,11 @@
 package app.ui.console;
 
 
-
 import app.controller.WriteTestReportController;
 import app.domain.model.ParameterResult;
 import app.ui.console.utils.Utils;
-import auth.mappers.dto.OrgRoleDto;
 import auth.mappers.dto.TestDto;
-import org.apache.commons.lang3.StringUtils;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class WriteTestReportUI implements Runnable {

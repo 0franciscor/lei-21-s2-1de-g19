@@ -1,11 +1,12 @@
 package app.controller;
 
-import app.domain.model.Company;
 import app.domain.model.ClinicalAnalysisLaboratory;
+import app.domain.model.Company;
 import app.domain.model.TestType;
 import auth.domain.store.ClinicalAnalysisLaboratoryStore;
 import auth.mappers.ClinicalAnalysisLaboratoryMapper;
 import auth.mappers.dto.ClinicalAnalysisLaboratoryDto;
+
 import java.util.List;
 
 /**

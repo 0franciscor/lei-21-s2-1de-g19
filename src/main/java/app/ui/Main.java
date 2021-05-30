@@ -3,9 +3,6 @@ package app.ui;
 import app.controller.App;
 import app.domain.model.Notification;
 import app.ui.console.MainMenuUI;
-import auth.domain.store.UserStore;
-
-import java.util.Optional;
 
 /**
  *

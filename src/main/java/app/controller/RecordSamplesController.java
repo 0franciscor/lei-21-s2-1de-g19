@@ -2,7 +2,6 @@ package app.controller;
 
 import app.domain.model.APIBarcodeAdapter;
 import app.domain.model.Company;
-import app.domain.model.ExternalModuleAPIBarcode;
 import app.domain.model.Test;
 import auth.domain.store.TestStore;
 import auth.mappers.TestMapper;

@@ -3,8 +3,8 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
-import auth.domain.store.ParameterStore;
 import auth.domain.store.ParameterCategoryStore;
+import auth.domain.store.ParameterStore;
 import auth.mappers.ParameterCategoryMapper;
 import auth.mappers.dto.ParameterCategoryDto;
 

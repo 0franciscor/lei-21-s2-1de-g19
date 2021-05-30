@@ -4,6 +4,7 @@ import app.controller.App;
 import auth.domain.store.ClientStore;
 import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

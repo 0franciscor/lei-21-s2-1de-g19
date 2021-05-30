@@ -1,7 +1,8 @@
 package app.domain.model;
 
-import java.util.List;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
 
 /**
  * Represents the ClinicalAnalysisLaboratory class

@@ -1,8 +1,6 @@
 package app.domain.model;
 
 import app.controller.App;
-import auth.domain.store.ReportStore;
-import auth.domain.store.TestStore;
 import org.apache.commons.lang3.StringUtils;
 
 public class Report {

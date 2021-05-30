@@ -3,7 +3,6 @@ package app.ui.console;
 import app.controller.AuthController;
 import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
-import auth.domain.model.UserRole;
 import auth.mappers.dto.UserRoleDTO;
 
 import java.util.ArrayList;

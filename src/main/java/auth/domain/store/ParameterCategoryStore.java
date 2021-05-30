@@ -1,8 +1,6 @@
 package auth.domain.store;
 
-import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 import auth.mappers.dto.TestTypeDto;
 
 import java.util.ArrayList;

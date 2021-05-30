@@ -2,7 +2,6 @@ package auth.mappers.dto;
 
 import app.domain.model.ExternalModule;
 import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 
 import java.util.List;
 

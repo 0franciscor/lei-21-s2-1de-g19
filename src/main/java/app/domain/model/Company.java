@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import auth.AuthFacade;
-
 import auth.domain.store.*;
 import auth.mappers.ClientMapper;
 import auth.mappers.EmployeeMapper;

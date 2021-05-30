@@ -2,7 +2,6 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.ParameterResult;
-import app.domain.model.Report;
 import app.domain.model.Test;
 import auth.domain.store.ReportStore;
 import auth.domain.store.TestStore;

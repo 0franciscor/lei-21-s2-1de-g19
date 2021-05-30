@@ -1,14 +1,13 @@
 package app.ui.console;
 
 import app.controller.RegisterTestController;
-import app.domain.model.Parameter;
 import app.domain.model.Test;
 import app.ui.console.utils.Utils;
-import auth.domain.store.TestStore;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.ParameterCategoryDto;
 import auth.mappers.dto.ParametersDto;
 import auth.mappers.dto.TestTypeDto;
+
 import java.util.List;
 
 /**
