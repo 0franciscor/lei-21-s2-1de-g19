@@ -27,6 +27,9 @@ public class ValidateTestUI implements Runnable {
      */
     private ValidateTestController validateTestController;
 
+    /**
+     * The ValidateTestUI builder, which instantiates the Controller.
+     */
     public ValidateTestUI() {
         this.validateTestController = new ValidateTestController();
     }
@@ -40,7 +43,7 @@ public class ValidateTestUI implements Runnable {
         options.add(new MenuItem("See the tests that are waiting to be validated.", new ShowTextUI("You Have chosen to see the test to-be validated.")));
         int option = 0;
 
-        addTestTemp(); // PROPÓSITO DE TESTE
+//        addTestTemp(); // PROPÓSITO DE TESTE
 
         do {
             boolean exceptionThrown = false;
@@ -150,40 +153,40 @@ public class ValidateTestUI implements Runnable {
             System.out.println("\nThe test has been successfully validated!");
     }
 
-    public void addTestTemp(){ //APENAS PARA TESTE TENDO EM CONTA QUE A US12 NAO FOI TERMINADA DEVIDO A DESISTÊNCIA
-        List<ParameterCategory> pcList = new ArrayList<>();
-        ParameterCategory pc = new ParameterCategory("covid", "c0vid");
-        pcList.add(pc);
-
-        List<Parameter> pList = new ArrayList<>();
-        Parameter parameter1 = new Parameter("12345", "covid", "c0vid", pc);
-        pList.add(parameter1);
-
-        TestType testType = new TestType("c0vid", "isCovid", "swab", pcList, new ExternalModuleBloodWithoutKey());
-
-
-        app.domain.model.Test test = new app.domain.model.Test(testType, pList, pcList, "1123456789", "123456781234");
-        test.generateCode();
-        test.setStatus(app.domain.model.Test.Status.Reported);
-
-        ReportStore reportStore = App.getInstance().getCompany().getReportStore();
-        reportStore.saveReport("code", test.getCode());
-
-        TestStore testStore = App.getInstance().getCompany().getTestStore();
-        testStore.saveTest(test);
-
-
-
-
-        app.domain.model.Test test2 = new app.domain.model.Test(testType, pList, pcList, "1223456789", "123456781234");
-        test2.generateCode();
-        test2.setStatus(app.domain.model.Test.Status.Reported);
-
-        reportStore.saveReport("codee", test2.getCode());
-
-        testStore.saveTest(test2);
-
-    }
+//    public void addTestTemp(){ //APENAS PARA SIMULAR US'S ANTERIORES TENDO EM CONTA QUE A US12 NAO FOI TERMINADA DEVIDO A DESISTÊNCIA
+//        List<ParameterCategory> pcList = new ArrayList<>();
+//        ParameterCategory pc = new ParameterCategory("covid", "c0vid");
+//        pcList.add(pc);
+//
+//        List<Parameter> pList = new ArrayList<>();
+//        Parameter parameter1 = new Parameter("12345", "covid", "c0vid", pc);
+//        pList.add(parameter1);
+//
+//        TestType testType = new TestType("c0vid", "isCovid", "swab", pcList, new ExternalModuleBloodWithoutKey());
+//
+//
+//        app.domain.model.Test test = new app.domain.model.Test(testType, pList, pcList, "1123456789", "123456781234");
+//        test.generateCode();
+//        test.setStatus(app.domain.model.Test.Status.Reported);
+//
+//        ReportStore reportStore = App.getInstance().getCompany().getReportStore();
+//        reportStore.saveReport("code", test.getCode());
+//
+//        TestStore testStore = App.getInstance().getCompany().getTestStore();
+//        testStore.saveTest(test);
+//
+//
+//
+//
+//        app.domain.model.Test test2 = new app.domain.model.Test(testType, pList, pcList, "1223456789", "123456781234");
+//        test2.generateCode();
+//        test2.setStatus(app.domain.model.Test.Status.Reported);
+//
+//        reportStore.saveReport("codee", test2.getCode());
+//
+//        testStore.saveTest(test2);
+//
+//    }
 }
 
 
