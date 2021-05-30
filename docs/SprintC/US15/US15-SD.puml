@@ -69,19 +69,15 @@ activate TestDto
 deactivate TestDto
 
 
-validateTestUI --> labC : displays its data (registration date, chemical analysis date, diagnosis date) and request to chose if its valid
+validateTestUI --> labC : displays its data (registration date, chemical analysis date, diagnosis date) and request to confirm it's valid
 deactivate validateTestUI
 
 
 deactivate validateTestUI
 
 
-loop until the Laboratory Coordinator confirms the selected state of the chosen tests
-labC -> validateTestUI : selects the desired state
+labC -> validateTestUI : confirms the valid state
 activate validateTestUI
-
-
-end
 
 
 validateTestUI -> TestDto : code = getCode()

@@ -43,7 +43,7 @@ public class ValidateTestUI implements Runnable {
         options.add(new MenuItem("See the tests that are waiting to be validated.", new ShowTextUI("You Have chosen to see the test to-be validated.")));
         int option = 0;
 
-//        addTestTemp(); // PROPÓSITO DE TESTE
+//        addTestTemp(); // PROPÓSITO DE TESTE, EXPLICADO NA DECLARAÇÃO DO MÉTODO
 
         do {
             boolean exceptionThrown = false;
@@ -146,7 +146,6 @@ public class ValidateTestUI implements Runnable {
                 } catch (Exception e){
                     System.out.println("There was an error when sending the notification.");
                 }
-
         }
 
         if(validateReportSuccess && validateTestSuccess)
