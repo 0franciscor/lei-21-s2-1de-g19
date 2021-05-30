@@ -118,9 +118,9 @@ public class RegisterTestUI implements Runnable {
                         String [] aux3 = aux2.trim().split(" ");
 
                         int validarOpcoes1 = 0;
-                        for (int x=0; x<aux1.length; x++){
+                        for (int x=0; x<aux3.length; x++){
 
-                            if (Integer.parseInt(aux1[x]) <= 0 || Integer.parseInt(aux1[x]) > listParametersDto.size())
+                            if (Integer.parseInt(aux3[x]) <= 0 || Integer.parseInt(aux3[x]) > listParametersDto.size())
                                 validarOpcoes1++;
                         }
 
