@@ -2,6 +2,9 @@ package app.domain.model;
 
 import app.controller.App;
 import auth.domain.store.ReportStore;
+import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.linear.upc.UPCABarcode;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Date;
@@ -142,6 +145,43 @@ public class TestTest {
         test.updateTestStatus();
 
         assertEquals(app.domain.model.Test.Status.Analyzed.toString(), test.getStatus());
+    }
+
+    @Test
+    public void isListUnique() throws BarcodeException {
+        app.domain.model.Test t = new app.domain.model.Test();
+        List<Barcode> list = new ArrayList<>();
+        Barcode b1=new UPCABarcode("12345678901");
+        Barcode b2=new UPCABarcode("12345678901");
+        list.add(b1);
+        list.add(b2);
+        boolean expected=false;
+        boolean result=t.isListUnique(list);
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void validateTrue() throws BarcodeException {
+        app.domain.model.Test t = new app.domain.model.Test();
+        Barcode b1=new UPCABarcode("12345678901");
+        Barcode b2=new UPCABarcode("12345678543");
+        List<Barcode> listB = new ArrayList<>();
+        listB.add(b1);
+        listB.add(b2);
+        t.addAll(listB);
+        t.create();
+        boolean expected=true;
+        t.updateTestStatus();
+        boolean result=t.validate();
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void validateFalse(){
+        app.domain.model.Test t = new app.domain.model.Test();
+        boolean expected = false;
+        boolean result = t.validate();
+        assertEquals(expected, result);
     }
 
 
