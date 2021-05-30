@@ -9,6 +9,7 @@ import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.EmployeeDto;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +33,8 @@ public class Company {
     public int numEmp;
     public int numTeste;
     private TestStore testStore;
-    private Notification notification;
     private List<ExternalModule> externalModuleList;
+    private Notification notification;
 
     public Company(String designation) /*throws FileNotFoundException*/ {
         if (StringUtils.isBlank(designation))
@@ -62,7 +63,6 @@ public class Company {
         externalModuleList.add(new ExternalModuleCovid());
         externalModuleList.add(new ExternalModuleBloodWithoutKey());
         externalModuleList.add(new ExternalModuleBloodWithKey());
-        //this.notification = new Notification();
     }
 
     public String getDesignation() {
@@ -181,8 +181,11 @@ public class Company {
      *
      * @return a Notification object which allows to write to a file.
      */
-    public Notification getNotificationService(){
-        return notification;
+    public Notification getNotificationService() throws FileNotFoundException {
+        if(notification == null)
+            return this.notification = new Notification();
+        else
+            return notification;
     }
 
     /**

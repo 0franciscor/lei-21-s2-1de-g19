@@ -1,5 +1,7 @@
 package app.ui;
 
+import app.controller.App;
+import app.domain.model.Notification;
 import app.ui.console.MainMenuUI;
 import auth.domain.store.UserStore;
 
@@ -18,6 +20,8 @@ public class Main {
             MainMenuUI menu = new MainMenuUI();
 
             menu.run();
+            Notification notification = App.getInstance().getCompany().getNotificationService();
+            notification.close();
         }
         catch( Exception e )
         {

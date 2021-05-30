@@ -7,6 +7,7 @@ import auth.domain.store.TestStore;
 import auth.mappers.TestMapper;
 import auth.mappers.dto.TestDto;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -59,9 +60,10 @@ public class ValidateTestController {
     /**
      * A method which is able to send a notification to a Client.
      */
-    public void sendNotification(){
-       Notification sendNotification = App.getInstance().getCompany().getNotificationService();
-       sendNotification.writeToFile("Dear Client, your test has been validated. Login on your app to see the results.");
+    public void sendNotification() throws FileNotFoundException {
+        Notification notificationService = App.getInstance().getCompany().getNotificationService();
+        notificationService.writeToFile("Dear Client, your test has been validated. Login on your app to see the results.");
+
     }
 
 }
