@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents the register client UI.
+ * Represents the register test UI.
  *
  * @author Eduardo Gonçalves
  */

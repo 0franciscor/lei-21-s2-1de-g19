@@ -11,6 +11,7 @@ public class Constants {
     public static final String ROLE_MEDLABTECH = "MED LAB TECH";
     public static final String ROLE_LABCOORDINATOR = "LAB COORDINATOR";
     public static final String ROLE_CLINICALCHEMTECH = "CLINICALCHEMTECH";
+    public static final String ROLE_CLIENT = "CLIENT";
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
 }

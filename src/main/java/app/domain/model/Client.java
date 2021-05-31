@@ -297,6 +297,42 @@ public class Client {
     }
 
     /**
+     * Changes the Client's sex.
+     *
+     * @param sex new Client's sex
+     */
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    /**
+     * Changes the Client's phone number.
+     *
+     * @param phoneNumber new Client's phone number
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    /**
+     * Changes the Client's email.
+     *
+     * @param email new Client's email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * Changes the Client's name.
+     *
+     * @param name new Client's name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * Returns a random password with 10 characters.
      *
      * @return random password
