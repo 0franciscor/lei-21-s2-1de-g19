@@ -1,0 +1,69 @@
+@startuml
+skinparam classAttributeIconSize 0
+class RegisterNewEmployeeUI
+class RolesMapper {
+  +toDTO(lRoles)
+  }
+class EmployeeMapper {
+  +toModel(empDto)
+  }
+class SpecialistDoctor {
+  -doctorIndexNumber
+  +create(name, role, address, email, phoneNumber)
+  }
+class EmployeeDTO {
+  +getName(empDto)
+  +getAddress(empDto)
+  +getEmail(empDto)
+  +getRole(empDto)
+  +getPhoneNumber(empDto)
+  +getSocCode(empDto)
+  +getDoctorIndexNumber(empDto)
+  }
+class RegisterNewEmployeeController {
+
+  +getRoles()
+  +createEmployee(empDto)
+  +saveEmployee(emp)
+  }
+class Employee {
+  -id
+  -name
+  -address
+  -phoneNumber
+  -emailAddress
+  -socCode
+  -role
+  +create(role, id, name ...)
+  +generateID(name)
+  +generatePwd()
+}
+class OrgRole {
+  -designation
+}
+class Company {
+  -designation
+  +getRoles()
+  +createEmployee(empDto)
+}
+class EmpStore {
+  +saveEmployee(emp)
+  -validateEmployee(emp)
+  -addEmployee(emp)
+}
+class AuthFacade {
+  +addUserWithRole(name, email, pwd, role)
+}
+SpecialistDoctor -|> Employee
+Company .-> EmployeeMapper
+EmployeeMapper .-> EmployeeDTO
+EmployeeMapper .-> Employee
+RegisterNewEmployeeUI .-> RegisterNewEmployeeController
+RegisterNewEmployeeController .-> Company
+RegisterNewEmployeeController .-> RolesMapper
+RegisterNewEmployeeController .-> EmpStore
+RegisterNewEmployeeController .-> Employee
+RegisterNewEmployeeController .-> AuthFacade
+Employee .-> OrgRole : has
+
+@enduml

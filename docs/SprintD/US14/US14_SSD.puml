@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Specialist Doctor" as A
+activate A
+A -> System ++: write a report about a test result
+System --> A --: shows the list of analyzed tests
+A -> System ++: selects an analyzed test
+System -->  A --: request data
+A -> System ++: types requested data
+System --> A --: shows the data and requests a confirmation
+A -> System ++: confirms the data
+System --> A --: informs operation success
+@enduml

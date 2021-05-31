@@ -1,0 +1,13 @@
+@startuml
+
+autonumber
+actor "Administrator" as C
+activate C
+C -> System ++: starts new parameter category
+System -->  C --: request data (name, code)
+C -> System ++: types requested data
+System --> C --: shows the data and requests a confirmation
+C -> System ++: confirms the data
+System --> C --: informs operation success
+
+@enduml

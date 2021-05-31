@@ -1,0 +1,180 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Receptionist" as R
+activate R
+
+
+R -> ":RegisterTestUI" : register a test to be performed to a registered client
+activate ":RegisterTestUI"
+":RegisterTestUI" --> R: request data (TIN, nhsCode)
+deactivate ":RegisterTestUI"
+R -> ":RegisterTestUI" : types requested data
+
+
+activate ":RegisterTestUI"
+
+
+":RegisterTestUI" -> ":RegisterTestController": getClient(TIN)
+
+
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company" : store = getClientStore()
+activate ":Company"
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: ClientStore" : cl = getClient(TIN)
+activate ":store: ClientStore"
+deactivate ":store: ClientStore"
+
+":RegisterTestController" -> ":ClientMapper" : ClientDto = toDto(cl)
+activate ":ClientMapper"
+deactivate ":ClientMapper"
+
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" --> R: shows the client's information and request a confirmation
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI" : confirms the data
+activate ":RegisterTestUI"
+
+
+":RegisterTestUI" -> ":RegisterTestController": getAllTestType()
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company": store = getTestTypeStore()
+activate ":Company"
+
+deactivate ":Company"
+":RegisterTestController" -> ":store: TestTypeStore": listTestType = getAllTestType()
+activate ":store: TestTypeStore"
+deactivate ":store: TestTypeStore"
+
+":RegisterTestController" -> ":TestTypeMapper": listTestTypeDto = toDto(listTestType)
+activate ":TestTypeMapper"
+deactivate ":TestTypeMapper"
+deactivate ":RegisterTestController"
+":RegisterTestUI" --> R: shows the test types and ask to select one
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the test type
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": getAllParameterCategoriesByTestType(testTypeDto)
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company" : store = getParameterCategoryStore()
+activate ":Company"
+
+deactivate ":Company"
+":RegisterTestController" -> ":store: ParameterCategoryStore": listParameterCategories = getAllParameterCategoriesByTestType(testTypeDto)
+activate ":store: ParameterCategoryStore"
+deactivate ":store: ParameterCategoryStore"
+
+":RegisterTestController" -> ":ParameterCategoryMapper": listParameterCategoriesDto = toDto(listParameterCategories)
+activate ":ParameterCategoryMapper"
+deactivate ":ParameterCategoryMapper"
+deactivate ":RegisterTestController"
+":RegisterTestUI" --> R: show all parameter categories according to the test type and ask to select one or more
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the parameter category(ies)
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": getAllParametersByParameterCategory(listParameterCategoriesDto)
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company": store = getParametersStore()
+activate ":Company"
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: ParametersStore": listParameters = getAllParametersByParameterCategory(listParameterCategoriesDto)
+activate ":store: ParametersStore"
+deactivate ":store: ParametersStore"
+
+":RegisterTestController" -> ":ParametersMapper": listParametersDto  = toDto(listParameters)
+activate ":ParametersMapper"
+deactivate ":ParametersMapper"
+
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" --> R: show all parameters according to the parameter category(ies) and ask to select one or more
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the parameter(s) to be analysed
+activate ":RegisterTestUI"
+
+
+
+
+
+
+
+":RegisterTestUI" -> ":RegisterTestController": createTest(listParametersDto, tesTypeDto, listParameterCategoriesDto, TIN, nhsCode)
+activate ":RegisterTestController"
+
+":RegisterTestController" -> ":TestTypeMapper": tt = toModel(testTypeDto)
+activate ":TestTypeMapper"
+deactivate ":TestTypeMapper"
+
+":RegisterTestController" -> ":ParameterCategoryMapper": parameterCategories = toModel(listParameterCategoriesDto)
+activate ":ParameterCategoryMapper"
+deactivate ":ParameterCategoryMapper"
+
+
+":RegisterTestController" -> ":ParametersMapper": parameters = toModel (listParametersDto)
+activate ":ParametersMapper"
+deactivate ":ParametersMapper"
+
+
+
+
+
+
+":RegisterTestController" -> ":Company" ++: store = getTestStore()
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters, parameterCategories, TIN, nhsCode)
+
+create "test: Test"
+
+":store: TestStore" --> "test: Test" : create (tt, parameters, parameterCategories, TIN, nhsCode)
+deactivate ":store: TestStore"
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" --> R: show all data and request a confirmation
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI" : confirms the data
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": saveTest(test)
+
+activate ":RegisterTestController"
+
+":RegisterTestController" -> ":store: TestStore" : saveTest(test)
+
+activate ":store: TestStore"
+
+":store: TestStore" -> ":store: TestStore": hasTest(test)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+":store: TestStore" -> ":store: TestStore": addTest(test)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+":store: TestStore" -> "test: Test": updateTestStatus()
+activate "test: Test"
+deactivate "test: Test"
+
+
+deactivate ":store: TestStore"
+
+":RegisterTestController" -> "test: Test" : generateCode()
+
+activate "test: Test"
+deactivate "test: Test"
+
+
+":RegisterTestUI" --> R: register test and informs operation success
+deactivate ":RegisterTestUI"
+@enduml

@@ -1,0 +1,153 @@
+@startuml
+autonumber
+
+actor "Administrator" as admin
+activate admin
+
+participant ":CreateTestTypeUI" as CreateTestTypeUI
+participant ":CreateParameterCategoryController" as CreateParameterCategoryController
+participant ":CreateTestTypeController" as CreateTestTypeController
+participant ":Company" as Company
+participant "pcStore:ParameterCategoryStore" as ParameterCategoryStore
+participant "ttStore:TestTypeStore" as TestTypeStore
+participant "ParameterCategoryMapper" as ParameterCategoryMapper
+participant "tt: TestType" as TestType
+participant "pcDto: ParameterCategoryDto" as pcDto
+participant "pc: ParameterCategory"
+participant "pcList: List<ParameterCategory>" as pcList
+participant "parameterCategoriesList: List<ParameterCategory>" as ParameterCategoriesList
+participant "pcListDto: List<ParameterCategoryDto>" as pcListDto
+participant "externalModule: ExternalModule"
+participant "externalModuleList: List<ExternalModule>"
+
+
+admin -> CreateTestTypeUI : register a type of test
+
+
+activate CreateTestTypeUI
+
+
+CreateTestTypeUI -> CreateParameterCategoryController: pcListDto = getAllParameterCategoriesDto()
+
+
+
+activate CreateParameterCategoryController
+CreateParameterCategoryController -> Company: pcStore = getParameterCategoryStore()
+activate Company
+deactivate Company
+
+
+CreateParameterCategoryController -> ParameterCategoryStore: parameterCategoriesList = getAllParameterCategories()
+activate ParameterCategoryStore
+deactivate ParameterCategoryStore
+
+
+CreateParameterCategoryController -> ParameterCategoryMapper: pcListDto = toDto(parameterCategoriesList)
+activate ParameterCategoryMapper
+deactivate ParameterCategoryMapper
+deactivate CreateParameterCategoryController
+
+
+loop for how many Categories the Administrator wants the new Test Type to have
+
+
+CreateTestTypeUI --> admin: shows a list of Parameter Categories
+deactivate CreateTestTypeUI
+
+
+admin -> CreateTestTypeUI: selects a category from the list
+activate CreateTestTypeUI
+
+
+CreateTestTypeUI -> pcDto: categoryCode = getCode()
+activate pcDto
+deactivate pcDto
+
+
+CreateTestTypeUI -> CreateTestTypeController: pc = getParameterCategoryByCode(categoryCode)
+activate CreateTestTypeController
+
+
+CreateTestTypeController -> ParameterCategoryStore : getParameterCategoryByCode(categoryCode)
+activate ParameterCategoryStore
+deactivate ParameterCategoryStore
+end
+deactivate CreateTestTypeController
+
+
+CreateTestTypeUI -> CreateTestTypeController : externalModulesList = getExternalModules()
+activate CreateTestTypeController
+
+
+CreateTestTypeController -> Company : externalModulesList = getExternalModules()
+activate Company
+deactivate CreateTestTypeController
+deactivate Company
+
+
+
+
+CreateTestTypeUI --> admin : shows a list of External Modules
+deactivate CreateTestTypeUI
+
+
+admin -> CreateTestTypeUI : selects an External Module from the list
+activate CreateTestTypeUI
+
+
+CreateTestTypeUI --> admin: request data(code, description, collectingMethod)
+deactivate CreateTestTypeUI
+
+
+
+admin -> CreateTestTypeUI : types requested data
+activate CreateTestTypeUI
+
+
+CreateTestTypeUI -> CreateTestTypeController: createTestType(code, description, collectingMethod, pcList, externalModule)
+activate CreateTestTypeController
+
+
+CreateTestTypeController -> Company : ttStore = getTestTypeStore()
+activate Company
+deactivate Company
+
+
+CreateTestTypeController -> TestTypeStore : tt = createTestType(code, description, collectingMethod, pcList, externalModule)
+activate TestTypeStore
+create TestType
+
+
+TestTypeStore --> TestType : create(code, description, collectingMethod, pcList, externalModule)
+deactivate TestTypeStore
+
+
+deactivate CreateTestTypeController
+CreateTestTypeUI --> admin: shows it and requests a confirmation
+
+
+
+deactivate CreateTestTypeUI
+admin -> CreateTestTypeUI: confirms the data
+
+
+activate CreateTestTypeUI
+CreateTestTypeUI -> CreateTestTypeController: saveTestType()
+activate CreateTestTypeController
+
+CreateTestTypeController -> TestTypeStore++ : saveTestType(tt)
+TestTypeStore -> TestTypeStore: addTestType(tt)
+activate TestTypeStore
+
+
+TestTypeStore -> TestTypeStore: validateTestType(tt)
+activate TestTypeStore
+deactivate TestTypeStore
+deactivate TestTypeStore
+
+
+CreateTestTypeUI --> admin: informs operation success
+deactivate CreateTestTypeController
+deactivate CreateTestTypeUI
+
+@enduml

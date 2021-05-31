@@ -1,0 +1,97 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor MedicalLabTechnician as MLT
+participant ":RecordSamplesUI" as RSUI
+participant ":RecordSamplesController" as RSC
+participant ":Company" as COMP
+participant "tStore: TestStore" as TS
+participant "TestMapper" as TM
+participant "t: Test" as T
+participant "a: APIBarcodeAdapter" as APIBA
+participant "<<Interface>>\ne: ExternalModuleAPIBarcode" as EMAPIB
+participant "s: Sample" as S
+participant "ListSamples: ArrayList <Sample>" as LS
+
+activate MLT
+MLT -> RSUI : asks to record new sample(s)
+activate RSUI
+RSUI -> RSC : lRTDto = getRegisteredTests()
+activate RSC
+RSC -> COMP : tStore = getTestStore()
+activate COMP
+deactivate COMP
+RSC -> TS : lRT = getRegisteredTests()
+activate TS
+deactivate TS
+RSC -> TM : lRTDto = ModelToDto(lRT)
+activate TM
+deactivate TM
+deactivate RSC
+RSUI --> MLT : shows the tests and requests data (i.e.: test, number of samples to be collected)
+deactivate RSUI
+
+MLT -> RSUI : selects one test and types requested data
+activate RSUI
+RSUI -> RSC : testDto = recordSample(tDto, nSamples)
+activate RSC
+RSC -> TM : tCode = DtoToModel(tDto)
+activate TM
+deactivate TM
+RSC -> TS : t = getTest(tCode)
+activate TS
+deactivate TS
+
+loop while bool1 == false or bool2 == false
+RSC -> APIBA : listBarcodes = generateBarcodes(nSamples)
+activate APIBA
+APIBA -> EMAPIB : generate (nSamples)
+activate EMAPIB
+deactivate EMAPIB
+note over EMAPIB : Also exports jpeg
+deactivate APIBA
+RSC -> TS : bool1 = globallyUnique(listBarcodes)
+activate TS
+deactivate TS
+RSC -> T : bool2 = isListUnique(listBarcodes)
+activate T
+deactivate T
+end
+RSC -> T : addAll(listBarcodes)
+activate T
+T --> LS** : listSamples = create()
+loop for each barcode in listBarcodes
+T --> S** : create(barcode)
+T -> LS : add(s)
+activate LS
+deactivate LS
+end
+T -> T : updateCollectDateTime()
+activate T
+deactivate T
+deactivate T
+RSC -> TM : ModelToDto(t)
+activate TM
+deactivate TM
+deactivate RSC
+RSUI --> MLT : shows the data (samples generated and test to be associated with) and requests a confirmation
+deactivate RSUI
+
+MLT -> RSUI : confirms the data
+activate RSUI
+RSUI -> RSC : save()
+activate RSC
+RSC -> T : validate()
+activate T
+T -> T : updateTestStatus()
+activate T
+deactivate T
+deactivate T
+deactivate RSC
+RSUI --> MLT : informs operation success
+deactivate RSUI
+
+deactivate MLT
+@enduml

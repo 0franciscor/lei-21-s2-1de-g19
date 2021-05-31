@@ -1,0 +1,88 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+package "UI" {
+class RecordSamplesUI{
+}
+}
+
+package "Core" {
+package "Controllers"{
+class RecordSamplesController{
+  +getRegisteredTests()
+  +recordSample(tDto, nSamples)
+  +save()
+}
+}
+
+package "Mappers"{
+class TestMapper{
+  +ModelToDto(lRT)
+  +DtoToModel(tDto)
+  +ModelToDto(t)
+}
+}
+
+
+package "Stores"{
+class TestStore{
+  +getRegisteredTests()
+  +getTest(tCode)
+  +globallyUnique(listBarcodes)
+}
+}
+
+package "Model"{
+class Company{
+  -String designation
+  +getTestStore()
+}
+
+class Test{
+  -description
+  -code
+  -nhsCode
+  -collectDateTime
+  -chemicalAnalysisDateTime
+  -diagnosisDateTime
+  -validationDateTime
+  +updateTestStatus()
+  +isListUnique(listBarcodes)
+  +addAll(listBarcodes)
+  +createSample()
+  +updateCollectDateTime()
+  +validate()
+}
+
+class APIBarcodeAdapter{
+  +generateBarcodes(nSamples)
+}
+
+interface ExternalModuleAPIBarcode{
+  +generate(nSamples)
+}
+
+class Sample{
+  -barcode
+  +Sample(barcode)
+}
+}
+
+
+}
+RecordSamplesUI ..> RecordSamplesController
+RecordSamplesController ..> TestMapper
+RecordSamplesController ..> Company
+RecordSamplesController ..> TestStore
+RecordSamplesController ..> Test
+RecordSamplesController ..> APIBarcodeAdapter
+APIBarcodeAdapter ..> ExternalModuleAPIBarcode
+TestStore ..> Test
+Test ..> Sample
+
+
+
+
+@enduml

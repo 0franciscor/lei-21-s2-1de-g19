@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Specialist Doctor" as SD
+activate SD
+activate ":WriteTestReportUI"
+SD -> ":WriteTestReportUI" : starts writing test report
+":WriteTestReportUI" -> ":WriteTestReportController" : listTestDto = getAnalyzedTests()
+activate ":WriteTestReportController"
+":WriteTestReportController" -> ":Company" : getTestStore()
+":WriteTestReportController" -> ":TestStore" : listTest = getAnalyzedTests()
+":WriteTestReportController" -> ":TestMapper" : listTestDto = toDto(listTest)
+activate ":TestMapper"
+":TestMapper" -> ":TestMapper" ++ : toDto(listTest)
+deactivate ":TestMapper"
+
+deactivate ":TestMapper"
+":WriteTestReportUI" -> SD : shows list of analyzed test
+SD -> ":WriteTestReportUI" : selects a analyzed test to make a diagnosis report
+":WriteTestReportUI" -> ":WriteTestReportController" : getValues(choosenTestDto)
+":WriteTestReportController" -> ":TestDto" : getValues(choosenTestDto)
+activate ":TestDto"
+":TestDto" -> ":TestDto" ++ : getValues()
+deactivate ":TestDto"
+deactivate ":TestDto"
+":WriteTestReportUI" -> SD : shows the parameter values \n and the reference values and requests data
+deactivate ":Test"
+SD -> ":WriteTestReportUI" : types the requested data
+":WriteTestReportUI" -> SD : shows the typed data and requests confirmation
+SD -> ":WriteTestReportUI" :  confirms the data
+
+":WriteTestReportUI" -> ":WriteTestReportController" : saveReport(choosenTestDto, reportTxt)
+":WriteTestReportController" -> ":TestDto" ++ : testcode = getTestCode(choosenTestDto)
+":TestDto" -> ":TestDto" : getTestCode(choosenTestDto)
+activate ":TestDto"
+deactivate ":TestDto"
+deactivate ":TestDto"
+
+":WriteTestReportController" -> ":Company" : getReportStore()
+activate ":Company"
+deactivate ":Company"
+":WriteTestReportController" -> ":ReportStore" : saveReport(reportTxt, testcode)
+
+activate ":ReportStore"
+":ReportStore" -> "rep: Report" : rep = create(report, testcode)
+activate "rep: Report"
+"rep: Report" -> "rep: Report" ++ : create (report, testcode)
+deactivate "rep: Report"
+deactivate "rep: Report"
+":ReportStore" -> ":ReportStore" ++ : validateReport(rep)
+deactivate
+":ReportStore" -> ":ReportStore" ++ : addReport(rep)
+deactivate ":ReportStore"
+":WriteTestReportUI" -> SD : informs the success of the operation
+participant ":listTest : List<Test>"
+participant ":listTestDto : List<TestDto>"
+@enduml

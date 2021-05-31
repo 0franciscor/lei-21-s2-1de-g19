@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+left to right direction
+class Company
+class ParameterCategory
+class Parameter
+
+
+Company "1" -- "*" Parameter : > capable of analysing
+Company "1" -- "*" ParameterCategory : > adopts
+ParameterCategory "1" -- "*" Parameter : < presented under
+
+skinparam classAttributeIconSize 0
+class Company{
+-designation
+}
+
+class ParameterCategory{
+-code
+-description
+-nhsID
+}
+
+class Parameter{
+-designation
+-description
+-code
+}
+
+@enduml

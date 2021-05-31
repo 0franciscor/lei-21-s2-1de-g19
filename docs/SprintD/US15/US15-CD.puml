@@ -1,0 +1,116 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+
+package Core{
+
+package Domain{
+class "Company" as C {
+-ReportStore reportStore
+-TestStore testStore
+-Notification notification
++TestStore getTestStore()
++ReportStore getReportStore()
++Notification getNotificationService()
+}
+
+class "Test" as T {
+-Date registrationDateTime
+-Date collectDateTime
+-Date chemicalAnalysisDateTime
+-Date diagnosisDateTime
+-Date validationDateTime
++String getStatus()
++boolean updateValidationDateTime()
++updateTestStatus()
+}
+
+class "Report" as R{
+-boolean validation
+-String testCode
++boolean getValidation()
++setValidation()
+}
+
+class "Notification" as N{
++ writeToFile(message)
+}
+
+}
+
+package Stores{
+class "TestStore" as TS{
+-List<Test> TestList
++List <Test> getDiagnosedTests()
++Test getTestByCode(code)
++boolean validateTest(test)
+}
+
+class "ReportStore" as RS{
+-List<Report> ReportList
++boolean validateReport(code)
++boolean getReportValidation(code)
+}
+
+}
+
+package Controllers{
+class "ValidateTestController" as VTC {
++ValidateTestController()
++List<TestDto> getAllTestsDto()
++boolean validateReport(code)
++boolean validateTest(code)
++sendNotification()
+}
+
+
+
+
+
+}
+
+package Mappers{
+class "TestMapper" as tM{
++List <TestDto> toDtoLabC(List<Test>)
+}
+
+}
+
+
+package Dto{
+class "TestDto" as tDto{
++TestDto(registrationDateTime, chemicalAnalysisDateTime, diagnosisDateTime, code)
++Date getRegistrationDateTime()
++Date getChemicalAnalysisDateTime()
++Date getDiagnosisDateTime()
++String getCode()
+}
+
+
+
+}
+
+}
+package UI{
+class "ValidateTestUI" as VTUI
+}
+
+VTUI ..> VTC
+
+C ..> TS
+C ..> RS
+VTC ..> C
+VTC ..> tM
+VTC ..> tDto
+VTC ..> N
+
+TS ..> T
+tM ..> tDto
+
+C "1" -- "*" T : > performs
+
+RS ..> R
+R "1" -- "1" T : > associated with
+R "1" -- "1" N : < associated with
+
+@enduml

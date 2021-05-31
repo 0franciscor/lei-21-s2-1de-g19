@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor MedicalLabTechnician as MLT
+
+activate MLT
+MLT -> System ++: asks to record new sample(s)
+System --> MLT --: shows the tests and requests data (i.e.: test, number of samples to be collected)
+MLT -> System ++: selects one test and types requested data
+System --> MLT --: shows the data (samples generated and test to be associated with) and requests a confirmation
+MLT -> System ++: confirms the data
+System --> MLT --: informs operation success
+deactivate MLT
+
+@enduml

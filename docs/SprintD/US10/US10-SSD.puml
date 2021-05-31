@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor Administrator as ADM
+activate ADM
+
+ADM -> System ++: asks to create a new parameter
+System --> ADM --: requests data (code, designation, description)
+ADM -> System ++: types requested data
+System --> ADM --: shows the existing parameter categories and asks to select one
+ADM -> System ++: selects one parameter category
+System --> ADM --: shows all data and requests a confirmation
+ADM -> System ++: confirms the data
+System --> ADM --: informs operation success
+
+deactivate ADM
+
+@enduml

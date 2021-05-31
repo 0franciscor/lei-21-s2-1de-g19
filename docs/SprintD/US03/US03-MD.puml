@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+
+
+class Client
+class Company
+
+left to right direction
+
+Company "1" -- "*" Client : > knows
+
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+class Client{
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
+}
+
+@enduml

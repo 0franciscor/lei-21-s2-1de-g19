@@ -1,0 +1,37 @@
+@startuml
+autonumber
+
+
+actor "Clinical Chemistry Technologist" as CCT
+
+participant ":System" as SYST
+
+activate CCT
+CCT -> SYST : Starts the proccess of recording the results of a given test
+activate SYST
+SYST --> CCT : Shows list with test types and asks to select one of them
+deactivate SYST
+
+
+CCT -> SYST : Selects corresponding test type
+activate SYST
+
+loop for each test parameter being analysed
+
+SYST --> CCT : Shows list with test parameters and asks to choose one to be analysed 
+deactivate SYST
+
+CCT -> SYST : Selects test parameter
+activate SYST
+SYST --> CCT : Requests data (i.e., result, value and metric)
+deactivate SYST
+
+CCT -> SYST : Types requested data
+activate SYST
+SYST --> CCT : Informs the success of the operation
+deactivate SYST
+deactivate CCT
+
+end
+
+@enduml

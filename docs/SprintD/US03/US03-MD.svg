@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="171px" preserveAspectRatio="none" style="width:301px;height:171px;" version="1.1" viewBox="0 0 301 171" width="301px" zoomAndPan="magnify"><defs><filter height="300%" id="f3yv2k5ugi6w2" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[ed6624c6556d5e7b1bd23032162d20b7]
+class Client--><rect codeLine="18" fill="#FEFECE" filter="url(#f3yv2k5ugi6w2)" height="150.6875" id="Client" style="stroke:#A80036;stroke-width:1.5;" width="83" x="204" y="7"/><ellipse cx="227.55" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M229.55,19.5 Q229.7531,19 229.9875,18.75 Q230.2219,18.5 230.4875,18.5 Q230.9563,18.5 231.2531,18.7813 Q231.55,19.0625 231.55,19.7188 L231.55,21.2813 Q231.55,21.9375 231.2688,22.2188 Q230.9875,22.5 230.55,22.5 Q230.1594,22.5 229.9094,22.3281 Q229.6594,22.1563 229.55,21.7031 Q229.5031,21.3906 229.3313,21.2188 Q229.0188,20.8906 228.4563,20.7031 Q227.8938,20.5 227.3313,20.5 Q226.6281,20.5 226.0344,20.7813 Q225.4563,21.0625 225.0031,21.6875 Q224.55,22.3125 224.55,23.1719 L224.55,24.0938 Q224.55,25.125 225.3938,25.8125 Q226.2375,26.5 227.7375,26.5 Q228.6281,26.5 229.2531,26.2969 Q229.6125,26.1875 230.0188,25.8281 Q230.2844,25.625 230.425,25.5625 Q230.5656,25.5 230.7375,25.5 Q231.0656,25.5 231.3,25.7656 Q231.55,26.0156 231.55,26.375 Q231.55,26.7188 231.2063,27.125 Q230.7063,27.7188 229.9094,28.0469 Q228.8625,28.5 227.5813,28.5 Q226.0813,28.5 224.8781,27.9063 Q223.9094,27.4375 223.2219,26.4219 Q222.55,25.4063 222.55,24.2031 L222.55,23.1094 Q222.55,21.8594 223.1438,20.7656 Q223.7531,19.6719 224.8,19.0938 Q225.8625,18.5 227.05,18.5 Q227.7688,18.5 228.3938,18.75 Q229.0188,19 229.55,19.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="32" x="243.45" y="27.9102">Client</text><line style="stroke:#A80036;stroke-width:1.5;" x1="205" x2="286" y1="39" y2="39"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="44" x="210" y="54.4189">-citizenID</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="31" x="210" y="68.2549">-nhsID</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="47" x="210" y="82.0908">-birthDate</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="22" x="210" y="95.9268">-sex</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="19" x="210" y="109.7627">-TIN</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="71" x="210" y="123.5986">-phoneNumber</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="28" x="210" y="137.4346">-email</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="30" x="210" y="151.2705">-name</text><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><rect codeLine="14" fill="#FEFECE" filter="url(#f3yv2k5ugi6w2)" height="53.8359" id="Company" style="stroke:#A80036;stroke-width:1.5;" width="85" x="7" y="55.5"/><ellipse cx="22" cy="71.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M24,68 Q24.2031,67.5 24.4375,67.25 Q24.6719,67 24.9375,67 Q25.4063,67 25.7031,67.2813 Q26,67.5625 26,68.2188 L26,69.7813 Q26,70.4375 25.7188,70.7188 Q25.4375,71 25,71 Q24.6094,71 24.3594,70.8281 Q24.1094,70.6563 24,70.2031 Q23.9531,69.8906 23.7813,69.7188 Q23.4688,69.3906 22.9063,69.2031 Q22.3438,69 21.7813,69 Q21.0781,69 20.4844,69.2813 Q19.9063,69.5625 19.4531,70.1875 Q19,70.8125 19,71.6719 L19,72.5938 Q19,73.625 19.8438,74.3125 Q20.6875,75 22.1875,75 Q23.0781,75 23.7031,74.7969 Q24.0625,74.6875 24.4688,74.3281 Q24.7344,74.125 24.875,74.0625 Q25.0156,74 25.1875,74 Q25.5156,74 25.75,74.2656 Q26,74.5156 26,74.875 Q26,75.2188 25.6563,75.625 Q25.1563,76.2188 24.3594,76.5469 Q23.3125,77 22.0313,77 Q20.5313,77 19.3281,76.4063 Q18.3594,75.9375 17.6719,74.9219 Q17,73.9063 17,72.7031 L17,71.6094 Q17,70.3594 17.5938,69.2656 Q18.2031,68.1719 19.25,67.5938 Q20.3125,67 21.5,67 Q22.2188,67 22.8438,67.25 Q23.4688,67.5 24,68 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="53" x="36" y="76.4102">Company</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="91" y1="87.5" y2="87.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="13" y="102.9189">-designation</text><!--MD5=[6eee883fdf517d3604e8bd0f2058e9aa]
+link Company to Client--><path codeLine="10" d="M92.12,82.5 C125.18,82.5 171.16,82.5 203.95,82.5 " fill="none" id="Company-Client" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="132,73.6758,122.9549,70.7369,122.9549,76.6147,132,73.6758" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="37" x="136" y="78.9951">knows</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="100.0469" y="97.4144">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="191.1036" y="97.4793">*</text><!--MD5=[2aab7d022539d042ee5df219502f8930]
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+
+
+class Client
+class Company
+
+left to right direction
+
+Company "1" - - "*" Client : > knows
+
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+class Client{
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
+}
+
+@enduml
+
+@startuml
+hide methods
+
+
+class Client
+class Company
+
+left to right direction
+
+Company "1" - - "*" Client : > knows
+
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+class Client{
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
+}
+
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

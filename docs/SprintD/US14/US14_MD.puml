@@ -1,0 +1,32 @@
+@startuml
+skinparam classAttributeIconSize 0
+class "Company" {
+  -designation
+  }
+class "Test" {
+  -description
+  -testcode
+  -nhsCode
+  -collectDateTime
+  -chemicalAnalysisDateTime
+  -dianosisDateTime
+  -validationDateTime
+  }
+class "Result"
+class "SpecialistDoctor" {
+  -doctorIndexNumber
+  }
+class "DiagnosisReport" {
+ -reportTxt
+ -testcode
+  }
+
+
+
+"Company" "1" -> "*" "Test" : > performs
+"Test" "1" -> "1" "Result" : > has
+"Result" "1..*" -> "1..*" "SpecialistDoctor" : > analyzed by
+"SpecialistDoctor" "1..*" -> "1..*" "DiagnosisReport"  : > registers
+
+
+@enduml

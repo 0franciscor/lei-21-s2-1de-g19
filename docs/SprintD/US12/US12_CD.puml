@@ -1,0 +1,84 @@
+@startuml
+left to right direction
+
+ClinicalChemistryTechnologist "1" --> "*" Test : > records results of
+
+Test "*" --> "1" TestType : > is of
+Test "1" --> "1..*" TestParameter : > requests analysis of
+
+TestType "*" --> "1" ExternalModule : makes use of
+
+TestParameter "*" --> "1" Parameter : refers to
+TestParameter "1" --> "0..1" TestParameterResult : contains
+
+TestParameterResult "1" --> "1" ReferenceValue : records
+
+ExternalModuleAdapter1 ..> ExternalModule
+ExternalModuleAdapter2 ..> ExternalModule 
+
+
+skinparam classAttributeIconSize 0
+
+interface ExternalModule{
++referenceValue getReferenceValue(Parameter parameter)
+}
+
+class ExternalModuleAdapter1{
++referenceValue getReferenceValue(Parameter parameter)  
+}
+
+class ExternalModuleAdapter2{
++referenceValue getReferenceValue(Parameter parameter)  
+}
+
+class ClinicalChemistryTechnologist{
+-name
+-address
+-phoneNumber
+-employeeID
+-orgRole
+-email
+-SOCcode
+}
+
+
+class Test{
+-code
+-NhsCode
+-createdAt
++addTestResult(parameterCode, result, metric)
+-getTestParameterFor(parameterCode)
+}
+
+
+class TestType{
+-code
+-description
+-collectionMethod
++getExternalModule()
+}
+
+class TestParameter{
++getParameter()
++addResult(result, metric, refValue)
+}
+
+class Parameter{
+-code
+-shortName
+-description
+}
+
+class TestParameterResult{
+-createdAt
+-value
+-metric
++TestParameterResult(value, metric, refValue)
+}
+
+class ReferenceValue{
+  
+}
+
+
+@enduml

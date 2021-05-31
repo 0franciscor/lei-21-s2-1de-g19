@@ -1,0 +1,145 @@
+@startuml
+autonumber
+
+actor "LaboratoryCoordinator" as labC
+activate labC
+
+participant ":ValidateTestUI" as validateTestUI
+participant ":ValidateTestController" as validateTestCont
+participant ":Company" as comp
+participant "store: TestStore" as TestStore
+participant "TestMapper" as TestMapper
+participant "testDto: TestDto" as TestDto
+participant "store:ReportStore" as ReportStore
+participant "testsList: list<Test>" as testsList
+participant "testsListDto: list<TestDto>" as testsListDto
+participant "sendNotification: Notification" as notification
+participant "test: Test" as test
+
+
+labC -> validateTestUI : validate a Test Result/Diagnosis
+
+
+activate validateTestUI
+validateTestUI -> validateTestCont: testsListDto = getAllTestsDto()
+
+
+activate validateTestCont
+
+
+validateTestCont -> comp : store = getTestStore()
+activate comp
+deactivate comp
+
+
+validateTestCont -> TestStore : testsList = getDiagnosedTests()
+activate TestStore
+deactivate TestStore
+
+
+validateTestCont -> TestMapper : testsListDto = toDtoLabC(testsList)
+activate TestMapper
+deactivate TestMapper
+
+
+deactivate validateTestCont
+
+
+validateTestUI --> labC : shows a list of to-be validated tests
+deactivate validateTestUI
+
+
+loop for the chosen tests
+labC -> validateTestUI : selects a test from the list
+activate validateTestUI
+
+
+validateTestUI -> TestDto : registrationDateTime = getRegistrationDateTime()
+activate TestDto
+deactivate TestDto
+
+
+validateTestUI -> TestDto : chemicalAnalysisDateTime = getChemicalAnalysisDateTime()
+activate TestDto
+deactivate TestDto
+
+
+validateTestUI -> TestDto : diagnosisDateTime = getDiagnosisDateTime()
+activate TestDto
+deactivate TestDto
+
+
+validateTestUI --> labC : displays its data (registration date, chemical analysis date, diagnosis date) and request to confirm it's valid
+deactivate validateTestUI
+
+
+deactivate validateTestUI
+
+
+labC -> validateTestUI : confirms the valid state
+activate validateTestUI
+
+
+validateTestUI -> TestDto : code = getCode()
+activate TestDto
+deactivate TestDto
+
+
+validateTestUI -> validateTestCont : validateReport(code)
+
+
+
+activate validateTestCont
+validateTestCont -> comp: store = getReportStore()
+activate comp
+deactivate comp
+
+
+validateTestCont -> ReportStore : validateReport(code)
+activate ReportStore
+deactivate ReportStore
+deactivate validateTestCont
+
+validateTestUI -> validateTestCont : validateTest(code)
+activate validateTestCont
+
+
+validateTestCont -> TestStore : test = getTestByCode(code)
+
+activate TestStore
+deactivate TestStore
+
+validateTestCont -> TestStore : validateTest(test)
+activate TestStore
+
+
+TestStore -> test ++: updateValidationDateTime()
+
+
+test -> test ++: updateTestStatus()
+deactivate test
+deactivate test
+deactivate TestStore
+deactivate validateTestCont
+
+validateTestUI -> validateTestCont : sendNotification()
+activate validateTestCont
+
+
+validateTestCont -> comp: sendNotification = getNotificationService()
+activate comp
+deactivate comp
+
+
+validateTestCont -> notification: writeToFile(message)
+activate notification
+deactivate notification
+deactivate validateTestCont
+
+
+validateTestUI --> labC : informs about operation success
+deactivate validateTestCont
+deactivate validateTestUI
+
+end
+@enduml

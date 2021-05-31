@@ -1,0 +1,20 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+hide methods
+
+class Company {
+-designation
+}
+
+class ParameterCategory {
+-code
+-description
+-nhsID
+}
+
+class Administrator
+
+ParameterCategory "*" -- "1" Administrator : > created by
+Company "1" -- "*" Administrator : > knows
+@enduml

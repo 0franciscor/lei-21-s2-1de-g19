@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2142px" preserveAspectRatio="none" style="width:3358px;height:2142px;" version="1.1" viewBox="0 0 3358 2142" width="3358px" zoomAndPan="magnify"><defs><filter height="300%" id="f46fszsjj9qzb" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="1948.375" style="stroke:#A80036;stroke-width:1.0;" width="10" x="42" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="182.6641"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="454.7734"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="726.8828"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="998.9922"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="379.0703" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="1271.1016"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="358.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="1680.5234"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="213.0156"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="485.125"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="757.2344"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="1029.3438"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="302.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="1301.4531"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="337.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="1710.875"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="243.3672"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="515.4766"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="787.5859"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="1059.6953"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="1512.8594"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1550" y="303.7188"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1679" y="364.0703"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1820" y="575.8281"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1973" y="636.1797"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1973" y="1331.8047"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2158" y="847.9375"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2375" y="908.2891"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2375" y="1392.1563"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2566.5" y="1120.0469"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2732.5" y="1180.3984"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2732.5" y="1452.5078"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2876" y="1573.2109"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="207.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2876" y="1741.2266"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2881" y="1779.5781"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2881" y="1852.9297"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="3304.5" y="1918.2813"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="3304.5" y="1978.6328"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="47" x2="47" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="629.5" x2="629.5" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1176.5" x2="1176.5" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1438" x2="1438" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1555" x2="1555" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1684" x2="1684" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1825" x2="1825" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1978" x2="1978" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2163" x2="2163" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2380" x2="2380" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2571" x2="2571" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2737" x2="2737" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2881" x2="2881" y1="89.6094" y2="2056.9844"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="3309" x2="3309" y1="1614.5156" y2="2056.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="5" y="86.5332">Receptionist</text><ellipse cx="47" cy="15" fill="#FEFECE" filter="url(#f46fszsjj9qzb)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M47,23 L47,50 M34,31 L60,31 M47,50 L34,65 M47,50 L60,65 " fill="none" filter="url(#f46fszsjj9qzb)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="5" y="2070.5176">Receptionist</text><ellipse cx="47" cy="2083.5938" fill="#FEFECE" filter="url(#f46fszsjj9qzb)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M47,2091.5938 L47,2118.5938 M34,2099.5938 L60,2099.5938 M47,2118.5938 L34,2133.5938 M47,2118.5938 L60,2133.5938 " fill="none" filter="url(#f46fszsjj9qzb)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="111" x="572.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="579.5" y="74.5332">:RegisterTestUI</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="111" x="572.5" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="579.5" y="2077.5176">:RegisterTestUI</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="161" x="1094.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="1101.5" y="74.5332">:RegisterTestController</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="161" x="1094.5" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="1101.5" y="2077.5176">:RegisterTestController</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="78" x="1397" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1404" y="74.5332">:Company</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="78" x="1397" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1404" y="2077.5176">:Company</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="128" x="1489" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1496" y="74.5332">:store: ClientStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="128" x="1489" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1496" y="2077.5176">:store: ClientStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="102" x="1631" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1638" y="74.5332">:ClientMapper</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="102" x="1631" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1638" y="2077.5176">:ClientMapper</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="152" x="1747" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1754" y="74.5332">:store: TestTypeStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="152" x="1747" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1754" y="2077.5176">:store: TestTypeStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="126" x="1913" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="1920" y="74.5332">:TestTypeMapper</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="126" x="1913" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="1920" y="2077.5176">:TestTypeMapper</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="216" x="2053" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="202" x="2060" y="74.5332">:store: ParameterCategoryStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="216" x="2053" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="202" x="2060" y="2077.5176">:store: ParameterCategoryStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="190" x="2283" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="2290" y="74.5332">:ParameterCategoryMapper</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="190" x="2283" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="2290" y="2077.5176">:ParameterCategoryMapper</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="165" x="2487" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="2494" y="74.5332">:store: ParametersStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="165" x="2487" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="2494" y="2077.5176">:store: ParametersStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="139" x="2666" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="2673" y="74.5332">:ParametersMapper</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="139" x="2666" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="2673" y="2077.5176">:ParametersMapper</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="120" x="2819" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="2826" y="74.5332">:store: TestStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="120" x="2819" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="2826" y="2077.5176">:store: TestStore</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="73" x="3271" y="2055.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="3278" y="2077.5176">test: Test</text><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="1948.375" style="stroke:#A80036;stroke-width:1.0;" width="10" x="42" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="182.6641"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="454.7734"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="726.8828"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="998.9922"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="379.0703" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="1271.1016"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="358.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="625" y="1680.5234"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="213.0156"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="485.125"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="757.2344"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="1029.3438"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="302.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="1301.4531"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="337.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1172" y="1710.875"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="243.3672"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="515.4766"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="787.5859"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="1059.6953"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1433" y="1512.8594"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1550" y="303.7188"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1679" y="364.0703"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1820" y="575.8281"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1973" y="636.1797"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1973" y="1331.8047"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2158" y="847.9375"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2375" y="908.2891"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2375" y="1392.1563"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2566.5" y="1120.0469"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2732.5" y="1180.3984"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2732.5" y="1452.5078"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2876" y="1573.2109"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="207.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2876" y="1741.2266"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2881" y="1779.5781"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2881" y="1852.9297"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="3304.5" y="1918.2813"/><rect fill="#FFFFFF" filter="url(#f46fszsjj9qzb)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="3304.5" y="1978.6328"/><polygon fill="#A80036" points="613,117.9609,623,121.9609,613,125.9609,617,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="52" x2="619" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="59" y="117.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="296" x="70" y="117.1045">register a test to be performed to a registered client</text><polygon fill="#A80036" points="63,148.3125,53,152.3125,63,156.3125,59,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="57" x2="629" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="69" y="147.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="162" x="80" y="147.4561">request data (TIN, nhsCode)</text><polygon fill="#A80036" points="613,178.6641,623,182.6641,613,186.6641,617,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="52" x2="619" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="59" y="177.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="122" x="70" y="177.8076">types requested data</text><polygon fill="#A80036" points="1160,209.0156,1170,213.0156,1160,217.0156,1164,213.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="635" x2="1166" y1="213.0156" y2="213.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="642" y="208.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="653" y="208.1592">getClient(TIN)</text><polygon fill="#A80036" points="1421,239.3672,1431,243.3672,1421,247.3672,1425,243.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1427" y1="243.3672" y2="243.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="1189" y="238.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="135" x="1200" y="238.5107">store = getClientStore()</text><polygon fill="#A80036" points="1538,299.7188,1548,303.7188,1538,307.7188,1542,303.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1544" y1="303.7188" y2="303.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="1189" y="298.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="104" x="1200" y="298.8623">cl = getClient(TIN)</text><polygon fill="#A80036" points="1667,360.0703,1677,364.0703,1667,368.0703,1671,364.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1673" y1="364.0703" y2="364.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="1189" y="359.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="118" x="1200" y="359.2139">ClientDto = toDto(cl)</text><polygon fill="#A80036" points="63,420.4219,53,424.4219,63,428.4219,59,424.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="57" x2="629" y1="424.4219" y2="424.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="69" y="419.5654">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="327" x="80" y="419.5654">shows the client's information and request a confirmation</text><polygon fill="#A80036" points="613,450.7734,623,454.7734,613,458.7734,617,454.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="52" x2="619" y1="454.7734" y2="454.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="59" y="449.917">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="100" x="70" y="449.917">confirms the data</text><polygon fill="#A80036" points="1160,481.125,1170,485.125,1160,489.125,1164,485.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="635" x2="1166" y1="485.125" y2="485.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="642" y="480.2686">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="94" x="660" y="480.2686">getAllTestType()</text><polygon fill="#A80036" points="1421,511.4766,1431,515.4766,1421,519.4766,1425,515.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1427" y1="515.4766" y2="515.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="510.6201">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="155" x="1207" y="510.6201">store = getTestTypeStore()</text><polygon fill="#A80036" points="1808,571.8281,1818,575.8281,1808,579.8281,1812,575.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1814" y1="575.8281" y2="575.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="570.9717">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="180" x="1207" y="570.9717">listTestType = getAllTestType()</text><polygon fill="#A80036" points="1961,632.1797,1971,636.1797,1961,640.1797,1965,636.1797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1967" y1="636.1797" y2="636.1797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="631.3232">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="215" x="1207" y="631.3232">listTestTypeDto = toDto(listTestType)</text><polygon fill="#A80036" points="63,692.5313,53,696.5313,63,700.5313,59,696.5313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="57" x2="629" y1="696.5313" y2="696.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="69" y="691.6748">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="250" x="87" y="691.6748">shows the test types and ask to select one</text><polygon fill="#A80036" points="613,722.8828,623,726.8828,613,730.8828,617,726.8828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="52" x2="619" y1="726.8828" y2="726.8828"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="59" y="722.0264">15</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="119" x="77" y="722.0264">selects the test type</text><polygon fill="#A80036" points="1160,753.2344,1170,757.2344,1160,761.2344,1164,757.2344" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="635" x2="1166" y1="757.2344" y2="757.2344"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="642" y="752.3779">16</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="302" x="660" y="752.3779">getAllParameterCategoriesByTestType(testTypeDto)</text><polygon fill="#A80036" points="1421,783.5859,1431,787.5859,1421,791.5859,1425,787.5859" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1427" y1="787.5859" y2="787.5859"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="782.7295">17</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="214" x="1207" y="782.7295">store = getParameterCategoryStore()</text><polygon fill="#A80036" points="2146,843.9375,2156,847.9375,2146,851.9375,2150,847.9375" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="2152" y1="847.9375" y2="847.9375"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="843.0811">18</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="457" x="1207" y="843.0811">listParameterCategories = getAllParameterCategoriesByTestType(testTypeDto)</text><polygon fill="#A80036" points="2363,904.2891,2373,908.2891,2363,912.2891,2367,908.2891" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="2369" y1="908.2891" y2="908.2891"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="903.4326">19</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="353" x="1207" y="903.4326">listParameterCategoriesDto = toDto(listParameterCategories)</text><polygon fill="#A80036" points="63,964.6406,53,968.6406,63,972.6406,59,968.6406" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="57" x2="629" y1="968.6406" y2="968.6406"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="69" y="963.7842">20</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="502" x="87" y="963.7842">show all parameter categories according to the test type and ask to select one or more</text><polygon fill="#A80036" points="613,994.9922,623,998.9922,613,1002.9922,617,998.9922" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="52" x2="619" y1="998.9922" y2="998.9922"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="59" y="994.1357">21</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="205" x="77" y="994.1357">selects the parameter category(ies)</text><polygon fill="#A80036" points="1160,1025.3438,1170,1029.3438,1160,1033.3438,1164,1029.3438" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="635" x2="1166" y1="1029.3438" y2="1029.3438"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="642" y="1024.4873">22</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="395" x="660" y="1024.4873">getAllParametersByParameterCategory(listParameterCategoriesDto)</text><polygon fill="#A80036" points="1421,1055.6953,1431,1059.6953,1421,1063.6953,1425,1059.6953" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1427" y1="1059.6953" y2="1059.6953"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1054.8389">23</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="1207" y="1054.8389">store = getParametersStore()</text><polygon fill="#A80036" points="2554.5,1116.0469,2564.5,1120.0469,2554.5,1124.0469,2558.5,1120.0469" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="2560.5" y1="1120.0469" y2="1120.0469"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1115.1904">24</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="495" x="1207" y="1115.1904">listParameters = getAllParametersByParameterCategory(listParameterCategoriesDto)</text><polygon fill="#A80036" points="2720.5,1176.3984,2730.5,1180.3984,2720.5,1184.3984,2724.5,1180.3984" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="2726.5" y1="1180.3984" y2="1180.3984"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1175.542">25</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="247" x="1207" y="1175.542">listParametersDto  = toDto(listParameters)</text><polygon fill="#A80036" points="63,1236.75,53,1240.75,63,1244.75,59,1240.75" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="57" x2="629" y1="1240.75" y2="1240.75"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="69" y="1235.8936">26</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="531" x="87" y="1235.8936">show all parameters according to the parameter category(ies) and ask to select one or more</text><polygon fill="#A80036" points="613,1267.1016,623,1271.1016,613,1275.1016,617,1271.1016" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="52" x2="619" y1="1271.1016" y2="1271.1016"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="59" y="1266.2451">27</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="230" x="77" y="1266.2451">selects the parameter(s) to be analysed</text><polygon fill="#A80036" points="1160,1297.4531,1170,1301.4531,1160,1305.4531,1164,1301.4531" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="635" x2="1166" y1="1301.4531" y2="1301.4531"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="642" y="1296.5967">28</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="500" x="660" y="1296.5967">createTest(listParametersDto, tesTypeDto, listParameterCategoriesDto, TIN, nhsCode)</text><polygon fill="#A80036" points="1961,1327.8047,1971,1331.8047,1961,1335.8047,1965,1331.8047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1967" y1="1331.8047" y2="1331.8047"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1326.9482">29</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="1207" y="1326.9482">tt = toModel(testTypeDto)</text><polygon fill="#A80036" points="2363,1388.1563,2373,1392.1563,2363,1396.1563,2367,1392.1563" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="2369" y1="1392.1563" y2="1392.1563"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1387.2998">30</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="349" x="1207" y="1387.2998">parameterCategories = toModel(listParameterCategoriesDto)</text><polygon fill="#A80036" points="2720.5,1448.5078,2730.5,1452.5078,2720.5,1456.5078,2724.5,1452.5078" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="2726.5" y1="1452.5078" y2="1452.5078"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1447.6514">31</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="243" x="1207" y="1447.6514">parameters = toModel (listParametersDto)</text><polygon fill="#A80036" points="1421,1508.8594,1431,1512.8594,1421,1516.8594,1425,1512.8594" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="1427" y1="1512.8594" y2="1512.8594"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1508.0029">32</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="127" x="1207" y="1508.0029">store = getTestStore()</text><polygon fill="#A80036" points="2864,1569.2109,2874,1573.2109,2864,1577.2109,2868,1573.2109" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="2870" y1="1573.2109" y2="1573.2109"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1568.3545">33</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="406" x="1207" y="1568.3545">test = createTest (tt, parameters, parameterCategories, TIN, nhsCode)</text><polygon fill="#A80036" points="3259,1599.5625,3269,1603.5625,3259,1607.5625,3263,1603.5625" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="2881" x2="3265" y1="1603.5625" y2="1603.5625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="2888" y="1598.7061">34</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="343" x="2906" y="1598.7061">create (tt, parameters, parameterCategories, TIN, nhsCode)</text><rect fill="#FEFECE" filter="url(#f46fszsjj9qzb)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="73" x="3271" y="1581.2109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="3278" y="1602.7441">test: Test</text><polygon fill="#A80036" points="63,1646.1719,53,1650.1719,63,1654.1719,59,1650.1719" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="57" x2="629" y1="1650.1719" y2="1650.1719"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="69" y="1645.3154">35</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="233" x="87" y="1645.3154">show all data and request a confirmation</text><polygon fill="#A80036" points="613,1676.5234,623,1680.5234,613,1684.5234,617,1680.5234" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="52" x2="619" y1="1680.5234" y2="1680.5234"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="59" y="1675.667">36</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="100" x="77" y="1675.667">confirms the data</text><polygon fill="#A80036" points="1160,1706.875,1170,1710.875,1160,1714.875,1164,1710.875" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="635" x2="1166" y1="1710.875" y2="1710.875"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="642" y="1706.0186">37</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="81" x="660" y="1706.0186">saveTest(test)</text><polygon fill="#A80036" points="2864,1737.2266,2874,1741.2266,2864,1745.2266,2868,1741.2266" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="2870" y1="1741.2266" y2="1741.2266"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1736.3701">38</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="81" x="1207" y="1736.3701">saveTest(test)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="2891" x2="2933" y1="1771.5781" y2="1771.5781"/><line style="stroke:#A80036;stroke-width:1.0;" x1="2933" x2="2933" y1="1771.5781" y2="1784.5781"/><line style="stroke:#A80036;stroke-width:1.0;" x1="2892" x2="2933" y1="1784.5781" y2="1784.5781"/><polygon fill="#A80036" points="2902,1780.5781,2892,1784.5781,2902,1788.5781,2898,1784.5781" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="2898" y="1766.7217">39</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="76" x="2916" y="1766.7217">hasTest(test)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="2891" x2="2933" y1="1844.9297" y2="1844.9297"/><line style="stroke:#A80036;stroke-width:1.0;" x1="2933" x2="2933" y1="1844.9297" y2="1857.9297"/><line style="stroke:#A80036;stroke-width:1.0;" x1="2892" x2="2933" y1="1857.9297" y2="1857.9297"/><polygon fill="#A80036" points="2902,1853.9297,2892,1857.9297,2902,1861.9297,2898,1857.9297" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="2898" y="1840.0732">40</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="76" x="2916" y="1840.0732">addTest(test)</text><polygon fill="#A80036" points="3292.5,1914.2813,3302.5,1918.2813,3292.5,1922.2813,3296.5,1918.2813" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="2886" x2="3298.5" y1="1918.2813" y2="1918.2813"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="2893" y="1913.4248">41</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="110" x="2911" y="1913.4248">updateTestStatus()</text><polygon fill="#A80036" points="3292.5,1974.6328,3302.5,1978.6328,3292.5,1982.6328,3296.5,1978.6328" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1182" x2="3298.5" y1="1978.6328" y2="1978.6328"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1189" y="1973.7764">42</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="1207" y="1973.7764">generateCode()</text><polygon fill="#A80036" points="63,2034.9844,53,2038.9844,63,2042.9844,59,2038.9844" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="57" x2="629" y1="2038.9844" y2="2038.9844"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="69" y="2034.1279">43</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="250" x="87" y="2034.1279">register test and informs operation success</text><!--MD5=[02bed6e2df330298e616b46617b78e18]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Receptionist" as R
+activate R
+
+
+R -> ":RegisterTestUI" : register a test to be performed to a registered client
+activate ":RegisterTestUI"
+":RegisterTestUI" - -> R: request data (TIN, nhsCode)
+deactivate ":RegisterTestUI"
+R -> ":RegisterTestUI" : types requested data
+
+
+activate ":RegisterTestUI"
+
+
+":RegisterTestUI" -> ":RegisterTestController": getClient(TIN)
+
+
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company" : store = getClientStore()
+activate ":Company"
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: ClientStore" : cl = getClient(TIN)
+activate ":store: ClientStore"
+deactivate ":store: ClientStore"
+
+":RegisterTestController" -> ":ClientMapper" : ClientDto = toDto(cl)
+activate ":ClientMapper"
+deactivate ":ClientMapper"
+
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" - -> R: shows the client's information and request a confirmation
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI" : confirms the data
+activate ":RegisterTestUI"
+
+
+":RegisterTestUI" -> ":RegisterTestController": getAllTestType()
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company": store = getTestTypeStore()
+activate ":Company"
+
+deactivate ":Company"
+":RegisterTestController" -> ":store: TestTypeStore": listTestType = getAllTestType()
+activate ":store: TestTypeStore"
+deactivate ":store: TestTypeStore"
+
+":RegisterTestController" -> ":TestTypeMapper": listTestTypeDto = toDto(listTestType)
+activate ":TestTypeMapper"
+deactivate ":TestTypeMapper"
+deactivate ":RegisterTestController"
+":RegisterTestUI" - -> R: shows the test types and ask to select one
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the test type
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": getAllParameterCategoriesByTestType(testTypeDto)
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company" : store = getParameterCategoryStore()
+activate ":Company"
+
+deactivate ":Company"
+":RegisterTestController" -> ":store: ParameterCategoryStore": listParameterCategories = getAllParameterCategoriesByTestType(testTypeDto)
+activate ":store: ParameterCategoryStore"
+deactivate ":store: ParameterCategoryStore"
+
+":RegisterTestController" -> ":ParameterCategoryMapper": listParameterCategoriesDto = toDto(listParameterCategories)
+activate ":ParameterCategoryMapper"
+deactivate ":ParameterCategoryMapper"
+deactivate ":RegisterTestController"
+":RegisterTestUI" - -> R: show all parameter categories according to the test type and ask to select one or more
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the parameter category(ies)
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": getAllParametersByParameterCategory(listParameterCategoriesDto)
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company": store = getParametersStore()
+activate ":Company"
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: ParametersStore": listParameters = getAllParametersByParameterCategory(listParameterCategoriesDto)
+activate ":store: ParametersStore"
+deactivate ":store: ParametersStore"
+
+":RegisterTestController" -> ":ParametersMapper": listParametersDto  = toDto(listParameters)
+activate ":ParametersMapper"
+deactivate ":ParametersMapper"
+
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" - -> R: show all parameters according to the parameter category(ies) and ask to select one or more
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the parameter(s) to be analysed
+activate ":RegisterTestUI"
+
+
+
+
+
+
+
+":RegisterTestUI" -> ":RegisterTestController": createTest(listParametersDto, tesTypeDto, listParameterCategoriesDto, TIN, nhsCode)
+activate ":RegisterTestController"
+
+":RegisterTestController" -> ":TestTypeMapper": tt = toModel(testTypeDto)
+activate ":TestTypeMapper"
+deactivate ":TestTypeMapper"
+
+":RegisterTestController" -> ":ParameterCategoryMapper": parameterCategories = toModel(listParameterCategoriesDto)
+activate ":ParameterCategoryMapper"
+deactivate ":ParameterCategoryMapper"
+
+
+":RegisterTestController" -> ":ParametersMapper": parameters = toModel (listParametersDto)
+activate ":ParametersMapper"
+deactivate ":ParametersMapper"
+
+
+
+
+
+
+":RegisterTestController" -> ":Company" ++: store = getTestStore()
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters, parameterCategories, TIN, nhsCode)
+
+create "test: Test"
+
+":store: TestStore" - -> "test: Test" : create (tt, parameters, parameterCategories, TIN, nhsCode)
+deactivate ":store: TestStore"
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" - -> R: show all data and request a confirmation
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI" : confirms the data
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": saveTest(test)
+
+activate ":RegisterTestController"
+
+":RegisterTestController" -> ":store: TestStore" : saveTest(test)
+
+activate ":store: TestStore"
+
+":store: TestStore" -> ":store: TestStore": hasTest(test)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+":store: TestStore" -> ":store: TestStore": addTest(test)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+":store: TestStore" -> "test: Test": updateTestStatus()
+activate "test: Test"
+deactivate "test: Test"
+
+
+deactivate ":store: TestStore"
+
+":RegisterTestController" -> "test: Test" : generateCode()
+
+activate "test: Test"
+deactivate "test: Test"
+
+
+":RegisterTestUI" - -> R: register test and informs operation success
+deactivate ":RegisterTestUI"
+@enduml
+
+@startuml
+
+autonumber
+
+actor "Receptionist" as R
+activate R
+
+
+R -> ":RegisterTestUI" : register a test to be performed to a registered client
+activate ":RegisterTestUI"
+":RegisterTestUI" - -> R: request data (TIN, nhsCode)
+deactivate ":RegisterTestUI"
+R -> ":RegisterTestUI" : types requested data
+
+
+activate ":RegisterTestUI"
+
+
+":RegisterTestUI" -> ":RegisterTestController": getClient(TIN)
+
+
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company" : store = getClientStore()
+activate ":Company"
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: ClientStore" : cl = getClient(TIN)
+activate ":store: ClientStore"
+deactivate ":store: ClientStore"
+
+":RegisterTestController" -> ":ClientMapper" : ClientDto = toDto(cl)
+activate ":ClientMapper"
+deactivate ":ClientMapper"
+
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" - -> R: shows the client's information and request a confirmation
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI" : confirms the data
+activate ":RegisterTestUI"
+
+
+":RegisterTestUI" -> ":RegisterTestController": getAllTestType()
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company": store = getTestTypeStore()
+activate ":Company"
+
+deactivate ":Company"
+":RegisterTestController" -> ":store: TestTypeStore": listTestType = getAllTestType()
+activate ":store: TestTypeStore"
+deactivate ":store: TestTypeStore"
+
+":RegisterTestController" -> ":TestTypeMapper": listTestTypeDto = toDto(listTestType)
+activate ":TestTypeMapper"
+deactivate ":TestTypeMapper"
+deactivate ":RegisterTestController"
+":RegisterTestUI" - -> R: shows the test types and ask to select one
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the test type
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": getAllParameterCategoriesByTestType(testTypeDto)
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company" : store = getParameterCategoryStore()
+activate ":Company"
+
+deactivate ":Company"
+":RegisterTestController" -> ":store: ParameterCategoryStore": listParameterCategories = getAllParameterCategoriesByTestType(testTypeDto)
+activate ":store: ParameterCategoryStore"
+deactivate ":store: ParameterCategoryStore"
+
+":RegisterTestController" -> ":ParameterCategoryMapper": listParameterCategoriesDto = toDto(listParameterCategories)
+activate ":ParameterCategoryMapper"
+deactivate ":ParameterCategoryMapper"
+deactivate ":RegisterTestController"
+":RegisterTestUI" - -> R: show all parameter categories according to the test type and ask to select one or more
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the parameter category(ies)
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": getAllParametersByParameterCategory(listParameterCategoriesDto)
+activate ":RegisterTestController"
+":RegisterTestController" -> ":Company": store = getParametersStore()
+activate ":Company"
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: ParametersStore": listParameters = getAllParametersByParameterCategory(listParameterCategoriesDto)
+activate ":store: ParametersStore"
+deactivate ":store: ParametersStore"
+
+":RegisterTestController" -> ":ParametersMapper": listParametersDto  = toDto(listParameters)
+activate ":ParametersMapper"
+deactivate ":ParametersMapper"
+
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" - -> R: show all parameters according to the parameter category(ies) and ask to select one or more
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI": selects the parameter(s) to be analysed
+activate ":RegisterTestUI"
+
+
+
+
+
+
+
+":RegisterTestUI" -> ":RegisterTestController": createTest(listParametersDto, tesTypeDto, listParameterCategoriesDto, TIN, nhsCode)
+activate ":RegisterTestController"
+
+":RegisterTestController" -> ":TestTypeMapper": tt = toModel(testTypeDto)
+activate ":TestTypeMapper"
+deactivate ":TestTypeMapper"
+
+":RegisterTestController" -> ":ParameterCategoryMapper": parameterCategories = toModel(listParameterCategoriesDto)
+activate ":ParameterCategoryMapper"
+deactivate ":ParameterCategoryMapper"
+
+
+":RegisterTestController" -> ":ParametersMapper": parameters = toModel (listParametersDto)
+activate ":ParametersMapper"
+deactivate ":ParametersMapper"
+
+
+
+
+
+
+":RegisterTestController" -> ":Company" ++: store = getTestStore()
+deactivate ":Company"
+
+":RegisterTestController" -> ":store: TestStore" ++: test = createTest (tt, parameters, parameterCategories, TIN, nhsCode)
+
+create "test: Test"
+
+":store: TestStore" - -> "test: Test" : create (tt, parameters, parameterCategories, TIN, nhsCode)
+deactivate ":store: TestStore"
+deactivate ":RegisterTestController"
+
+":RegisterTestUI" - -> R: show all data and request a confirmation
+deactivate ":RegisterTestUI"
+
+R -> ":RegisterTestUI" : confirms the data
+activate ":RegisterTestUI"
+
+":RegisterTestUI" -> ":RegisterTestController": saveTest(test)
+
+activate ":RegisterTestController"
+
+":RegisterTestController" -> ":store: TestStore" : saveTest(test)
+
+activate ":store: TestStore"
+
+":store: TestStore" -> ":store: TestStore": hasTest(test)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+":store: TestStore" -> ":store: TestStore": addTest(test)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+":store: TestStore" -> "test: Test": updateTestStatus()
+activate "test: Test"
+deactivate "test: Test"
+
+
+deactivate ":store: TestStore"
+
+":RegisterTestController" -> "test: Test" : generateCode()
+
+activate "test: Test"
+deactivate "test: Test"
+
+
+":RegisterTestUI" - -> R: register test and informs operation success
+deactivate ":RegisterTestUI"
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

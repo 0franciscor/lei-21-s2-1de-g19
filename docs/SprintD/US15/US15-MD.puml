@@ -1,0 +1,36 @@
+@startuml
+hide methods
+skinparam classAttributeIconSize 0
+left to right direction
+
+class LaboratoryCoordinator
+class Result
+class DiagnosisReport
+class Test
+
+
+Result "*" -- "1..*" Notification : > is associated with
+
+DiagnosisReport "*" -- "1" LaboratoryCoordinator : < validates
+
+Test "1" -- "1" Result : > has a
+
+Test "1" -- "1" DiagnosisReport : < associated with
+
+class Result{
+}
+
+class DiagnosisReport{
+}
+
+class Test{
+-description
+-code
+-nhsCode
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime
+}
+
+@enduml

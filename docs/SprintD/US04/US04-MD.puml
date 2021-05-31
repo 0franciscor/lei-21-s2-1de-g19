@@ -1,0 +1,67 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide methods
+skinparam classAttributeIconSize 0
+left to right direction
+
+
+class Client
+class Company
+class ParameterCategory
+class Parameter
+class TestType
+class Test
+
+TestType "*" -- "1" ParameterCategory : > analyzes a
+TestType "1" -- "*" Test: < is of
+ParameterCategory "1" -- "*" Parameter : < presented under
+Parameter "1..*" -- "*" Test : < requests analysis of
+Client "1" -- "*" Test : < requested by
+Company "1" -- "*" Client : > knows
+
+class Company{
+-designation
+}
+
+class Client{
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
+}
+
+class ParameterCategory{
+-code
+-description
+-nhsID
+}
+
+class Parameter{
+-designation
+-description
+-code
+}
+
+class TestType{
+-code
+-description
+-collectingMethod
+}
+
+class Test{
+-description
+-code
+-nhsCode
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime
+}
+
+
+@enduml

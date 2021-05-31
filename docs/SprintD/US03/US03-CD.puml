@@ -1,0 +1,75 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+left to right direction
+
+class "Client" as cl {
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
++Client(citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name)
++generatePwd()
+}
+class "RegisterClientController" as RCC {
++registerClient(dto)
++saveClient(cl)
+}
+
+class "Company" as C {
+-designation
++registerClient(dto)
++getClientStore()
+}
+
+class "RegisterClientUI" as RCUI
+
+class "ClientStore" as CS {
++saveClient(cl)
++validateClient(cl)
++addClient(cl)
+}
+
+class "AuthFacade" as AF {
++addUser(email, name, pwd)
+}
+
+class "ClientDto" as CDTO {
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
++getCitizenID()
++getNhsID()
++getBirthDate()
++getSex()
++getTIN()
++getPhoneNumber()
++getEmail()
++getName()
+}
+
+class "ClientMapper" as CM {
++toModel(dto)
+}
+
+RCUI ..> RCC
+RCC ..> C
+RCC ..> CS
+C ..> CM
+CM ..> CDTO
+CM ..> cl
+RCC ..> AF
+RCC ..> cl
+
+
+@enduml

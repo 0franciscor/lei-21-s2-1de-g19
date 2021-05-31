@@ -1,0 +1,107 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+
+package Core{
+
+package Domain{
+class "Company" as C {
+-String designation
++getTestTypeStore()
++getParameterCategoryStore()
++List<ExternalModule> getExternalModules()
+}
+
+class "ParameterCategory" as PC{
+-String name
+-String code
++ParameterCategory(name, code)
+}
+
+class "TestType" as TT {
+-String code
+-String description
+-String collectingMethod
+-List <ParameterCategory> parameterCategoriesList
+-ExternalModule externalModule
++TestType(code, description, collectingMethod, parameterCategoriesList, externalModule)
+}
+
+}
+
+
+
+package Stores{
+class "TestTypeStore" as TTS{
+-List<TestType> testTypeList
++TestType createTestType(code, description, collectingMethod, parameterCategoriesList, externalModule)
++boolean saveTestType(tt)
++boolean validateTestType(tt)
++boolean addTestType(tt)
++List <TestType> getAllTestTypes()
+}
+}
+
+
+
+package Controllers{
+class "CreateTestTypeController" as CTTC {
++CreateTestTypeController()
++List<TestTypeDto> getAllTestTypesDto()
++boolean createTestType(code, description, collectingMethod, parameterCategoriesList, externalModule)
++boolean saveTestType()
++List<TestType> getAllTestTypes()
++List<ExternalModule> getExternalModules()
+}
+
+
+
+class "CreateParameterCategoryController" as CPCS{
++List <ParameterCategoryDto> getAllParameterCategoriesDto()
++ParameterCategory getParameterCategoryByCode(code)
+}
+
+}
+
+package Mappers{
+class "TestTypeMapper" as ttM{
++List <TestTypeDto> toDto(List<TestType>)
+}
+
+class "ParameterCategoryMapper" as pcM{
++List <ParameterCategoryDto> toDto(List<ParameterCategory>)
+}
+
+}
+
+
+package Dto{
+class "TestTypeDto" as ttDto{
+}
+
+class "ParameterCategoryDto" as pcDto{
+}
+
+}
+
+}
+package UI{
+class "CreateTestTypeUI" as CTTUI
+}
+
+CTTUI ..> CTTC
+C ..> CPCS
+C ..> TTS
+CTTC ..> C
+CTTC ..> ttM
+CTTC ..> ttDto
+TT "*" -- "1" PC : > analyzes a
+TTS ..> TT
+ttM ..> ttDto
+pcM ..> pcDto
+CPCS ..> pcM
+
+C "1" -- "*" TT : > adopts
+C "1" -- "*" PC : > adopts
+
+@enduml

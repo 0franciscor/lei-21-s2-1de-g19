@@ -1,0 +1,20 @@
+@startuml
+autonumber
+
+actor "Administrator" as admin
+activate admin
+
+admin -> System ++: register a type of test
+loop for how many Categories the Administrator wants the new Test Type to have
+System --> admin --: shows a list of Parameter Categories
+admin -> System ++: selects a Parameter Category from the list
+end
+System --> admin --: shows a list of External Modules
+admin -> System ++: selects an External Module from the list
+System -->  admin --: request data (code, description, collectingMethod)
+admin -->  System ++: types requested data
+System -> admin --: shows it and requests a confirmation
+admin -> System ++: confirms the data
+System --> admin --: informs operation success
+
+@enduml

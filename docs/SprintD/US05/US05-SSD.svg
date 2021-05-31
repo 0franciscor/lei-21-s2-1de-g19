@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="610.74px" preserveAspectRatio="none" style="width:1161px;height:610px;" version="1.1" viewBox="0 0 1161 610" width="1161.54px" zoomAndPan="magnify"><defs><filter height="300%" id="fldinhi56svbh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.24"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.48" dy="6.48" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fldinhi56svbh)" height="282.0572" style="stroke:#A80036;stroke-width:1.62;" width="16.2" x="119.07" y="161.3672"/><rect fill="#FFFFFF" filter="url(#fldinhi56svbh)" height="49.1695" style="stroke:#A80036;stroke-width:1.62;" width="16.2" x="1086.21" y="197.5767"/><rect fill="#FFFFFF" filter="url(#fldinhi56svbh)" height="49.1695" style="stroke:#A80036;stroke-width:1.62;" width="16.2" x="1086.21" y="295.9158"/><rect fill="#FFFFFF" filter="url(#fldinhi56svbh)" height="49.1695" style="stroke:#A80036;stroke-width:1.62;" width="16.2" x="1086.21" y="394.2548"/><line style="stroke:#A80036;stroke-width:1.62;stroke-dasharray:5.0,5.0;" x1="126.36" x2="126.36" y1="145.1672" y2="472.5844"/><line style="stroke:#A80036;stroke-width:1.62;stroke-dasharray:5.0,5.0;" x1="1094.31" x2="1094.31" y1="145.1672" y2="472.5844"/><text fill="#000000" font-family="sans-serif" font-size="22.68" lengthAdjust="spacing" textLength="228.42" x="8.1" y="140.1838">MedicalLabTechnician</text><ellipse cx="127.17" cy="24.3" fill="#FEFECE" filter="url(#fldinhi56svbh)" rx="12.96" ry="12.96" style="stroke:#A80036;stroke-width:3.24;"/><path d="M127.17,37.26 L127.17,81 M106.11,50.22 L148.23,50.22 M127.17,81 L106.11,105.3 M127.17,81 L148.23,105.3 " fill="none" filter="url(#fldinhi56svbh)" style="stroke:#A80036;stroke-width:3.24;"/><text fill="#000000" font-family="sans-serif" font-size="22.68" lengthAdjust="spacing" textLength="228.42" x="8.1" y="494.5082">MedicalLabTechnician</text><ellipse cx="127.17" cy="515.6916" fill="#FEFECE" filter="url(#fldinhi56svbh)" rx="12.96" ry="12.96" style="stroke:#A80036;stroke-width:3.24;"/><path d="M127.17,528.6516 L127.17,572.3916 M106.11,541.6116 L148.23,541.6116 M127.17,572.3916 L106.11,596.6916 M127.17,572.3916 L148.23,596.6916 " fill="none" filter="url(#fldinhi56svbh)" style="stroke:#A80036;stroke-width:3.24;"/><rect fill="#FEFECE" filter="url(#fldinhi56svbh)" height="51.2072" style="stroke:#A80036;stroke-width:2.43;" width="97.2" x="1042.47" y="85.86"/><text fill="#000000" font-family="sans-serif" font-size="22.68" lengthAdjust="spacing" textLength="74.52" x="1053.81" y="120.7438">System</text><rect fill="#FEFECE" filter="url(#fldinhi56svbh)" height="51.2072" style="stroke:#A80036;stroke-width:2.43;" width="97.2" x="1042.47" y="470.9644"/><text fill="#000000" font-family="sans-serif" font-size="22.68" lengthAdjust="spacing" textLength="74.52" x="1053.81" y="505.8482">System</text><rect fill="#FFFFFF" filter="url(#fldinhi56svbh)" height="282.0572" style="stroke:#A80036;stroke-width:1.62;" width="16.2" x="119.07" y="161.3672"/><rect fill="#FFFFFF" filter="url(#fldinhi56svbh)" height="49.1695" style="stroke:#A80036;stroke-width:1.62;" width="16.2" x="1086.21" y="197.5767"/><rect fill="#FFFFFF" filter="url(#fldinhi56svbh)" height="49.1695" style="stroke:#A80036;stroke-width:1.62;" width="16.2" x="1086.21" y="295.9158"/><rect fill="#FFFFFF" filter="url(#fldinhi56svbh)" height="49.1695" style="stroke:#A80036;stroke-width:1.62;" width="16.2" x="1086.21" y="394.2548"/><polygon fill="#A80036" points="1066.77,191.0967,1082.97,197.5767,1066.77,204.0567,1073.25,197.5767" style="stroke:#A80036;stroke-width:1.62;"/><line style="stroke:#A80036;stroke-width:1.62;" x1="135.27" x2="1076.49" y1="197.5767" y2="197.5767"/><text fill="#000000" font-family="sans-serif" font-size="21.06" font-weight="bold" lengthAdjust="spacing" textLength="11.34" x="146.61" y="189.7093">1</text><text fill="#000000" font-family="sans-serif" font-size="21.06" lengthAdjust="spacing" textLength="277.02" x="164.43" y="189.7093">asks to record new sample(s)</text><polygon fill="#A80036" points="153.09,240.2663,136.89,246.7463,153.09,253.2263,146.61,246.7463" style="stroke:#A80036;stroke-width:1.62;"/><line style="stroke:#A80036;stroke-width:1.62;stroke-dasharray:2.0,2.0;" x1="143.37" x2="1092.69" y1="246.7463" y2="246.7463"/><text fill="#000000" font-family="sans-serif" font-size="21.06" font-weight="bold" lengthAdjust="spacing" textLength="11.34" x="162.81" y="238.8788">2</text><text fill="#000000" font-family="sans-serif" font-size="21.06" lengthAdjust="spacing" textLength="756.54" x="180.63" y="238.8788">shows the tests and requests data (i.e.: test, number of samples to be collected)</text><polygon fill="#A80036" points="1066.77,289.4358,1082.97,295.9158,1066.77,302.3958,1073.25,295.9158" style="stroke:#A80036;stroke-width:1.62;"/><line style="stroke:#A80036;stroke-width:1.62;" x1="135.27" x2="1076.49" y1="295.9158" y2="295.9158"/><text fill="#000000" font-family="sans-serif" font-size="21.06" font-weight="bold" lengthAdjust="spacing" textLength="11.34" x="146.61" y="288.0483">3</text><text fill="#000000" font-family="sans-serif" font-size="21.06" lengthAdjust="spacing" textLength="395.28" x="164.43" y="288.0483">selects one test and types requested data</text><polygon fill="#A80036" points="153.09,338.6053,136.89,345.0853,153.09,351.5653,146.61,345.0853" style="stroke:#A80036;stroke-width:1.62;"/><line style="stroke:#A80036;stroke-width:1.62;stroke-dasharray:2.0,2.0;" x1="143.37" x2="1092.69" y1="345.0853" y2="345.0853"/><text fill="#000000" font-family="sans-serif" font-size="21.06" font-weight="bold" lengthAdjust="spacing" textLength="11.34" x="162.81" y="337.2179">4</text><text fill="#000000" font-family="sans-serif" font-size="21.06" lengthAdjust="spacing" textLength="894.24" x="180.63" y="337.2179">shows the data (samples generated and test to be associated with) and requests a confirmation</text><polygon fill="#A80036" points="1066.77,387.7748,1082.97,394.2548,1066.77,400.7348,1073.25,394.2548" style="stroke:#A80036;stroke-width:1.62;"/><line style="stroke:#A80036;stroke-width:1.62;" x1="135.27" x2="1076.49" y1="394.2548" y2="394.2548"/><text fill="#000000" font-family="sans-serif" font-size="21.06" font-weight="bold" lengthAdjust="spacing" textLength="11.34" x="146.61" y="386.3874">5</text><text fill="#000000" font-family="sans-serif" font-size="21.06" lengthAdjust="spacing" textLength="162" x="164.43" y="386.3874">confirms the data</text><polygon fill="#A80036" points="144.99,436.9444,128.79,443.4244,144.99,449.9044,138.51,443.4244" style="stroke:#A80036;stroke-width:1.62;"/><line style="stroke:#A80036;stroke-width:1.62;stroke-dasharray:2.0,2.0;" x1="135.27" x2="1092.69" y1="443.4244" y2="443.4244"/><text fill="#000000" font-family="sans-serif" font-size="21.06" font-weight="bold" lengthAdjust="spacing" textLength="11.34" x="154.71" y="435.5569">6</text><text fill="#000000" font-family="sans-serif" font-size="21.06" lengthAdjust="spacing" textLength="246.24" x="172.53" y="435.5569">informs operation success</text><!--MD5=[26f003d54731f2e01bb2d02c1d0724da]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor MedicalLabTechnician as MLT
+
+activate MLT
+MLT -> System ++: asks to record new sample(s)
+System - -> MLT - -: shows the tests and requests data (i.e.: test, number of samples to be collected)
+MLT -> System ++: selects one test and types requested data
+System - -> MLT - -: shows the data (samples generated and test to be associated with) and requests a confirmation
+MLT -> System ++: confirms the data
+System - -> MLT - -: informs operation success
+deactivate MLT
+
+@enduml
+
+@startuml
+
+autonumber
+
+actor MedicalLabTechnician as MLT
+
+activate MLT
+MLT -> System ++: asks to record new sample(s)
+System - -> MLT - -: shows the tests and requests data (i.e.: test, number of samples to be collected)
+MLT -> System ++: selects one test and types requested data
+System - -> MLT - -: shows the data (samples generated and test to be associated with) and requests a confirmation
+MLT -> System ++: confirms the data
+System - -> MLT - -: informs operation success
+deactivate MLT
+
+@enduml
+
+PlantUML version 1.2021.2(Sun Mar 07 11:10:27 GMT 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

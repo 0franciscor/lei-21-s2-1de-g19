@@ -1,0 +1,16 @@
+@startuml
+autonumber
+
+actor "Laboratory Coordinator" as labC
+activate labC
+
+labC -> System ++: validate a Test Result/Diagnosis
+System --> labC --: shows a list of to-be validated tests
+loop for the chosen tests
+labC -> System ++: selects a test from the list
+System -->  labC --: displays its data (registration date, chemical analysis date, diagnosis date) and requests to confirm it's valid
+labC ->  System ++: confirms the valid state
+System --> labC --: informs about the operation success
+end
+
+@enduml
