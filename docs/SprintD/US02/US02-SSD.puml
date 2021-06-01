@@ -7,8 +7,8 @@ actor "Client" as C
 activate C
 C -> System ++: update personal data
 System --> C --: shows the data that want to update and ask to select one or more
-C -> System ++: selects the data
-System --> C --: update the data, shows it and requests a confirmation
+C -> System ++: selects the data and update it
+System --> C --: shows the data and requests a confirmation
 C -> System ++: confirms the data
 System --> C --: informs operation success
 @enduml
