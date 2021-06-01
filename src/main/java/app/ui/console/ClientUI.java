@@ -25,8 +25,20 @@ public class ClientUI implements Runnable{
     public void run()
     {
         List<MenuItem> options = new ArrayList<>();
-        options.add(new MenuItem("View Tests Results", new ViewClientTestsUI()));
-        options.add(new MenuItem("Update personal data", new RegisterClientUI()));
+
+        String TIN;
+
+        try {
+
+            TIN = Utils.readLineFromConsole("Please insert your TIN number:");
+
+        } catch (Exception e) {
+            System.out.println("Invalid Tax Identification Number or the client has not been registered yet.");
+            return;
+        }
+
+        //options.add(new MenuItem("View Tests Results", new ViewClientTestsUI(TIN)));
+        options.add(new MenuItem("Update personal data", new UpdateClientDataUI(TIN)));
 
         int option = 0;
         do
