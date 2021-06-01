@@ -65,6 +65,7 @@ public class TestDto {
     public String toString(int opt) {
         if(opt==0)
             return String.format("This is a %s test and the type of test is %s.", description, testType.getDescription());
+
         else
             return String.format("Test with: \nClient %s. \n%s. \n%s. \n%s", this.client,this.testType,this.parameterCategories,this.parameters);
     }
@@ -103,6 +104,10 @@ public class TestDto {
 
     public String getTIN(){
         return this.TIN;
+    }
+
+    public TestType getTestType(){
+        return this.testType;
     }
 
     public void setValues(String result, ParameterResult parameter) {

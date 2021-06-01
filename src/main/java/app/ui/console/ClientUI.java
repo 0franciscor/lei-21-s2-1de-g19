@@ -37,7 +37,7 @@ public class ClientUI implements Runnable{
             return;
         }
 
-        //options.add(new MenuItem("View Tests Results", new ViewClientTestsUI(TIN)));
+        options.add(new MenuItem("View Tests Results", new ViewClientTestsUI(TIN)));
         options.add(new MenuItem("Update personal data", new UpdateClientDataUI(TIN)));
 
         int option = 0;

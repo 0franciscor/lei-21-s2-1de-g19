@@ -152,9 +152,9 @@ public class Employee {
     public void checkSOCCODERules (int socCode){
 
         if (StringUtils.isBlank(String.valueOf(socCode)))
-            throw new IllegalArgumentException("Phone number cannot be blank.");
+            throw new IllegalArgumentException("SOC CODE cannot be blank.");
         if ( String.valueOf(socCode).length() != 4 ){
-            throw new IllegalArgumentException("Phone number must have 11 chars.");
+            throw new IllegalArgumentException("SOC CODE must have 4 chars.");
         }
 
     }
