@@ -6,7 +6,7 @@ public class ExternalModuleCovid extends ExternalModule {
 
     CovidReferenceValues1API em1;
     ReferenceValue refValue;
-
+    String metrics;
     public ExternalModuleCovid(){
         em1 = new CovidReferenceValues1API();
     }
@@ -16,6 +16,10 @@ public class ExternalModuleCovid extends ExternalModule {
         refValue.setMinValue(em1.getMinReferenceValue(parameter.getCode(), 12345));
         refValue.setMaxValue(em1.getMaxReferenceValue(parameter.getCode(), 12345));
         return refValue;
+    }
+    public String getMetrics (Parameter parameter) {
+        metrics = em1.usedMetric(parameter.getCode(), 12345);
+        return metrics;
     }
 
     @Override

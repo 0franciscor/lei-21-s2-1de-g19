@@ -11,7 +11,7 @@ public class ParameterResult {
     private ReferenceValue refValue;
 
 
-    /*public ParameterResult(Test test, Parameter parameter, String result, String metric){
+    public ParameterResult(Test test, Parameter parameter, String result, String metric){
         this.parameter = parameter;
         this.resultRegistrationDateTime = new Date();
         this.result = result;
@@ -19,7 +19,7 @@ public class ParameterResult {
         refValue = em.getReferenceValue(parameter);
         this.metric = em.getMetrics(parameter);
 
-    }*/
+    }
 
     public void setRegistrationDateTime(Date registrationDateTime){
         this.resultRegistrationDateTime = registrationDateTime;
@@ -41,13 +41,14 @@ public class ParameterResult {
         return this.parameter;
     }
 
-    public void addResult(Date registrationDateTime, String result, String metric, ReferenceValue refValue){
-        this.setRegistrationDateTime(registrationDateTime);
+    public void addResult(String result){
         this.setResult(result);
-        this.setMetric(metric);
-        this.setRefValue(refValue);
     }
-    public String toString() {
-        return String.format("Reference Value: %s Result: %s", refValue, result);
+    public String toString(int opt) {
+        if (opt == 1)
+            return String.format("Reference Value: %s Result: %s", refValue, result);
+        if (opt == 2)
+            return String.format("Parameter: %s Metric used: %s Reference Value: %s",parameter.getDesignation(), metric, refValue);
+        return null;
     }
 }

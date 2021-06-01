@@ -126,5 +126,7 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
         else
             System.out.println("Occurred an error while deleting the file "+this.fileName);
     }
-
+    public String getBarcodeCode() {
+        return barcodeCode;
+    }
 }

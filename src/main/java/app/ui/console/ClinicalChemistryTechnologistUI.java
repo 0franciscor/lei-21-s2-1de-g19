@@ -10,7 +10,7 @@ public class ClinicalChemistryTechnologistUI implements Runnable{
     public void run()
     {
         List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("Record test result", new WriteTestReportUI()));
+        options.add(new MenuItem("Record test result", new RecordTestResultUI()));
 
 
         int option = 0;

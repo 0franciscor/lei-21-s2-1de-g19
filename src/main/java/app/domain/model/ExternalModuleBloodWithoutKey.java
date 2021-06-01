@@ -8,6 +8,7 @@ public class ExternalModuleBloodWithoutKey extends ExternalModule {
     ExternalModule2API em2;
     EMRefValue EMRefValue;
     ReferenceValue refValue;
+    String metrics;
 
     public ExternalModuleBloodWithoutKey(){
         em2 = new ExternalModule2API();
@@ -19,6 +20,10 @@ public class ExternalModuleBloodWithoutKey extends ExternalModule {
         refValue.setMinValue(EMRefValue.getMinValue());
         refValue.setMaxValue(EMRefValue.getMaxValue());
         return refValue;
+    }
+    public String getMetrics (Parameter parameter) {
+        metrics = em2.getMetricsFor(parameter.getCode());
+        return metrics;
     }
 
     @Override
