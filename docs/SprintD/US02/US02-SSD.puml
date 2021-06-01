@@ -6,10 +6,6 @@ autonumber
 actor "Client" as C
 activate C
 C -> System ++: update personal data
-System -->  C --: request data (TIN)
-C -> System ++: types requested data
-System --> C --: shows the client's information and request a confirmation
-C -> System ++: confirms the data
 System --> C --: shows the data that want to update and ask to select one or more
 C -> System ++: selects the data
 System --> C --: update the data, shows it and requests a confirmation
