@@ -42,7 +42,7 @@ public class RegisterTestUI implements Runnable {
         int option = 0;
 
         System.out.printf("\n--- Requested data to register a test ---");
-        String citizenID = Utils.readLineFromConsole("\nType the Client's Tax Identification Number:");
+        String TIN = Utils.readLineFromConsole("\nType the Client's Tax Identification Number:");
         String nhsCode = Utils.readLineFromConsole("Type the NHS Code test:");
 
         if (ctrl.testStore.getNhsCodeList().contains(nhsCode))
@@ -51,7 +51,7 @@ public class RegisterTestUI implements Runnable {
 
             ClientDto cl;
             try {
-                cl = ctrl.getClient(citizenID);
+                cl = ctrl.getClient(TIN);
             } catch (Exception e) {
                 System.out.println("\nInvalid Tax Identification Number or the client has not been registered yet.");
                 return;

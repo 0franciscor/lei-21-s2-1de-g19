@@ -302,6 +302,7 @@ public class Client {
      * @param sex new Client's sex
      */
     public void setSex(String sex) {
+        checkSexRules(sex);
         this.sex = sex;
     }
 
@@ -311,6 +312,7 @@ public class Client {
      * @param phoneNumber new Client's phone number
      */
     public void setPhoneNumber(String phoneNumber) {
+        checkPhoneNumberRules(phoneNumber);
         this.phoneNumber = phoneNumber;
     }
 
@@ -329,6 +331,7 @@ public class Client {
      * @param name new Client's name
      */
     public void setName(String name) {
+        checkNameRules(name);
         this.name = name;
     }
 

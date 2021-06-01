@@ -18,18 +18,21 @@ public class UpdateClientDataUI implements Runnable {
      * Update client data Controller.
      */
     private UpdateClientDataController ctrl;
+    private String TIN;
 
     /**
      * Allows access to update client data controller methods.
      */
-    public UpdateClientDataUI (){
+    public UpdateClientDataUI (String TIN){
 
         ctrl = new UpdateClientDataController();
+        this.TIN = TIN;
     }
 
 
     public void run() {
 
+        /*
         System.out.printf("\n--- UPDATE CLIENT'S DATA ---");
         String TIN = Utils.readLineFromConsole("\nType the Client's Tax Identification Number:");
 
@@ -42,14 +45,16 @@ public class UpdateClientDataUI implements Runnable {
             return;
         }
 
+         */
+
+        Client cl = ctrl.getClient(TIN);
+
         if (cl != null){
 
             boolean confirmation = Utils.confirm(String.format("Is this information right? If so type s, if not type n. \n\n Citizen card number: %s \n National Healthcare Service number (NHS): %s " +
                     "\n Birth date: %s \n Sex: %s \n Tax Identification number (TIN): %s \n Phone number: %s \n email: %s \n name: %s ", cl.getCitizenID(), cl.getNhsID(), cl.getBirthDate(), cl.getSex(), cl.getTIN(), cl.getPhoneNumber(), cl.getEmail(), cl.getName()));
 
             if (confirmation){
-
-                List<String> dataToUpdate = ctrl.getDataToUpdate(cl);
 
                 System.out.println("\n--- DATA YOU CAN UPDATE ---");
 
@@ -59,7 +64,7 @@ public class UpdateClientDataUI implements Runnable {
                 options.add("Email");
                 options.add("Name");
 
-                int option = Utils.showAndSelectIndex(options,"Select an option from the list.");
+                int option = Utils.showAndSelectIndex(options,"\nSelect an option from the list.");
 
                 mudarDados(option,cl);
 
@@ -71,40 +76,56 @@ public class UpdateClientDataUI implements Runnable {
 
         switch (option){
             case 0:
-                System.out.println("Old sex:" + client.getSex());
-                boolean confirmation = Utils.confirm("Change sex?");
+                System.out.println("\nOld sex is: " + client.getSex());
+                boolean confirmation = Utils.confirm("Do you want to change your sex?");
                 if (confirmation){
                     boolean aux = false;
-                    do{
+                    do {
                         try {
                             client.setSex(Utils.readLineFromConsole("Updated sex:"));
-                        } catch (Exception e) {
-                            System.out.println("Invalid sex.");
                             aux = true;
-                        }
-                    }while(!aux);
+                        } catch (Exception e) {
+                            System.out.println("\nInvalid sex. Type a valid one.");
 
+                        }
+                    } while (!aux);
                 }
                 break;
             case 1:
-                System.out.println("Old phone number:" + client.getPhoneNumber());
-                boolean confirmation1 = Utils.confirm("Change phone number?");
+                System.out.println("\nOld phone number: " + client.getPhoneNumber());
+                boolean confirmation1 = Utils.confirm("Do you want to change your phone number?");
                 if (confirmation1){
-                    client.setSex(Utils.readLineFromConsole("Updated phone number:"));
+                    boolean aux1 = false;
+                    do {
+                        try {
+                            client.setPhoneNumber(Utils.readLineFromConsole("Updated phone number:"));
+                            aux1 = true;
+                        } catch (Exception e) {
+                            System.out.println("\nInvalid phone number. Type a valid one.");
+                        }
+                    } while (!aux1);
                 }
                 break;
             case 2:
-                System.out.println("Old email:" + client.getEmail());
-                boolean confirmation2 = Utils.confirm("Change email?");
+                System.out.println("\nOld email: " + client.getEmail());
+                boolean confirmation2 = Utils.confirm("Do you want to change your email?");
                 if (confirmation2){
-                    client.setSex(Utils.readLineFromConsole("Updated email:"));
+                    client.setEmail(Utils.readLineFromConsole("Updated email:"));
                 }
                 break;
             case 3:
-                System.out.println("Old name:" + client.getName());
-                boolean confirmation3 = Utils.confirm("Change name?");
+                System.out.println("\nOld name: " + client.getName());
+                boolean confirmation3 = Utils.confirm("Do you want to change your name?");
                 if (confirmation3){
-                    client.setSex(Utils.readLineFromConsole("Updated name:"));
+                    boolean aux3 = false;
+                    do {
+                        try {
+                            client.setName(Utils.readLineFromConsole("Updated name:"));
+                            aux3 = true;
+                        } catch (Exception e) {
+                            System.out.println("\nInvalid name. Type a valid one.");
+                        }
+                    } while (!aux3);
                 }
                 break;
         }

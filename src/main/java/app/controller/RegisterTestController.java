@@ -54,7 +54,7 @@ public class RegisterTestController {
     }
 
     /**
-     * Returns a client Dto that receives the citizen card number as a parameter.
+     * Returns a client Dto that receives the Tax Identification number as a parameter.
      *
      * @param TIN Tax Identification number
      * @return client Dto that receives the citizen card number as a parameter.
