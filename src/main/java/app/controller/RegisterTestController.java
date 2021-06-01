@@ -139,10 +139,11 @@ public class RegisterTestController {
      *
      * @return true if the saveTest method of the test store is true, otherwise return false.
      */
-    public boolean saveTest (Test test) {
+    public boolean saveTest (Test test, ClientDto client) {
 
         if (this.testStore.saveTest(test)){
             test.generateCode();
+            clientstore.getClient(client.getTIN()).addTest(test);
             return true;
         }
 

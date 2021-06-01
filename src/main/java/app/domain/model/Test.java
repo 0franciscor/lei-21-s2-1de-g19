@@ -118,6 +118,7 @@ public class Test {
     public static enum Status {
         Registered, Collected, Analyzed, Reported, Validated
     }
+    private Report report;
 
     /**
      * Builds an empty Test instance, which only registers the created state.
@@ -504,6 +505,13 @@ public class Test {
 
     public List<ParameterResult> getParameterResults() {
         return parameterResults;
+    }
+
+    public void addReport(Report report) {
+        this.report = report;
+    }
+    public Report getReport(){
+        return this.report;
     }
 
 }

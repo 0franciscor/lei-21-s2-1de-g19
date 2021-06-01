@@ -1,5 +1,9 @@
 package auth.mappers.dto;
 
+import app.domain.model.Test;
+
+import java.util.List;
+
 /**
  * Represents the Client dto class.
  *
@@ -47,6 +51,8 @@ public class ClientDto {
      */
     private String name;
 
+    private List<Test> clientTestList;
+
     /**
      * Builds a clientDto instance, receiving the citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email and name.
      *
@@ -70,6 +76,13 @@ public class ClientDto {
         this.email = email;
         this.name = name;
 
+    }
+    public ClientDto (String name, String sex, String tin, String birthDate, List<Test> testList) {
+        this.name = name;
+        this.sex = sex;
+        this.TIN = tin;
+        this.birthDate = birthDate;
+        this.clientTestList = testList;
     }
 
     /**
@@ -142,5 +155,8 @@ public class ClientDto {
      */
     public String getName(){
         return name;
+    }
+    public List<Test> getTestsOfClient() {
+        return this.clientTestList;
     }
 }

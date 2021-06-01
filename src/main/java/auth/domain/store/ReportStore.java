@@ -97,5 +97,12 @@ public class ReportStore {
     public List<Report> getReportList(){
         return this.reportList;
     }
+    public Report getReport(String code) {
+        for (Report c : this.reportList) {
+            if (c.getTestCode().equalsIgnoreCase(code))
+                return c;
+        }
+        return null;
+    }
 
 }

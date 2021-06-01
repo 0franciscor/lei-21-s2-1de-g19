@@ -20,6 +20,7 @@ public class TestDto {
     private Date diagnosisDateTime;
     private ArrayList<Sample> listSamples;
     private String TIN;
+    private Report report;
 
     public TestDto(String description, TestType testType, String code, List<ParameterResult> parameterResultList) {
         this.description = description;
@@ -60,6 +61,13 @@ public class TestDto {
      */
     public TestDto(ArrayList<Sample> listSample){
         this.listSamples=listSample;
+    }
+    public TestDto(TestType testType,Date chemicalAnalysisDateTime, List<ParameterResult> parameterResults, String code, String tin, Report report){
+        this.testType =testType;
+        this.chemicalAnalysisDateTime = chemicalAnalysisDateTime;
+        this.parameterResultList = parameterResults;
+        this.code = code;
+        this.report = report;
     }
 
     public String toString(int opt) {

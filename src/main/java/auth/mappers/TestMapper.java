@@ -90,4 +90,13 @@ public class TestMapper {
         }
         return testListDto;
     }
+    public static List<TestDto> toDTOTestMapper (List<Test> testList){
+        List<TestDto> testListDto = new ArrayList<>();
+        for(Test test: testList) {
+            testListDto.add(new TestDto(test.getTestType(), test.getChemicalAnalysisDateTime(),
+                    test.getParameterResults(), test.getCode(), test.getClient().getTIN(), test.getReport()));
+        }
+        return testListDto;
+    }
+
 }

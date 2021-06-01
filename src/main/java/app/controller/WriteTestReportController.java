@@ -75,8 +75,10 @@ public class WriteTestReportController {
     public boolean saveReport(TestDto test ,String reportTxt) {
         String testCode = test.getTestCode();
         reportStore = company.getReportStore();
-        if(reportStore.saveReport(reportTxt, testCode))
+        if(reportStore.saveReport(reportTxt, testCode)) {
+            company.getTestStore().getTestByCode(testCode).addReport(company.getReportStore().getReport(testCode));
             return true;
+        }
         return false;
     }
     public void setAnalyzed() {

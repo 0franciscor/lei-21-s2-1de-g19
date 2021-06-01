@@ -4,10 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Random;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * Represents the Client class.
@@ -56,6 +53,8 @@ public class Client {
      */
     private String name;
 
+    private List<Test> clientTestsList;
+
 
     /**
      * Builds a client instance, receiving the citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email and name.
@@ -86,6 +85,7 @@ public class Client {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.name = name;
+        this.clientTestsList = new ArrayList<>();
     }
 
     /**
@@ -354,5 +354,11 @@ public class Client {
             strAux += aux;
         }
         return strAux;
+    }
+    public void addTest(Test test) {
+        this.clientTestsList.add(test);
+    }
+    public List<Test> getClientTestsList() {
+        return this.clientTestsList;
     }
 }

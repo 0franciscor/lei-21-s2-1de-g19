@@ -4,6 +4,9 @@ package auth.mappers;
 import app.domain.model.Client;
 import auth.mappers.dto.ClientDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClientMapper {
 
     /**
@@ -47,6 +50,15 @@ public class ClientMapper {
                 client.getName());
 
         return c1;
+
+    }
+    public static List<ClientDto> toDTO (List<Client> clientList) {
+        List<ClientDto> clientDtoList = new ArrayList<>();
+        for (Client c : clientList) {
+            ClientDto c1 = new ClientDto(c.getName(),c.getSex(),c.getTIN(),c.getBirthDate(), c.getClientTestsList());
+            clientDtoList.add(c1);
+        }
+        return clientDtoList;
 
     }
 }

@@ -173,7 +173,7 @@ public class RegisterTestUI implements Runnable {
                                             return;
 
                                         }
-                                        ctrl.saveTest(test);
+                                        ctrl.saveTest(test, cl);
                                         System.out.println("Operation was a success and the test was registered.");
                                         ctrl.testStore.getNhsCodeList().add(nhsCode);
 

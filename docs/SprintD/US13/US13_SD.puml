@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "LabCoordinator" as LB
+activate LB
+LB -> ConsultTestDetailsByClientUI : consult the historical tests performed by a particular client
+activate ConsultTestDetailsByClientUI
+ConsultTestDetailsByClientUI --> LB : ask ordering criteria
+deactivate ConsultTestDetailsByClientUI
+LB -> ConsultTestDetailsByClientUI : selects order criteria
+activate ConsultTestDetailsByClientUI
+ConsultTestDetailsByClientUI -> ConsultTestDetailsByClientController : orderClients(criteria)
+activate ConsultTestDetailsByClientController
+ConsultTestDetailsByClientController -> Company : clientStore = getClientStore()
+activate Company
+deactivate Company
+ConsultTestDetailsByClientController -> ClientStore : clientList = getClientList()
+activate ClientStore
+deactivate ClientStore
+ConsultTestDetailsByClientController -> ClientMapper  : clientListDto = toDTO(clientList)
+activate ClientMapper
+deactivate ClientMapper
+ConsultTestDetailsByClientController -> OrderClients : clientListDtoOrdered = orderClients(criteria, clientListDto)
+activate OrderClients
+deactivate OrderClients
+deactivate ConsultTestDetailsByClientController
+
+ConsultTestDetailsByClientUI --> LB : presents an ordered list of client and ask to select one
+deactivate ConsultTestDetailsByClientUI
+LB -> ConsultTestDetailsByClientUI : selects data
+activate ConsultTestDetailsByClientUI
+ConsultTestDetailsByClientUI -> ConsultTestDetailsByClientController :  presentTestsOfClient(clientDto)
+activate ConsultTestDetailsByClientController
+ConsultTestDetailsByClientController -> ClientDto : testListOfClient = getTestsOfClient()
+activate ClientDto
+deactivate ClientDto
+ConsultTestDetailsByClientController -> TestMapper : testDtoListOfClient = toDTO(testListOfClient)
+activate TestMapper
+deactivate TestMapper
+deactivate ConsultTestDetailsByClientController
+ConsultTestDetailsByClientUI --> LB : presents client's tests and ask to select one
+deactivate ConsultTestDetailsByClientUI
+LB -> ConsultTestDetailsByClientUI : selects data
+activate ConsultTestDetailsByClientUI
+ConsultTestDetailsByClientUI -> ConsultTestDetailsByClientController  : presentTestDetails(testDto)
+activate ConsultTestDetailsByClientController
+
+deactivate ConsultTestDetailsByClientController
+ConsultTestDetailsByClientUI --> LB : shows test details
+
+
+@enduml

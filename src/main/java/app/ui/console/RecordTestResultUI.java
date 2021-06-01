@@ -24,7 +24,7 @@ public class RecordTestResultUI implements Runnable {
             List<Test> listTestFromClient = ctrl.getTestsByTIN(tin);
             Test test = (Test) Utils.selectsObject(listTestFromClient);
             if (test.getStatus().equalsIgnoreCase(Test.Status.Collected.toString())) {
-                for (ParameterResult c : test.getParameterResults()) ´~
+                for (ParameterResult c : test.getParameterResults()) {
                     System.out.println("Register the result for this parameter.");
                     c.toString(2);
                     String result = Utils.readLineFromConsole("Set the result.");
