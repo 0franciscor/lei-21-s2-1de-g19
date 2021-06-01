@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="920px" preserveAspectRatio="none" style="width:1375px;height:920px;background:#FFFFFF;" version="1.1" viewBox="0 0 1375 920" width="1375px" zoomAndPan="magnify"><defs><filter height="300%" id="f30ciruei2cg1" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="726.625" style="stroke:#A80036;stroke-width:1.0;" width="10" x="21" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="453.1641" style="stroke:#A80036;stroke-width:1.0;" width="10" x="453" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="121.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="453" y="605.4766"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="60.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="453" y="756.8828"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="392.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="695" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="60.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="695" y="635.8281"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="695" y="787.2344"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="870" y="182.6641"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="241.4063" style="stroke:#A80036;stroke-width:1.0;" width="10" x="973" y="243.0156"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1217" y="273.3672"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1217" y="333.7188"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1217" y="394.0703"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1217" y="454.4219"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1307" y="514.7734"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1307" y="666.1797"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="26" x2="26" y1="89.6094" y2="835.2344"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="457.5" x2="457.5" y1="89.6094" y2="835.2344"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="699.5" x2="699.5" y1="89.6094" y2="835.2344"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="875" x2="875" y1="89.6094" y2="835.2344"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="978" x2="978" y1="89.6094" y2="835.2344"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1222" x2="1222" y1="89.6094" y2="835.2344"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1312" x2="1312" y1="89.6094" y2="835.2344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="5" y="86.5332">Client</text><ellipse cx="26" cy="15" fill="#FEFECE" filter="url(#f30ciruei2cg1)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M26,23 L26,50 M13,31 L39,31 M26,50 L13,65 M26,50 L39,65 " fill="none" filter="url(#f30ciruei2cg1)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="5" y="848.7676">Client</text><ellipse cx="26" cy="861.8438" fill="#FEFECE" filter="url(#f30ciruei2cg1)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M26,869.8438 L26,896.8438 M13,877.8438 L39,877.8438 M26,896.8438 L13,911.8438 M26,896.8438 L39,911.8438 " fill="none" filter="url(#f30ciruei2cg1)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="141" x="385.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="392.5" y="74.5332">:UpdateClientDataUI</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="141" x="385.5" y="834.2344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="392.5" y="855.7676">:UpdateClientDataUI</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="191" x="602.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="609.5" y="74.5332">:UpdateClientDataController</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="191" x="602.5" y="834.2344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="609.5" y="855.7676">:UpdateClientDataController</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="78" x="834" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="841" y="74.5332">:Company</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="78" x="834" y="834.2344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="841" y="855.7676">:Company</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="88" x="932" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="939" y="74.5332">:ClientStore</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="88" x="932" y="834.2344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="939" y="855.7676">:ClientStore</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="50" x="1195" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="1202" y="74.5332">Client</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="50" x="1195" y="834.2344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="1202" y="855.7676">Client</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="102" x="1259" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1266" y="74.5332">:ClientMapper</text><rect fill="#FEFECE" filter="url(#f30ciruei2cg1)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="102" x="1259" y="834.2344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="1266" y="855.7676">:ClientMapper</text><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="726.625" style="stroke:#A80036;stroke-width:1.0;" width="10" x="21" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="453.1641" style="stroke:#A80036;stroke-width:1.0;" width="10" x="453" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="121.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="453" y="605.4766"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="60.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="453" y="756.8828"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="392.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="695" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="60.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="695" y="635.8281"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="695" y="787.2344"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="870" y="182.6641"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="241.4063" style="stroke:#A80036;stroke-width:1.0;" width="10" x="973" y="243.0156"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1217" y="273.3672"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1217" y="333.7188"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1217" y="394.0703"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1217" y="454.4219"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1307" y="514.7734"/><rect fill="#FFFFFF" filter="url(#f30ciruei2cg1)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1307" y="666.1797"/><polygon fill="#A80036" points="441,117.9609,451,121.9609,441,125.9609,445,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="31" x2="447" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="38" y="117.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="121" x="49" y="117.1045">update personal data</text><polygon fill="#A80036" points="683,148.3125,693,152.3125,683,156.3125,687,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="463" x2="689" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="470" y="147.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="123" x="481" y="147.4561">getAllDataToUpdate()</text><polygon fill="#A80036" points="858,178.6641,868,182.6641,858,186.6641,862,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="705" x2="864" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="712" y="177.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="135" x="723" y="177.8076">store = getClientStore()</text><polygon fill="#A80036" points="961,239.0156,971,243.0156,961,247.0156,965,243.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="705" x2="967" y1="243.0156" y2="243.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="712" y="238.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="238" x="723" y="238.1592">listDataToUpdate = getAllDataToUpdate()</text><polygon fill="#A80036" points="1205,269.3672,1215,273.3672,1205,277.3672,1209,273.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="983" x2="1211" y1="273.3672" y2="273.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="990" y="268.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="86" x="1001" y="268.5107">sex = getSex()</text><polygon fill="#A80036" points="1205,329.7188,1215,333.7188,1205,337.7188,1209,333.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="983" x2="1211" y1="333.7188" y2="333.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="990" y="328.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="204" x="1001" y="328.8623">phoneNumber = getPhoneNumber()</text><polygon fill="#A80036" points="1205,390.0703,1215,394.0703,1205,398.0703,1209,394.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="983" x2="1211" y1="394.0703" y2="394.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="990" y="389.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="1001" y="389.2139">email = getEmail()</text><polygon fill="#A80036" points="1205,450.4219,1215,454.4219,1205,458.4219,1209,454.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="983" x2="1211" y1="454.4219" y2="454.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="990" y="449.5654">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="108" x="1001" y="449.5654">name = getName()</text><polygon fill="#A80036" points="1295,510.7734,1305,514.7734,1295,518.7734,1299,514.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="705" x2="1301" y1="514.7734" y2="514.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="712" y="509.917">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="273" x="723" y="509.917">listDataToUpdateDto = toDto(listDataToUpdate)</text><polygon fill="#A80036" points="42,571.125,32,575.125,42,579.125,38,575.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="36" x2="457" y1="575.125" y2="575.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="48" y="570.2686">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="380" x="66" y="570.2686">shows the data that want to update and ask to select one or more</text><polygon fill="#A80036" points="441,601.4766,451,605.4766,441,609.4766,445,605.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="31" x2="447" y1="605.4766" y2="605.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="38" y="600.6201">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="172" x="56" y="600.6201">selects the data and update it</text><polygon fill="#A80036" points="683,631.8281,693,635.8281,683,639.8281,687,635.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="463" x2="689" y1="635.8281" y2="635.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="470" y="630.9717">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="488" y="630.9717">UpdateData(listDataToUpdateDto)</text><polygon fill="#A80036" points="1295,662.1797,1305,666.1797,1295,670.1797,1299,666.1797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="705" x2="1301" y1="666.1797" y2="666.1797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="712" y="661.3232">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="251" x="730" y="661.3232">listUpdate = toModel (listDataToUpdateDto)</text><polygon fill="#A80036" points="42,722.5313,32,726.5313,42,730.5313,38,726.5313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="36" x2="457" y1="726.5313" y2="726.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="48" y="721.6748">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="252" x="66" y="721.6748">shows the data and requests a confirmation</text><polygon fill="#A80036" points="441,752.8828,451,756.8828,441,760.8828,445,756.8828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="31" x2="447" y1="756.8828" y2="756.8828"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="38" y="752.0264">15</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="100" x="56" y="752.0264">confirms the data</text><polygon fill="#A80036" points="683,783.2344,693,787.2344,683,791.2344,687,787.2344" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="463" x2="689" y1="787.2344" y2="787.2344"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="470" y="782.3779">16</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="167" x="488" y="782.3779">UpdateDataClient(listUpdate)</text><!--MD5=[3e28300aa4af72a160817396f7aa0374]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Client" as C
+activate C
+
+
+C -> ":UpdateClientDataUI" : update personal data
+activate ":UpdateClientDataUI"
+":UpdateClientDataUI" -> ":UpdateClientDataController": getAllDataToUpdate()
+activate ":UpdateClientDataController"
+
+":UpdateClientDataController" -> ":Company": store = getClientStore()
+activate ":Company"
+deactivate ":Company"
+":UpdateClientDataController" -> ":ClientStore": listDataToUpdate = getAllDataToUpdate()
+activate ":ClientStore"
+
+":ClientStore" -> "Client": sex = getSex()
+activate "Client"
+deactivate "Client"
+":ClientStore" -> "Client": phoneNumber = getPhoneNumber()
+activate "Client"
+deactivate "Client"
+":ClientStore" -> "Client": email = getEmail()
+activate "Client"
+deactivate "Client"
+":ClientStore" -> "Client": name = getName()
+activate "Client"
+deactivate "Client"
+
+deactivate ":ClientStore"
+
+":UpdateClientDataController" -> ":ClientMapper": listDataToUpdateDto = toDto(listDataToUpdate)
+activate ":ClientMapper"
+deactivate ":ClientMapper"
+
+deactivate ":UpdateClientDataController"
+
+
+":UpdateClientDataUI" - -> C: shows the data that want to update and ask to select one or more
+deactivate ":UpdateClientDataUI"
+C -> ":UpdateClientDataUI" : selects the data and update it
+activate ":UpdateClientDataUI"
+":UpdateClientDataUI" -> ":UpdateClientDataController": UpdateData(listDataToUpdateDto)
+activate ":UpdateClientDataController"
+
+":UpdateClientDataController" -> ":ClientMapper": listUpdate = toModel (listDataToUpdateDto)
+activate ":ClientMapper"
+deactivate ":ClientMapper"
+deactivate ":UpdateClientDataController"
+
+
+
+
+
+":UpdateClientDataUI" - -> C: shows the data and requests a confirmation
+deactivate ":UpdateClientDataUI"
+C -> ":UpdateClientDataUI": confirms the data
+activate ":UpdateClientDataUI"
+":UpdateClientDataUI" -> ":UpdateClientDataController": UpdateDataClient(listUpdate)
+activate ":UpdateClientDataController"
+deactivate ":UpdateClientDataController"
+
+
+
+deactivate ":UpdateClientDataUI"
+@enduml
+
+@startuml
+
+autonumber
+
+actor "Client" as C
+activate C
+
+
+C -> ":UpdateClientDataUI" : update personal data
+activate ":UpdateClientDataUI"
+":UpdateClientDataUI" -> ":UpdateClientDataController": getAllDataToUpdate()
+activate ":UpdateClientDataController"
+
+":UpdateClientDataController" -> ":Company": store = getClientStore()
+activate ":Company"
+deactivate ":Company"
+":UpdateClientDataController" -> ":ClientStore": listDataToUpdate = getAllDataToUpdate()
+activate ":ClientStore"
+
+":ClientStore" -> "Client": sex = getSex()
+activate "Client"
+deactivate "Client"
+":ClientStore" -> "Client": phoneNumber = getPhoneNumber()
+activate "Client"
+deactivate "Client"
+":ClientStore" -> "Client": email = getEmail()
+activate "Client"
+deactivate "Client"
+":ClientStore" -> "Client": name = getName()
+activate "Client"
+deactivate "Client"
+
+deactivate ":ClientStore"
+
+":UpdateClientDataController" -> ":ClientMapper": listDataToUpdateDto = toDto(listDataToUpdate)
+activate ":ClientMapper"
+deactivate ":ClientMapper"
+
+deactivate ":UpdateClientDataController"
+
+
+":UpdateClientDataUI" - -> C: shows the data that want to update and ask to select one or more
+deactivate ":UpdateClientDataUI"
+C -> ":UpdateClientDataUI" : selects the data and update it
+activate ":UpdateClientDataUI"
+":UpdateClientDataUI" -> ":UpdateClientDataController": UpdateData(listDataToUpdateDto)
+activate ":UpdateClientDataController"
+
+":UpdateClientDataController" -> ":ClientMapper": listUpdate = toModel (listDataToUpdateDto)
+activate ":ClientMapper"
+deactivate ":ClientMapper"
+deactivate ":UpdateClientDataController"
+
+
+
+
+
+":UpdateClientDataUI" - -> C: shows the data and requests a confirmation
+deactivate ":UpdateClientDataUI"
+C -> ":UpdateClientDataUI": confirms the data
+activate ":UpdateClientDataUI"
+":UpdateClientDataUI" -> ":UpdateClientDataController": UpdateDataClient(listUpdate)
+activate ":UpdateClientDataController"
+deactivate ":UpdateClientDataController"
+
+
+
+deactivate ":UpdateClientDataUI"
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 13:40:07 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

@@ -40,83 +40,31 @@ deactivate ":ClientMapper"
 deactivate ":UpdateClientDataController"
 
 
-
-
-
-
-
-
-
-
 ":UpdateClientDataUI" --> C: shows the data that want to update and ask to select one or more
 deactivate ":UpdateClientDataUI"
 C -> ":UpdateClientDataUI" : selects the data and update it
 activate ":UpdateClientDataUI"
-":UpdateClientDataUI" -> ":UpdateClientDataController": registerClient(dto)
+":UpdateClientDataUI" -> ":UpdateClientDataController": UpdateData(listDataToUpdateDto)
 activate ":UpdateClientDataController"
-":UpdateClientDataController" -> ":Company": cl = registerClient(dto)
-activate ":Company"
 
-
-
-
-deactivate ":AuthFacade"
-
-":Company" -> ":ClientMapper": cl = toModel (dto)
-deactivate ":Company"
+":UpdateClientDataController" -> ":ClientMapper": listUpdate = toModel (listDataToUpdateDto)
 activate ":ClientMapper"
-":ClientMapper" -> "dto: ClientDto" : citizenID = getCitizenID()
-activate "dto: ClientDto"
-deactivate "dto: ClientDto"
-":ClientMapper" -> "dto: ClientDto" : nhsID = getNhsID()
-activate "dto: ClientDto"
-deactivate "dto: ClientDto"
-":ClientMapper" -> "dto: ClientDto" : birthDate = getBirthDate()
-activate "dto: ClientDto"
-deactivate "dto: ClientDto"
-":ClientMapper" -> "dto: ClientDto" : sex = getSex()
-activate "dto: ClientDto"
-deactivate "dto: ClientDto"
-":ClientMapper" -> "dto: ClientDto" : TIN = getTIN()
-activate "dto: ClientDto"
-deactivate "dto: ClientDto"
-":ClientMapper" -> "dto: ClientDto" : phoneNumber = getPhoneNumber()
-activate "dto: ClientDto"
-deactivate "dto: ClientDto"
-":ClientMapper" -> "dto: ClientDto" : email = getEmail()
-activate "dto: ClientDto"
-deactivate "dto: ClientDto"
-":ClientMapper" -> "dto: ClientDto" : name = getName()
-activate "dto: ClientDto"
-deactivate "dto: ClientDto"
-create "cl: Client"
-":ClientMapper" --> "cl: Client": create(citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name)
 deactivate ":ClientMapper"
 deactivate ":UpdateClientDataController"
+
+
+
+
+
 ":UpdateClientDataUI" --> C: shows the data and requests a confirmation
 deactivate ":UpdateClientDataUI"
 C -> ":UpdateClientDataUI": confirms the data
 activate ":UpdateClientDataUI"
-":UpdateClientDataUI" -> ":UpdateClientDataController": saveClient(cl)
+":UpdateClientDataUI" -> ":UpdateClientDataController": UpdateDataClient(listUpdate)
 activate ":UpdateClientDataController"
-":UpdateClientDataController" -> ":Company" ++: getClientStore()
-deactivate ":Company"
-":UpdateClientDataController" -> ":ClientStore" : saveClient(cl)
-activate ":ClientStore"
-":ClientStore" -> ":ClientStore": validateClient(cl)
-activate ":ClientStore"
-deactivate ":ClientStore"
-":ClientStore" -> ":ClientStore": addClient(cl)
-activate ":ClientStore"
-deactivate ":ClientStore"
-":UpdateClientDataController" -> "cl: Client": pwd = generatePwd()
-activate "cl: Client"
-deactivate "cl: Client"
-deactivate ":ClientStore"
-":UpdateClientDataController" -> ":AuthFacade" : user = addUser (email, name, pwd)
-activate ":AuthFacade"
-deactivate ":AuthFacade"
+deactivate ":UpdateClientDataController"
 
-":UpdateClientDataUI" --> C: informs operation success
+
+
 deactivate ":UpdateClientDataUI"
 @enduml
