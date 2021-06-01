@@ -18,6 +18,8 @@ public class LabCUI implements Runnable {
     {
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Validate Tests", new ValidateTestUI()));
+        options.add(new MenuItem("Consult historical tests from client", new ConsultTestDetailsByClientUI()));
+
 
         int option = 0;
         do
