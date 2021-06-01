@@ -12,7 +12,7 @@ public class TestMapper {
         List<TestDto> listAnalyzedTestsDto = new ArrayList<TestDto>();
         for(Test c: listTest) {
             String description = c.getDescription();
-            String testType = c.getTestType().getDescription();
+            TestType testType = c.getTestType();
             String code = c.getCode();
             List<ParameterResult> parameterResultList = c.getParameterResults();
             TestDto testDto = new TestDto(description, testType, code, parameterResultList);
@@ -80,5 +80,14 @@ public class TestMapper {
     public static String DtoToModel (TestDto testDto){
         String code = testDto.getCode();
         return code;
+    }
+
+    public static List<TestDto> toDtoClient(List<Test> testList){
+        List<TestDto> testListDto = new ArrayList<>();
+        for(Test test: testList) {
+            testListDto.add(new TestDto(test.getTestType(), test.getChemicalAnalysisDateTime(),
+                    test.getParameterResults(), test.getCode(), test.getClient().getTIN()));
+        }
+        return testListDto;
     }
 }

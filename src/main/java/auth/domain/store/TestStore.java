@@ -184,6 +184,20 @@ public class TestStore {
     }
 
     /**
+     * Method responsible for returning a list of validated tests.
+     *
+     * @return a list of validated tests.
+     */
+    public List<Test> getValidatedTests() {
+        List<Test> diagnosedTestsList = new ArrayList<>();
+        for (Test test : TestList){
+            if (test != null && test.getStatus().equalsIgnoreCase(Test.Status.Validated.toString()))
+                diagnosedTestsList.add(test);
+        }
+        return diagnosedTestsList;
+    }
+
+    /**
      * @param code that identifies a test.
      *
      * Method responsible for fetching a test through its code.

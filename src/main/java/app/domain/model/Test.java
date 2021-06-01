@@ -67,8 +67,14 @@ public class Test {
      */
     private List<Parameter> parameters;
 
+    /**
+     * The Test's Parameter Categories
+     */
     private List<ParameterCategory> parameterCategories;
 
+    /**
+     * The Test's 
+     */
     private List<ParameterResult> parameterResults;
     /**
      * Client.
@@ -338,6 +344,11 @@ public class Test {
         return parameterCategories;
     }
 
+    /**
+     * Method responsible for returning a list of Barcodes.
+     *
+     * @return List of Barcodes
+     */
     public List<Barcode> getTestBarcodesList(){
         return testBarcodesList;
     }
@@ -465,7 +476,6 @@ public class Test {
         return false;
     }
 
-
     /**
      * A method that is responsible for automatically changing the Test state.
      *
@@ -485,10 +495,13 @@ public class Test {
             System.out.println("There was an error when updating the Test Status. Please try again.");
         }
     }
+
    /* public boolean addParameterResult (Test test, Parameter parameter, String value, String metric) {
         parameterResults.add(new ParameterResult(test, parameter, value, metric));
         return true;
     }*/
+
+
     public List<ParameterResult> getParameterResults() {
         return parameterResults;
     }
