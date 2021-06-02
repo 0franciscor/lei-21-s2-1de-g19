@@ -5,8 +5,7 @@ import auth.domain.store.TestStore;
 import auth.mappers.TestMapper;
 import auth.mappers.dto.TestDto;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -39,7 +38,9 @@ public class ViewTestsController {
      */
     public List<TestDto> getClientTests(String TIN) {
         List<TestDto> testDtoList = getTests();
-        return getSpecificTests(TIN, testDtoList);
+        testDtoList = getSpecificTests(TIN, testDtoList);
+        sortTestList(testDtoList);
+        return testDtoList;
     }
 
     /**
@@ -58,6 +59,19 @@ public class ViewTestsController {
             }
         }
         return testDtoListSpecific;
+    }
+
+    public void sortTestList(List<TestDto> testDtoList){
+        Collections.sort(testDtoList, new Comparator<TestDto>() {
+            @Override
+            public int compare(TestDto o1, TestDto o2) {
+                Date o1Date = o1.getRegistrationDateTime();
+                Date o2Date = o2.getRegistrationDateTime();
+
+                return o1Date.compareTo(o2Date);
+            }
+        });
+
     }
 }
 
