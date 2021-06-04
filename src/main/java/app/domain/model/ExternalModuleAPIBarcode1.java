@@ -75,7 +75,7 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
         List<Barcode> barcodes = new ArrayList<>();
         for(int i=0; i<nSamples; i++){
             this.fileName=generateFileName(i);
-            this.outputFile=new File("out\\"+fileName);
+            this.outputFile=new File(fileName);
             this.path=outputFile.getAbsolutePath();
             this.barcodeCode=String.format("%011d",nBarcodes);
             if(a){
