@@ -91,4 +91,21 @@ public class ClientStore {
         }
         return null;
     }
+
+    public List<String> getDataToUpdate(Client client) {
+
+        List<String> listDataToUpdate = new ArrayList<>();
+
+        String sex = client.getSex();
+        String phoneNumber = client.getPhoneNumber();
+        String email = client.getEmail();
+        String name = client.getName();
+
+        listDataToUpdate.add(sex);
+        listDataToUpdate.add(phoneNumber);
+        listDataToUpdate.add(email);
+        listDataToUpdate.add(name);
+
+        return listDataToUpdate;
+    }
 }
