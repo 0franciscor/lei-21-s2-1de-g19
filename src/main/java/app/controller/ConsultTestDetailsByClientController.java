@@ -17,6 +17,7 @@ public class ConsultTestDetailsByClientController {
     public ConsultTestDetailsByClientController(){
         this.company = App.getInstance().getCompany();
     }
+    /*
     public List<ClientDto> orderClients(String criteria) {
         ClientStore clientStore = company.getClientStore();
         List<Client> clientList = clientStore.getClientList();
@@ -24,6 +25,8 @@ public class ConsultTestDetailsByClientController {
         List<ClientDto> clientListDtoOrdered = orderClients(criteria, clientDtoList);
         return clientListDtoOrdered;
     }
+
+     */
     public List<TestDto> presentTestsOfClient(ClientDto client) {
         List<Test> testListOfClient = client.getTestsOfClient();
         List<TestDto> testDtoListOfClient = toDTOTestMapper(testListOfClient);

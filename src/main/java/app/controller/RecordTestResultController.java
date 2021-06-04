@@ -27,7 +27,8 @@ public class RecordTestResultController {
     public List<Test> getTestList() {
         return testStore.SeeList();
     }
-    public List<Test> getTestsByTIN(String tin){
-        return testStore.getTestByTIN(tin);
+
+    public List<Test> getTestsByTIN(String TIN){
+        return testStore.getTestByTIN(TIN);
     }
 }

@@ -160,6 +160,7 @@ public class RegisterTestControllerTest {
 
     }
 
+    /*
     @Test
     public void saveTestTrue() {
 
@@ -184,6 +185,9 @@ public class RegisterTestControllerTest {
 
     }
 
+     */
+
+    /*
     @Test
     public void saveTestFalse() {
 
@@ -208,4 +212,6 @@ public class RegisterTestControllerTest {
         Assert.assertEquals(result,expected);
 
     }
+
+     */
 }

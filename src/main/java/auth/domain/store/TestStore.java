@@ -222,4 +222,24 @@ public class TestStore {
     public boolean validateTest(Test test){
         return test.updateValidationDateTime();
     }
+
+
+    /**
+     * @param TIN Tax Identification number.
+     *
+     * Method responsible for fetching a test through its Tax Identification number.
+     *
+     * @return a list of tests which are identified by the TIN.
+     */
+    public List<Test> getTestByTIN (String TIN){
+
+        List<Test> testByTINList = new ArrayList<>();
+
+        for (Test t : TestList){
+
+            if (t.getClient().getTIN().equalsIgnoreCase(TIN))
+                testByTINList.add(t);
+        }
+        return testByTINList;
+    }
 }
