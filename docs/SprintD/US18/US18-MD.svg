@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="233px" preserveAspectRatio="none" style="width:365px;height:233px;" version="1.1" viewBox="0 0 365 233" width="365px" zoomAndPan="magnify"><defs><filter height="300%" id="f3p9gez35uale" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[df38be88ccee13e832d6fafd6288a4ca]
+class Test--><rect codeLine="17" fill="#FEFECE" filter="url(#f3p9gez35uale)" height="136.8516" id="Test" style="stroke:#A80036;stroke-width:1.5;" width="144" x="7" y="7"/><ellipse cx="62.75" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M64.75,19.5 Q64.9531,19 65.1875,18.75 Q65.4219,18.5 65.6875,18.5 Q66.1563,18.5 66.4531,18.7813 Q66.75,19.0625 66.75,19.7188 L66.75,21.2813 Q66.75,21.9375 66.4688,22.2188 Q66.1875,22.5 65.75,22.5 Q65.3594,22.5 65.1094,22.3281 Q64.8594,22.1563 64.75,21.7031 Q64.7031,21.3906 64.5313,21.2188 Q64.2188,20.8906 63.6563,20.7031 Q63.0938,20.5 62.5313,20.5 Q61.8281,20.5 61.2344,20.7813 Q60.6563,21.0625 60.2031,21.6875 Q59.75,22.3125 59.75,23.1719 L59.75,24.0938 Q59.75,25.125 60.5938,25.8125 Q61.4375,26.5 62.9375,26.5 Q63.8281,26.5 64.4531,26.2969 Q64.8125,26.1875 65.2188,25.8281 Q65.4844,25.625 65.625,25.5625 Q65.7656,25.5 65.9375,25.5 Q66.2656,25.5 66.5,25.7656 Q66.75,26.0156 66.75,26.375 Q66.75,26.7188 66.4063,27.125 Q65.9063,27.7188 65.1094,28.0469 Q64.0625,28.5 62.7813,28.5 Q61.2813,28.5 60.0781,27.9063 Q59.1094,27.4375 58.4219,26.4219 Q57.75,25.4063 57.75,24.2031 L57.75,23.1094 Q57.75,21.8594 58.3438,20.7656 Q58.9531,19.6719 60,19.0938 Q61.0625,18.5 62.25,18.5 Q62.9688,18.5 63.5938,18.75 Q64.2188,19 64.75,19.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="24" x="83.25" y="27.9102">Test</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="150" y1="39" y2="39"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="57" x="13" y="54.4189">-description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="28" x="13" y="68.2549">-code</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="47" x="13" y="82.0908">-nhsCode</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="79" x="13" y="95.9268">-collectDateTime</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="132" x="13" y="109.7627">-chemicalAnalysisDateTime</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="94" x="13" y="123.5986">-diagnosisDateTime</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="93" x="13" y="137.4346">-validationDateTime</text><!--MD5=[2741598bdf59a7d7e0d5c97658fd3022]
+class Result--><rect codeLine="27" fill="#FEFECE" filter="url(#f3p9gez35uale)" height="40" id="Result" style="stroke:#A80036;stroke-width:1.5;" width="68" x="283" y="80.5"/><ellipse cx="298" cy="96.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M300,93 Q300.2031,92.5 300.4375,92.25 Q300.6719,92 300.9375,92 Q301.4063,92 301.7031,92.2813 Q302,92.5625 302,93.2188 L302,94.7813 Q302,95.4375 301.7188,95.7188 Q301.4375,96 301,96 Q300.6094,96 300.3594,95.8281 Q300.1094,95.6563 300,95.2031 Q299.9531,94.8906 299.7813,94.7188 Q299.4688,94.3906 298.9063,94.2031 Q298.3438,94 297.7813,94 Q297.0781,94 296.4844,94.2813 Q295.9063,94.5625 295.4531,95.1875 Q295,95.8125 295,96.6719 L295,97.5938 Q295,98.625 295.8438,99.3125 Q296.6875,100 298.1875,100 Q299.0781,100 299.7031,99.7969 Q300.0625,99.6875 300.4688,99.3281 Q300.7344,99.125 300.875,99.0625 Q301.0156,99 301.1875,99 Q301.5156,99 301.75,99.2656 Q302,99.5156 302,99.875 Q302,100.2188 301.6563,100.625 Q301.1563,101.2188 300.3594,101.5469 Q299.3125,102 298.0313,102 Q296.5313,102 295.3281,101.4063 Q294.3594,100.9375 293.6719,99.9219 Q293,98.9063 293,97.7031 L293,96.6094 Q293,95.3594 293.5938,94.2656 Q294.2031,93.1719 295.25,92.5938 Q296.3125,92 297.5,92 Q298.2188,92 298.8438,92.25 Q299.4688,92.5 300,93 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="36" x="312" y="101.4102">Result</text><line style="stroke:#A80036;stroke-width:1.5;" x1="284" x2="350" y1="112.5" y2="112.5"/><!--MD5=[74783ec010d186752c4ffd5c6de5633a]
+class NHSReport--><rect codeLine="30" fill="#FEFECE" filter="url(#f3p9gez35uale)" height="40" id="NHSReport" style="stroke:#A80036;stroke-width:1.5;" width="95" x="31.5" y="179.5"/><ellipse cx="46.5" cy="195.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M48.5,192 Q48.7031,191.5 48.9375,191.25 Q49.1719,191 49.4375,191 Q49.9063,191 50.2031,191.2813 Q50.5,191.5625 50.5,192.2188 L50.5,193.7813 Q50.5,194.4375 50.2188,194.7188 Q49.9375,195 49.5,195 Q49.1094,195 48.8594,194.8281 Q48.6094,194.6563 48.5,194.2031 Q48.4531,193.8906 48.2813,193.7188 Q47.9688,193.3906 47.4063,193.2031 Q46.8438,193 46.2813,193 Q45.5781,193 44.9844,193.2813 Q44.4063,193.5625 43.9531,194.1875 Q43.5,194.8125 43.5,195.6719 L43.5,196.5938 Q43.5,197.625 44.3438,198.3125 Q45.1875,199 46.6875,199 Q47.5781,199 48.2031,198.7969 Q48.5625,198.6875 48.9688,198.3281 Q49.2344,198.125 49.375,198.0625 Q49.5156,198 49.6875,198 Q50.0156,198 50.25,198.2656 Q50.5,198.5156 50.5,198.875 Q50.5,199.2188 50.1563,199.625 Q49.6563,200.2188 48.8594,200.5469 Q47.8125,201 46.5313,201 Q45.0313,201 43.8281,200.4063 Q42.8594,199.9375 42.1719,198.9219 Q41.5,197.9063 41.5,196.7031 L41.5,195.6094 Q41.5,194.3594 42.0938,193.2656 Q42.7031,192.1719 43.75,191.5938 Q44.8125,191 46,191 Q46.7188,191 47.3438,191.25 Q47.9688,191.5 48.5,192 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="63" x="60.5" y="200.4102">NHSReport</text><line style="stroke:#A80036;stroke-width:1.5;" x1="32.5" x2="125.5" y1="211.5" y2="211.5"/><!--MD5=[0a105ea8d9af02dadec02d3e239f1d60]
+class NHS--><rect codeLine="33" fill="#FEFECE" filter="url(#f3p9gez35uale)" height="40" id="NHS" style="stroke:#A80036;stroke-width:1.5;" width="58" x="288" y="179.5"/><ellipse cx="303" cy="195.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M305,192 Q305.2031,191.5 305.4375,191.25 Q305.6719,191 305.9375,191 Q306.4063,191 306.7031,191.2813 Q307,191.5625 307,192.2188 L307,193.7813 Q307,194.4375 306.7188,194.7188 Q306.4375,195 306,195 Q305.6094,195 305.3594,194.8281 Q305.1094,194.6563 305,194.2031 Q304.9531,193.8906 304.7813,193.7188 Q304.4688,193.3906 303.9063,193.2031 Q303.3438,193 302.7813,193 Q302.0781,193 301.4844,193.2813 Q300.9063,193.5625 300.4531,194.1875 Q300,194.8125 300,195.6719 L300,196.5938 Q300,197.625 300.8438,198.3125 Q301.6875,199 303.1875,199 Q304.0781,199 304.7031,198.7969 Q305.0625,198.6875 305.4688,198.3281 Q305.7344,198.125 305.875,198.0625 Q306.0156,198 306.1875,198 Q306.5156,198 306.75,198.2656 Q307,198.5156 307,198.875 Q307,199.2188 306.6563,199.625 Q306.1563,200.2188 305.3594,200.5469 Q304.3125,201 303.0313,201 Q301.5313,201 300.3281,200.4063 Q299.3594,199.9375 298.6719,198.9219 Q298,197.9063 298,196.7031 L298,195.6094 Q298,194.3594 298.5938,193.2656 Q299.2031,192.1719 300.25,191.5938 Q301.3125,191 302.5,191 Q303.2188,191 303.8438,191.25 Q304.4688,191.5 305,192 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="26" x="317" y="200.4102">NHS</text><line style="stroke:#A80036;stroke-width:1.5;" x1="289" x2="345" y1="211.5" y2="211.5"/><!--MD5=[9163865a413f55935f47e026f9eaa033]
+link Test to Result--><path codeLine="13" d="M151.13,83.03 C194.83,87.66 248.77,93.38 282.79,96.98 " fill="none" id="Test-Result" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="203.4722,79.2026,194.7871,75.327,194.1678,81.1721,203.4722,79.2026" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="32" x="207.5" y="83.9951">has a</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="158.9293" y="98.1524">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="268.0123" y="111.4354">1</text><!--MD5=[b25b37dde2866fd853924cb818679535]
+link NHSReport to Result--><path codeLine="14" d="M126.63,179.94 C172.7,160.61 242.03,131.53 282.78,114.43 " fill="none" id="NHSReport-Result" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="181.3893,120.6101,190.8671,119.821,188.5931,114.4008,181.3893,120.6101" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="57" x="195" y="123.9951">generates</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="134.374" y="191.9054">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="268.0003" y="132.4844">1</text><!--MD5=[5853f8747c18e89b10dd024359cfe8ec]
+link NHSReport to NHS--><path codeLine="15" d="M126.63,199.5 C174.72,199.5 248.14,199.5 287.96,199.5 " fill="none" id="NHSReport-NHS" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="192.5,190.6758,183.4549,187.7369,183.4549,193.6147,192.5,190.6758" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="54" x="196.5" y="195.9951">is sent to</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="134.374" y="214.0937">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="273.0284" y="214.988">1</text><!--MD5=[d104dfbad43c3d959e5f37224db1a73d]
+@startuml
+'https://plantuml.com/class-diagram
+
+hide methods
+skinparam classAttributeIconSize 0
+left to right direction
+
+
+class Test
+class Result
+class NHSReport
+class NHS
+
+Test "1" - - "1" Result : > has a
+NHSReport "1..*" - - "1" Result : < generates
+NHSReport "1..*" - - "1" NHS : > is sent to
+
+class Test{
+-description
+-code
+-nhsCode
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime
+}
+
+class Result {
+}
+
+class NHSReport {
+}
+
+class NHS {
+}
+
+@enduml
+
+@startuml
+
+hide methods
+skinparam classAttributeIconSize 0
+left to right direction
+
+
+class Test
+class Result
+class NHSReport
+class NHS
+
+Test "1" - - "1" Result : > has a
+NHSReport "1..*" - - "1" Result : < generates
+NHSReport "1..*" - - "1" NHS : > is sent to
+
+class Test{
+-description
+-code
+-nhsCode
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime
+}
+
+class Result {
+}
+
+class NHSReport {
+}
+
+class NHS {
+}
+
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
