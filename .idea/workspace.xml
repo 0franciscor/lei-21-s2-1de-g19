@@ -22,10 +22,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Use Case" />
-        <option value="UML Class" />
         <option value="Interface" />
         <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="UML Class" />
         <option value="UML Sequence" />
       </list>
     </option>
@@ -51,7 +51,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/javafx-sdk-16/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintD/US18" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
