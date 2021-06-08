@@ -6,7 +6,7 @@ autonumber
 actor "Administrator" as A
 activate A
 A -> System ++: send the covid-19 report to the NHS
-System -->  A --: define the interval of dates, the number of historical day points, select between \n a simple linear and multilinear regression model and define the significance level
+System -->  A --: define the data to see the report, the interval of dates, the number of historical day points, \n select between a simple linear and multilinear regression model and define the significance level
 A -> System ++: types and selects the requested data
 System -->  A --: show the generated report and request a confirmation
 A -> System ++: confirms the data
