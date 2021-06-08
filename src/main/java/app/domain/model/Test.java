@@ -96,12 +96,6 @@ public class Test {
      */
     private Status state;
 
-
-    /**
-     * The test's sample.
-     */
-    private Sample sample;
-
     /**
      * The test's list of samples.
      */
@@ -115,7 +109,7 @@ public class Test {
     /**
      * The available states for a test.
      */
-    public static enum Status {
+    public enum Status {
         Registered, Collected, Analyzed, Reported, Validated
     }
     private Report report;
@@ -314,10 +308,6 @@ public class Test {
         this.state = state;
     }
 
-//    public String getValues() {
-//        return values;
-//    }
-
     /**
      * Method that changes the Chemical Analysis Date Time, used only for testing purposes.
      *
@@ -497,12 +487,6 @@ public class Test {
         }
     }
 
-   /* public boolean addParameterResult (Test test, Parameter parameter, String value, String metric) {
-        parameterResults.add(new ParameterResult(test, parameter, value, metric));
-        return true;
-    }*/
-
-
     public List<ParameterResult> getParameterResults() {
         return parameterResults;
     }
@@ -510,6 +494,7 @@ public class Test {
     public void addReport(Report report) {
         this.report = report;
     }
+
     public Report getReport(){
         return this.report;
     }

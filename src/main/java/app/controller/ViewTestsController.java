@@ -25,7 +25,7 @@ public class ViewTestsController {
      */
     public List<TestDto> getTests() {
         TestStore store = App.getInstance().getCompany().getTestStore();
-        List<Test> testList = store.getDiagnosedTests();
+        List<Test> testList = store.getValidatedTests();
         return TestMapper.toDtoClient(testList);
     }
 

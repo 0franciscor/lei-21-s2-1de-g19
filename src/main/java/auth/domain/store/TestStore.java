@@ -117,19 +117,6 @@ public class TestStore {
     }
 
     /**
-     * Gets the test by its code.
-     * @param code
-     * @return test
-     */
-    public Test getTest(String code){
-        for(Test t: TestList){
-            if(code.equals(t.getCode()))
-                return t;
-        }
-        return null;
-    }
-
-    /**
      * Sees in all the existing tests if there is any barcode repeated
      *
      * @param listBarcodes
@@ -167,6 +154,20 @@ public class TestStore {
      */
     public List<String> getNhsCodeList (){
         return nhsCodeList;
+    }
+
+    /**
+     * Method responsible for retrieving a list of tests which have had its samples collected.
+     *
+     * @return a list of tests which have had its samples collected.
+     */
+    public List<Test> getCollectedTests() {
+        List<Test> collectedTestsList = new ArrayList<>();
+        for (Test test : TestList){
+            if (test != null && test.getStatus().equalsIgnoreCase(Test.Status.Collected.toString()))
+                collectedTestsList.add(test);
+        }
+        return collectedTestsList;
     }
 
     /**
@@ -223,23 +224,4 @@ public class TestStore {
         return test.updateValidationDateTime();
     }
 
-
-    /**
-     * @param TIN Tax Identification number.
-     *
-     * Method responsible for fetching a test through its Tax Identification number.
-     *
-     * @return a list of tests which are identified by the TIN.
-     */
-    public List<Test> getTestByTIN (String TIN){
-
-        List<Test> testByTINList = new ArrayList<>();
-
-        for (Test t : TestList){
-
-            if (t.getClient().getTIN().equalsIgnoreCase(TIN))
-                testByTINList.add(t);
-        }
-        return testByTINList;
-    }
 }

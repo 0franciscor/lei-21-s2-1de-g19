@@ -111,7 +111,7 @@ public class RecordSamplesController {
      */
     public TestDto recordSample(TestDto tDto, int nSamples) throws Exception {
         tCode=TestMapper.DtoToModel(tDto);
-        test=testStore.getTest(tCode);
+        test=testStore.getTestByCode(tCode);
         do{
             listBarcodes= adapter.generateBarcodes(nSamples, true);
             bool1=testStore.globallyUnique(listBarcodes);
