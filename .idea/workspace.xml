@@ -51,19 +51,19 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintD/US18" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/Report2NHS-1.0.0.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="org.intellij.sdk.settings.AppSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dudu caCHU\Documents\Faculdade\lei-21-s2-1de-g19\lib" />
       <recent name="C:\Users\Francisco Redol\Documents\Repositórios\LEI_21_S2_1DE_G19\out\artifacts\Sem2App_jar" />
       <recent name="$PROJECT_DIR$/src/main/java/auth/mappers/dto" />
       <recent name="$PROJECT_DIR$/src/main/java/auth/mappers" />
       <recent name="$PROJECT_DIR$/src/main/java/app/domain/model" />
-      <recent name="$PROJECT_DIR$/src/main/java/app/controller" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />

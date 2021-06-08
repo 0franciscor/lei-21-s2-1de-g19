@@ -56,5 +56,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="Report2NHS-1.0.0" level="project" />
   </component>
 </module>
