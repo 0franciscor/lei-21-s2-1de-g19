@@ -10,7 +10,7 @@ package Controllers{
 class "SendReportController" as SRC {
 +getAllTestWithResultCovidPositive()
 +generateNHSReport(listTestWithResultCovidPositive)
-+saveNHSReport()
++saveNHSReport(nhsReport)
 }
 }
 
@@ -22,18 +22,15 @@ class "Company" as C {
 }
 
 class "NHSReport" as NHSR {
-+NHSReport()
-+getData()
++NHSReport(listTestWithResultCovidPositive)
++calculateData()
 +validateNHSReport()
 }
 
-class "SendReportAPIAdapter" as SRAPIA {
+class "Report2NHS" as R2NHS {
 +writeUsingFileWriter(data)
 }
 
-interface "SendReportAPI" as SRAPI {
-+writeUsingFileWriter(data)
-}
 }
 
 package Stores{
@@ -52,7 +49,6 @@ SRUI ..> SRC
 SRC ..> C
 SRC ..> TS
 SRC ..> NHSR
-SRC ..> SRAPIA
-SRAPIA ..> SRAPI
+SRC ..> R2NHS
 
 @enduml

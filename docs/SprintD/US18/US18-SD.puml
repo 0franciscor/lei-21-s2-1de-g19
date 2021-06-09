@@ -34,24 +34,19 @@ activate ":SendReportController"
 activate ":Company"
 
 create "report : NHSReport"
-":Company" --> "report : NHSReport" : create()
+":Company" --> "report : NHSReport" : create(listTestWithResultCovidPositive)
 
 deactivate ":Company"
 
-":SendReportController" -> "report : NHSReport": data = getData()
+":SendReportController" -> "report : NHSReport": data = calculateData()
 activate "report : NHSReport"
 deactivate "report : NHSReport"
 
-":SendReportController" -> ":a: SendReportAPIAdapter": writeUsingFileWriter (data)
+":SendReportController" -> "Report2NHS": writeUsingFileWriter (data)
 
-activate ":a: SendReportAPIAdapter"
+activate "Report2NHS"
 
-":a: SendReportAPIAdapter" -> "<<Interface>> \n SendReportAPI": writeUsingFileWriter (data)
-
-activate "<<Interface>> \n SendReportAPI"
-deactivate "<<Interface>> \n SendReportAPI"
-
-deactivate ":a: SendReportAPIAdapter"
+deactivate "Report2NHS"
 
 deactivate ":SendReportController"
 
@@ -61,7 +56,7 @@ deactivate ":SendReportUI"
 A -> ":SendReportUI": confirms the data
 activate ":SendReportUI"
 
-":SendReportUI" -> ":SendReportController": saveNHSReport()
+":SendReportUI" -> ":SendReportController": saveNHSReport(nhsReport)
 
 activate ":SendReportController"
 
