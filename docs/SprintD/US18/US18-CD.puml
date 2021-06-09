@@ -10,7 +10,7 @@ package Controllers{
 class "SendReportController" as SRC {
 +getAllTestWithResultCovidPositive()
 +generateNHSReport(listTestWithResultCovidPositive)
-+saveNHSReport()
++saveNHSReport(nhsReport)
 }
 }
 
@@ -22,7 +22,7 @@ class "Company" as C {
 }
 
 class "NHSReport" as NHSR {
-+NHSReport()
++NHSReport(listTestWithResultCovidPositive)
 +calculateData()
 +validateNHSReport()
 }

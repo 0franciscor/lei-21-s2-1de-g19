@@ -9,13 +9,13 @@ activate C
 
 C -> ":UpdateClientDataUI" : update personal data
 activate ":UpdateClientDataUI"
-":UpdateClientDataUI" -> ":UpdateClientDataController": getAllDataToUpdate()
+":UpdateClientDataUI" -> ":UpdateClientDataController": getDataToUpdate(cl)
 activate ":UpdateClientDataController"
 
 ":UpdateClientDataController" -> ":Company": store = getClientStore()
 activate ":Company"
 deactivate ":Company"
-":UpdateClientDataController" -> ":ClientStore": listDataToUpdate = getAllDataToUpdate()
+":UpdateClientDataController" -> ":ClientStore": listDataToUpdate = getDataToUpdate(cl)
 activate ":ClientStore"
 
 ":ClientStore" -> "Client": sex = getSex()
