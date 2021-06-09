@@ -1,0 +1,78 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Administrator" as A
+activate A
+
+
+A -> ":SendReportUI" : send the covid-19 report to the NHS
+activate ":SendReportUI"
+":SendReportUI" --> A: define the date to see the report, the interval of dates, the number of historical day points, \n select between a simple linear and multilinear regression model and define the significance level
+deactivate ":SendReportUI"
+
+A -> ":SendReportUI" : types and selects the requested data
+activate ":SendReportUI"
+":SendReportUI" -> ":SendReportController": getAllTestWithResultCovidPositive()
+
+activate ":SendReportController"
+":SendReportController" -> ":Company" : store = getTestStore()
+activate ":Company"
+deactivate ":Company"
+
+":SendReportController" -> ":store: TestStore" : listTestWithResultCovidPositive = getAllTestWithResultCovidPositive()
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+
+deactivate ":SendReportController"
+
+":SendReportUI" -> ":SendReportController" : generateNHSReport(listTestWithResultCovidPositive)
+activate ":SendReportController"
+
+":SendReportController" -> ":Company" : report = generateNHSReport(listTestWithResultCovidPositive)
+activate ":Company"
+
+create "report : NHSReport"
+":Company" --> "report : NHSReport" : create()
+
+deactivate ":Company"
+
+":SendReportController" -> "report : NHSReport": data = getData()
+activate "report : NHSReport"
+deactivate "report : NHSReport"
+
+":SendReportController" -> ":a: SendReportAPIAdapter": writeUsingFileWriter (data)
+
+activate ":a: SendReportAPIAdapter"
+
+":a: SendReportAPIAdapter" -> "<<Interface>> \n SendReportAPI": writeUsingFileWriter (data)
+
+activate "<<Interface>> \n SendReportAPI"
+deactivate "<<Interface>> \n SendReportAPI"
+
+deactivate ":a: SendReportAPIAdapter"
+
+deactivate ":SendReportController"
+
+":SendReportUI" --> A: show the generated report and request a confirmation
+deactivate ":SendReportUI"
+
+A -> ":SendReportUI": confirms the data
+activate ":SendReportUI"
+
+":SendReportUI" -> ":SendReportController": saveNHSReport()
+
+activate ":SendReportController"
+
+":SendReportController" -> "report : NHSReport" : validateNHSReport()
+activate "report : NHSReport"
+deactivate "report : NHSReport"
+
+deactivate ":SendReportController"
+
+
+":SendReportUI" --> A: informs operation success
+deactivate ":SendReportUI"
+
+@enduml
