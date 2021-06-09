@@ -10,10 +10,12 @@ class Test
 class Result
 class NHSReport
 class NHS
+class Company
 
 Test "1" -- "1" Result : > has a
-NHSReport "1..*" -- "1" Result : < generates
+NHSReport "1..*" -- "1" Company : < generates
 NHSReport "1..*" -- "1" NHS : > is sent to
+Test "*" -- "1" Company : < performs
 
 class Test{
 -description
@@ -32,6 +34,10 @@ class NHSReport {
 }
 
 class NHS {
+}
+
+class Company{
+-designation
 }
 
 @enduml
