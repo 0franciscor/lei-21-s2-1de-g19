@@ -105,7 +105,7 @@ Report "1" -- "1" Client : > is sent to
 
 Report "*" -- "1" LaboratoryCoordinator : < validates
 
-NHSReport "1..*" -- "1" Result : < generates
+NHSReport "1..*" -- "1" Company : < generates
 
 NHSReport "1..*" -- "1" NHS : > is sent to
 
