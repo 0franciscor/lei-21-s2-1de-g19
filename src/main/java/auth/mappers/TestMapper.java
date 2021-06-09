@@ -99,4 +99,8 @@ public class TestMapper {
         return testListDto;
     }
 
+    public static TestDto toDtoCCT(Test test){
+        return new TestDto(test.getTestType(), test.getListSamples());
+    }
+
 }

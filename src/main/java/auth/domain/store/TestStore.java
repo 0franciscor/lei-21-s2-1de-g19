@@ -224,4 +224,18 @@ public class TestStore {
         return test.updateValidationDateTime();
     }
 
+    /**
+     * @param barcode that belongs as a sample of a test
+     *
+     * Method that is responsible for fetching a test from a list of tests.
+     *
+     * @return a test
+     */
+    public Test getTestBybarcodeWithPendingResults(Barcode barcode){
+        for(Test test : TestList) {
+            if (test.getListSamples().contains(barcode))
+                return test;
+        }
+        return null;
+    }
 }

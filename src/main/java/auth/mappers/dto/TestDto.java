@@ -20,6 +20,7 @@ public class TestDto {
     private Date diagnosisDateTime;
     private ArrayList<Sample> listSamples;
     private String TIN;
+
     private Report report;
 
     public TestDto(String description, TestType testType, String code, List<ParameterResult> parameterResultList) {
@@ -53,6 +54,11 @@ public class TestDto {
         this.parameterCategories=lpc;
         this.parameters=lp;
         this.code=code;
+    }
+
+    public TestDto(TestType testType, ArrayList<Sample> sampleList){
+        this.testType = testType;
+        this.listSamples = sampleList;
     }
 
     /**
