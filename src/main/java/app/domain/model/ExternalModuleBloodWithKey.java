@@ -11,12 +11,12 @@ public class ExternalModuleBloodWithKey extends ExternalModule {
     }
 
     @Override
-    public ReferenceValue getReferenceValue(Parameter parameter) {
+    public ReferenceValue getReferenceValue(TestParameter testParameter) {
 
-        String parameterID = parameter.getCode();
-        double minReferenceValue = externalModule3API.getMinReferenceValue(parameter.getCode(), 12345);
-        double maxReferenceValue = externalModule3API.getMaxReferenceValue(parameter.getCode(), 12345);
-        String metric = externalModule3API.usedMetric(parameter.getCode(), 12345);
+        String parameterID = testParameter.getCode();
+        double minReferenceValue = externalModule3API.getMinReferenceValue(testParameter.getCode(), 12345);
+        double maxReferenceValue = externalModule3API.getMaxReferenceValue(testParameter.getCode(), 12345);
+        String metric = externalModule3API.usedMetric(testParameter.getCode(), 12345);
 
         return new ReferenceValue(parameterID, minReferenceValue, maxReferenceValue, metric);
     }

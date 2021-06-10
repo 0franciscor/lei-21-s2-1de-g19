@@ -18,4 +18,16 @@ public class TestParameterResult {
         this.metric = metric;
         this.referenceValue = referenceValue;
     }
+
+    public double getResult(){
+        return this.result;
+    }
+
+    public String getMetric(){
+        return this.metric;
+    }
+
+    public ReferenceValue getReferenceValue(){
+        return this.referenceValue;
+    }
 }

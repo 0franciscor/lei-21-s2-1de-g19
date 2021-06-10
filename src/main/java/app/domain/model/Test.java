@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import app.controller.App;
-import app.ui.console.utils.Utils;
 import auth.domain.store.ClientStore;
 import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;
@@ -73,10 +72,6 @@ public class Test {
     private List<ParameterCategory> parameterCategories;
 
     /**
-     * The Test's 
-     */
-    private List<ParameterResult> parameterResults;
-    /**
      * Client.
      */
     private Client client;
@@ -105,6 +100,16 @@ public class Test {
      * The test's list of barcodes.
      */
     private List<Barcode> testBarcodesList = new ArrayList<>();
+
+    /**
+     * The test's Parameter List, which contains information like the Parameter code, and more.
+     */
+    private List<TestParameter> testParametersList;
+
+    /**
+     * The test's Parameter Result List, which contains the min Reference value, and result, for example.
+     */
+    private List<TestParameterResult> testParametersResultList;
 
     /**
      * The available states for a test.
@@ -139,10 +144,11 @@ public class Test {
         this.testType = testType;
         this.parameters = parameters;
         this.parameterCategories = parameterCategories;
-        this.parameterResults = new ArrayList<ParameterResult>();
         this.clientStore = company.getClientStore();
         this.client = clientStore.getClient(TIN);
         this.nhsCode = nhsCode;
+        this.testParametersList = new ArrayList<>();
+        this.testParametersResultList = new ArrayList<>();
         this.state = Status.Registered;
         this.registrationDateTime = new Date();
     }
@@ -395,6 +401,19 @@ public class Test {
         return false;
     }
 
+    public boolean updateAnalysisDateTime(){
+        try {
+            if(!(testParametersList == null || testParametersList.isEmpty())) {
+                chemicalAnalysisDateTime = new Date();
+                updateTestStatus();
+            }
+        } catch (Exception e){
+            System.out.println("There was an error when updating the chemical analysis date and time. Please try again.");
+            return false;
+        }
+        return false;
+    }
+
     /**
      * Sees if there are 2 or more equal barcodes in the test barcodes list.
      *
@@ -487,8 +506,8 @@ public class Test {
         }
     }
 
-    public List<ParameterResult> getParameterResults() {
-        return parameterResults;
+    public List<TestParameterResult> getParameterResults() {
+        return this.testParametersResultList;
     }
 
     public void addReport(Report report) {
@@ -497,6 +516,26 @@ public class Test {
 
     public Report getReport(){
         return this.report;
+    }
+
+    /**
+     * @param parameterCode the Parameter code (for example, HB020)
+     * @param result that the CCT inserted.
+     * @param metric that the value has (for example, l or cm^3)
+     *
+     * Method responsible for adding a Test Result
+     *
+     * @return the success of the operation
+     */
+    public boolean addTestResult(String parameterCode, double result, String metric){
+        TestParameter testParameter = new TestParameter(parameterCode);
+        ExternalModule externalModule = testType.getExternalModule();
+        ReferenceValue referenceValue = externalModule.getReferenceValue(testParameter);
+        testParameter.addResult(result, metric, referenceValue);
+        testParametersList.add(testParameter);
+        testParametersResultList.add(testParameter.getTestParameterResult());
+
+        return updateAnalysisDateTime();
     }
 
 }

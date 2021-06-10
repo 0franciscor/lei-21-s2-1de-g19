@@ -18,9 +18,7 @@ public class RecordTestResultController {
 
     private Test test;
 
-    public RecordTestResultController(){
-        //this.test = null;
-    }
+    public RecordTestResultController(){}
 
     public List<Barcode> getAllBarcodes(){
         TestStore store = App.getInstance().getCompany().getTestStore();
@@ -44,8 +42,7 @@ public class RecordTestResultController {
     }
 
     public boolean addTestResult(String parameterCode, double result, String metric){
-
-
+        return test.addTestResult(parameterCode, result, metric);
     }
 
 }

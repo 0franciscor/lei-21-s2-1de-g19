@@ -12,8 +12,8 @@ public class ExternalModuleBloodWithoutKey extends ExternalModule {
     }
 
     @Override
-    public ReferenceValue getReferenceValue(Parameter parameter) {
-        EMRefValue ReferenceValue = externalModule2API.getReferenceFor(parameter.getCode());
+    public ReferenceValue getReferenceValue(TestParameter testParameter) {
+        EMRefValue ReferenceValue = externalModule2API.getReferenceFor(testParameter.getCode());
         return new ReferenceValue(ReferenceValue);
     }
 

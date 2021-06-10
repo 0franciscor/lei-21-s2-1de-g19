@@ -11,11 +11,11 @@ public class ExternalModuleCovid extends ExternalModule {
     }
 
     @Override
-    public ReferenceValue getReferenceValue(Parameter parameter) {
-        String parameterID = parameter.getCode();
-        double minReferenceValue = covidReferenceValues1API.getMinReferenceValue(parameter.getCode(), 12345);
-        double maxReferenceValue = covidReferenceValues1API.getMaxReferenceValue(parameter.getCode(), 12345);
-        String metric = covidReferenceValues1API.usedMetric(parameter.getCode(), 12345);
+    public ReferenceValue getReferenceValue(TestParameter testParameter) {
+        String parameterID = testParameter.getCode();
+        double minReferenceValue = covidReferenceValues1API.getMinReferenceValue(testParameter.getCode(), 12345);
+        double maxReferenceValue = covidReferenceValues1API.getMaxReferenceValue(testParameter.getCode(), 12345);
+        String metric = covidReferenceValues1API.usedMetric(testParameter.getCode(), 12345);
 
         return new ReferenceValue(parameterID, minReferenceValue, maxReferenceValue, metric);
     }
