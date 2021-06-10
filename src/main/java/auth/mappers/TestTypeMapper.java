@@ -1,6 +1,6 @@
 package auth.mappers;
 
-import app.domain.model.ExternalModule;
+import app.domain.shared.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import auth.mappers.dto.TestTypeDto;

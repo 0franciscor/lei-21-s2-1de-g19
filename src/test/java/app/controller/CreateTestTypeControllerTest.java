@@ -1,7 +1,10 @@
 package app.controller;
 
 import app.domain.model.*;
-import auth.mappers.dto.TestDto;
+import app.domain.shared.ExternalModule;
+import app.domain.shared.ExternalModuleBloodWithKey;
+import app.domain.shared.ExternalModuleBloodWithoutKey;
+import app.domain.shared.ExternalModuleCovid;
 import auth.mappers.dto.TestTypeDto;
 import org.junit.Assert;
 import org.junit.Test;

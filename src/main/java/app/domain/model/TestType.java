@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.shared.ExternalModule;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;

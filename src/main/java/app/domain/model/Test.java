@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import app.controller.App;
+import app.domain.shared.ExternalModule;
 import auth.domain.store.ClientStore;
 import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;

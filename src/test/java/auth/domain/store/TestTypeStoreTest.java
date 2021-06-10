@@ -1,6 +1,6 @@
 package auth.domain.store;
 
-import app.domain.model.ExternalModuleBloodWithoutKey;
+import app.domain.shared.ExternalModuleBloodWithoutKey;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 import org.junit.Test;

@@ -1,5 +1,9 @@
 package app.domain.model;
 
+import app.domain.shared.ExternalModule;
+import app.domain.shared.ExternalModuleBloodWithKey;
+import app.domain.shared.ExternalModuleBloodWithoutKey;
+import app.domain.shared.ExternalModuleCovid;
 import auth.AuthFacade;
 import auth.domain.store.*;
 import auth.mappers.ClientMapper;
@@ -28,14 +32,13 @@ public class Company {
     private ReportStore reportStore;
     private EmpStore employeeStore;
     private List<OrgRole> roleList;
-    private OrgRole orgRole;
     public int numEmp;
     public int numTeste;
     private TestStore testStore;
     private List<ExternalModule> externalModuleList;
     private Notification notification;
 
-    public Company(String designation) /*throws FileNotFoundException*/ {
+    public Company(String designation){
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
@@ -49,12 +52,14 @@ public class Company {
         this.employeeStore = new EmpStore();
         this.reportStore = new ReportStore();
         this.roleList = new ArrayList<OrgRole>();
+
         this.roleList.add(new OrgRole("SPEC DOCTOR"));
         this.roleList.add(new OrgRole("MED LAB TECH"));
         this.roleList.add(new OrgRole("RECEPCIONIST"));
         this.roleList.add(new OrgRole("LAB COORDINATOR"));
         this.roleList.add(new OrgRole("ADMINISTRATOR"));
         this.roleList.add(new OrgRole("CLINICALCHEMTEC"));
+
         this.numEmp = 1;
         this.numTeste = 0;
         this.testStore = new TestStore();

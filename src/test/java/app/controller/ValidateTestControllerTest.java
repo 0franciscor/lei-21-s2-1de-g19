@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
+import app.domain.shared.ExternalModuleBloodWithoutKey;
 import auth.domain.store.ReportStore;
 import auth.domain.store.TestStore;
 import auth.mappers.dto.TestDto;

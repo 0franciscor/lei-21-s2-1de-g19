@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import app.controller.App;
+import app.domain.shared.ExternalModuleBloodWithoutKey;
 import auth.domain.store.ReportStore;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;

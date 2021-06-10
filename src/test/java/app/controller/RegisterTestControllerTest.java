@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.model.*;
+import app.domain.shared.ExternalModuleBloodWithoutKey;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.ParameterCategoryDto;
 import auth.mappers.dto.ParametersDto;

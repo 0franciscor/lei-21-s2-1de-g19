@@ -2,6 +2,7 @@ package auth.domain.store;
 
 import app.controller.App;
 import app.domain.model.*;
+import app.domain.shared.ExternalModuleBloodWithoutKey;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.linear.upc.UPCABarcode;

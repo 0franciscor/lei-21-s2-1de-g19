@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.shared.ExternalModuleBloodWithoutKey;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;

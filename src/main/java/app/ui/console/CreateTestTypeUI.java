@@ -3,7 +3,7 @@ package app.ui.console;
 import app.controller.App;
 import app.controller.CreateParameterCategoryController;
 import app.controller.CreateTestTypeController;
-import app.domain.model.ExternalModule;
+import app.domain.shared.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.ParameterCategoryDto;

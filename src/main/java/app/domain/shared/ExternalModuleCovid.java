@@ -1,15 +1,32 @@
-package app.domain.model;
+package app.domain.shared;
 
+import app.domain.model.ReferenceValue;
+import app.domain.model.TestParameter;
 import com.example3.CovidReferenceValues1API;
 
+/**
+ * The CovidReferenceValues1API, which is responsible for interacting with the CovidReferenceValues1API.
+ *
+ * @author Francisco Redol
+ */
 public class ExternalModuleCovid extends ExternalModule {
 
+    /**
+     * The API.
+     */
     CovidReferenceValues1API covidReferenceValues1API;
 
+    /**
+     * The Constructor, which is responsible for creating a External Module Object.
+     */
     public ExternalModuleCovid(){
         covidReferenceValues1API = new CovidReferenceValues1API();
     }
 
+    /**
+     * @param testParameter the TestParameter
+     * @return a Reference Value corresponding to that API.
+     */
     @Override
     public ReferenceValue getReferenceValue(TestParameter testParameter) {
         String parameterID = testParameter.getCode();
@@ -20,8 +37,11 @@ public class ExternalModuleCovid extends ExternalModule {
         return new ReferenceValue(parameterID, minReferenceValue, maxReferenceValue, metric);
     }
 
+    /**
+     * @return a String containing information about the module.
+     */
     @Override
     public String toString(){
-        return String.format("External Module Covid (with key).");
+        return "External Module Covid (with key).";
     }
 }

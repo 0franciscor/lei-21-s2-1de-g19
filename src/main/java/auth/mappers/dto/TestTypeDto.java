@@ -1,6 +1,6 @@
 package auth.mappers.dto;
 
-import app.domain.model.ExternalModule;
+import app.domain.shared.ExternalModule;
 import app.domain.model.ParameterCategory;
 
 import java.util.List;

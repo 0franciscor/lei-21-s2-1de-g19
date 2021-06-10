@@ -1,11 +1,7 @@
 package auth.domain.store;
 
-import app.controller.CreateParameterCategoryController;
-import app.controller.CreateTestTypeController;
-import app.controller.RegisterTestController;
-import app.domain.model.ExternalModuleBloodWithoutKey;
+import app.domain.shared.ExternalModuleBloodWithoutKey;
 import app.domain.model.ParameterCategory;
-import auth.mappers.dto.ParameterCategoryDto;
 import auth.mappers.dto.TestTypeDto;
 import org.junit.Assert;
 import org.junit.Test;

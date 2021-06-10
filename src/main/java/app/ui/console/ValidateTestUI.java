@@ -1,14 +1,7 @@
 package app.ui.console;
 
-import app.controller.App;
 import app.controller.ValidateTestController;
-import app.domain.model.ExternalModuleBloodWithoutKey;
-import app.domain.model.Parameter;
-import app.domain.model.ParameterCategory;
-import app.domain.model.TestType;
 import app.ui.console.utils.Utils;
-import auth.domain.store.ReportStore;
-import auth.domain.store.TestStore;
 import auth.mappers.dto.TestDto;
 
 import java.util.ArrayList;

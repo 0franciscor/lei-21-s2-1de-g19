@@ -25,13 +25,24 @@
         <option value="JUnit4 Test Class" />
         <option value="UML Sequence" />
         <option value="UML Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/app/domain/model/Sample.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/lib/barbecue-2.0-dev.jar!/net/sourceforge/barbecue/Barcode.class" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/app/domain/shared/ExternalModuleCovid.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/app/domain/shared/ExternalModuleBloodWithoutKey.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/app/controller/RecordTestResultController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/auth/domain/store/TestStore.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/auth/mappers/TestMapper.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/lib/CovidReferenceValues1API-1.0.0.jar!/com/example3/CovidReferenceValues1API.class" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/app/domain/model/ExternalModuleAPIBarcode1.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -51,11 +62,11 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/SprintD/US18" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive - Instituto Superior de Engenharia do Porto/Desktop/TestClasses" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="org.intellij.sdk.settings.AppSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -84,7 +95,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in Sem2App">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -99,88 +110,28 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="app.ui.Main" />
       <module name="Sem2App" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestTypeTest.setExternalModuleCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="PATTERN" value="app.ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
-      <option name="METHOD_NAME" value="setExternalModuleCorrect" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTypeTest.toString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in Sem2App" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
-      <option name="METHOD_NAME" value="toString" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestTypeTest.toStringTestType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.TestTypeTest" />
-      <option name="METHOD_NAME" value="toStringTestType" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ValidateTestControllerTest.notificationService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.controller" />
-      <option name="MAIN_CLASS_NAME" value="app.controller.ValidateTestControllerTest" />
-      <option name="METHOD_NAME" value="notificationService" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.TestTypeTest.setExternalModuleCorrect" />
-      <item itemvalue="JUnit.TestTypeTest.toStringTestType" />
-      <item itemvalue="JUnit.TestTypeTest.toString" />
-      <item itemvalue="JUnit.ValidateTestControllerTest.notificationService" />
-    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Sem2App" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ValidateTestControllerTest.notificationService" />
-        <item itemvalue="JUnit.TestTypeTest.toStringTestType" />
-        <item itemvalue="JUnit.TestTypeTest.toString" />
-        <item itemvalue="JUnit.TestTypeTest.setExternalModuleCorrect" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +170,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/app/controller/RegisterNewEmployeeController.java</url>
           <line>63</line>
-          <properties class="app.controller.RegisterNewEmployeeController">
+          <properties class="app.controller.RegisterNewEmployeeController" method="saveEmployee">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="2" />
@@ -233,16 +184,16 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Sem2App$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621881212147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Sem2App$ValidateTestControllerTest.ic" NAME="ValidateTestControllerTest Coverage Results" MODIFIED="1622150723048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>app.controller.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/US14_SSD_puml$TestTest_generateCode.ic" NAME="TestTest.generateCode Coverage Results" MODIFIED="1621879517895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.domain.model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Sem2App$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621881212147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Sem2App$Main.ic" NAME="Main Coverage Results" MODIFIED="1622150360316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.ui.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/US14_SSD_puml$All_in_Sem2App.ic" NAME="All in Sem2App Coverage Results" MODIFIED="1621879529971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Sem2App$ValidateTestControllerTest.ic" NAME="ValidateTestControllerTest Coverage Results" MODIFIED="1622150723048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>app.controller.*</FILTER>
-    </SUITE>
   </component>
 </project>

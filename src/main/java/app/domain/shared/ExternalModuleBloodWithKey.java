@@ -1,15 +1,32 @@
-package app.domain.model;
+package app.domain.shared;
 
+import app.domain.model.ReferenceValue;
+import app.domain.model.TestParameter;
 import com.example1.ExternalModule3API;
 
+/**
+ * The ExternalModuleBloodWithKey, which is responsible for interacting with the ExternalModule3API.
+ *
+ * @author Francisco Redol
+ */
 public class ExternalModuleBloodWithKey extends ExternalModule {
 
+    /**
+     * The API.
+     */
     ExternalModule3API externalModule3API;
 
+    /**
+     * The Constructor, which is responsible for creating a External Module Object.
+     */
     public ExternalModuleBloodWithKey(){
         externalModule3API = new ExternalModule3API();
     }
 
+    /**
+     * @param testParameter the TestParameter
+     * @return a Reference Value corresponding to that API.
+     */
     @Override
     public ReferenceValue getReferenceValue(TestParameter testParameter) {
 
@@ -21,8 +38,11 @@ public class ExternalModuleBloodWithKey extends ExternalModule {
         return new ReferenceValue(parameterID, minReferenceValue, maxReferenceValue, metric);
     }
 
+    /**
+     * @return a String containing information about the module.
+     */
     @Override
     public String toString(){
-        return String.format("External Module Blood (with key).");
+        return "External Module Blood (with key).";
     }
 }
