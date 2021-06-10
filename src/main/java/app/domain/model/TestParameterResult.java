@@ -30,4 +30,5 @@ public class TestParameterResult {
     public ReferenceValue getReferenceValue(){
         return this.referenceValue;
     }
+
 }

@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.ViewTestsController;
+import app.domain.model.TestParameterResult;
 import app.domain.model.TestType;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.TestDto;
@@ -45,21 +46,21 @@ public class ViewClientTestsUI implements Runnable{
 
             TestType testType = testList.get(chosenTest).getTestType();
             Date chemicalAnalysisDate = testList.get(chosenTest).getChemicalAnalysisDateTime();
-            List<ParameterResult> parameterResultList = testList.get(chosenTest).getParameterResults();
+            List<TestParameterResult> testParameterResultList = testList.get(chosenTest).getParameterResults();
 
             System.out.println("Test Data:");
-            showData(testType, chemicalAnalysisDate, parameterResultList);
+            showData(testType, chemicalAnalysisDate, testParameterResultList);
         }
         else
             System.out.println("Sorry to inform, but the test results you were looking for haven't come out yet.");
     }
 
-    public void showData(TestType testType, Date chemicalAnalysisDate, List<ParameterResult> parameterResultList){
+    public void showData(TestType testType, Date chemicalAnalysisDate, List<TestParameterResult> parameterResultList){
 
         System.out.printf("The test was performed on %s type is described as: %s", chemicalAnalysisDate, testType.getDescription());
         System.out.println("List of Parameter Results:");
 
-        for(ParameterResult parameterResult : parameterResultList){
+        for(TestParameterResult parameterResult : parameterResultList){
             System.out.println(parameterResult.toString());
         }
 

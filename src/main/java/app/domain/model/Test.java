@@ -107,11 +107,6 @@ public class Test {
     private List<TestParameter> testParametersList;
 
     /**
-     * The test's Parameter Result List, which contains the min Reference value, and result, for example.
-     */
-    private List<TestParameterResult> testParametersResultList;
-
-    /**
      * The available states for a test.
      */
     public enum Status {
@@ -148,7 +143,6 @@ public class Test {
         this.client = clientStore.getClient(TIN);
         this.nhsCode = nhsCode;
         this.testParametersList = new ArrayList<>();
-        this.testParametersResultList = new ArrayList<>();
         this.state = Status.Registered;
         this.registrationDateTime = new Date();
     }
@@ -356,7 +350,6 @@ public class Test {
      * @return Test characteristics.
      */
     public String toString (){
-        //return String.format("Test with test type %s, parameters %s, citizen card number %s",this.testType, this.parameters, this.client.getCitizenID());
         return String.format("\nTest code: %s \nNHS code: %s \nRegistration date and time: %s ",this.code, this.nhsCode, this.registrationDateTime);
     }
 
@@ -401,6 +394,11 @@ public class Test {
         return false;
     }
 
+    /**
+     * A method that is responsible for automatically changing the Test Analysis date and time.
+     *
+     * @return the success of the operation (true if the operation was successful and false if not).
+     */
     public boolean updateAnalysisDateTime(){
         try {
             if(!(testParametersList == null || testParametersList.isEmpty())) {
@@ -507,7 +505,11 @@ public class Test {
     }
 
     public List<TestParameterResult> getParameterResults() {
-        return this.testParametersResultList;
+        List<TestParameterResult> testParameterResultList = new ArrayList<>();
+        for(TestParameter testParameter : testParametersList)
+            testParameterResultList.add(testParameter.getTestParameterResult());
+
+        return testParameterResultList;
     }
 
     public void addReport(Report report) {
@@ -533,7 +535,6 @@ public class Test {
         ReferenceValue referenceValue = externalModule.getReferenceValue(testParameter);
         testParameter.addResult(result, metric, referenceValue);
         testParametersList.add(testParameter);
-        testParametersResultList.add(testParameter.getTestParameterResult());
 
         return updateAnalysisDateTime();
     }

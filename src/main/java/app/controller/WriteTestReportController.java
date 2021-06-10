@@ -1,8 +1,8 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.ParameterResult;
 import app.domain.model.Test;
+import app.domain.model.TestParameterResult;
 import auth.domain.store.ReportStore;
 import auth.domain.store.TestStore;
 import auth.mappers.dto.TestDto;
@@ -61,8 +61,8 @@ public class WriteTestReportController {
      *
      * @return the values
      */
-    public List<ParameterResult> getValues(TestDto test){
-        return test.getValues();
+    public List<TestParameterResult> getValues(TestDto test){
+        return test.getParameterResults();
     }
 
     /**

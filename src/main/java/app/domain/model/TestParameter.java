@@ -22,4 +22,9 @@ public class TestParameter {
     public TestParameterResult getTestParameterResult(){
         return this.testParameterResult;
     }
+
+    @Override
+    public String toString(){
+        return String.format("ParameterID= %s, metric: %s, minValue: %s, maxValue: %s, and the result is %s", this.code, testParameterResult.getMetric(), testParameterResult.getReferenceValue().getMinValue(), testParameterResult.getReferenceValue().getMaxValue(), testParameterResult.getResult());
+    }
 }

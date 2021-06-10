@@ -14,7 +14,7 @@ public class TestDto {
     private String client;
     private List<ParameterCategory> parameterCategories;
     private List<Parameter> parameters;
-    private List<ParameterResult> parameterResultList;
+    private List<TestParameterResult> parameterResultList;
     private Date registrationDateTime;
     private Date chemicalAnalysisDateTime;
     private Date diagnosisDateTime;
@@ -23,7 +23,7 @@ public class TestDto {
 
     private Report report;
 
-    public TestDto(String description, TestType testType, String code, List<ParameterResult> parameterResultList) {
+    public TestDto(String description, TestType testType, String code, List<TestParameterResult> parameterResultList) {
         this.description = description;
         this.parameterResultList = parameterResultList;
         this.testType = testType;
@@ -37,7 +37,7 @@ public class TestDto {
         this.code = code;
     }
 
-    public TestDto(TestType testType, Date chemicalAnalysisDateTime, List<ParameterResult> parameterResults, String code, String TIN){
+    public TestDto(TestType testType, Date chemicalAnalysisDateTime, List<TestParameterResult> parameterResults, String code, String TIN){
         this.testType = testType;
         this.chemicalAnalysisDateTime = chemicalAnalysisDateTime;
         this.code = code;
@@ -68,7 +68,7 @@ public class TestDto {
     public TestDto(ArrayList<Sample> listSample){
         this.listSamples=listSample;
     }
-    public TestDto(TestType testType,Date chemicalAnalysisDateTime, List<ParameterResult> parameterResults, String code, String tin, Report report){
+    public TestDto(TestType testType,Date chemicalAnalysisDateTime, List<TestParameterResult> parameterResults, String code, String tin, Report report){
         this.testType =testType;
         this.chemicalAnalysisDateTime = chemicalAnalysisDateTime;
         this.parameterResultList = parameterResults;
@@ -104,11 +104,7 @@ public class TestDto {
         return this.code;
     }
 
-    public List<ParameterResult> getValues() {
-        return this.parameterResultList;
-    }
-
-    public List<ParameterResult> getParameterResults() {
+    public List<TestParameterResult> getParameterResults() {
         return parameterResultList;
     }
 
@@ -122,13 +118,6 @@ public class TestDto {
 
     public TestType getTestType(){
         return this.testType;
-    }
-
-    public void setValues(String result, ParameterResult parameter) {
-        for (int x = 0; x < parameterResultList.size(); x++)
-            if (parameterResultList.contains(parameter)) {
-                parameterResultList.get(x).setResult(result);
-            }
     }
 
     public boolean equals(Object obj){

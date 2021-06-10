@@ -14,7 +14,7 @@ public class TestMapper {
             String description = c.getDescription();
             TestType testType = c.getTestType();
             String code = c.getCode();
-            List<ParameterResult> parameterResultList = c.getParameterResults();
+            List<TestParameterResult> parameterResultList = c.getParameterResults();
             TestDto testDto = new TestDto(description, testType, code, parameterResultList);
             listAnalyzedTestsDto.add(testDto);
         }
