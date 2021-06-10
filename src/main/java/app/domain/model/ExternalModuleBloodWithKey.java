@@ -4,23 +4,21 @@ import com.example1.ExternalModule3API;
 
 public class ExternalModuleBloodWithKey extends ExternalModule {
 
-    ExternalModule3API em3;
-    ReferenceValue refValue;
-    String metrics;
+    ExternalModule3API externalModule3API;
 
     public ExternalModuleBloodWithKey(){
-        em3 = new ExternalModule3API();
+        externalModule3API = new ExternalModule3API();
     }
 
     @Override
     public ReferenceValue getReferenceValue(Parameter parameter) {
-        refValue.setMinValue(em3.getMinReferenceValue(parameter.getCode(), 12345));
-        refValue.setMaxValue(em3.getMaxReferenceValue(parameter.getCode(), 12345));
-        return refValue;
-    }
-    public String getMetrics (Parameter parameter) {
-        metrics = em3.usedMetric(parameter.getCode(), 12345);
-        return metrics;
+
+        String parameterID = parameter.getCode();
+        double minReferenceValue = externalModule3API.getMinReferenceValue(parameter.getCode(), 12345);
+        double maxReferenceValue = externalModule3API.getMaxReferenceValue(parameter.getCode(), 12345);
+        String metric = externalModule3API.usedMetric(parameter.getCode(), 12345);
+
+        return new ReferenceValue(parameterID, minReferenceValue, maxReferenceValue, metric);
     }
 
     @Override

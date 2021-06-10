@@ -1,13 +1,5 @@
 package app.ui.console;
 import app.controller.RecordTestResultController;
-import app.domain.model.Client;
-import app.domain.model.ParameterResult;
-import app.domain.model.Test;
-import app.ui.console.utils.Utils;
-import auth.mappers.dto.TestDto;
-
-import java.sql.SQLOutput;
-import java.util.List;
 
 
 public class RecordTestResultUI implements Runnable {

@@ -1,7 +1,6 @@
 package app.ui.console;
 
 import app.controller.ViewTestsController;
-import app.domain.model.ParameterResult;
 import app.domain.model.TestType;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.TestDto;

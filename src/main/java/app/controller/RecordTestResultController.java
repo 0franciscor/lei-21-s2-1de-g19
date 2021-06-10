@@ -16,7 +16,11 @@ import java.util.List;
  */
 public class RecordTestResultController {
 
-    public RecordTestResultController(){}
+    private Test test;
+
+    public RecordTestResultController(){
+        //this.test = null;
+    }
 
     public List<Barcode> getAllBarcodes(){
         TestStore store = App.getInstance().getCompany().getTestStore();
@@ -35,8 +39,13 @@ public class RecordTestResultController {
 
     public TestDto getTestByBarcode(Barcode barcode){
         TestStore store = App.getInstance().getCompany().getTestStore();
-        Test test = store.getTestBybarcodeWithPendingResults(barcode);
+        this.test = store.getTestBybarcodeWithPendingResults(barcode);
         return TestMapper.toDtoCCT(test);
+    }
+
+    public boolean addTestResult(String parameterCode, double result, String metric){
+
+
     }
 
 }

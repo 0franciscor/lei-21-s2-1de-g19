@@ -1,7 +1,6 @@
 package auth.mappers.dto;
 
 import app.domain.model.Parameter;
-import app.domain.model.ParameterResult;
 import app.domain.model.ReferenceValue;
 
 import java.util.Date;

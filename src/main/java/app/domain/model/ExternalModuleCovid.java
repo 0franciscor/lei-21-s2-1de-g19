@@ -4,22 +4,20 @@ import com.example3.CovidReferenceValues1API;
 
 public class ExternalModuleCovid extends ExternalModule {
 
-    CovidReferenceValues1API em1;
-    ReferenceValue refValue;
-    String metrics;
+    CovidReferenceValues1API covidReferenceValues1API;
+
     public ExternalModuleCovid(){
-        em1 = new CovidReferenceValues1API();
+        covidReferenceValues1API = new CovidReferenceValues1API();
     }
 
     @Override
     public ReferenceValue getReferenceValue(Parameter parameter) {
-        refValue.setMinValue(em1.getMinReferenceValue(parameter.getCode(), 12345));
-        refValue.setMaxValue(em1.getMaxReferenceValue(parameter.getCode(), 12345));
-        return refValue;
-    }
-    public String getMetrics (Parameter parameter) {
-        metrics = em1.usedMetric(parameter.getCode(), 12345);
-        return metrics;
+        String parameterID = parameter.getCode();
+        double minReferenceValue = covidReferenceValues1API.getMinReferenceValue(parameter.getCode(), 12345);
+        double maxReferenceValue = covidReferenceValues1API.getMaxReferenceValue(parameter.getCode(), 12345);
+        String metric = covidReferenceValues1API.usedMetric(parameter.getCode(), 12345);
+
+        return new ReferenceValue(parameterID, minReferenceValue, maxReferenceValue, metric);
     }
 
     @Override

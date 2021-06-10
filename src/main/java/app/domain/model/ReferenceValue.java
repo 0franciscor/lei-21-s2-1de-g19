@@ -1,21 +1,30 @@
 package app.domain.model;
 
+import com.example2.EMRefValue;
+
 public class ReferenceValue {
 
-    private Double minValue;
-    private Double maxValue;
+    private String parameterID;
 
-    public ReferenceValue(Double minValue, Double maxValue){
+    private double minValue;
+
+    private double maxValue;
+
+    private String metric;
+
+
+    public ReferenceValue(String parameterID, double minValue, Double maxValue, String metric){
+        this.parameterID = parameterID;
         this.minValue = minValue;
         this.maxValue = maxValue;
+        this.metric = metric;
     }
 
-    public void setMinValue(Double minValue){
-        this.minValue = minValue;
-    }
-
-    public void setMaxValue(Double maxValue){
-        this.maxValue = maxValue;
+    public ReferenceValue(EMRefValue emRefValue){
+        this.parameterID = emRefValue.getParameterID();
+        this.minValue = emRefValue.getMinValue();
+        this.maxValue = emRefValue.getMaxValue();
+        this.metric = emRefValue.getMetric();
     }
 
     public Double getMinValue(){
@@ -24,6 +33,10 @@ public class ReferenceValue {
 
     public Double getMaxValue() {
         return maxValue;
+    }
+
+    public String getMetric() {
+        return metric;
     }
 
 }
