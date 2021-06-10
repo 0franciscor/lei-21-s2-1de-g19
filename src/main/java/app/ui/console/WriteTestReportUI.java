@@ -2,6 +2,7 @@ package app.ui.console;
 
 
 import app.controller.WriteTestReportController;
+import app.domain.model.Parameter;
 import app.domain.model.ParameterResult;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.TestDto;
@@ -46,7 +47,7 @@ public class WriteTestReportUI implements Runnable {
                     do {
                         report = Utils.readLineFromConsole("Write your diagnosis report:");
                         confirmation = Utils.readIntegerFromConsole(String.format("Are you sure you about your report? 1-YES 2-NO \n %s", report));
-                    } while (confirmation != 1 || confirmation != 2);
+                    } while (confirmation != 1 && confirmation != 2);
                     if(confirmation == 1) {
                         if(ctrl.saveReport(test, report))
                             System.out.println("Report completed successfully.");

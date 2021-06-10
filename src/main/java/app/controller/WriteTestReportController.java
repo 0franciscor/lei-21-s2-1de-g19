@@ -38,6 +38,7 @@ public class WriteTestReportController {
      */
     public WriteTestReportController() {
         this.company = App.getInstance().getCompany();
+        this.testStore = company.getTestStore();
     }
 
 
