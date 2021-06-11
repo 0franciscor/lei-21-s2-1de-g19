@@ -238,4 +238,13 @@ public class TestStore {
         }
         return null;
     }
+
+    /*
+    public List<Test> getAllTestWithResultCovidPositive(){
+
+        List<Test> listTestWithResultCovidPositive = new ArrayList<>();
+
+    }
+
+     */
 }

@@ -128,6 +128,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.All in Sem2App" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in Sem2App" />

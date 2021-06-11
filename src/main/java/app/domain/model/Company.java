@@ -199,4 +199,11 @@ public class Company {
         return this.externalModuleList;
     }
 
+    public NHSReport generateNHSReport (List<Test> listTestWithResultCovidPositive){
+
+        return new NHSReport(listTestWithResultCovidPositive);
+
+
+    }
+
 }
