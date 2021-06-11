@@ -28,11 +28,15 @@ public class WriteTestReportUI implements Runnable {
                 }
                 TestDto test = (TestDto) Utils.selectsObject(listDto);
                 String value = "";
+                for (ParameterResult c : test.getParameterResults()) {
+                    value = Utils.readLineFromConsole("Set an hipothethic value for " + c.getParameter().getDesignation());
+                    test.setValues(value, c);
+                }
 
                 if (test == null)
                     exit = 0;
                 System.out.println("-------- Test Results. --------");
-                for (TestParameterResult c : ctrl.getValues(test)) {
+                for (ParameterResult c : ctrl.getValues(test)) {
                     c.toString();
                 }
                 int confirmation;
