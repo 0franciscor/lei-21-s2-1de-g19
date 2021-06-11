@@ -16,13 +16,19 @@ public class ClinicalChemistryTechnologistUI implements Runnable{
         int option = 0;
         do
         {
-            option = Utils.showAndSelectIndex(options, "\n\nClinical Chemistry Technologist Menu:");
+            boolean exceptionThrown = false;
+            try{
+                option = Utils.showAndSelectIndex(options, "\n\nLaboratory Coordinator Menu:");
+            } catch (Exception e) {
+                System.out.println("\nUnavailable option.");
+                exceptionThrown = true;
+            }
 
-            if ( (option >= 0) && (option < options.size()))
+            if ( (option >= 0) && (option < options.size()) && !exceptionThrown)
             {
                 options.get(option).run();
             }
         }
-        while (option != -1 );
+        while (option != -1);
     }
 }

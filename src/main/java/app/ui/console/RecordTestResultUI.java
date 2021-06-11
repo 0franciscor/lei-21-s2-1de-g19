@@ -22,32 +22,37 @@ public class RecordTestResultUI implements Runnable {
     }
 
     public void run(){
-        List<Barcode> barcodeList = recordTestResultController.getAllBarcodes();
-        Barcode barcode;
+        try {
+            List<Barcode> barcodeList = recordTestResultController.getAllBarcodes();
+            Barcode barcode;
 
-        if(barcodeList != null && !barcodeList.isEmpty()) {
-            barcode = ((Barcode) Utils.showAndSelectOne(barcodeList, "Please choose a barcode from the list:"));
-            TestDto testDto = recordTestResultController.getTestByBarcode(barcode);
+            if(barcodeList != null && !barcodeList.isEmpty()) {
+                barcode = ((Barcode) Utils.showAndSelectOne(barcodeList, "Please choose a barcode from the list:"));
+                TestDto testDto = recordTestResultController.getTestByBarcode(barcode);
 
-            for(Parameter parameter : testDto.getParameters()){
-                System.out.print(parameter);
-                boolean successAdd;
-                try {
-                    double result = Utils.readDoubleFromConsole("Please insert the result.");
-                    String metric = Utils.readLineFromConsole("Please insert the metric.");
+                for(Parameter parameter : testDto.getParameters()){
+                    System.out.print(parameter);
+                    boolean successAdd;
+                    double result;
+                    String metric;
+                    try {
+                        result = Utils.readDoubleFromConsole("Please insert the result.");
+                        metric = Utils.readLineFromConsole("Please insert the metric.");
+                    } catch (Exception e){
+                        System.out.println("You have inserted a type of data which is not supported by the system.");
+                        return;
+                    }
                     successAdd = recordTestResultController.addTestResult(parameter.getCode(), result, metric);
-                } catch (Exception e){
-                    System.out.println("There was an error");
-                    return;
+
+                    if(successAdd)
+                        System.out.println("The result for the parameter was successfully saved!");
                 }
-
-                if(successAdd)
-                    System.out.println("The result was successfully saved");
+            } else{
+                System.out.println("There are no tests ready for recording the results at the moment. Please come back later.");
             }
-        } else{
-            System.out.println("There are no tests ready for validation at the moment. Please come back later.");
+        } catch (Exception e){
+            System.out.println("There was an error when Recording a test result.");
         }
-
     }
 }
 

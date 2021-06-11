@@ -228,12 +228,14 @@ public class TestStore {
      */
     public Test getTestBybarcodeWithPendingResults(Barcode barcode){
         for(Test test : TestList) {
-            if (test.getListSamples().contains(barcode))
-                return test;
+            List<Sample> sampleList = test.getListSamples();
+            for(Sample sample : sampleList){
+                if(sample.getBarcode().equals(barcode))
+                    return test;
+            }
         }
         return null;
     }
-
 
     /**
      * Creates a list which is able to return a copy of all tests that have the IgGAN parameter higher than the established (i.e.: that test positive to covid-19).
