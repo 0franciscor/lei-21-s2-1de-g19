@@ -1,6 +1,7 @@
 package app.ui.console;
 
 import app.controller.WriteTestReportController;
+import app.domain.model.TestParameter;
 import app.domain.model.TestParameterResult;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.TestDto;
@@ -20,29 +21,18 @@ public class WriteTestReportUI implements Runnable {
         try {
             int exit = 1;
             do {
-                ctrl.setAnalyzed();
                 List<TestDto> listDto = ctrl.getAnalyzedTests();
                 System.out.println("------ List of Tests available do to diagnosis report. ------");
-                for(int i=0; i<listDto.size();i++){
-                    System.out.println(i+1+". "+listDto.get(i).toString(0));
-                }
                 TestDto test = (TestDto) Utils.selectsObject(listDto);
                 String value = "";
-                for (ParameterResult c : test.getParameterResults()) {
-                    value = Utils.readLineFromConsole("Set an hipothethic value for " + c.getParameter().getDesignation());
-                    test.setValues(value, c);
-                }
-
                 if (test == null)
                     exit = 0;
                 System.out.println("-------- Test Results. --------");
-                for (ParameterResult c : ctrl.getValues(test)) {
-                    c.toString();
-                }
+                for (TestParameter c : test.getTestParameterList())
+                    System.out.println(c.toString());
                 int confirmation;
                 String report;
                 do {
-
                     do {
                         report = Utils.readLineFromConsole("Write your diagnosis report:");
                         confirmation = Utils.readIntegerFromConsole(String.format("Are you sure you about your report? 1-YES 2-NO \n %s", report));

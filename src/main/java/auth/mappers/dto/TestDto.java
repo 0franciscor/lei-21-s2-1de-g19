@@ -14,6 +14,7 @@ public class TestDto {
     private String client;
     private List<ParameterCategory> parameterCategories;
     private List<Parameter> parameters;
+    private List<TestParameter> testParameters;
     private List<TestParameterResult> parameterResultList;
     private Date registrationDateTime;
     private Date chemicalAnalysisDateTime;
@@ -23,9 +24,9 @@ public class TestDto {
 
     private Report report;
 
-    public TestDto(String description, TestType testType, String code, List<TestParameterResult> parameterResultList) {
+    public TestDto(String description, TestType testType, String code, List<TestParameter> parameterList) {
         this.description = description;
-        this.parameterResultList = parameterResultList;
+        this.testParameters = parameterList;
         this.testType = testType;
         this.code = code;
     }
@@ -118,6 +119,10 @@ public class TestDto {
 
     public TestType getTestType(){
         return this.testType;
+    }
+
+    public List<TestParameter> getTestParameterList(){
+        return this.testParameters;
     }
 
     public boolean equals(Object obj){
