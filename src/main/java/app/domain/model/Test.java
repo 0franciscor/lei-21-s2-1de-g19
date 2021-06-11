@@ -540,4 +540,11 @@ public class Test {
         return updateAnalysisDateTime();
     }
 
+    /**
+     * @return a list of Test Parameters
+     */
+    public List<TestParameter> getTestParameterList(){
+        return this.testParametersList;
+    }
+
 }
