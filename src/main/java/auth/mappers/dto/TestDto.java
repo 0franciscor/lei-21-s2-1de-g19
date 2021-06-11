@@ -57,9 +57,8 @@ public class TestDto {
         this.code=code;
     }
 
-    public TestDto(TestType testType, ArrayList<Sample> sampleList){
-        this.testType = testType;
-        this.listSamples = sampleList;
+    public TestDto(List<Parameter> parameterList){
+        this.parameters = parameterList;
     }
 
     /**
@@ -103,6 +102,10 @@ public class TestDto {
 
     public String getCode(){
         return this.code;
+    }
+
+    public List<Parameter> getParameters(){
+        return this.parameters;
     }
 
     public List<TestParameterResult> getParameterResults() {

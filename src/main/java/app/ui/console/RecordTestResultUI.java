@@ -1,30 +1,53 @@
 package app.ui.console;
+
 import app.controller.RecordTestResultController;
+import app.domain.model.Parameter;
+import app.ui.console.utils.Utils;
+import auth.mappers.dto.TestDto;
+import net.sourceforge.barbecue.Barcode;
 
+import java.util.List;
 
+/**
+ * The Record Test Result UI
+ *
+ * @author Francisco Redol
+ */
 public class RecordTestResultUI implements Runnable {
-    private RecordTestResultController ctrl;
-    public RecordTestResultUI() { ctrl = new RecordTestResultController(); }
+
+    private RecordTestResultController recordTestResultController;
+
+    public RecordTestResultUI() {
+        recordTestResultController = new RecordTestResultController();
+    }
 
     public void run(){
-        int exit = 1;
-        do {
-//            List<Client> clientList = ctrl.getClientList();
-//            System.out.println("------ List of Tests available to record results. ------");
-//            Client client = (Client) Utils.selectsObject(clientList);
-//            String tin = ctrl.getClientTin(client);
-//            List<Test> listTestFromClient = ctrl.getTestsByTIN(tin);
-//            Test test = (Test) Utils.selectsObject(listTestFromClient);
-//            if (test.getStatus().equalsIgnoreCase(Test.Status.Collected.toString())) {
-//                for (ParameterResult c : test.getParameterResults()) {
-//                    System.out.println("Register the result for this parameter.");
-//                    c.toString(2);
-//                    String result = Utils.readLineFromConsole("Set the result.");
-//                    c.setResult(result);
-//                }
-//            }
-//            System.out.println("Results set with success.");
-        } while (exit == 1);
+        List<Barcode> barcodeList = recordTestResultController.getAllBarcodes();
+        Barcode barcode;
+
+        if(barcodeList != null && !barcodeList.isEmpty()) {
+            barcode = ((Barcode) Utils.showAndSelectOne(barcodeList, "Please choose a barcode from the list:"));
+            TestDto testDto = recordTestResultController.getTestByBarcode(barcode);
+
+            for(Parameter parameter : testDto.getParameters()){
+                System.out.print(parameter);
+                boolean successAdd;
+                try {
+                    double result = Utils.readDoubleFromConsole("Please insert the result.");
+                    String metric = Utils.readLineFromConsole("Please insert the metric.");
+                    successAdd = recordTestResultController.addTestResult(parameter.getCode(), result, metric);
+                } catch (Exception e){
+                    System.out.println("There was an error");
+                    return;
+                }
+
+                if(successAdd)
+                    System.out.println("The result was successfully saved");
+            }
+        } else{
+            System.out.println("There are no tests ready for validation at the moment. Please come back later.");
+        }
+
     }
 }
 

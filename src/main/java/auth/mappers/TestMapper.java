@@ -100,7 +100,7 @@ public class TestMapper {
     }
 
     public static TestDto toDtoCCT(Test test){
-        return new TestDto(test.getTestType(), test.getListSamples());
+        return new TestDto(test.getParameters());
     }
 
 }

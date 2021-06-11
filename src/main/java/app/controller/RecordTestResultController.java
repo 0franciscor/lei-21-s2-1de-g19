@@ -44,5 +44,4 @@ public class RecordTestResultController {
     public boolean addTestResult(String parameterCode, double result, String metric){
         return test.addTestResult(parameterCode, result, metric);
     }
-
 }
