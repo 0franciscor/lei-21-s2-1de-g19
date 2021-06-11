@@ -19,11 +19,6 @@ public class TestStore {
     private List<Test> TestList;
 
     /**
-     * Citizen card number.
-     */
-    private String citizenID;
-
-    /**
      * Allows storing National Healthcare Service numbers.
      */
     List<String> nhsCodeList = new ArrayList<>();
@@ -245,12 +240,14 @@ public class TestStore {
         List<Test> listTestWithResultCovidPositive = new ArrayList<>();
 
         for (Test t: TestList){
-            if (t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString()) && t.getTestType().getCode().equals("Covid")){
-                for (TestParameterResult testParameterResult: t.getParameterResults()){
-                    double minValue = testParameterResult.getReferenceValue().getMinValue();
-
-                    if (testParameterResult.getResult() > minValue)
-                        listTestWithResultCovidPositive.add(t);
+            if (t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())){
+                for(TestParameter testParameter : t.getTestParameterList()){
+                    if(testParameter.getCode().equalsIgnoreCase("IgGAN")) {
+                        TestParameterResult testParameterResult = testParameter.getTestParameterResult();
+                        double minValue = testParameterResult.getReferenceValue().getMinValue();
+                        if (testParameterResult.getResult() > minValue)
+                            listTestWithResultCovidPositive.add(t);
+                    }
                 }
             }
         }
