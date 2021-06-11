@@ -239,12 +239,21 @@ public class TestStore {
         return null;
     }
 
-    /*
+
     public List<Test> getAllTestWithResultCovidPositive(){
 
         List<Test> listTestWithResultCovidPositive = new ArrayList<>();
 
-    }
+        for (Test t: TestList){
+            if (t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString()) && t.getTestType().getCode().equals("Covid")){
+                for (TestParameterResult testParameterResult: t.getParameterResults()){
+                    double minValue = testParameterResult.getReferenceValue().getMinValue();
 
-     */
+                    if (testParameterResult.getResult() > minValue)
+                        listTestWithResultCovidPositive.add(t);
+                }
+            }
+        }
+        return listTestWithResultCovidPositive;
+    }
 }
