@@ -235,6 +235,11 @@ public class TestStore {
     }
 
 
+    /**
+     * Creates a list which is able to return a copy of all tests that have the IgGAN parameter higher than the established (i.e.: that test positive to covid-19).
+     *
+     * @return a list which is able to return a copy of all tests that have the IgGAN parameter higher than the established (i.e.: that test positive to covid-19).
+     */
     public List<Test> getAllTestWithResultCovidPositive(){
 
         List<Test> listTestWithResultCovidPositive = new ArrayList<>();

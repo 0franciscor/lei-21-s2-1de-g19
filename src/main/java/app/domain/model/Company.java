@@ -199,11 +199,13 @@ public class Company {
         return this.externalModuleList;
     }
 
+    /**
+     * Generates a covid-19 report that will be sent to the NHS.
+     *
+     * @param listTestWithResultCovidPositive list with tests that have result covid positive
+     */
     public NHSReport generateNHSReport (List<Test> listTestWithResultCovidPositive){
 
         return new NHSReport(listTestWithResultCovidPositive);
-
-
     }
-
 }
