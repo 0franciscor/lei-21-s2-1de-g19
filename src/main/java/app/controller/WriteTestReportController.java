@@ -78,12 +78,9 @@ public class WriteTestReportController {
         reportStore = company.getReportStore();
         if(reportStore.saveReport(reportTxt, testCode)) {
             company.getTestStore().getTestByCode(testCode).addReport(company.getReportStore().getReport(testCode));
+            company.getTestStore().getTestByCode(testCode).updateDiagnosisDateTime();
             return true;
         }
         return false;
-    }
-    public void setAnalyzed() {
-        for (Test c : testStore.SeeList())
-            c.setStatus(Test.Status.Analyzed);
     }
 }

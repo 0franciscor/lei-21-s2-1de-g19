@@ -412,6 +412,18 @@ public class Test {
         }
         return false;
     }
+    public boolean updateDiagnosisDateTime(){
+        try {
+            if(company.getReportStore().getReport(this.code) != null) {
+                diagnosisDateTime = new Date();
+                updateTestStatus();
+            }
+        } catch (Exception e){
+            System.out.println("There was an error when updating the chemical analysis date and time. Please try again.");
+            return false;
+        }
+        return false;
+    }
 
     /**
      * Sees if there are 2 or more equal barcodes in the test barcodes list.
