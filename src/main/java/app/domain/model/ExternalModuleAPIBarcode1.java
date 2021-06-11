@@ -22,7 +22,7 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
      */
     private int nSamples;
 
-    private int nBarcodes=0;
+    private int nBarcodes=1;
 
     /**
      * External Module's boolean.
@@ -74,7 +74,7 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
     public List<Barcode> generate(int nSamples, boolean a) throws Exception {
         List<Barcode> barcodes = new ArrayList<>();
         for(int i=0; i<nSamples; i++){
-            this.fileName=generateFileName(i);
+            this.fileName=generateFileName(nBarcodes);
             this.outputFile=new File(fileName);
             this.path=outputFile.getAbsolutePath();
             this.barcodeCode=String.format("%011d",nBarcodes);
@@ -86,6 +86,11 @@ public class ExternalModuleAPIBarcode1 implements ExternalModuleAPIBarcode{
                 barcodes.add(barcode);
                 nBarcodes++;
             }else{
+                if(i==0){
+                    nBarcodes--;
+                    this.fileName=generateFileName(nBarcodes);
+                    this.outputFile=new File(fileName);
+                }
                 deleteBarcode();
                 nBarcodes--;
             }
