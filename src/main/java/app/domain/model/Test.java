@@ -453,6 +453,7 @@ public class Test {
         for(Barcode b: listBarcodes){
             testBarcodesList.add(b);
         }
+        create();
         updateCollectDateTime();
     }
 
@@ -479,6 +480,7 @@ public class Test {
         try{
             if(listSamples!=null){
                 this.collectDateTime=new Date();
+                updateTestStatus();
             }
         }catch(Exception e){
             System.out.println("There was an error when updating the validation date and time. Please try again.");
@@ -492,7 +494,7 @@ public class Test {
      * @return false if the test was not updated
      */
     public boolean validate(){
-        if(getStatus().equals("Collected"))
+        if(getStatus().equalsIgnoreCase(state.Collected.toString()))
             return true;
         return false;
     }
