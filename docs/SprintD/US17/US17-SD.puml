@@ -1,0 +1,32 @@
+@startuml
+autonumber
+
+actor "LaboratoryCoordinator" as labC
+activate labC
+
+participant ":ImportTestUI" as ImportTestUI
+participant ":ImportTestController" as ImportTestController
+participant ":Company" as Company
+participant ":ImportTest" as ImportTest
+participant "store:ClientStore" as ClientStore
+participant "store:ClinicalAnalysisLaboratoryStore" as CALStore
+participant "store:ParameterCategoryStore" as ParameterCategoryStore
+participant "store:ParameterStore" as ParameterStore
+participant "store:TestTypeStore" as TestTypeStore
+participant "store:TestStore" as TestStore
+
+
+labC -> ImportTestUI : import a test from a .csv file
+activate ImportTestUI
+
+ImportTestUI --> labC : requests file path
+deactivate ImportTestUI
+
+labC -> ImportTestUI : inserts file path
+activate ImportTestUI
+
+ImportTestUI -> ImportTestController : getFile(pathName)
+activate ImportTestController
+
+
+@enduml

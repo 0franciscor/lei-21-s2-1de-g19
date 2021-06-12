@@ -1,5 +1,3 @@
-
-
 @startuml
 hide methods
 skinparam classAttributeIconSize 0

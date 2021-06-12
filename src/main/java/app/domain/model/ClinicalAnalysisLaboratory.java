@@ -58,6 +58,8 @@ public class ClinicalAnalysisLaboratory {
      */
     private static final int TIN_LENGTH = 10;
 
+    private static final int LABID_LENGTH = 5;
+
     /**
      * Constructs a Clinical Analysis Laboratory's instance, receiving the lab's
      * name, address, phone number, TIN, the ID and the Test Type List
@@ -135,7 +137,7 @@ public class ClinicalAnalysisLaboratory {
      * @param labID
      */
     public void setLabID(String labID) {
-        if (StringUtils.isBlank(labID)) {
+        if (StringUtils.isBlank(labID) || labID.length() != LABID_LENGTH) {
             throw new IllegalArgumentException("Lab ID cannot be empty.");
         }
         this.labID = labID;

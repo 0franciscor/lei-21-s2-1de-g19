@@ -22,7 +22,7 @@ public class ParameterCategory {
     /**
      * The maximum name length, specified by the client.
      */
-    private static final int NAME_MAX_LENGTH = 10;
+    private static final int NAME_MAX_LENGTH = 15;
 
     /**
      * The maximum code length, specified by the client.

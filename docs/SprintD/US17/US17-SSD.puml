@@ -1,0 +1,17 @@
+@startuml
+autonumber
+
+actor "Laboratory Coordinator" as labC
+activate labC
+
+labC -> System ++: import tests from a .csv file
+System --> labC --: requests file path
+labC -> System ++: inserts file path
+activate System
+loop for each test present on the file
+System -->  labC : display which test is being imported
+end
+System --> labC : informs about the import success
+
+
+@enduml
