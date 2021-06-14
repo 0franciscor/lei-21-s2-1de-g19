@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor LaboratoryCoordinator as LC
+
+activate LC
+LC -> System ++: asks to see the performance of the company
+System --> LC --: requests data (i.e.: beginning date, end date)
+LC -> System ++: selects data (i.e.: beginning date, end date)
+System --> LC --: shows all the information (i.e.: number of clients, number of tests waiting for results, number of tests waiting for diagnosis \nand total number of tests processed) and requests data (i.e.: algorithm to be used)
+LC -> System ++: selects one algorithm
+System --> LC --:
+deactivate LC
+
+@enduml
