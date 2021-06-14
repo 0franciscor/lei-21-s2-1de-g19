@@ -45,7 +45,7 @@ public class ClientUI implements Runnable{
         {
             boolean exceptionThrown = false;
             try{
-                option = Utils.showAndSelectIndex(options, "\n\nAdmin Menu:");
+                option = Utils.showAndSelectIndex(options, "\n\nClient Menu:");
             } catch (Exception e) {
                 System.out.printf("\n\nUnavailable option.");
                 exceptionThrown = true;
