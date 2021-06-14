@@ -101,7 +101,7 @@ public class ClinicalAnalysisLaboratoryStore {
                 return cal;
             }
         }
-        return new ClinicalAnalysisLaboratory("NOT_FOUND", "NOT_FOUND", "NOT_FOUND", "NOT_FOUND", "NOT_FOUND", null);
+        return null;
     }
 
     /**

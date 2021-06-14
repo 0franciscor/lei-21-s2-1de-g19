@@ -114,4 +114,19 @@ public class ParameterStore {
 
        return parameterStoreListByParameterCategory;
     }
+
+    /**
+     * @param code that identifies a certain Parameter
+     *
+     * Method that searches for a specific parameter on the store and returns it.
+     *
+     * @return the parameter correspondent to that code
+     */
+    public Parameter getParameterByCode(String code){
+        for(Parameter parameter : parameterStoreList)
+            if(parameter.getCode().equalsIgnoreCase(code))
+                return parameter;
+
+        return null;
+    }
 }

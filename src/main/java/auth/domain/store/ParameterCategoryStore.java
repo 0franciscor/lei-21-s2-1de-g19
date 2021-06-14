@@ -75,7 +75,7 @@ public class ParameterCategoryStore {
         for(ParameterCategory pc : parameterCategoryList)
             if(pc.getCode().equalsIgnoreCase(code))
                 return pc;
-        return new ParameterCategory ("NOT_FOUND", "NOT_FOUND");
+        return null;
     }
 
     /**

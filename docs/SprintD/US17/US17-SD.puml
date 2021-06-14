@@ -6,8 +6,9 @@ activate labC
 
 participant ":ImportTestUI" as ImportTestUI
 participant ":ImportTestController" as ImportTestController
-participant ":Company" as Company
 participant ":ImportTest" as ImportTest
+participant ":Company" as Company
+participant "stringList : List<String>" as stringList
 participant "store:ClientStore" as ClientStore
 participant "store:ClinicalAnalysisLaboratoryStore" as CALStore
 participant "store:ParameterCategoryStore" as ParameterCategoryStore
@@ -25,8 +26,93 @@ deactivate ImportTestUI
 labC -> ImportTestUI : inserts file path
 activate ImportTestUI
 
-ImportTestUI -> ImportTestController : getFile(pathName)
+
+ImportTestUI -> ImportTestController : importFromFile(pathName)
 activate ImportTestController
 
+
+ImportTestController -> ImportTest  : getFile(pathName)
+activate ImportTest
+deactivate ImportTest
+
+
+ImportTestController -> ImportTest   : importListFromCSV()
+activate ImportTest
+deactivate ImportTest
+
+
+ImportTestController -> ImportTest : checkIfExists()
+activate ImportTest
+
+
+ImportTest -> ImportTest ++: checkIfClientExists(nhsNumber, TIN, birthDay, phoneNumber, name, email, address)
+ImportTest -> Company : store=getClientStore()
+activate Company
+deactivate Company
+ImportTest -> ClientStore : clientList = getClientList()
+activate ClientStore
+deactivate ClientStore
+deactivate ImportTest
+
+
+ImportTest -> ImportTest ++: checkIfLabExists(ID)
+ImportTest -> Company : store=getClinicalAnalysisLaboratoryStore()
+activate Company
+deactivate Company
+ImportTest -> CALStore : getClinicalAnalysisLaboratoryByID(ID)
+activate CALStore
+deactivate CALStore
+deactivate ImportTest
+
+
+loop for each category present on the csv file
+ImportTest -> ImportTest ++: checkIfCategoryExists(code)
+ImportTest -> Company : store=getParameterCategoryStore()
+activate Company
+deactivate Company
+ImportTest -> ParameterCategoryStore : getParameterCategoryByCode(code)
+activate ParameterCategoryStore
+deactivate ParameterCategoryStore
+deactivate ImportTest
+end
+
+
+loop for each parameter present on the csv file
+ImportTest -> ImportTest ++: checkIfParameterExists(name)
+ImportTest -> Company : store=getParameterStore()
+activate Company
+deactivate Company
+ImportTest -> ParameterStore : getParameterByCode(code)
+activate ParameterStore
+deactivate ParameterStore
+deactivate ImportTest
+end
+
+
+ImportTest -> ImportTest ++: checkIfTestTypeExists(code)
+ImportTest -> Company : store=getTestTypeStore()
+activate Company
+deactivate Company
+ImportTest -> TestTypeStore : getTestTypeByCode(code)
+activate TestTypeStore
+deactivate TestTypeStore
+deactivate ImportTest
+
+
+ImportTest -> ImportTest ++: checkIfTestExists(testCode, nhsCode)
+ImportTest -> Company : store=getTestStore()
+activate Company
+deactivate Company
+ImportTest -> TestStore : getTestByCode(testCode)
+activate TestStore
+deactivate TestStore
+deactivate ImportTest
+
+
+deactivate ImportTest
+
+ImportTestController -> ImportTest : addTest()
+activate ImportTest
+deactivate ImportTest
 
 @enduml
