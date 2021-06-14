@@ -19,7 +19,7 @@ public class SpecialistDoctorUI implements Runnable {
         int option = 0;
         do
         {
-            option = Utils.showAndSelectIndex(options, "\n\nAdmin Menu:");
+            option = Utils.showAndSelectIndex(options, "\n\nSpecialist Doctor Menu:");
 
             if ( (option >= 0) && (option < options.size()))
             {

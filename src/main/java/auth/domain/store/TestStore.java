@@ -92,7 +92,7 @@ public class TestStore {
     public List<Test> getAnalyzedTests() {
         List<Test> analyzedTestsList = new ArrayList<Test>();
         for (Test c : TestList)
-            if (c.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString()))
+            if (c.getStatus().equalsIgnoreCase("Analyzed"))
                 analyzedTestsList.add(c);
 
         return analyzedTestsList;

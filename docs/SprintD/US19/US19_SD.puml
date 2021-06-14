@@ -1,0 +1,9 @@
+@startuml
+
+autonumber
+actor "Timer" as A
+activate A
+A -> System ++: send daily
+System --> A --: shows the list of analyzed tests
+
+@enduml

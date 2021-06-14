@@ -1,8 +1,8 @@
 package app.ui.console;
 
 import app.controller.WriteTestReportController;
+import app.domain.model.Test;
 import app.domain.model.TestParameter;
-import app.domain.model.TestParameterResult;
 import app.ui.console.utils.Utils;
 import auth.mappers.dto.TestDto;
 
@@ -23,8 +23,10 @@ public class WriteTestReportUI implements Runnable {
             do {
                 List<TestDto> listDto = ctrl.getAnalyzedTests();
                 System.out.println("------ List of Tests available do to diagnosis report. ------");
-                TestDto test = (TestDto) Utils.selectsObject(listDto);
-                String value = "";
+                for (int x = 1 ; x <= listDto.size(); x++)
+                    System.out.println("Test (" + x + ")");
+                int opt = Utils.readIntegerFromConsole("Please choose a test.") - 1;
+                TestDto test = listDto.get(opt);
                 if (test == null)
                     exit = 0;
                 System.out.println("-------- Test Results. --------");
@@ -40,7 +42,6 @@ public class WriteTestReportUI implements Runnable {
                     if(confirmation == 1) {
                         if(ctrl.saveReport(test, report))
                             System.out.println("Report completed successfully.");
-                        run();
                     }
                 } while (confirmation != 1);
             } while (exit != 0);
@@ -48,6 +49,5 @@ public class WriteTestReportUI implements Runnable {
             System.out.println("There was an error when trying to write a test report.");
             return;
         }
-
     }
 }
