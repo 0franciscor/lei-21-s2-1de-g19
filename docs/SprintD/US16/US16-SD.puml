@@ -1,0 +1,62 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor LaboratoryCoordinator as LC
+participant ":PerfomanceUI" as PUI
+participant ":PerfomanceController" as PC
+participant ":Company" as COMP
+participant "cStore: ClientStore" as CS
+participant "tStore: TestStore" as TS
+
+
+activate LC
+LC -> PUI : asks to see the performance of the company
+activate PUI
+PUI --> LC : requests data (i.e.: beginning date, end date)
+deactivate PUI
+
+LC -> PUI : selects data (i.e.: beginning date, end date)
+activate PUI
+PUI -> PC : nClients = getAllClients()
+activate PC
+PC -> COMP : cStore = getClientStore()
+activate COMP
+deactivate COMP
+PC -> CS : nClients = getClientListNumber()
+activate CS
+deactivate CS
+deactivate PC
+PUI -> PC : nTestsWaitResult = getAllTestsWaitResult()
+activate PC
+PC -> COMP : tStore = getTestStore()
+activate COMP
+deactivate COMP
+PC -> TS : nTestsWaitResult = getCollectedTestsNumber()
+activate TS
+deactivate TS
+deactivate PC
+PUI -> PC : nTestsWaitDiagnosis = getAllTestsWaitDiagnosis()
+activate PC
+PC -> TS : nTestsWaitDiagnosis = getAnalysedTestsNumber()
+activate TS
+deactivate TS
+deactivate PC
+PUI -> PC : nTestsValidated = getAllTestsValidated()
+activate PC
+PC -> TS : nTestsValidated = getValidatedTestsNumber()
+activate TS
+deactivate TS
+deactivate PC
+PUI --> LC : shows all the information (i.e.: number of clients, number of tests waiting for results, number of tests waiting for diagnosis \nand total number of tests processed) and requests data (i.e.: algorithm to be used)
+deactivate PUI
+
+LC -> PUI : selects one algorithm
+activate PUI
+PUI -> PC :
+PUI --> LC :
+deactivate PUI
+deactivate LC
+
+@enduml
