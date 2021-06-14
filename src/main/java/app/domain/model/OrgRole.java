@@ -27,12 +27,12 @@ public class OrgRole {
             this.designation = "MED LAB TECH";
         if (designation.equalsIgnoreCase("ADMINISTRATOR"))
             this.designation = "ADMINISTRATOR";
-        if (designation.equalsIgnoreCase("RECEPCIONIST"))
-            this.designation = "RECEPCIONIST";
+        if (designation.equalsIgnoreCase("RECEPTIONIST"))
+            this.designation = "RECEPTIONIST";
         if (designation.equalsIgnoreCase("LAB COORDINATOR"))
             this.designation = "LAB COORDINATOR";
-        if (designation.equalsIgnoreCase("CLINICALCHEMTEC"))
-            this.designation = "CLINICALCHEMTEC";
+        if (designation.equalsIgnoreCase("CLINICALCHEMTECH"))
+            this.designation = "CLINICALCHEMTECH";
     }
     /**
      * Method responsible for checking the acceptance criteria for the Employee's role.
@@ -45,8 +45,8 @@ public class OrgRole {
 
         if (StringUtils.isBlank(role))
             throw new IllegalArgumentException("Name cannot be blank.");
-        if ( role.length() > 15 )
-            throw new IllegalArgumentException("Role must not have more than 15 chars.");
+        if ( role.length() > 18 )
+            throw new IllegalArgumentException("Role must not have more than 18 chars.");
     }
 
 }

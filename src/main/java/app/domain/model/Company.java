@@ -55,10 +55,10 @@ public class Company {
 
         this.roleList.add(new OrgRole("SPEC DOCTOR"));
         this.roleList.add(new OrgRole("MED LAB TECH"));
-        this.roleList.add(new OrgRole("RECEPCIONIST"));
+        this.roleList.add(new OrgRole("RECEPTIONIST"));
         this.roleList.add(new OrgRole("LAB COORDINATOR"));
         this.roleList.add(new OrgRole("ADMINISTRATOR"));
-        this.roleList.add(new OrgRole("CLINICALCHEMTEC"));
+        this.roleList.add(new OrgRole("CLINICALCHEMTECH"));
 
         this.numEmp = 1;
         this.numTeste = 0;
