@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="196.25px" preserveAspectRatio="none" style="width:468px;height:196px;background:#FFFFFF;" version="1.1" viewBox="0 0 468 196" width="468.75px" zoomAndPan="magnify"><defs><filter height="300%" id="fqlxorandjp3y" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[df38be88ccee13e832d6fafd6288a4ca]
+class Test--><rect codeLine="11" fill="#FEFECE" filter="url(#fqlxorandjp3y)" height="171.0645" id="Test" style="stroke:#A80036;stroke-width:1.875;" width="180" x="8.75" y="8.75"/><ellipse cx="78.4375" cy="28.75" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke:#A80036;stroke-width:1.25;"/><path d="M80.9375,24.375 Q81.1914,23.75 81.4844,23.4375 Q81.7773,23.125 82.1094,23.125 Q82.6953,23.125 83.0664,23.4766 Q83.4375,23.8281 83.4375,24.6484 L83.4375,26.6016 Q83.4375,27.4219 83.0859,27.7734 Q82.7344,28.125 82.1875,28.125 Q81.6992,28.125 81.3867,27.9102 Q81.0742,27.6953 80.9375,27.1289 Q80.8789,26.7383 80.6641,26.5234 Q80.2734,26.1133 79.5703,25.8789 Q78.8672,25.625 78.1641,25.625 Q77.2852,25.625 76.543,25.9766 Q75.8203,26.3281 75.2539,27.1094 Q74.6875,27.8906 74.6875,28.9648 L74.6875,30.1172 Q74.6875,31.4063 75.7422,32.2656 Q76.7969,33.125 78.6719,33.125 Q79.7852,33.125 80.5664,32.8711 Q81.0156,32.7344 81.5234,32.2852 Q81.8555,32.0313 82.0313,31.9531 Q82.207,31.875 82.4219,31.875 Q82.832,31.875 83.125,32.207 Q83.4375,32.5195 83.4375,32.9688 Q83.4375,33.3984 83.0078,33.9063 Q82.3828,34.6484 81.3867,35.0586 Q80.0781,35.625 78.4766,35.625 Q76.6016,35.625 75.0977,34.8828 Q73.8867,34.2969 73.0273,33.0273 Q72.1875,31.7578 72.1875,30.2539 L72.1875,28.8867 Q72.1875,27.3242 72.9297,25.957 Q73.6914,24.5898 75,23.8672 Q76.3281,23.125 77.8125,23.125 Q78.7109,23.125 79.4922,23.4375 Q80.2734,23.75 80.9375,24.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacing" textLength="30" x="104.0625" y="34.8877">Test</text><line style="stroke:#A80036;stroke-width:1.875;" x1="10" x2="187.5" y1="48.75" y2="48.75"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="71.25" x="16.25" y="68.0237">-description</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="35" x="16.25" y="85.3186">-code</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="58.75" x="16.25" y="102.6135">-nhsCode</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="98.75" x="16.25" y="119.9084">-collectDateTime</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="165" x="16.25" y="137.2034">-chemicalAnalysisDateTime</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="117.5" x="16.25" y="154.4983">-diagnosisDateTime</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="116.25" x="16.25" y="171.7932">-validationDateTime</text><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><rect codeLine="21" fill="#FEFECE" filter="url(#fqlxorandjp3y)" height="67.2949" id="Company" style="stroke:#A80036;stroke-width:1.875;" width="106.25" x="345" y="60.625"/><ellipse cx="363.75" cy="80.625" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke:#A80036;stroke-width:1.25;"/><path d="M366.25,76.25 Q366.5039,75.625 366.7969,75.3125 Q367.0898,75 367.4219,75 Q368.0078,75 368.3789,75.3516 Q368.75,75.7031 368.75,76.5234 L368.75,78.4766 Q368.75,79.2969 368.3984,79.6484 Q368.0469,80 367.5,80 Q367.0117,80 366.6992,79.7852 Q366.3867,79.5703 366.25,79.0039 Q366.1914,78.6133 365.9766,78.3984 Q365.5859,77.9883 364.8828,77.7539 Q364.1797,77.5 363.4766,77.5 Q362.5977,77.5 361.8555,77.8516 Q361.1328,78.2031 360.5664,78.9844 Q360,79.7656 360,80.8398 L360,81.9922 Q360,83.2813 361.0547,84.1406 Q362.1094,85 363.9844,85 Q365.0977,85 365.8789,84.7461 Q366.3281,84.6094 366.8359,84.1602 Q367.168,83.9063 367.3438,83.8281 Q367.5195,83.75 367.7344,83.75 Q368.1445,83.75 368.4375,84.082 Q368.75,84.3945 368.75,84.8438 Q368.75,85.2734 368.3203,85.7813 Q367.6953,86.5234 366.6992,86.9336 Q365.3906,87.5 363.7891,87.5 Q361.9141,87.5 360.4102,86.7578 Q359.1992,86.1719 358.3398,84.9023 Q357.5,83.6328 357.5,82.1289 L357.5,80.7617 Q357.5,79.1992 358.2422,77.832 Q359.0039,76.4648 360.3125,75.7422 Q361.6406,75 363.125,75 Q364.0234,75 364.8047,75.3125 Q365.5859,75.625 366.25,76.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacing" textLength="66.25" x="381.25" y="86.7627">Company</text><line style="stroke:#A80036;stroke-width:1.875;" x1="346.25" x2="450" y1="100.625" y2="100.625"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="73.75" x="352.5" y="119.8987">-designation</text><!--MD5=[150ee6e4dbb30ab82336f9e174f6c4ed]
+link Test to Company--><path codeLine="9" d="M189.075,94.375 C239.975,94.375 302.0125,94.375 344.9875,94.375 " fill="none" id="Test-Company" style="stroke:#A80036;stroke-width:1.25;"/><polygon fill="#000000" points="226.25,83.3447,237.5564,87.0184,237.5564,79.6711,226.25,83.3447" style="stroke:#000000;stroke-width:1.25;"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="62.5" x="243.75" y="89.9939">performs</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="6.25" x="198.712" y="112.3074">*</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="8.75" x="326.3525" y="113.018">1</text><!--MD5=[5c3603742ce8c920f5bb50c52d7fcb81]
+@startuml
+'https://plantuml.com/class-diagram
+hide methods
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Test
+class Company
+
+Test "*" - - "1" Company : < performs
+
+class Test{
+-description
+-code
+-nhsCode
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime
+}
+
+class Company{
+-designation
+}
+
+@enduml
+
+@startuml
+hide methods
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Test
+class Company
+
+Test "*" - - "1" Company : < performs
+
+class Test{
+-description
+-code
+-nhsCode
+-collectDateTime
+-chemicalAnalysisDateTime
+-diagnosisDateTime
+-validationDateTime
+}
+
+class Company{
+-designation
+}
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 13:40:07 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
