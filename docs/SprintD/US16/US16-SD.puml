@@ -4,8 +4,8 @@
 autonumber
 
 actor LaboratoryCoordinator as LC
-participant ":PerfomanceUI" as PUI
-participant ":PerfomanceController" as PC
+participant ":PerformanceUI" as PUI
+participant ":PerformanceController" as PC
 participant ":Company" as COMP
 participant "cStore: ClientStore" as CS
 participant "tStore: TestStore" as TS
