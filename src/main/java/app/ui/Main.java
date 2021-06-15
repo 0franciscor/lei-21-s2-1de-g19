@@ -19,9 +19,9 @@ public class Main {
     {
         try
         {
-            /*SendNHSReportTimerTask task1 = new SendNHSReportTimerTask();
+            SendNHSReportTimerTask task1 = new SendNHSReportTimerTask();
             Timer timer = new Timer();
-            timer.schedule(task1, new Time(6,0,0));*/
+            timer.schedule(task1, );
             MainMenuUI menu = new MainMenuUI();
             menu.run();
             Notification notification = App.getInstance().getCompany().getNotificationService();

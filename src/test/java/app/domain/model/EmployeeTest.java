@@ -152,9 +152,9 @@ public class EmployeeTest {
 
     @Test
     public void toStringEmployee(){
-        OrgRole orgRole = new OrgRole("RECEPCIONIST");
+        OrgRole orgRole = new OrgRole("RECEPTIONIST");
         Employee emp = new Employee("Joao", orgRole, "Rua da Palmeira", "joao@mail.com", "93393393312", 1234);
 
-        assertEquals("The Employee Joao (with the Employee ID: null) is registered on the database. Address: Rua da Palmeira Phone Number: 93393393312 Email: joao@mail.com Organization Role: RECEPCIONIST ",emp.toString());
+        assertEquals("The Employee Joao (with the Employee ID: null) is registered on the database. Address: Rua da Palmeira Phone Number: 93393393312 Email: joao@mail.com Organization Role: RECEPTIONIST ",emp.toString());
     }
 }
