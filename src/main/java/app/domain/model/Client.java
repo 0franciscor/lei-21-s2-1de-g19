@@ -24,6 +24,11 @@ public class Client {
     private String nhsID;
 
     /**
+     * The Client's address.
+     */
+    private String address;
+
+    /**
      * Client's birth date.
      */
     private String birthDate;
@@ -68,7 +73,7 @@ public class Client {
      * @param email Client's email
      * @param name Client's name
      */
-    public Client (String citizenID, String nhsID, String birthDate,String sex, String TIN, String phoneNumber, String email, String name){
+    public Client (String citizenID, String nhsID, String birthDate,String sex, String TIN, String phoneNumber, String email, String name, String address){
 
         checkCitizenIDRules (citizenID);
         checkNhsIDRules (nhsID);
@@ -77,6 +82,7 @@ public class Client {
         checkSexRules (sex);
         checkPhoneNumberRules (phoneNumber);
         checkNameRules (name);
+        checkAddressRules(address);
         this.citizenID = citizenID;
         this.nhsID = nhsID;
         this.birthDate = birthDate;
@@ -85,6 +91,7 @@ public class Client {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.name = name;
+        this.address = address;
         this.clientTestsList = new ArrayList<>();
     }
 
@@ -225,6 +232,16 @@ public class Client {
     }
 
     /**
+     * Validates the acceptance criteria of the Client's Address.
+     */
+    public void checkAddressRules (String address){
+        if(StringUtils.isBlank(address))
+            throw new IllegalArgumentException("Address cannot be blank.");
+        if (address.length() > 90 )
+            throw new IllegalArgumentException("Address must not have more than 90 chars.");
+        }
+
+    /**
      * Returns the Client's citizen card number.
      *
      * @return Client's citizen card number.
@@ -294,6 +311,15 @@ public class Client {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Returns the client's address.
+     *
+     * @return Client's address.
+     */
+    public String getAddress() {
+        return address;
     }
 
     /**
