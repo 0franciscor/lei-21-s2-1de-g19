@@ -122,6 +122,24 @@ public class ClientTest {
         cl.checkBirthDateRules(birthDate);
     }
 
+    @org.junit.Test
+    public void checkAddressRulesValid() {
+
+        Client cl = new Client();
+
+        String address = "Rua das Palmeiras";
+        cl.checkAddressRules(address);
+    }
+
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void checkAddressRulesInvalidBlank() {
+
+        Client cl = new Client();
+
+        String address = "";
+        cl.checkAddressRules(address);
+    }
+
     @org.junit.Test(expected = IllegalArgumentException.class)
     public void checkBirthDateRulesInvalidBlank() {
 
@@ -245,6 +263,15 @@ public class ClientTest {
         Client cl = new Client();
 
         String name = "João8";
+        cl.checkNameRules(name);
+    }
+
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void checkAddressRulesInvalidLength() {
+
+        Client cl = new Client();
+
+        String name = "Rua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das PalmeirasRua das Palmeiras";
         cl.checkNameRules(name);
     }
 

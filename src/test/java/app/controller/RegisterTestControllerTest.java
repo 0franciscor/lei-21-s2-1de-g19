@@ -18,12 +18,12 @@ public class RegisterTestControllerTest {
 
         RegisterTestController rtc = new RegisterTestController();
 
-        Client client = new Client("1234567890987654","1212121212","12/12/2000","male","1212121212","12121212121","roberto@gmail.com","Roberto");
+        Client client = new Client("1234567890987654","1212121212","12/12/2000","male","1212121212","12121212121","roberto@gmail.com","Roberto", "Rua das Palmeiras");
         rtc.clientstore.addClient(client);
 
         ClientDto clientDtoResult = rtc.getClient("1212121212");
 
-        ClientDto clientDtoExpected = new ClientDto("1234567890987654","1212121212","12/12/2000","male","1212121212","12121212121","roberto@gmail.com","Roberto");
+        ClientDto clientDtoExpected = new ClientDto("1234567890987654","1212121212","12/12/2000","male","1212121212","12121212121","roberto@gmail.com","Roberto", "Rua das Palmeiras");
 
         Assert.assertEquals(clientDtoResult.getCitizenID(),clientDtoExpected.getCitizenID());
         Assert.assertEquals(clientDtoResult.getNhsID(),clientDtoExpected.getNhsID());
@@ -126,7 +126,7 @@ public class RegisterTestControllerTest {
 
         RegisterTestController rtc = new RegisterTestController();
 
-        Client client = new Client("1234567890987654","1212121212","12/12/2000","male","1212121212","12121212121","roberto@gmail.com","Roberto");
+        Client client = new Client("1234567890987654","1212121212","12/12/2000","male","1212121212","12121212121","roberto@gmail.com","Roberto", "Rua das Palmeiras");
         rtc.clientstore.addClient(client);
 
         List<ParameterCategory> listParameterCategories = new ArrayList<>();

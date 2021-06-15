@@ -9,7 +9,7 @@ public class ClientStoreTest {
     @Test
     public void saveClientInStore() {
 
-        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto", "Rua das Palmeiras");
 
         ClientStore cl2 = new ClientStore();
 
@@ -22,7 +22,7 @@ public class ClientStoreTest {
     @Test
     public void DoesNotsaveClientInStore() {
 
-        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto", "Rua das Palmeiras");
 
         ClientStore cl2 = new ClientStore();
 
@@ -36,7 +36,7 @@ public class ClientStoreTest {
     @Test
     public void validateClientExists() {
 
-        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto", "Rua das Palmeiras");
 
         ClientStore cl2 = new ClientStore();
 
@@ -51,7 +51,7 @@ public class ClientStoreTest {
     @Test
     public void validateClientDoesNotExist() {
 
-        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto", "Rua das Palmeiras");
 
         ClientStore cl2 = new ClientStore();
 
@@ -67,7 +67,7 @@ public class ClientStoreTest {
 
         ClientStore clientStore = new ClientStore();
 
-        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto", "Rua das Palmeiras");
         clientStore.addClient(cl);
 
         Client clientExpected = cl;
@@ -83,7 +83,7 @@ public class ClientStoreTest {
 
         ClientStore clientStore = new ClientStore();
 
-        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        Client cl = new Client("1234567890123456","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto", "Rua das Palmeiras");
         clientStore.addClient(cl);
 
         Client clientResult = clientStore.getClient("1234567891");

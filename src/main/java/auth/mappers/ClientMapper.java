@@ -25,8 +25,9 @@ public class ClientMapper {
         String phoneNumber = clientDto.getPhoneNumber();
         String email = clientDto.getEmail();
         String name = clientDto.getName();
+        String address = clientDto.getAddress();
 
-        Client c = new Client(citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name);
+        Client c = new Client(citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name, address);
 
         return c;
     }
@@ -47,7 +48,8 @@ public class ClientMapper {
                 client.getTIN(),
                 client.getPhoneNumber(),
                 client.getEmail(),
-                client.getName());
+                client.getName(),
+                client.getAddress());
 
         return c1;
 

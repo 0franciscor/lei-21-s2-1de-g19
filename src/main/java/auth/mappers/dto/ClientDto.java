@@ -27,6 +27,11 @@ public class ClientDto {
     private String birthDate;
 
     /**
+     * Client's address.
+     */
+    private String address;
+
+    /**
      * Client's sex.
      */
     private String sex;
@@ -65,7 +70,7 @@ public class ClientDto {
      * @param email Client's email
      * @param name Client's name
      */
-    public ClientDto (String citizenID, String nhsID, String birthDate, String sex, String TIN, String phoneNumber, String email, String name){
+    public ClientDto (String citizenID, String nhsID, String birthDate, String sex, String TIN, String phoneNumber, String email, String name, String address){
 
         this.citizenID = citizenID;
         this.nhsID = nhsID;
@@ -75,6 +80,7 @@ public class ClientDto {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.name = name;
+        this.address = address;
 
     }
     public ClientDto (String name, String sex, String tin, String birthDate, List<Test> testList) {
@@ -146,6 +152,15 @@ public class ClientDto {
      */
     public String getEmail(){
         return email;
+    }
+
+    /**
+     * Returns the Client's Address.
+     *
+     * @return Client's address
+     */
+    public String getAddress(){
+        return address;
     }
 
     /**

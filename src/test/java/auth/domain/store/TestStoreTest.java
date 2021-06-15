@@ -23,7 +23,7 @@ public class TestStoreTest {
 
         TestStore testStore = new TestStore();
 
-        Client cl = new Client("1234567890987654","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto");
+        Client cl = new Client("1234567890987654","1234567890","12/12/1940","male","1234567890","12345678901","roberto@gmail.com","Roberto", "Rua das Palmeiras");
 
         ParameterCategory parameterCategory = new ParameterCategory("rfgvb","45678");
         List<ParameterCategory> pcList = new ArrayList<>();

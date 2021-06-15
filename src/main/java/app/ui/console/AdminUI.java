@@ -19,10 +19,10 @@ public class AdminUI implements Runnable{
     {
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Register a new clinical analysis laboratory", new RegisterClinicalAnalysisLaboratoryUI()));
-        options.add(new MenuItem("Specify a new type of test", new CreateTestTypeUI()));
-        options.add(new MenuItem("Specify a new parameter", new CreateParameterUI()));
-        options.add(new MenuItem("Specify a new parameter category", new CreateParameterCategoryUI()));
         options.add(new MenuItem("Register a new employee", new RegisterNewEmployeeUI()));
+        options.add(new MenuItem("Specify a new parameter category", new CreateParameterCategoryUI()));
+        options.add(new MenuItem("Specify a new parameter", new CreateParameterUI()));
+        options.add(new MenuItem("Specify a new type of test", new CreateTestTypeUI()));
         options.add(new MenuItem("Send the covid-19 report to the NHS", new SendReportUI()));
 
         int option = 0;
