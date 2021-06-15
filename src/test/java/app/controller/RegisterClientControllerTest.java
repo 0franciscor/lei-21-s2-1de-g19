@@ -13,8 +13,12 @@ public class RegisterClientControllerTest {
 
         RegisterClientController rcc = new RegisterClientController();
 
-        boolean result = true;
-        boolean expected = rcc.saveClient(cl);
+        boolean result = true, expected = false;
+        try {
+            expected = rcc.saveClient(cl);
+        } catch (Exception e){
+
+        }
 
         Assert.assertEquals(result,expected);
     }
@@ -26,9 +30,13 @@ public class RegisterClientControllerTest {
 
         RegisterClientController rcc = new RegisterClientController();
 
-        boolean result = false;
+        boolean result = false, expected = false;
         rcc.getClientstore().addClient(cl);
-        boolean expected = rcc.saveClient(cl);
+        try {
+            expected = rcc.saveClient(cl);
+        } catch (Exception e){
+
+        }
 
         Assert.assertEquals(result,expected);
     }

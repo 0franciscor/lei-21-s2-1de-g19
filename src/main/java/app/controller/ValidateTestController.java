@@ -8,6 +8,7 @@ import auth.mappers.TestMapper;
 import auth.mappers.dto.TestDto;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -60,7 +61,7 @@ public class ValidateTestController {
     /**
      * A method which is able to send a notification to a Client.
      */
-    public void sendNotification() throws FileNotFoundException {
+    public void sendNotification() throws IOException {
         Notification notificationService = App.getInstance().getCompany().getNotificationService();
         notificationService.writeToFile("Dear Client, your test has been validated. Login on your app to see the results.");
 

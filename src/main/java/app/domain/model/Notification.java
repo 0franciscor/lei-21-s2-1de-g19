@@ -1,7 +1,6 @@
 package app.domain.model;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Date;
 
 
@@ -15,15 +14,21 @@ public class Notification {
     /**
      * Responsible for printing to a file.
      */
-    private PrintWriter out;
+    private File ficheiro;
 
     /**
-     * @throws FileNotFoundException
+     * @throws IOException
      *
      * The notification builder.
      */
-    public Notification() throws FileNotFoundException {
-        out = new PrintWriter("emailAndSMSMessages.txt");
+    public Notification() throws IOException {
+        ficheiro = new File("emailAndSMSMessages.txt");
+
+        if(ficheiro.exists())
+            ficheiro.delete();
+        else
+            ficheiro.createNewFile();
+
     }
 
     /**
@@ -31,14 +36,10 @@ public class Notification {
      *
      * The method responsible for writing to a file.
      */
-    public void writeToFile(String message) {
-        out.println(new Date() + ": " + message);
-    }
+    public void writeToFile(String message) throws IOException {
+        Writer output  = new BufferedWriter(new FileWriter(ficheiro, true));
+        output.append(new Date() + message + "\n");
+        output.close();
 
-    /**
-     * Method responsible for closing the PrintWriter
-     */
-    public void close(){
-        out.close();
     }
 }

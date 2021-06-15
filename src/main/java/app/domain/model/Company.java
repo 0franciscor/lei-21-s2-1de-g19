@@ -10,9 +10,11 @@ import auth.mappers.ClientMapper;
 import auth.mappers.EmployeeMapper;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.EmployeeDto;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +61,7 @@ public class Company {
         this.roleList.add(new OrgRole("LAB COORDINATOR"));
         this.roleList.add(new OrgRole("ADMINISTRATOR"));
         this.roleList.add(new OrgRole("CLINICALCHEMTECH"));
+        this.roleList.add(new OrgRole("CLIENT"));
 
         this.numEmp = 1;
         this.numTeste = 0;
@@ -185,7 +188,7 @@ public class Company {
      *
      * @return a Notification object which allows to write to a file.
      */
-    public Notification getNotificationService() throws FileNotFoundException {
+    public Notification getNotificationService() throws IOException {
         if(notification == null)
             return this.notification = new Notification();
         else

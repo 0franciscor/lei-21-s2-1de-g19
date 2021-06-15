@@ -1,6 +1,9 @@
 package app.ui.console;
 
+import app.controller.App;
+import app.domain.model.Client;
 import app.ui.console.utils.Utils;
+import auth.AuthFacade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,15 +29,16 @@ public class ClientUI implements Runnable{
     {
         List<MenuItem> options = new ArrayList<>();
 
-        String TIN;
+        String TIN = null;
 
-        try {
+        String email = new AuthFacade().getCurrentUserSession().getUserId().getEmail();
 
-            TIN = Utils.readLineFromConsole("Please insert your TIN number:");
+        List<Client> clientList = App.getInstance().getCompany().getClientStore().getClientList();
 
-        } catch (Exception e) {
-            System.out.println("Invalid Tax Identification Number or the client has not been registered yet.");
-            return;
+        for(Client client : clientList){
+            if(client.getEmail().equalsIgnoreCase(email)){
+                TIN = client.getTIN();
+            }
         }
 
         options.add(new MenuItem("View Tests Results", new ViewClientTestsUI(TIN)));

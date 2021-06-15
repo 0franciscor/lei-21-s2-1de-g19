@@ -9,7 +9,7 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 
-public class App extends Application {
+public class app extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -52,7 +52,7 @@ public class App extends Application {
 
         JButton button = new JButton("Login");
         button.setBounds(10, 80, 80, 25);
-        //button.addActionListener(new App());
+        //button.addActionListener(new app());
         panel.add(button);
 
         JLabel success = new JLabel("");

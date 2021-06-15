@@ -27,10 +27,11 @@ public class Main {
             data.set(Calendar.SECOND,0);
             Timer timer = new Timer();
             timer.schedule(task1, data.getTime(), 1000*60*60*24);
+
             MainMenuUI menu = new MainMenuUI();
             menu.run();
-            Notification notification = App.getInstance().getCompany().getNotificationService();
-            notification.close();
+
+
         }
         catch( Exception e )
         {

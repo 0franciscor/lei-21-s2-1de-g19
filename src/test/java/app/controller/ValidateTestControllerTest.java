@@ -8,6 +8,7 @@ import auth.mappers.dto.TestDto;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -95,7 +96,7 @@ public class ValidateTestControllerTest {
     }
 
     @Test
-    public void notificationService() throws FileNotFoundException {
+    public void notificationService() throws IOException {
         boolean isNull = App.getInstance().getCompany().getNotificationService() != null;
         assertTrue(isNull);
     }

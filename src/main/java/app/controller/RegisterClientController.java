@@ -2,9 +2,12 @@ package app.controller;
 
 import app.domain.model.Client;
 import app.domain.model.Company;
+import app.domain.model.OrgRole;
 import auth.AuthFacade;
 import auth.domain.store.ClientStore;
 import auth.mappers.dto.ClientDto;
+
+import java.io.IOException;
 
 /**
  * Represents the controller that serves at intermediary between the UI and the domain layer.
@@ -61,11 +64,13 @@ public class RegisterClientController {
      *
      * @return true if the saveClient method of the client store is true, otherwise return false
      */
-    public boolean saveClient (Client cl){
+    public boolean saveClient (Client cl) throws IOException {
 
         if (this.clientstore.saveClient(cl)){
             String pwd = cl.generatePwd();
-            authFacade.addUser(cl.getName(),cl.getEmail(), pwd);
+            cl.sendNotification();
+
+            authFacade.addUserWithRole(cl.getName(),cl.getEmail(), pwd, "CLIENT");
             return true;
         }
         return false;

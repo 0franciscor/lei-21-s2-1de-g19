@@ -1,7 +1,10 @@
 package app.domain.model;
 
+import app.controller.App;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -59,6 +62,11 @@ public class Client {
     private String name;
 
     private List<Test> clientTestsList;
+
+    /**
+     * The client's password
+     */
+    private String password;
 
 
     /**
@@ -379,6 +387,7 @@ public class Client {
             char aux = str.charAt(x);
             strAux += aux;
         }
+        this.password = strAux;
         return strAux;
     }
     public void addTest(Test test) {
@@ -386,5 +395,9 @@ public class Client {
     }
     public List<Test> getClientTestsList() {
         return this.clientTestsList;
+    }
+
+    public void sendNotification() throws IOException {
+        App.getInstance().getCompany().getNotificationService().writeToFile(String.format("Dear User, your password is %s and your email is %s", password, email));
     }
 }
