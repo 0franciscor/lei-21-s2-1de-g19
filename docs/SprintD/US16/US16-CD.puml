@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+package "UI" {
+class PerformanceUI{
+}
+}
+
+package "Core" {
+package "Controllers"{
+class PerformanceController{
+  +getAllClients()
+  +getAllTestsWaitResult()
+  +getAllTestsWaitDiagnosis()
+  +getAllTestsValidated()
+}
+}
+
+package "Stores"{
+class ClientStore{
+  +getClientListNumber()
+}
+
+class TestStore{
+  +getCollectedTestsNumber()
+  +getAnalysedTestsNumber()
+  +getValidatedTestsNumber()
+}
+}
+
+package "Model"{
+class Company{
+  -String designation
+  +getClientStore()
+  +getTestStore()
+}
+}
+
+
+}
+PerformanceUI ..> PerformanceController
+PerformanceController ..> Company
+PerformanceController ..> ClientStore
+PerformanceController ..> TestStore
+
+@enduml

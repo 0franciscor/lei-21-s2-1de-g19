@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="657.5px" preserveAspectRatio="none" style="width:723px;height:657px;background:#FFFFFF;" version="1.1" viewBox="0 0 723 657" width="723.75px" zoomAndPan="magnify"><defs><filter height="300%" id="fx59ujydynctf" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[9681dc6e01e10c6b4fe06895ae94f592]
+cluster UI--><polygon fill="#FFFFFF" filter="url(#fx59ujydynctf)" points="286.25,7.5,311.25,7.5,320,37.0117,471.25,37.0117,471.25,132.5,286.25,132.5,286.25,7.5" style="stroke:#000000;stroke-width:1.875;"/><line style="stroke:#000000;stroke-width:1.875;" x1="286.25" x2="320" y1="37.0117" y2="37.0117"/><text fill="#000000" font-family="sans-serif" font-size="17.5" font-weight="bold" lengthAdjust="spacing" textLength="17.5" x="291.25" y="28.1665">UI</text><!--MD5=[2c2e2644034c00788261e03c85b06837]
+cluster Core--><polygon fill="#FFFFFF" filter="url(#fx59ujydynctf)" points="20,162.5,70,162.5,78.75,192.0117,702.5,192.0117,702.5,648.75,20,648.75,20,162.5" style="stroke:#000000;stroke-width:1.875;"/><line style="stroke:#000000;stroke-width:1.875;" x1="20" x2="78.75" y1="192.0117" y2="192.0117"/><text fill="#000000" font-family="sans-serif" font-size="17.5" font-weight="bold" lengthAdjust="spacing" textLength="42.5" x="25" y="183.1665">Core</text><!--MD5=[ed1d20ea533a2a0e7df5ba3c35e56ced]
+cluster Controllers--><polygon fill="#FFFFFF" filter="url(#fx59ujydynctf)" points="260,217.5,366.25,217.5,375,247.0117,497.5,247.0117,497.5,411.25,260,411.25,260,217.5" style="stroke:#000000;stroke-width:1.875;"/><line style="stroke:#000000;stroke-width:1.875;" x1="260" x2="375" y1="247.0117" y2="247.0117"/><text fill="#000000" font-family="sans-serif" font-size="17.5" font-weight="bold" lengthAdjust="spacing" textLength="98.75" x="265" y="238.1665">Controllers</text><!--MD5=[8dd535d56cd4cf7faf64fdd082ba836e]
+cluster Stores--><polygon fill="#FFFFFF" filter="url(#fx59ujydynctf)" points="50,441.25,115,441.25,123.75,470.7617,475,470.7617,475,618.75,50,618.75,50,441.25" style="stroke:#000000;stroke-width:1.875;"/><line style="stroke:#000000;stroke-width:1.875;" x1="50" x2="123.75" y1="470.7617" y2="470.7617"/><text fill="#000000" font-family="sans-serif" font-size="17.5" font-weight="bold" lengthAdjust="spacing" textLength="57.5" x="55" y="461.9165">Stores</text><!--MD5=[15636c1ca4a123c16a2a1a8e90aca7a9]
+cluster Model--><polygon fill="#FFFFFF" filter="url(#fx59ujydynctf)" points="505,441.25,567.5,441.25,576.25,470.7617,672.5,470.7617,672.5,618.75,505,618.75,505,441.25" style="stroke:#000000;stroke-width:1.875;"/><line style="stroke:#000000;stroke-width:1.875;" x1="505" x2="576.25" y1="470.7617" y2="470.7617"/><text fill="#000000" font-family="sans-serif" font-size="17.5" font-weight="bold" lengthAdjust="spacing" textLength="55" x="510" y="461.9165">Model</text><!--MD5=[9fb6dac11bbde13a6b7e8c4e5ea77cec]
+class PerformanceUI--><rect codeLine="6" fill="#FEFECE" filter="url(#fx59ujydynctf)" height="60" id="PerformanceUI" style="stroke:#A80036;stroke-width:1.875;" width="143.75" x="306.875" y="52.5"/><ellipse cx="325.625" cy="72.5" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke:#A80036;stroke-width:1.25;"/><path d="M328.125,68.125 Q328.3789,67.5 328.6719,67.1875 Q328.9648,66.875 329.2969,66.875 Q329.8828,66.875 330.2539,67.2266 Q330.625,67.5781 330.625,68.3984 L330.625,70.3516 Q330.625,71.1719 330.2734,71.5234 Q329.9219,71.875 329.375,71.875 Q328.8867,71.875 328.5742,71.6602 Q328.2617,71.4453 328.125,70.8789 Q328.0664,70.4883 327.8516,70.2734 Q327.4609,69.8633 326.7578,69.6289 Q326.0547,69.375 325.3516,69.375 Q324.4727,69.375 323.7305,69.7266 Q323.0078,70.0781 322.4414,70.8594 Q321.875,71.6406 321.875,72.7148 L321.875,73.8672 Q321.875,75.1563 322.9297,76.0156 Q323.9844,76.875 325.8594,76.875 Q326.9727,76.875 327.7539,76.6211 Q328.2031,76.4844 328.7109,76.0352 Q329.043,75.7813 329.2188,75.7031 Q329.3945,75.625 329.6094,75.625 Q330.0195,75.625 330.3125,75.957 Q330.625,76.2695 330.625,76.7188 Q330.625,77.1484 330.1953,77.6563 Q329.5703,78.3984 328.5742,78.8086 Q327.2656,79.375 325.6641,79.375 Q323.7891,79.375 322.2852,78.6328 Q321.0742,78.0469 320.2148,76.7773 Q319.375,75.5078 319.375,74.0039 L319.375,72.6367 Q319.375,71.0742 320.1172,69.707 Q320.8789,68.3398 322.1875,67.6172 Q323.5156,66.875 325,66.875 Q325.8984,66.875 326.6797,67.1875 Q327.4609,67.5 328.125,68.125 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacing" textLength="103.75" x="343.125" y="78.6377">PerformanceUI</text><line style="stroke:#A80036;stroke-width:1.875;" x1="308.125" x2="449.375" y1="92.5" y2="92.5"/><line style="stroke:#A80036;stroke-width:1.875;" x1="308.125" x2="449.375" y1="102.5" y2="102.5"/><!--MD5=[61635451a40aa5589ddd4cd28847754f]
+class PerformanceController--><rect codeLine="12" fill="#FEFECE" filter="url(#fx59ujydynctf)" height="129.1797" id="PerformanceController" style="stroke:#A80036;stroke-width:1.875;" width="196.25" x="280.625" y="262.5"/><ellipse cx="299.375" cy="282.5" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke:#A80036;stroke-width:1.25;"/><path d="M301.875,278.125 Q302.1289,277.5 302.4219,277.1875 Q302.7148,276.875 303.0469,276.875 Q303.6328,276.875 304.0039,277.2266 Q304.375,277.5781 304.375,278.3984 L304.375,280.3516 Q304.375,281.1719 304.0234,281.5234 Q303.6719,281.875 303.125,281.875 Q302.6367,281.875 302.3242,281.6602 Q302.0117,281.4453 301.875,280.8789 Q301.8164,280.4883 301.6016,280.2734 Q301.2109,279.8633 300.5078,279.6289 Q299.8047,279.375 299.1016,279.375 Q298.2227,279.375 297.4805,279.7266 Q296.7578,280.0781 296.1914,280.8594 Q295.625,281.6406 295.625,282.7148 L295.625,283.8672 Q295.625,285.1563 296.6797,286.0156 Q297.7344,286.875 299.6094,286.875 Q300.7227,286.875 301.5039,286.6211 Q301.9531,286.4844 302.4609,286.0352 Q302.793,285.7813 302.9688,285.7031 Q303.1445,285.625 303.3594,285.625 Q303.7695,285.625 304.0625,285.957 Q304.375,286.2695 304.375,286.7188 Q304.375,287.1484 303.9453,287.6563 Q303.3203,288.3984 302.3242,288.8086 Q301.0156,289.375 299.4141,289.375 Q297.5391,289.375 296.0352,288.6328 Q294.8242,288.0469 293.9648,286.7773 Q293.125,285.5078 293.125,284.0039 L293.125,282.6367 Q293.125,281.0742 293.8672,279.707 Q294.6289,278.3398 295.9375,277.6172 Q297.2656,276.875 298.75,276.875 Q299.6484,276.875 300.4297,277.1875 Q301.2109,277.5 301.875,278.125 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacing" textLength="156.25" x="316.875" y="288.6377">PerformanceController</text><line style="stroke:#A80036;stroke-width:1.875;" x1="281.875" x2="475.625" y1="302.5" y2="302.5"/><line style="stroke:#A80036;stroke-width:1.875;" x1="281.875" x2="475.625" y1="312.5" y2="312.5"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="91.25" x="288.125" y="331.7737">+getAllClients()</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="148.75" x="288.125" y="349.0686">+getAllTestsWaitResult()</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="170" x="288.125" y="366.3635">+getAllTestsWaitDiagnosis()</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="141.25" x="288.125" y="383.6584">+getAllTestsValidated()</text><!--MD5=[55cb992be19579b505cea3c5691093cb]
+class ClientStore--><rect codeLine="21" fill="#FEFECE" filter="url(#fx59ujydynctf)" height="77.2949" id="ClientStore" style="stroke:#A80036;stroke-width:1.875;" width="151.25" x="303.125" y="503.75"/><ellipse cx="337.625" cy="523.75" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke:#A80036;stroke-width:1.25;"/><path d="M340.125,519.375 Q340.3789,518.75 340.6719,518.4375 Q340.9648,518.125 341.2969,518.125 Q341.8828,518.125 342.2539,518.4766 Q342.625,518.8281 342.625,519.6484 L342.625,521.6016 Q342.625,522.4219 342.2734,522.7734 Q341.9219,523.125 341.375,523.125 Q340.8867,523.125 340.5742,522.9102 Q340.2617,522.6953 340.125,522.1289 Q340.0664,521.7383 339.8516,521.5234 Q339.4609,521.1133 338.7578,520.8789 Q338.0547,520.625 337.3516,520.625 Q336.4727,520.625 335.7305,520.9766 Q335.0078,521.3281 334.4414,522.1094 Q333.875,522.8906 333.875,523.9648 L333.875,525.1172 Q333.875,526.4063 334.9297,527.2656 Q335.9844,528.125 337.8594,528.125 Q338.9727,528.125 339.7539,527.8711 Q340.2031,527.7344 340.7109,527.2852 Q341.043,527.0313 341.2188,526.9531 Q341.3945,526.875 341.6094,526.875 Q342.0195,526.875 342.3125,527.207 Q342.625,527.5195 342.625,527.9688 Q342.625,528.3984 342.1953,528.9063 Q341.5703,529.6484 340.5742,530.0586 Q339.2656,530.625 337.6641,530.625 Q335.7891,530.625 334.2852,529.8828 Q333.0742,529.2969 332.2148,528.0273 Q331.375,526.7578 331.375,525.2539 L331.375,523.8867 Q331.375,522.3242 332.1172,520.957 Q332.8789,519.5898 334.1875,518.8672 Q335.5156,518.125 337,518.125 Q337.8984,518.125 338.6797,518.4375 Q339.4609,518.75 340.125,519.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacing" textLength="76.25" x="358.625" y="529.8877">ClientStore</text><line style="stroke:#A80036;stroke-width:1.875;" x1="304.375" x2="453.125" y1="543.75" y2="543.75"/><line style="stroke:#A80036;stroke-width:1.875;" x1="304.375" x2="453.125" y1="553.75" y2="553.75"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="136.25" x="310.625" y="573.0237">+getClientListNumber()</text><!--MD5=[0f6f7964b844a64b0496af0dda7914bd]
+class TestStore--><rect codeLine="25" fill="#FEFECE" filter="url(#fx59ujydynctf)" height="111.8848" id="TestStore" style="stroke:#A80036;stroke-width:1.875;" width="188.75" x="70.625" y="486.25"/><ellipse cx="126.5625" cy="506.25" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke:#A80036;stroke-width:1.25;"/><path d="M129.0625,501.875 Q129.3164,501.25 129.6094,500.9375 Q129.9023,500.625 130.2344,500.625 Q130.8203,500.625 131.1914,500.9766 Q131.5625,501.3281 131.5625,502.1484 L131.5625,504.1016 Q131.5625,504.9219 131.2109,505.2734 Q130.8594,505.625 130.3125,505.625 Q129.8242,505.625 129.5117,505.4102 Q129.1992,505.1953 129.0625,504.6289 Q129.0039,504.2383 128.7891,504.0234 Q128.3984,503.6133 127.6953,503.3789 Q126.9922,503.125 126.2891,503.125 Q125.4102,503.125 124.668,503.4766 Q123.9453,503.8281 123.3789,504.6094 Q122.8125,505.3906 122.8125,506.4648 L122.8125,507.6172 Q122.8125,508.9063 123.8672,509.7656 Q124.9219,510.625 126.7969,510.625 Q127.9102,510.625 128.6914,510.3711 Q129.1406,510.2344 129.6484,509.7852 Q129.9805,509.5313 130.1563,509.4531 Q130.332,509.375 130.5469,509.375 Q130.957,509.375 131.25,509.707 Q131.5625,510.0195 131.5625,510.4688 Q131.5625,510.8984 131.1328,511.4063 Q130.5078,512.1484 129.5117,512.5586 Q128.2031,513.125 126.6016,513.125 Q124.7266,513.125 123.2227,512.3828 Q122.0117,511.7969 121.1523,510.5273 Q120.3125,509.2578 120.3125,507.7539 L120.3125,506.3867 Q120.3125,504.8242 121.0547,503.457 Q121.8164,502.0898 123.125,501.3672 Q124.4531,500.625 125.9375,500.625 Q126.8359,500.625 127.6172,500.9375 Q128.3984,501.25 129.0625,501.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacing" textLength="66.25" x="152.1875" y="512.3877">TestStore</text><line style="stroke:#A80036;stroke-width:1.875;" x1="71.875" x2="258.125" y1="526.25" y2="526.25"/><line style="stroke:#A80036;stroke-width:1.875;" x1="71.875" x2="258.125" y1="536.25" y2="536.25"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="171.25" x="78.125" y="555.5237">+getCollectedTestsNumber()</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="173.75" x="78.125" y="572.8186">+getAnalysedTestsNumber()</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="172.5" x="78.125" y="590.1135">+getValidatedTestsNumber()</text><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><rect codeLine="33" fill="#FEFECE" filter="url(#fx59ujydynctf)" height="111.8848" id="Company" style="stroke:#A80036;stroke-width:1.875;" width="127.5" x="525" y="486.25"/><ellipse cx="553.3125" cy="506.25" fill="#ADD1B2" rx="13.75" ry="13.75" style="stroke:#A80036;stroke-width:1.25;"/><path d="M555.8125,501.875 Q556.0664,501.25 556.3594,500.9375 Q556.6523,500.625 556.9844,500.625 Q557.5703,500.625 557.9414,500.9766 Q558.3125,501.3281 558.3125,502.1484 L558.3125,504.1016 Q558.3125,504.9219 557.9609,505.2734 Q557.6094,505.625 557.0625,505.625 Q556.5742,505.625 556.2617,505.4102 Q555.9492,505.1953 555.8125,504.6289 Q555.7539,504.2383 555.5391,504.0234 Q555.1484,503.6133 554.4453,503.3789 Q553.7422,503.125 553.0391,503.125 Q552.1602,503.125 551.418,503.4766 Q550.6953,503.8281 550.1289,504.6094 Q549.5625,505.3906 549.5625,506.4648 L549.5625,507.6172 Q549.5625,508.9063 550.6172,509.7656 Q551.6719,510.625 553.5469,510.625 Q554.6602,510.625 555.4414,510.3711 Q555.8906,510.2344 556.3984,509.7852 Q556.7305,509.5313 556.9063,509.4531 Q557.082,509.375 557.2969,509.375 Q557.707,509.375 558,509.707 Q558.3125,510.0195 558.3125,510.4688 Q558.3125,510.8984 557.8828,511.4063 Q557.2578,512.1484 556.2617,512.5586 Q554.9531,513.125 553.3516,513.125 Q551.4766,513.125 549.9727,512.3828 Q548.7617,511.7969 547.9023,510.5273 Q547.0625,509.2578 547.0625,507.7539 L547.0625,506.3867 Q547.0625,504.8242 547.8047,503.457 Q548.5664,502.0898 549.875,501.3672 Q551.2031,500.625 552.6875,500.625 Q553.5859,500.625 554.3672,500.9375 Q555.1484,501.25 555.8125,501.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15" lengthAdjust="spacing" textLength="66.25" x="572.9375" y="512.3877">Company</text><line style="stroke:#A80036;stroke-width:1.875;" x1="526.25" x2="651.25" y1="526.25" y2="526.25"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="112.5" x="532.5" y="545.5237">-String designation</text><line style="stroke:#A80036;stroke-width:1.875;" x1="526.25" x2="651.25" y1="553.5449" y2="553.5449"/><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="101.25" x="532.5" y="572.8186">+getClientStore()</text><text fill="#000000" font-family="sans-serif" font-size="13.75" lengthAdjust="spacing" textLength="95" x="532.5" y="590.1135">+getTestStore()</text><!--MD5=[02655fe311d5bf0e31cca58a2df6e816]
+link PerformanceUI to PerformanceController--><path codeLine="42" d="M378.75,112.925 C378.75,148.1625 378.75,208.6 378.75,256.0625 " fill="none" id="PerformanceUI-to-PerformanceController" style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="378.75,262.375,383.75,251.125,378.75,256.125,373.75,251.125,378.75,262.375" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[eb86c3a0a127319432e0b44b63285686]
+link PerformanceController to Company--><path codeLine="43" d="M441.1875,391.4875 C469.3,420.025 502.325,453.5375 529.9875,481.6125 " fill="none" id="PerformanceController-to-Company" style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="534.3875,486.075,530.0378,474.5579,529.9949,481.6289,522.924,481.586,534.3875,486.075" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[f007d9c6bd789e513d2d526668e6c3d5]
+link PerformanceController to ClientStore--><path codeLine="44" d="M378.75,391.4875 C378.75,425.4 378.75,466.3375 378.75,496.825 " fill="none" id="PerformanceController-to-ClientStore" style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="378.75,503.175,383.75,491.925,378.75,496.925,373.75,491.925,378.75,503.175" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[bbd1e29a3ab8f784ac5b7071a8824d9f]
+link PerformanceController to TestStore--><path codeLine="45" d="M315.2,391.4875 C286.575,420.025 252.975,453.5375 224.8125,481.6125 " fill="none" id="PerformanceController-to-TestStore" style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="220.3375,486.075,231.8369,481.6788,224.7658,481.6645,224.7801,474.5935,220.3375,486.075" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[4f51f5a205ca1a4675a51ea68f1de4fa]
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+package "UI" {
+class PerformanceUI{
+}
+}
+
+package "Core" {
+package "Controllers"{
+class PerformanceController{
+  +getAllClients()
+  +getAllTestsWaitResult()
+  +getAllTestsWaitDiagnosis()
+  +getAllTestsValidated()
+}
+}
+
+package "Stores"{
+class ClientStore{
+  +getClientListNumber()
+}
+
+class TestStore{
+  +getCollectedTestsNumber()
+  +getAnalysedTestsNumber()
+  +getValidatedTestsNumber()
+}
+}
+
+package "Model"{
+class Company{
+  -String designation
+  +getClientStore()
+  +getTestStore()
+}
+}
+
+
+}
+PerformanceUI ..> PerformanceController
+PerformanceController ..> Company
+PerformanceController ..> ClientStore
+PerformanceController ..> TestStore
+
+@enduml
+
+@startuml
+
+skinparam classAttributeIconSize 0
+
+package "UI" {
+class PerformanceUI{
+}
+}
+
+package "Core" {
+package "Controllers"{
+class PerformanceController{
+  +getAllClients()
+  +getAllTestsWaitResult()
+  +getAllTestsWaitDiagnosis()
+  +getAllTestsValidated()
+}
+}
+
+package "Stores"{
+class ClientStore{
+  +getClientListNumber()
+}
+
+class TestStore{
+  +getCollectedTestsNumber()
+  +getAnalysedTestsNumber()
+  +getValidatedTestsNumber()
+}
+}
+
+package "Model"{
+class Company{
+  -String designation
+  +getClientStore()
+  +getTestStore()
+}
+}
+
+
+}
+PerformanceUI ..> PerformanceController
+PerformanceController ..> Company
+PerformanceController ..> ClientStore
+PerformanceController ..> TestStore
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 13:40:07 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
