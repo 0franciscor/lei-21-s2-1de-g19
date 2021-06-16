@@ -15,7 +15,7 @@ public class SortAlgorithmStore {
         company = App.getInstance().getCompany();
     }
 
-    public Algoritmo1 getAlgoritmo1() throws IOException {
+    public SortByNameAlgorithm getAlgoritmo1() throws IOException {
         File configFile = new File("config.properties");
         InputStream inputStream = new FileInputStream(configFile);
         Properties properties = new Properties();
@@ -27,18 +27,18 @@ public class SortAlgorithmStore {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Algoritmo1 algoritmo1 = null;
+        SortByNameAlgorithm sortByNameAlgorithm = null;
         try {
-            algoritmo1 = (Algoritmo1) class1.newInstance();
+            sortByNameAlgorithm = (SortByNameAlgorithm) class1.newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        return algoritmo1;
+        return sortByNameAlgorithm;
     }
 
-    public Algoritmo2 getAlgoritmo2() throws IOException {
+    public SortByTINAlgorithm getAlgoritmo2() throws IOException {
         File configFile = new File("config.properties");
         InputStream inputStream = new FileInputStream(configFile);
         Properties properties = new Properties();
@@ -50,14 +50,14 @@ public class SortAlgorithmStore {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Algoritmo2 algoritmo2 = null;
+        SortByTINAlgorithm sortByTINAlgorithm = null;
         try {
-            algoritmo2 = (Algoritmo2) class2.newInstance();
+            sortByTINAlgorithm = (SortByTINAlgorithm) class2.newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        return algoritmo2;
+        return sortByTINAlgorithm;
     }
 }
