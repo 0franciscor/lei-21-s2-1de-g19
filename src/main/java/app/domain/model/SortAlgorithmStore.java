@@ -1,11 +1,13 @@
 package app.domain.model;
 
 import app.controller.App;
+import auth.mappers.dto.ClientDto;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
 
 public class SortAlgorithmStore {
@@ -13,6 +15,13 @@ public class SortAlgorithmStore {
 
     public SortAlgorithmStore() {
         company = App.getInstance().getCompany();
+    }
+    public List<ClientDto> orderClients (int criteria, List<ClientDto> clientDtoList) {
+        if (criteria == 1)
+            return getAlgoritmo1().showList(clientDtoList);
+        if (criteria == 2)
+            return getAlgoritmo2().showList(clientDtoList);
+        return null;
     }
 
     public SortByNameAlgorithm getAlgoritmo1() throws IOException {
