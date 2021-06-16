@@ -1,13 +1,12 @@
 package app.ui;
 
-import app.controller.App;
-import app.domain.model.Notification;
+
 import app.domain.model.SendNHSReportTimerTask;
 import app.ui.console.MainMenuUI;
 
-import java.sql.Time;
+
 import java.util.Calendar;
-import java.util.Date;
+
 import java.util.Timer;
 
 /**
