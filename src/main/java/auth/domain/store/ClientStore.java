@@ -108,4 +108,13 @@ public class ClientStore {
 
         return listDataToUpdate;
     }
+
+    /**
+     * By calling this method you know how many clients the company has
+     *
+     * @return the number of clients
+     */
+    public int getClientListNumber(){
+        return(ClientList.size());
+    }
 }

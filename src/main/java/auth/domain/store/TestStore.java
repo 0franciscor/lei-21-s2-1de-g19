@@ -260,4 +260,49 @@ public class TestStore {
         }
         return listTestWithResultCovidPositive;
     }
+
+    /**
+     * By calling this method you know how many tests waiting for result the company has
+     *
+     * @return the number of tests waiting for result
+     */
+    public int getCollectedTestsNumber(){ //nao tem atenção à data
+        List<Test> collectedTest=new ArrayList<>();
+        for(Test t: TestList){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Registered.toString())){
+                collectedTest.add(t);
+            }
+        }
+        return collectedTest.size();
+    }
+
+    /**
+     * By calling this method you know how many tests waiting for diagnosis the company has
+     *
+     * @return the number of tests waiting for diagnosis
+     */
+    public int getAnalysedTestsNumber(){ //nao tem atenção à data
+        List<Test> analysedTest=new ArrayList<>();
+        for(Test t: TestList){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString())){
+                analysedTest.add(t);
+            }
+        }
+        return analysedTest.size();
+    }
+
+    /**
+     * By calling this method you know how many performed tests the company has
+     *
+     * @return the number of performed tests
+     */
+    public int getValidatedTestsNumber(){ //nao tem atenção à data
+        List<Test> validatedTest=new ArrayList<>();
+        for(Test t: TestList){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())){
+                validatedTest.add(t);
+            }
+        }
+        return validatedTest.size();
+    }
 }
