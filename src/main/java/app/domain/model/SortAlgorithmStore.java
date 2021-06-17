@@ -16,11 +16,11 @@ public class SortAlgorithmStore {
     public SortAlgorithmStore() {
         company = App.getInstance().getCompany();
     }
-    public List<ClientDto> orderClients (int criteria, List<ClientDto> clientDtoList) {
+    public List<ClientDto> orderClients (int criteria, List<ClientDto> clientDtoList) throws IOException {
         if (criteria == 1)
-            return new SortByNameAlgorithm().showList(clientDtoList);
+            return getAlgoritmo1().showList(clientDtoList);
         if (criteria == 2)
-            return new getSortByTINAlgorithm().showList(clientDtoList);
+            return getAlgoritmo2().showList(clientDtoList);
         return null;
     }
 
