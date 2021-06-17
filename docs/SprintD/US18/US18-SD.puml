@@ -9,7 +9,7 @@ activate A
 
 A -> ":SendReportUI" : send the covid-19 report to the NHS
 activate ":SendReportUI"
-":SendReportUI" --> A: define the date to see the report (dateToSee), the interval of dates, the number of historical day/weeks points (histPoints), \n select between a simple linear and multilinear regression model and define the significance level
+":SendReportUI" --> A: define the date to see the report (dateToSee), the interval of dates, the number of historical day/weeks points (histPoints), \n select between a simple linear and multilinear regression model, independent variables (i.e.: meanAge, dailyNumberTests) and define the significance level
 deactivate ":SendReportUI"
 
 A -> ":SendReportUI" : types and selects the requested data
@@ -21,20 +21,73 @@ activate ":SendReportController"
 activate ":Company"
 deactivate ":Company"
 
-":SendReportController" -> ":store: TestStore" : listTestWithResultCovidPositive = getAllTestWithResultCovidPositive(dateToSee, histPoints)
+":SendReportController" -> "Utils" : lstDateExceptSundays = getDaysWithoutSyndays(dateToSee, histPoints)
+activate "Utils"
+deactivate "Utils"
+
+loop for each day of the list
+":SendReportController" -> ":store: TestStore" : lstAllTestWithResultCovidPositive = getAllTestWithResultCovidPositive(date)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 
+":SendReportController" -> ":store: TestStore" : arrayY = getDailyPerformedTest(date)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+
+end
+
 deactivate ":SendReportController"
 
-":SendReportUI" -> ":SendReportController" : generateNHSReport(listTestWithResultCovidPositive)
+
+alt if the user chooses simple linear regression
+":SendReportUI" -> ":SendReportController" : SimpleLinearRegression(userIntention)
 activate ":SendReportController"
 
-":SendReportController" -> ":Company" : report = generateNHSReport(listTestWithResultCovidPositive)
+alt if the user chooses daily number tests
+":SendReportController" -> ":store: TestStore" : dailyNumberTests = getDailyPositiveTests (lstAllTestWithResultCovidPositive)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+else or mean age
+":SendReportController" -> ":store: TestStore" : meanAge = getMeanAgeFromList (lstAllTestWithResultCovidPositive)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+end
+create ":LinearRegression"
+note over ":SendReportController" : arrayX can be dailyNumberTests or meanAge
+":SendReportController" --> ":LinearRegression" : create(arrayX, arrayY)
+deactivate ":SendReportController"
+
+
+
+else the user chooses multilinear regression
+":SendReportUI" -> ":SendReportController" : MultilinearRegression()
+activate ":SendReportController"
+
+
+
+":SendReportController" -> ":store: TestStore" : dailyNumberTests = getDailyPositiveTests (lstAllTestWithResultCovidPositive)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+":SendReportController" -> ":store: TestStore" : meanAge = getMeanAgeFromList (lstAllTestWithResultCovidPositive)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+
+create ":MultilinearRegression"
+":SendReportController" --> ":MultilinearRegression" : create(arrayX, arrayY)
+
+deactivate ":SendReportController"
+end
+
+
+
+":SendReportUI" -> ":SendReportController" : generateNHSReport(numberOfTestWithResultCovidPositive)
+activate ":SendReportController"
+
+":SendReportController" -> ":Company" : report = generateNHSReport(numberOfTestWithResultCovidPositive)
 activate ":Company"
 
 create "report : NHSReport"
-":Company" --> "report : NHSReport" : create(listTestWithResultCovidPositive)
+":Company" --> "report : NHSReport" : create(numberOfTestWithResultCovidPositive)
 
 deactivate ":Company"
 
@@ -50,24 +103,9 @@ deactivate "Report2NHS"
 
 deactivate ":SendReportController"
 
-":SendReportUI" --> A: show the generated report and request a confirmation
-deactivate ":SendReportUI"
-
-A -> ":SendReportUI": confirms the data
-activate ":SendReportUI"
-
-":SendReportUI" -> ":SendReportController": saveNHSReport(nhsReport)
-
-activate ":SendReportController"
-
-":SendReportController" -> "report : NHSReport" : validateNHSReport()
-activate "report : NHSReport"
-deactivate "report : NHSReport"
-
-deactivate ":SendReportController"
-
-
 ":SendReportUI" --> A: informs operation success
 deactivate ":SendReportUI"
+
+
 
 @enduml
