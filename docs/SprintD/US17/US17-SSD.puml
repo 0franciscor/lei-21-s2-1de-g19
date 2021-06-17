@@ -9,7 +9,7 @@ System --> labC --: requests file path
 labC -> System ++: inserts file path
 activate System
 loop for each test present on the file
-System -->  labC : display which test is being imported
+System -->  labC : display the test being imported
 end
 System --> labC : informs about the import success
 

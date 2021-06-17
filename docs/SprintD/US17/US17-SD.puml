@@ -8,13 +8,17 @@ participant ":ImportTestUI" as ImportTestUI
 participant ":ImportTestController" as ImportTestController
 participant ":ImportTest" as ImportTest
 participant ":Company" as Company
-participant "stringList : List<String>" as stringList
-participant "store:ClientStore" as ClientStore
-participant "store:ClinicalAnalysisLaboratoryStore" as CALStore
-participant "store:ParameterCategoryStore" as ParameterCategoryStore
-participant "store:ParameterStore" as ParameterStore
-participant "store:TestTypeStore" as TestTypeStore
-participant "store:TestStore" as TestStore
+participant "stringList: List<String>" as stringList
+participant "store: ClientStore" as ClientStore
+participant "store: ClinicalAnalysisLaboratoryStore" as CALStore
+participant "store: ParameterCategoryStore" as ParameterCategoryStore
+participant "store: ParameterStore" as ParameterStore
+participant "store: TestTypeStore" as TestTypeStore
+participant "store: TestStore" as TestStore
+participant "test: Test" as Test
+participant "testType: TestType " as TestType
+participant "parameters: List<Parameter>" as parameterList
+participant "parameterCategories: List<ParameterCategory>" as parameterCategoryList
 
 
 labC -> ImportTestUI : import a test from a .csv file
@@ -40,7 +44,7 @@ ImportTestController -> ImportTest   : importListFromCSV()
 activate ImportTest
 deactivate ImportTest
 
-
+loop
 ImportTestController -> ImportTest : checkIfExists()
 activate ImportTest
 
@@ -66,11 +70,11 @@ deactivate ImportTest
 
 
 loop for each category present on the csv file
-ImportTest -> ImportTest ++: checkIfCategoryExists(code)
+ImportTest -> ImportTest ++: checkIfCategoryExists(name)
 ImportTest -> Company : store=getParameterCategoryStore()
 activate Company
 deactivate Company
-ImportTest -> ParameterCategoryStore : getParameterCategoryByCode(code)
+ImportTest -> ParameterCategoryStore : getParameterCategoryByName(name)
 activate ParameterCategoryStore
 deactivate ParameterCategoryStore
 deactivate ImportTest
@@ -113,6 +117,34 @@ deactivate ImportTest
 
 ImportTestController -> ImportTest : addTest()
 activate ImportTest
+
+
+ImportTest -> TestTypeStore : testType = getTestTypeByCode(code)
+activate TestTypeStore
+deactivate TestTypeStore
+
+ImportTest -> TestType : parameterCategoryList = getParameterCategory()
+activate TestType
+deactivate TestType
+
+ImportTest -> ParameterStore : parameters = getParametersByParameterCategory(parameterCategoryList)
+activate ParameterStore
+deactivate ParameterStore
+
+ImportTest --> Test : create(TestType, parameters, parameterCategories, TIN, nhsCode, registrationDateTime, collectDateTime, chemicalAnalysisDate, diagnosisDateTime, validationDateTime)
+activate Test
+deactivate Test
+
+
+note over Test : The test's code and Barcodes are generated inside the Test's constructor.
+
 deactivate ImportTest
 
+
+ImportTestUI --> labC : display the test being imported
+deactivate ImportTestController
+end
+
+
+ImportTestUI --> labC : informs about operation success
 @enduml
