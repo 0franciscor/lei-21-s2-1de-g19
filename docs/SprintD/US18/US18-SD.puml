@@ -9,19 +9,19 @@ activate A
 
 A -> ":SendReportUI" : send the covid-19 report to the NHS
 activate ":SendReportUI"
-":SendReportUI" --> A: define the date to see the report, the interval of dates, the number of historical day points, \n select between a simple linear and multilinear regression model and define the significance level
+":SendReportUI" --> A: define the date to see the report (dateToSee), the interval of dates, the number of historical day/weeks points (histPoints), \n select between a simple linear and multilinear regression model and define the significance level
 deactivate ":SendReportUI"
 
 A -> ":SendReportUI" : types and selects the requested data
 activate ":SendReportUI"
-":SendReportUI" -> ":SendReportController": getAllTestWithResultCovidPositive()
+":SendReportUI" -> ":SendReportController": getAllTestWithResultCovidPositive(dateToSee, histPoints)
 
 activate ":SendReportController"
 ":SendReportController" -> ":Company" : store = getTestStore()
 activate ":Company"
 deactivate ":Company"
 
-":SendReportController" -> ":store: TestStore" : listTestWithResultCovidPositive = getAllTestWithResultCovidPositive()
+":SendReportController" -> ":store: TestStore" : listTestWithResultCovidPositive = getAllTestWithResultCovidPositive(dateToSee, histPoints)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 
