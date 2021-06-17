@@ -1,9 +1,15 @@
 package app.ui.console.utils;
 
+import app.domain.model.Test;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -161,5 +167,43 @@ public class Utils {
             convertedArray[i] = Integer.parseInt(arrayToConvert[i])-1;
         }
         return convertedArray;
+    }
+
+    public static Date convertToDateViaInstant(LocalDate dateToConvert) {
+        return java.util.Date.from(dateToConvert.atStartOfDay()
+                .atZone(ZoneId.systemDefault())
+                .toInstant());
+    }
+
+    public static LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
+
+    public static List<Date> getDaysWithoutSundays (Date date, int histPoints) {
+
+        List<Date> listDateExceptSundays = new ArrayList<>();
+
+        LocalDate dataEscolhida = Utils.convertToLocalDateViaInstant(date);
+
+        for (int i = 0; i < histPoints; i++) {
+            dataEscolhida = dataEscolhida.minusDays(1);
+            if (dataEscolhida.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
+                dataEscolhida = dataEscolhida.minusDays(1);
+            }
+            listDateExceptSundays.add(Utils.convertToDateViaInstant(dataEscolhida));
+        }
+
+        return listDateExceptSundays;
+    }
+
+    public static boolean verifyIfListsEmpty(List<Test> [] lstAllTestWithResultCovidPositive){
+
+        for (int i=0; i< lstAllTestWithResultCovidPositive.length; i++){
+            if (lstAllTestWithResultCovidPositive[i].isEmpty())
+                return true;
+        }
+        return false;
     }
 }

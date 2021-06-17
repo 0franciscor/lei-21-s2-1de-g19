@@ -15,6 +15,7 @@ public class NHSReport {
      * The list of tests that have result covid positive.
      */
     private List<Test> listTestWithResultCovidPositive;
+    private LinearRegression linearRegression;
 
     public NHSReport(List<Test> listTestWithResultCovidPositive){
 
@@ -29,17 +30,7 @@ public class NHSReport {
      */
     public String calculateData(){
 
-        int x = 0;
 
-        System.out.println("Número de casos positivos: ");
-
-        for (int i=0; i< listTestWithResultCovidPositive.size(); i++){
-            x++;
-        }
-
-        String y = Integer.toString(x);
-
-        return y;
     }
 
     /*

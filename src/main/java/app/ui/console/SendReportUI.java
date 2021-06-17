@@ -47,12 +47,16 @@ public class SendReportUI implements Runnable {
 
         int option = Utils.showAndSelectIndex(options,"\nSelect an option from the list.");
 
-        int option1;
+        int histPoints;
 
         if (option == 0)
-            option1 = Utils.readIntegerFromConsole("Number of days:");
-        else
-            option1 = Utils.readIntegerFromConsole("Number of weeks:");
+            histPoints = Utils.readIntegerFromConsole("Number of days:");
+        else {
+            histPoints = Utils.readIntegerFromConsole("Number of weeks:");
+            histPoints = histPoints * 7;
+        }
+
+
 
 
         System.out.println("\n--- REGRESSION MODEL ---");
@@ -65,12 +69,12 @@ public class SendReportUI implements Runnable {
 
         double sigLevel = Utils.readDoubleFromConsole("Significance level:");
 
-        if (ctrl.getAllTestWithResultCovidPositive().isEmpty())
+        if (ctrl.getAllTestWithResultCovidPositive(date, histPoints))
             System.out.println("\nThere aren't any test with result covid positive list at the moment.");
 
         else {
 
-            List<Test> listTestWithResultCovidPositive = ctrl.getAllTestWithResultCovidPositive();
+            ctrl.getAllTestWithResultCovidPositive(date, histPoints);
 
             ctrl.generateNHSReport(listTestWithResultCovidPositive);
 

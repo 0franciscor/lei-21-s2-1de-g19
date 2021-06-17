@@ -1,10 +1,14 @@
 package auth.domain.store;
 
 import app.domain.model.*;
+import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.rmi.CORBA.Util;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.*;
 
 /**
  * Represents the Test store class.
@@ -242,21 +246,35 @@ public class TestStore {
      *
      * @return a list which is able to return a copy of all tests that have the IgGAN parameter higher than the established (i.e.: that test positive to covid-19).
      */
-    public List<Test> getAllTestWithResultCovidPositive(){
+    public List<Test> getAllTestWithResultCovidPositive(Date date){
+
+
+
 
         List<Test> listTestWithResultCovidPositive = new ArrayList<>();
 
+
         for (Test t: TestList){
-            if (t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())){
-                for(TestParameter testParameter : t.getTestParameterList()){
-                    if(testParameter.getCode().equalsIgnoreCase("IgGAN")) {
-                        TestParameterResult testParameterResult = testParameter.getTestParameterResult();
-                        double minValue = testParameterResult.getReferenceValue().getMinValue();
-                        if (testParameterResult.getResult() > minValue)
-                            listTestWithResultCovidPositive.add(t);
+
+
+            if (t.getValidationDateTime().getDay() == date.getDay() && t.getValidationDateTime().getMonth() == date.getMonth() &&
+                    t.getValidationDateTime().getYear() == date.getYear()) {
+
+                if (t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())) {
+
+                    for (TestParameter testParameter : t.getTestParameterList()) {
+
+                        if (testParameter.getCode().equalsIgnoreCase("IgGAN")) {
+                            TestParameterResult testParameterResult = testParameter.getTestParameterResult();
+                            double minValue = testParameterResult.getReferenceValue().getMinValue();
+
+                            if (testParameterResult.getResult() > minValue)
+                                listTestWithResultCovidPositive.add(t);
+                        }
                     }
                 }
             }
+
         }
         return listTestWithResultCovidPositive;
     }

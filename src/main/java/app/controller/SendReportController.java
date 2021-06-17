@@ -3,9 +3,12 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.NHSReport;
 import app.domain.model.Test;
+import app.ui.console.utils.Utils;
 import auth.domain.store.TestStore;
 import com.nhs.report.Report2NHS;
 
+import javax.rmi.CORBA.Util;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,6 +34,11 @@ public class SendReportController {
     public TestStore testStore;
 
     /**
+     * The controller's list with positive covid tests.
+     */
+    private List<Test> [] lstAllTestWithResultCovidPositive;
+
+    /**
      * Builds a SendReportController without receiving parameters.
      */
     public  SendReportController (){
@@ -46,11 +54,17 @@ public class SendReportController {
      *
      * @return a list which is able to return a copy of all tests that have the result Covid positive.
      */
-    public List<Test> getAllTestWithResultCovidPositive(){
-        TestStore store = company.getTestStore();
-        List<Test> listTestWithResultCovidPositive = store.getAllTestWithResultCovidPositive();
+    public boolean getAllTestWithResultCovidPositive(Date dateToSee, int histPoints){
 
-        return listTestWithResultCovidPositive;
+
+        TestStore store = company.getTestStore();
+        List<Date> lstDateExceptSundays = Utils.getDaysWithoutSundays(dateToSee, histPoints);
+        this.lstAllTestWithResultCovidPositive = new List[lstDateExceptSundays.size()];
+        for (int i=0; i<lstAllTestWithResultCovidPositive.length; i++){
+            Date date = lstDateExceptSundays.get(i);
+            lstAllTestWithResultCovidPositive[i] = store.getAllTestWithResultCovidPositive(date);
+        }
+        return Utils.verifyIfListsEmpty(lstAllTestWithResultCovidPositive);
     }
 
     /**
