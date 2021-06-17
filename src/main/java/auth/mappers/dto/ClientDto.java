@@ -83,6 +83,10 @@ public class ClientDto {
         this.address = address;
 
     }
+    public ClientDto (String nome, String tin) {
+        this.name = nome;
+        this.TIN = tin;
+    }
     public ClientDto (String name, String sex, String tin, String birthDate, List<Test> testList) {
         this.name = name;
         this.sex = sex;

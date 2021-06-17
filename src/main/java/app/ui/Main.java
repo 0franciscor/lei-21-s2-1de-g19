@@ -1,12 +1,17 @@
 package app.ui;
 
 
+import app.domain.model.Client;
 import app.domain.model.SendNHSReportTimerTask;
+import app.domain.model.SortAlgorithm2;
 import app.ui.console.MainMenuUI;
+import auth.mappers.dto.ClientDto;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
+import java.util.List;
 import java.util.Timer;
 
 /**
@@ -29,8 +34,7 @@ public class Main {
 
             MainMenuUI menu = new MainMenuUI();
             menu.run();
-
-
+            
         }
         catch( Exception e )
         {
