@@ -18,9 +18,9 @@ public class SortAlgorithmStore {
     }
     public List<ClientDto> orderClients (int criteria, List<ClientDto> clientDtoList) {
         if (criteria == 1)
-            return getAlgoritmo1().showList(clientDtoList);
+            return new SortByNameAlgorithm().showList(clientDtoList);
         if (criteria == 2)
-            return getAlgoritmo2().showList(clientDtoList);
+            return new getSortByTINAlgorithm().showList(clientDtoList);
         return null;
     }
 
