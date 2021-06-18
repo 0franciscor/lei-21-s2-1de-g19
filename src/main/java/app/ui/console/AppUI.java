@@ -1,3 +1,4 @@
+/*
 package app.ui.console;
 
 import javafx.application.Application;
@@ -25,7 +26,8 @@ public class AppUI extends Application {
 
     public static void main (String[] args){
 
-        /*
+        */
+/*
         JPanel panel = new JPanel();
         JFrame frame = new JFrame();
         frame.setSize(350,200);
@@ -61,7 +63,8 @@ public class AppUI extends Application {
 
         frame.setVisible(true);
 
-         */
+         *//*
+
 
 
 
@@ -72,3 +75,4 @@ public class AppUI extends Application {
         launch(args);
     }
 }
+*/

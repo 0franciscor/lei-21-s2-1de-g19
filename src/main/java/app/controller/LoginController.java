@@ -1,4 +1,4 @@
-package app.controller;
+/*package app.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -51,4 +51,4 @@ public class LoginController implements Initializable {
     public void validateLogin(){
 
     }
-}
+}*/
