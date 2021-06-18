@@ -7,7 +7,6 @@ import app.ui.console.utils.Utils;
 import auth.domain.store.TestStore;
 import com.nhs.report.Report2NHS;
 
-import javax.rmi.CORBA.Util;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
@@ -33,6 +32,11 @@ public class SendReportController {
      * The controller's Test store.
      */
     public TestStore testStore;
+
+    /**
+     * The List of dates (without sundays), according to the chosen dates.
+     */
+    private List<Date> lstDateExceptSundays;
 
     /**
      * The controller's list with positive covid tests.
@@ -65,7 +69,8 @@ public class SendReportController {
      */
     public boolean getAllTestWithResultCovidPositive(Date dateToSee, int histPoints){
         TestStore store = company.getTestStore();
-        List<Date> lstDateExceptSundays = Utils.getDaysWithoutSundays(dateToSee, histPoints);
+
+        this.lstDateExceptSundays = Utils.getDaysWithoutSundays(dateToSee, histPoints);
         this.lstAllTestWithResultCovidPositive = new List[lstDateExceptSundays.size()];
 
         this.arrayY = new double[lstDateExceptSundays.size()];
@@ -73,8 +78,9 @@ public class SendReportController {
         for (int i=0; i<lstAllTestWithResultCovidPositive.length; i++){
             Date date = lstDateExceptSundays.get(i);
             lstAllTestWithResultCovidPositive[i] = store.getAllTestWithResultCovidPositive(date);
-            arrayY[i] = store.getDailyPerformedTests(date);
         }
+
+        this.arrayY = store.getDailyPositiveTests(lstAllTestWithResultCovidPositive);
 
         return Utils.verifyIfListsEmpty(lstAllTestWithResultCovidPositive);
     }
@@ -86,15 +92,20 @@ public class SendReportController {
      * Method that is responsible for saving the data String on the controller, which will later be used to write the report through the API.
      */
     public void SimpleLinearRegression(boolean userIntention, double sigLevel) throws ParseException {
-        double[] arrayX;
-        if(userIntention)
-            arrayX = testStore.getDailyPositiveTests(lstAllTestWithResultCovidPositive);
-        else
+        double[] arrayX = new double[lstAllTestWithResultCovidPositive.length];
+        if(userIntention) {
+            int i = 0;
+            for(Date date : lstDateExceptSundays){
+                arrayX[i] = testStore.getDailyPerformedTests(date);
+                i++;
+            }
+
+        } else
             arrayX = testStore.getMeanAgeFromList(lstAllTestWithResultCovidPositive);
 
         NHSReport report = company.generateNHSReport(sigLevel);
 
-        this.data = report.calculateData(arrayX, arrayY);
+        this.data = report.calculateData(arrayX, arrayY, lstDateExceptSundays);
 
     }
 

@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -39,7 +40,7 @@ public class NHSReport {
      *
      * @return all the data needed to generate a report.
      */
-    public String calculateData(double[] x, double[] y){
+    public String calculateData(double[] x, double[] y, List<Date> lstDateExceptSundays){
 
         this.linearRegression = new LinearRegression(x,y);
 
@@ -113,6 +114,15 @@ public class NHSReport {
                         String.format(
                                 "Total\t\t%.0f\t%.4f\n", degreeFreedom, (SE+SR)
                         ));
+
+
+        stringSaida.append("\n// Prediction values \n" +
+                "Date\t\t\t\t\t\t\t\tNumber of OBSERVED positive cases/MEAN Age\t\t\t\t\tNumber of ESTIMATED positive cases\t\t\t\t\t95% intervals");
+
+        for(int i = lstDateExceptSundays.size()-1 ; i>=0; i--){
+            stringSaida.append(String.format("\n" + lstDateExceptSundays.get(i) + "\t\t\t\t\t\t\t %.0f \t\t\t\t\t\t\t\t\t\t\t\t %.2f \t\t\t\t\t\t\t\t\t" + "intervalo", x[i], linearRegression.predict(x[i])));
+        }
+
 
         return stringSaida.toString();
 
