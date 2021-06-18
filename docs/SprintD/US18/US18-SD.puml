@@ -52,9 +52,25 @@ else or mean age
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 end
-create ":LinearRegression"
+
+
+":SendReportController" --> ":Company" : report = generateNHSReport()
+activate ":Company"
+create "report : NHSReport"
+":Company" --> "report : NHSReport" : create()
+deactivate ":Company"
+
 note over ":SendReportController" : arrayX can be dailyNumberTests or meanAge
-":SendReportController" --> ":LinearRegression" : create(arrayX, arrayY)
+
+":SendReportController" -> "report : NHSReport": data = calculateData(arrayX, arrayY)
+activate "report : NHSReport"
+
+
+
+create ":LinearRegression"
+
+"report : NHSReport" --> ":LinearRegression" : create(arrayX, arrayY)
+deactivate "report : NHSReport"
 deactivate ":SendReportController"
 
 
@@ -80,22 +96,15 @@ end
 
 
 
-":SendReportUI" -> ":SendReportController" : generateNHSReport(numberOfTestWithResultCovidPositive)
+":SendReportUI" -> ":SendReportController" : generateNHSReport()
 activate ":SendReportController"
 
-":SendReportController" -> ":Company" : report = generateNHSReport(numberOfTestWithResultCovidPositive)
-activate ":Company"
-
-create "report : NHSReport"
-":Company" --> "report : NHSReport" : create(numberOfTestWithResultCovidPositive)
 
 deactivate ":Company"
 
-":SendReportController" -> "report : NHSReport": data = calculateData()
-activate "report : NHSReport"
-deactivate "report : NHSReport"
 
-":SendReportController" -> "Report2NHS": writeUsingFileWriter (data)
+
+":SendReportController" -> "Report2NHS": writeUsingFileWriter(data)
 
 activate "Report2NHS"
 
