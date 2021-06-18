@@ -11,13 +11,30 @@ import java.util.Objects;
  */
 public class NHSReport {
 
+    /**
+     * The chosen significance level.
+     */
+    private double sigLevel;
 
+    /**
+     * The NHSReport's linearRegression.
+     */
     private LinearRegression linearRegression;
 
-    public NHSReport(){}
+    /**
+     * @param sigLevel the chosen significance level.
+     *
+     * The NHSReport constructor.
+     */
+    public NHSReport(double sigLevel){
+        this.sigLevel = sigLevel;
+    }
 
 
     /**
+     * @param x the chosen X array.
+     * @param y the calculated Y array.
+     *
      * Calculates all the data needed to generate a report.
      *
      * @return all the data needed to generate a report.
@@ -26,14 +43,9 @@ public class NHSReport {
 
         this.linearRegression = new LinearRegression(x,y);
 
-
-
         LinearRegression linearRegression = new LinearRegression(x, y);
 
-
         StringBuilder stringSaida = new StringBuilder();
-
-
 
         stringSaida.append("The regression model fitted using data from the interval:\n" +
                 String.format(
@@ -102,26 +114,7 @@ public class NHSReport {
                                 "Total\t\t%.0f\t%.4f\n", degreeFreedom, (SE+SR)
                         ));
 
-
-
-
-
-
-        System.out.println(stringSaida.toString());
-
-
         return stringSaida.toString();
 
     }
-
-    /*
-    public boolean validateNHSReport(){
-
-    }
-
-     */
-
-
-
-
 }

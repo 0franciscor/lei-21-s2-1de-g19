@@ -202,12 +202,19 @@ public class Company {
         return this.externalModuleList;
     }
 
+
     /**
+
+     */
+
+    /**
+     * @param sigLevel the significance level chosen by the user.
+     *
      * Generates a covid-19 report that will be sent to the NHS.
      *
-     * @param listTestWithResultCovidPositive list with tests that have result covid positive
+     * @return a NHSReport class
      */
-    public NHSReport generateNHSReport (){
-        return new NHSReport();
+    public NHSReport generateNHSReport (double sigLevel){
+        return new NHSReport(sigLevel);
     }
 }

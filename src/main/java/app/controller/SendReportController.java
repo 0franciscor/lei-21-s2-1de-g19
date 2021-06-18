@@ -81,17 +81,18 @@ public class SendReportController {
 
     /**
      * @param userIntention if true, it means the User selects dailyNumberTests as arrayX variable. If false, it means the user chose meanAge as arrayX variable.
+     * @param sigLevel the significance level chosen by the user.
      *
      * Method that is responsible for saving the data String on the controller, which will later be used to write the report through the API.
      */
-    public void SimpleLinearRegression(boolean userIntention) throws ParseException {
+    public void SimpleLinearRegression(boolean userIntention, double sigLevel) throws ParseException {
         double[] arrayX;
         if(userIntention)
             arrayX = testStore.getDailyPositiveTests(lstAllTestWithResultCovidPositive);
         else
             arrayX = testStore.getMeanAgeFromList(lstAllTestWithResultCovidPositive);
 
-        NHSReport report = company.generateNHSReport();
+        NHSReport report = company.generateNHSReport(sigLevel);
 
         this.data = report.calculateData(arrayX, arrayY);
 
