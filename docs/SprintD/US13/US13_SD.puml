@@ -21,33 +21,45 @@ deactivate ClientStore
 ConsultTestDetailsByClientController -> ClientMapper  : clientListDto = toDTO(clientList)
 activate ClientMapper
 deactivate ClientMapper
-ConsultTestDetailsByClientController -> OrderClients : clientListDtoOrdered = orderClients(criteria, clientListDto)
-activate OrderClients
-deactivate OrderClients
+ConsultTestDetailsByClientController -> SortAlgorithmStore : clientListDtoOrdered = sort(criteria, clientListDto)
+activate SortAlgorithmStore
+deactivate SortAlgorithmStore
 deactivate ConsultTestDetailsByClientController
 
 ConsultTestDetailsByClientUI --> LB : presents an ordered list of client and ask to select one
 deactivate ConsultTestDetailsByClientUI
-LB -> ConsultTestDetailsByClientUI : selects data
+LB -> ConsultTestDetailsByClientUI : selects client
 activate ConsultTestDetailsByClientUI
-ConsultTestDetailsByClientUI -> ConsultTestDetailsByClientController :  presentTestsOfClient(clientDto)
+ConsultTestDetailsByClientUI -> ConsultTestDetailsByClientController :  presentTestsOfClient(tin)
 activate ConsultTestDetailsByClientController
-ConsultTestDetailsByClientController -> ClientDto : testListOfClient = getTestsOfClient()
-activate ClientDto
-deactivate ClientDto
+ConsultTestDetailsByClientController -> Company ++ : getClientStore()
+deactivate Company
+ConsultTestDetailsByClientController -> ClientStore ++ : client = getClient(tin)
+deactivate ClientStore
+ConsultTestDetailsByClientController -> Client ++ : testListOfClient = getTestsOfClient()
+deactivate Client
 ConsultTestDetailsByClientController -> TestMapper : testDtoListOfClient = toDTO(testListOfClient)
 activate TestMapper
 deactivate TestMapper
 deactivate ConsultTestDetailsByClientController
 ConsultTestDetailsByClientUI --> LB : presents client's tests and ask to select one
 deactivate ConsultTestDetailsByClientUI
-LB -> ConsultTestDetailsByClientUI : selects data
+LB -> ConsultTestDetailsByClientUI : selects test
 activate ConsultTestDetailsByClientUI
-ConsultTestDetailsByClientUI -> ConsultTestDetailsByClientController  : presentTestDetails(testDto)
+
+ConsultTestDetailsByClientUI -> ConsultTestDetailsByClientController  : presentTestDetails(testcode)
+activate ConsultTestDetailsByClientController
+ConsultTestDetailsByClientController -> TestStore ++: test = getTestByCode()
+deactivate TestStore
+ConsultTestDetailsByClientController -> ConsultTestDetailsByClientController : showData(test)
 activate ConsultTestDetailsByClientController
 
 deactivate ConsultTestDetailsByClientController
 ConsultTestDetailsByClientUI --> LB : shows test details
+participant "client : Client"
+participant "clientStore : ClientStore"
+participant "clientList : List<Client>"
+participant "clientListDto : List<ClientDto>"
 
 
 @enduml

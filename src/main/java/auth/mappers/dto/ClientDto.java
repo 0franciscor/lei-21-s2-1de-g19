@@ -2,6 +2,7 @@ package auth.mappers.dto;
 
 import app.domain.model.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -176,6 +177,10 @@ public class ClientDto {
         return name;
     }
     public List<Test> getTestsOfClient() {
-        return this.clientTestList;
+        List<Test> listOfTestsValidated = new ArrayList<>();
+        for (Test c : this.clientTestList)
+            if (c.getValidationDateTime() != null)
+                listOfTestsValidated.add(c);
+        return listOfTestsValidated;
     }
 }

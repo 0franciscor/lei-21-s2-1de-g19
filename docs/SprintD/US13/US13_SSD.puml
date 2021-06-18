@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Lab Coordinator" as R
+activate R
+R -> System ++: consult the historical tests perfomed by a particular client
+System -->  R --: ask ordering criteria
+R -> System ++: selects order criteria
+System -->  R --: presents an ordered list of client and ask to select one
+R -> System ++: selects client
+System --> R --: presents client's tests and ask to select one
+R -> System ++: selects test
+System --> R --: shows test details
+@enduml

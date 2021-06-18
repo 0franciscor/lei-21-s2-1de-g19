@@ -57,7 +57,7 @@ public class ClientMapper {
     public static List<ClientDto> toDTO (List<Client> clientList) {
         List<ClientDto> clientDtoList = new ArrayList<>();
         for (Client c : clientList) {
-            ClientDto c1 = new ClientDto(c.getName(),c.getSex(),c.getTIN(),c.getBirthDate(), c.getClientTestsList());
+            ClientDto c1 = new ClientDto(c.getName(),c.getTIN());
             clientDtoList.add(c1);
         }
         return clientDtoList;

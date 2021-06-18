@@ -25,11 +25,11 @@ public class ConsultTestDetailsByClientUI implements Runnable {
                     criteria = "TIN";
                     c = true;
             } while (c == false);
-            //List<ClientDto> listClient = ctrl.orderClients(criteria);
-            //ClientDto clientDto = (ClientDto) Utils.showAndSelectOne(listClient, "Select a client to view his historical tests." );
-            //List<TestDto> listTest = ctrl.presentTestsOfClient(clientDto);
-            //TestDto test = (TestDto) Utils.showAndSelectOne(listTest, "Select a test to view its details.");
-            //System.out.println(ctrl.presentTestDetails(test));
+            List<ClientDto> listClient = ctrl.orderClients(criteria);
+            ClientDto clientDto = (ClientDto) Utils.showAndSelectOne(listClient, "Select a client to view his historical tests." );
+            List<TestDto> listTest = ctrl.presentTestsOfClient(clientDto.getTIN());
+            TestDto test = (TestDto) Utils.showAndSelectOne(listTest, "Select a test to view its details.");
+            ctrl.presentTestDetails(test.getCode());
 
         } catch (Exception E) {
             System.out.println("There was an error.");
