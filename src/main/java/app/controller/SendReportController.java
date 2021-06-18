@@ -8,6 +8,7 @@ import auth.domain.store.TestStore;
 import com.nhs.report.Report2NHS;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -44,6 +45,11 @@ public class SendReportController {
     private List<Test> [] lstAllTestWithResultCovidPositive;
 
     /**
+     * The controller's list with covid tests.
+     */
+    private List<Test> [] lstAllTestWithResultCovid;
+
+    /**
      * The array which contains the number of daily performed tests, according to the chosen date.
      */
     private double[] arrayY;
@@ -67,7 +73,7 @@ public class SendReportController {
      *
      * @return a list which is able to return a copy of all tests that have the result Covid positive.
      */
-    public boolean getAllTestWithResultCovidPositive(Date dateToSee, int histPoints){
+    public void getAllTestWithResultCovidPositive(Date dateToSee, int histPoints){
         TestStore store = company.getTestStore();
 
         this.lstDateExceptSundays = Utils.getDaysWithoutSundays(dateToSee, histPoints);
@@ -81,8 +87,6 @@ public class SendReportController {
         }
 
         this.arrayY = store.getDailyPositiveTests(lstAllTestWithResultCovidPositive);
-
-        return Utils.verifyIfListsEmpty(lstAllTestWithResultCovidPositive);
     }
 
     /**
@@ -100,8 +104,19 @@ public class SendReportController {
                 i++;
             }
 
-        } else
-            arrayX = testStore.getMeanAgeFromList(lstAllTestWithResultCovidPositive);
+        } else {
+
+            TestStore store = company.getTestStore();
+
+            this.lstAllTestWithResultCovid = new List[lstDateExceptSundays.size()];
+
+            for (int i=0; i<lstAllTestWithResultCovid.length; i++){
+                Date date = lstDateExceptSundays.get(i);
+                this.lstAllTestWithResultCovid[i] = store.getAllTestWithResultCovid(date);
+            }
+
+            arrayX = store.getMeanAgeFromList(this.lstAllTestWithResultCovid);
+        }
 
         NHSReport report = company.generateNHSReport(sigLevel);
 

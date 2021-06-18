@@ -9,11 +9,7 @@ import app.ui.console.MainMenuUI;
 import auth.mappers.dto.ClientDto;
 
 
-import java.util.ArrayList;
-import java.util.Calendar;
-
-import java.util.List;
-import java.util.Timer;
+import java.util.*;
 
 /**
  *
@@ -35,6 +31,25 @@ public class Main {
 
             MainMenuUI menu = new MainMenuUI();
             menu.run();
+
+            /*
+            List<Date> dateList = new ArrayList<>();
+
+            double[] x = {65,71,69,75,78,66,74};
+
+            double[] y = {63,69,64,76,75,65,70};
+
+            dateList.add(new Date());
+            dateList.add(new Date());
+            dateList.add(new Date());
+            dateList.add(new Date());
+            dateList.add(new Date());
+            dateList.add(new Date());
+            dateList.add(new Date());
+
+            System.out.println(new NHSReport(0.95).calculateData(x,y, dateList));
+
+             */
 
         }
         catch( Exception e )

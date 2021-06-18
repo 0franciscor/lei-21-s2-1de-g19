@@ -62,7 +62,23 @@ deactivate ":SendReportController"
 end
 
 else or mean age
-":SendReportController" -> ":store: TestStore" : meanAge = getMeanAgeFromList (lstAllTestWithResultCovidPositive)
+
+":SendReportController" -> ":Company" : store = getTestStore()
+activate ":Company"
+deactivate
+
+loop for each date of the list
+":SendReportController" -> ":store: TestStore" : lstAllTestWithResultCovid = getAllTestWithResultCovid(date)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+end
+
+
+
+
+
+
+":SendReportController" -> ":store: TestStore" : meanAge[i] = getMeanAgeFromList (lstAllTestWithResultCovid)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 end
@@ -76,7 +92,7 @@ deactivate ":Company"
 
 note over ":SendReportController" : arrayX can be dailyNumberTests or meanAge
 
-":SendReportController" -> "report : NHSReport": data = calculateData(arrayX, arrayY, sigLevel, )
+":SendReportController" -> "report : NHSReport": data = calculateData(arrayX, arrayY, sigLevel)
 activate "report : NHSReport"
 
 
@@ -98,6 +114,7 @@ activate ":SendReportController"
 ":SendReportController" -> ":store: TestStore" : dailyNumberPositiveTests = getDailyPositiveTests (lstAllTestWithResultCovidPositive)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
+
 ":SendReportController" -> ":store: TestStore" : meanAge = getMeanAgeFromList (lstAllTestWithResultCovidPositive)
 activate ":store: TestStore"
 deactivate ":store: TestStore"

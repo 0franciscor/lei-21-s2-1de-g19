@@ -25,6 +25,7 @@ public class AppUI extends Application {
 
     public static void main (String[] args){
 
+        /*
         JPanel panel = new JPanel();
         JFrame frame = new JFrame();
         frame.setSize(350,200);
@@ -59,6 +60,8 @@ public class AppUI extends Application {
         panel.add(success);
 
         frame.setVisible(true);
+
+         */
 
 
 

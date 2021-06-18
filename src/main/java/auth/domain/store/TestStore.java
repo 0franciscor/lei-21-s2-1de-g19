@@ -356,11 +356,40 @@ public class TestStore {
         return dailyNumberPositiveTests;
     }
 
-    public double[] getMeanAgeFromList(List<Test> [] lstAllTestWithResultCovidPositive) throws ParseException {
-        double[] meanAge = new double[lstAllTestWithResultCovidPositive.length];
-        for(int i = 0; i<lstAllTestWithResultCovidPositive.length; i++){
+
+    public List<Test> getAllTestWithResultCovid(Date date) {
+        List<Test> listTestWithResultCovid = new ArrayList<>();
+
+
+        for (Test t : TestList) {
+
+
+            if (t.getValidationDateTime().getDay() == date.getDay() && t.getValidationDateTime().getMonth() == date.getMonth() &&
+                    t.getValidationDateTime().getYear() == date.getYear()) {
+
+                if (t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())) {
+
+                    for (TestParameter testParameter : t.getTestParameterList()) {
+
+                        if (testParameter.getCode().equalsIgnoreCase("IgGAN")) {
+                            listTestWithResultCovid.add(t);
+                        }
+                    }
+                }
+            }
+
+        }
+        return listTestWithResultCovid;
+    }
+
+
+    public double[] getMeanAgeFromList(List<Test> [] lstAllTestWithResultCovid) throws ParseException {
+
+        double[] meanAge = new double[lstAllTestWithResultCovid.length];
+
+        for (int i = 0; i < lstAllTestWithResultCovid.length; i++) {
             double mediaCliente = 0;
-            for(Test t: lstAllTestWithResultCovidPositive[i]){
+            for (Test t : lstAllTestWithResultCovid[i]) {
                 String birthString = t.getClient().getBirthDate();
                 Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(birthString);
                 Date now = new Date();
@@ -372,7 +401,7 @@ public class TestStore {
 
                 mediaCliente += period.getYears();
             }
-            meanAge[i] = mediaCliente/lstAllTestWithResultCovidPositive[i].size();
+            meanAge[i] = mediaCliente / lstAllTestWithResultCovid[i].size();
         }
         return meanAge;
     }

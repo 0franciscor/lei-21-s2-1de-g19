@@ -69,16 +69,14 @@ public class SendReportUI implements Runnable {
 
         double sigLevel = Utils.readDoubleFromConsole("Significance level:");
 
-        if (ctrl.getAllTestWithResultCovidPositive(date, histPoints))
-            System.out.println("\nThere aren't any test with result covid positive list at the moment.");
-
-        else {
-
+        try {
             ctrl.getAllTestWithResultCovidPositive(date, histPoints);
+        } catch (Exception e) {
+            System.out.println("\nThere aren't any test with result covid positive list at the moment.");
+        }
+
 
             //ctrl.generateNHSReport(listTestWithResultCovidPositive);
-
-        }
 
     }
 }
