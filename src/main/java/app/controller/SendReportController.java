@@ -8,6 +8,7 @@ import auth.domain.store.TestStore;
 import com.nhs.report.Report2NHS;
 
 import javax.rmi.CORBA.Util;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -39,13 +40,21 @@ public class SendReportController {
     private List<Test> [] lstAllTestWithResultCovidPositive;
 
     /**
+     * The array which contains the number of daily performed tests, according to the chosen date.
+     */
+    private double[] arrayY;
+
+    /**
+     * The Controller's String which contains the report.
+     */
+    private String data;
+
+    /**
      * Builds a SendReportController without receiving parameters.
      */
-    public  SendReportController (){
+    public SendReportController (){
         this.app = App.getInstance();
         this.company = app.getCompany();
-        this.testStore = company.getTestStore();
-
     }
 
 
@@ -55,39 +64,43 @@ public class SendReportController {
      * @return a list which is able to return a copy of all tests that have the result Covid positive.
      */
     public boolean getAllTestWithResultCovidPositive(Date dateToSee, int histPoints){
-
-
         TestStore store = company.getTestStore();
         List<Date> lstDateExceptSundays = Utils.getDaysWithoutSundays(dateToSee, histPoints);
         this.lstAllTestWithResultCovidPositive = new List[lstDateExceptSundays.size()];
+
+        this.arrayY = new double[lstDateExceptSundays.size()];
+
         for (int i=0; i<lstAllTestWithResultCovidPositive.length; i++){
             Date date = lstDateExceptSundays.get(i);
             lstAllTestWithResultCovidPositive[i] = store.getAllTestWithResultCovidPositive(date);
+            arrayY[i] = store.getDailyPerformedTests(date);
         }
+
         return Utils.verifyIfListsEmpty(lstAllTestWithResultCovidPositive);
     }
 
     /**
-     * Generates a covid-19 report that will be sent to the NHS.
+     * @param userIntention if true, it means the User selects dailyNumberTests as arrayX variable. If false, it means the user chose meanAge as arrayX variable.
      *
-     * @param listTestWithResultCovidPositive list with tests that have result covid positive
+     * Method that is responsible for saving the data String on the controller, which will later be used to write the report through the API.
      */
-    public void generateNHSReport (List<Test> listTestWithResultCovidPositive){
+    public void SimpleLinearRegression(boolean userIntention) throws ParseException {
+        double[] arrayX;
+        if(userIntention)
+            arrayX = testStore.getDailyPositiveTests(lstAllTestWithResultCovidPositive);
+        else
+            arrayX = testStore.getMeanAgeFromList(lstAllTestWithResultCovidPositive);
 
-        NHSReport report = company.generateNHSReport(listTestWithResultCovidPositive);
-        String data = report.calculateData();
+        NHSReport report = company.generateNHSReport();
+
+        this.data = report.calculateData(arrayX, arrayY);
+
+    }
+
+    /**
+     * Method responsible for invoking the writeUsingFileWriter and writing a text report.
+     */
+    public void generateNHSReport (){
         Report2NHS.writeUsingFileWriter(data);
-
     }
-
-
-    /*
-    public boolean saveNHSReport (NHSReport nhsReport){
-
-        nhsReport.validateNHSReport();
-
-
-    }
-
-     */
 }

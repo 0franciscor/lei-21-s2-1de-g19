@@ -76,7 +76,7 @@ public class SendReportUI implements Runnable {
 
             ctrl.getAllTestWithResultCovidPositive(date, histPoints);
 
-            ctrl.generateNHSReport(listTestWithResultCovidPositive);
+            //ctrl.generateNHSReport(listTestWithResultCovidPositive);
 
         }
 

@@ -207,8 +207,7 @@ public class Company {
      *
      * @param listTestWithResultCovidPositive list with tests that have result covid positive
      */
-    public NHSReport generateNHSReport (List<Test> listTestWithResultCovidPositive){
-
-        return new NHSReport(listTestWithResultCovidPositive);
+    public NHSReport generateNHSReport (){
+        return new NHSReport();
     }
 }

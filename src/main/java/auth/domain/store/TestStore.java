@@ -5,8 +5,11 @@ import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
 import javax.rmi.CORBA.Util;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.ZoneId;
 import java.util.*;
 
@@ -247,10 +250,6 @@ public class TestStore {
      * @return a list which is able to return a copy of all tests that have the IgGAN parameter higher than the established (i.e.: that test positive to covid-19).
      */
     public List<Test> getAllTestWithResultCovidPositive(Date date){
-
-
-
-
         List<Test> listTestWithResultCovidPositive = new ArrayList<>();
 
 
@@ -322,5 +321,59 @@ public class TestStore {
             }
         }
         return validatedTest.size();
+    }
+
+    /**
+     * @param date
+     *
+     * Method that returns the number of daily performed tests according to a date.
+     *
+     * @return the integer which contains the number of daily performed tests
+     */
+    public int getDailyPerformedTests(Date date){
+        int numTestes = 0;
+        for(Test t: TestList){
+            if(t.getValidationDateTime().getDay() == date.getDay() && t.getValidationDateTime().getMonth() == date.getMonth() &&
+                    t.getValidationDateTime().getYear() == date.getYear()){
+                numTestes++;
+            }
+        }
+        return numTestes;
+    }
+
+    /**
+     * @param lstAllTestWithResultCovidPositive Array with lists of Positive test results.
+     *
+     * Method that returns the number of daily positive tests on the array.
+     *
+     * @return a double array with a number of daily positive tests.
+     */
+    public double[] getDailyPositiveTests(List<Test> [] lstAllTestWithResultCovidPositive){
+        double[] dailyNumberPositiveTests = new double[lstAllTestWithResultCovidPositive.length];
+        for(int i = 0; i<lstAllTestWithResultCovidPositive.length; i++){
+            dailyNumberPositiveTests[i] = lstAllTestWithResultCovidPositive[i].size();
+        }
+        return dailyNumberPositiveTests;
+    }
+
+    public double[] getMeanAgeFromList(List<Test> [] lstAllTestWithResultCovidPositive) throws ParseException {
+        double[] meanAge = new double[lstAllTestWithResultCovidPositive.length];
+        for(int i = 0; i<lstAllTestWithResultCovidPositive.length; i++){
+            double mediaCliente = 0;
+            for(Test t: lstAllTestWithResultCovidPositive[i]){
+                String birthString = t.getClient().getBirthDate();
+                Date birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(birthString);
+                Date now = new Date();
+
+                LocalDate birthDateLocal = Utils.convertToLocalDateViaInstant(birthDate);
+                LocalDate nowLocal = Utils.convertToLocalDateViaInstant(now);
+
+                Period period = Period.between(birthDateLocal, nowLocal);
+
+                mediaCliente += period.getYears();
+            }
+            meanAge[i] = mediaCliente/lstAllTestWithResultCovidPositive[i].size();
+        }
+        return meanAge;
     }
 }
