@@ -9,7 +9,7 @@ activate A
 
 A -> ":SendReportUI" : send the covid-19 report to the NHS
 activate ":SendReportUI"
-":SendReportUI" --> A: define the date to see the report (dateToSee), the interval of dates, the number of historical day/weeks points (histPoints), \n select between a simple linear and multilinear regression model, independent variables (i.e.: meanAge, dailyNumberTests) and define the significance level
+":SendReportUI" --> A: define the date to see the report (dateToSee), the interval of dates, the number of historical day/weeks points (histPoints), \n select between a simple linear and multilinear regression model, independent variables (i.e.: meanAge, dailyNumberPositiveTests) and define the significance level
 deactivate ":SendReportUI"
 
 A -> ":SendReportUI" : types and selects the requested data
@@ -25,15 +25,21 @@ deactivate ":Company"
 activate "Utils"
 deactivate "Utils"
 
-loop for each day of the list
+":SendReportController" -> ":SendReportController" : i = 0
+activate ":SendReportController"
+deactivate ":SendReportController"
+
+loop for each date of the list
 ":SendReportController" -> ":store: TestStore" : lstAllTestWithResultCovidPositive = getAllTestWithResultCovidPositive(date)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 
-":SendReportController" -> ":store: TestStore" : arrayY = getDailyPerformedTest(date)
+note over ":SendReportController" : an integer array which is filled with the number of daily performed tests
+":SendReportController" -> ":store: TestStore" : arrayY[i] = getDailyPerformedTest(date)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 
+":SendReportController" -> ":SendReportController" : i = i+1
 end
 
 deactivate ":SendReportController"
@@ -44,7 +50,7 @@ alt if the user chooses simple linear regression
 activate ":SendReportController"
 
 alt if the user chooses daily number tests
-":SendReportController" -> ":store: TestStore" : dailyNumberTests = getDailyPositiveTests (lstAllTestWithResultCovidPositive)
+":SendReportController" -> ":store: TestStore" : dailyNumberPositiveTests = getDailyPositiveTests (lstAllTestWithResultCovidPositive)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 else or mean age
@@ -81,7 +87,7 @@ activate ":SendReportController"
 
 
 
-":SendReportController" -> ":store: TestStore" : dailyNumberTests = getDailyPositiveTests (lstAllTestWithResultCovidPositive)
+":SendReportController" -> ":store: TestStore" : dailyNumberPositiveTests = getDailyPositiveTests (lstAllTestWithResultCovidPositive)
 activate ":store: TestStore"
 deactivate ":store: TestStore"
 ":SendReportController" -> ":store: TestStore" : meanAge = getMeanAgeFromList (lstAllTestWithResultCovidPositive)
