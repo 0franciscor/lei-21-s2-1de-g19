@@ -9,7 +9,7 @@ activate A
 
 A -> ":SendReportUI" : send the covid-19 report to the NHS
 activate ":SendReportUI"
-":SendReportUI" --> A: define the date to see the report (dateToSee), the interval of dates, the number of historical day/weeks points (histPoints), \n select between a simple linear and multilinear regression model, independent variables (i.e.: meanAge, dailyNumberPositiveTests) and define the significance level
+":SendReportUI" --> A: define the date to see the report (dateToSee), the interval of dates, the number of historical day/weeks points (histPoints), \n select between a simple linear and multilinear regression model, independent variables (i.e.: meanAge, dailyNumberPositiveTests) and define the significance level (sigLevel)
 deactivate ":SendReportUI"
 
 A -> ":SendReportUI" : types and selects the requested data
@@ -46,7 +46,7 @@ deactivate ":SendReportController"
 
 
 alt if the user chooses simple linear regression
-":SendReportUI" -> ":SendReportController" : SimpleLinearRegression(userIntention)
+":SendReportUI" -> ":SendReportController" : SimpleLinearRegression(userIntention, sigLevel)
 activate ":SendReportController"
 
 alt if the user chooses daily number tests
@@ -60,10 +60,10 @@ deactivate ":store: TestStore"
 end
 
 
-":SendReportController" --> ":Company" : report = generateNHSReport()
+":SendReportController" --> ":Company" : report = generateNHSReport(sigLevel)
 activate ":Company"
 create "report : NHSReport"
-":Company" --> "report : NHSReport" : create()
+":Company" --> "report : NHSReport" : create(sigLevel)
 deactivate ":Company"
 
 note over ":SendReportController" : arrayX can be dailyNumberTests or meanAge
