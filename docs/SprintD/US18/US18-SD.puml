@@ -21,7 +21,7 @@ activate ":SendReportController"
 activate ":Company"
 deactivate ":Company"
 
-":SendReportController" -> "Utils" : lstDateExceptSundays = getDaysWithoutSyndays(dateToSee, histPoints)
+":SendReportController" -> "Utils" : lstDateExceptSundays = getDaysWithoutSundays(dateToSee, histPoints)
 activate "Utils"
 deactivate "Utils"
 

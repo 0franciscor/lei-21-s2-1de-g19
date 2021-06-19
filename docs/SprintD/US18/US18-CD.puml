@@ -8,27 +8,36 @@ package Core{
 
 package Controllers{
 class "SendReportController" as SRC {
-+getAllTestWithResultCovidPositive()
-+generateNHSReport(listTestWithResultCovidPositive)
-+saveNHSReport(nhsReport)
++getAllTestWithResultCovidPositive(dateToSee, histPoints)
++SimpleLinearRegression(userInteraction, sigLevel, confLevel, hypTest)
++MultilinearRegression(sigLevel, confLevel, hypTest)
++sendNHSReport()
 }
 }
 
 package Domain{
 class "Company" as C {
 -designation
-+getTestStore()
-+generateNHSReport(listTestWithResultCovidPositive)
++TestStore getTestStore()
++NHSReport generateNHSReport(sigLevel, confLevel, hypTest)
 }
 
 class "NHSReport" as NHSR {
-+NHSReport(listTestWithResultCovidPositive)
-+calculateData()
-+validateNHSReport()
++NHSReport(sigLevel, confLevel, hypTest)
++String calculateData(arrayX, arrayY, lstDateExceptSundays)
++String calculateData(BiarrayX, arrayY, lstDateExceptSundays)
 }
 
 class "Report2NHS" as R2NHS {
 +writeUsingFileWriter(data)
+}
+
+class "LinearRegression" as LR {
++LinearRegression (arrayX, arrayY)
+}
+
+class "MultilinearRegression" as MLR {
++MultilinearRegression (BiarrayX, arrayY)
 }
 
 }
@@ -36,19 +45,32 @@ class "Report2NHS" as R2NHS {
 package Stores{
 
 class "TestStore" as TS {
-+getAllTestWithResultCovidPositive()
++List<Test> getAllTestWithResultCovidPositive(date)
++double[] getDailyPositiveTests(lstAllTestWithResultCovidPositive)
++int getDailyPerformedTest(date)
++List <Test> getAllTestWithResultCovid(date)
++double[] getMeanAgeFromList(lstAllTestWithResultCovid)
++double[][] createBiarrayX (dailyNumberTests, meanAge)
 }
 }
 }
 
 package UI{
 class "SendReportUI" as SRUI
+
+class "Utils" as U {
++List<Date> getDaysWithoutSundays(dateToSee, histPoints)
+}
 }
 
 SRUI ..> SRC
+SRC ..> U
 SRC ..> C
 SRC ..> TS
 SRC ..> NHSR
+NHSR ..> LR
+NHSR ..> MLR
 SRC ..> R2NHS
+NHSR "1..*" -- "1" C : < generates
 
 @enduml
