@@ -9,7 +9,7 @@ activate A
 
 A -> ":SendReportUI" : send the covid-19 report to the NHS
 activate ":SendReportUI"
-":SendReportUI" --> A: define the date to see the report (dateToSee), the number of historical day/weeks points (histPoints),\n select between a simple linear and multilinear regression model, independent variables (i.e.: meanAge, dailyNumberTests), \ndefine the significance level (sigLevel), the confidenceLevel (confLevel) and define hypothesis test (hypTest)
+":SendReportUI" --> A: define the date to see the report (dateToSee), the number of historical day/weeks points (histPoints),\n select between a simple linear and multilinear regression model, independent variables (i.e.: meanAge, dailyNumberTests), \ndefine the significance level (sigLevel), the confidence level (confLevel) and define hypothesis test (hypTest)
 deactivate ":SendReportUI"
 
 A -> ":SendReportUI" : types and selects the requested data
