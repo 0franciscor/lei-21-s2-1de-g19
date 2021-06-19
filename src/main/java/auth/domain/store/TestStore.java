@@ -1,6 +1,7 @@
 package auth.domain.store;
 
 import app.domain.model.*;
+import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
@@ -406,6 +407,7 @@ public class TestStore {
             meanAge[i] = mediaCliente / lstAllTestWithResultCovid[i].size();
         }
         return meanAge;
+
     }
     public boolean guardarFicheiroBinario(List<Test> testList) {
         try {
@@ -421,5 +423,17 @@ public class TestStore {
         } catch (IOException ex) {
             return false;
         }
+    }
+
+    public double[][] createBiarrayX (double[] dailyNumberTests, double[] meanAge){
+
+        double[][] BiarrayX = new double[dailyNumberTests.length][Constants.NUM_COLUNAS];
+
+        for (int i=0; i<dailyNumberTests.length; i++){
+            BiarrayX[i][0] = 1;
+            BiarrayX[i][1] = dailyNumberTests[i];
+            BiarrayX[i][2] = meanAge[i];
+        }
+        return BiarrayX;
     }
 }

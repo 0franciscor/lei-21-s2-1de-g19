@@ -214,7 +214,7 @@ public class Company {
      *
      * @return a NHSReport class
      */
-    public NHSReport generateNHSReport (double sigLevel){
-        return new NHSReport(sigLevel);
+    public NHSReport generateNHSReport (double sigLevel, double confLevel, boolean hypTest){
+        return new NHSReport(sigLevel, confLevel, hypTest);
     }
 }

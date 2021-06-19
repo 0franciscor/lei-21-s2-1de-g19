@@ -4,6 +4,7 @@ import app.controller.SendReportController;
 import app.domain.model.Test;
 import app.ui.console.utils.Utils;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,9 +36,12 @@ public class SendReportUI implements Runnable {
         System.out.printf("\n--- Requested data to send the covid-19 report to the NHS ---");
         Date date = Utils.readDateFromConsole("\nDate to see the report:");
 
+        /*
         System.out.println("\n--- INTERVAL OF DATES ---");
         Date date1 = Utils.readDateFromConsole("Inicial date:");
         Date date2 = Utils.readDateFromConsole("Final date:");
+
+         */
 
         System.out.println("\n--- NUMBER OF HISTORICAL POINTS ---");
 
@@ -49,15 +53,14 @@ public class SendReportUI implements Runnable {
 
         int histPoints;
 
-        if (option == 0)
+        if (option == 0){
             histPoints = Utils.readIntegerFromConsole("Number of days:");
+
+        }
         else {
             histPoints = Utils.readIntegerFromConsole("Number of weeks:");
             histPoints = histPoints * 7;
         }
-
-
-
 
         System.out.println("\n--- REGRESSION MODEL ---");
 
@@ -67,7 +70,48 @@ public class SendReportUI implements Runnable {
 
         int option3 = Utils.showAndSelectIndex(options2,"\nSelect an option from the list.");
 
+        boolean userInteraction = false;
+        if (option3 == 0) {
+
+            System.out.println("\n--- WHAT DO YOU WANT ? (DAILY NUMBER TESTS OR MEAN AGE) ---");
+
+            List<String> options4 = new ArrayList<>();
+            options4.add("Mean age");
+            options4.add("Daily number tests");
+
+            int option5 = Utils.showAndSelectIndex(options4,"\nSelect an option from the list.");
+
+            if (option5 == 0){
+                userInteraction = true;
+
+            } else {
+                userInteraction = false;
+            }
+
+        }
+
+        boolean hypTest;
+
+        System.out.println("\n--- hypothesis test ---");
+
+        List<String> option6 = new ArrayList<>();
+        option6.add("a");
+        option6.add("b");
+
+        int option7 = Utils.showAndSelectIndex(option6,"\nSelect an option from the list.");
+
+        if (option7 == 0){
+            hypTest = true;
+
+        } else {
+            hypTest = false;
+        }
+
+
         double sigLevel = Utils.readDoubleFromConsole("Significance level:");
+
+        double confLevel = Utils.readDoubleFromConsole("Confidence level:");
+
 
         try {
             ctrl.getAllTestWithResultCovidPositive(date, histPoints);
@@ -75,8 +119,24 @@ public class SendReportUI implements Runnable {
             System.out.println("\nThere aren't any test with result covid positive list at the moment.");
         }
 
+        if (option3 == 0) {
 
-            //ctrl.generateNHSReport(listTestWithResultCovidPositive);
+            try {
+                ctrl.SimpleLinearRegression(userInteraction, sigLevel,confLevel, hypTest);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
+        } else {
+
+            try {
+                ctrl.MultilinearRegression(sigLevel,confLevel, hypTest);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        ctrl.sendNHSReport();
     }
 }

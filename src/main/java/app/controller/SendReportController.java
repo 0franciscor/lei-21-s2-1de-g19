@@ -95,7 +95,7 @@ public class SendReportController {
      *
      * Method that is responsible for saving the data String on the controller, which will later be used to write the report through the API.
      */
-    public void SimpleLinearRegression(boolean userIntention, double sigLevel) throws ParseException {
+    public void SimpleLinearRegression(boolean userIntention, double sigLevel,double confLevel, boolean hypTest) throws ParseException {
         double[] arrayX = new double[lstAllTestWithResultCovidPositive.length];
         if(userIntention) {
             int i = 0;
@@ -118,16 +118,45 @@ public class SendReportController {
             arrayX = store.getMeanAgeFromList(this.lstAllTestWithResultCovid);
         }
 
-        NHSReport report = company.generateNHSReport(sigLevel);
+        NHSReport report = company.generateNHSReport(sigLevel, confLevel, hypTest);
 
         this.data = report.calculateData(arrayX, arrayY, lstDateExceptSundays);
+
+    }
+
+    public void MultilinearRegression (double sigLevel, double confLevel, boolean hypTest) throws ParseException {
+
+        double[] dailyNumberTests = new double[lstAllTestWithResultCovidPositive.length];
+
+        int i = 0;
+        for(Date date : lstDateExceptSundays){
+            dailyNumberTests[i] = testStore.getDailyPerformedTests(date);
+            i++;
+        }
+
+        TestStore store = company.getTestStore();
+
+        this.lstAllTestWithResultCovid = new List[lstDateExceptSundays.size()];
+        for (int j=0; i<lstAllTestWithResultCovid.length; i++){
+            Date date = lstDateExceptSundays.get(j);
+            this.lstAllTestWithResultCovid[j] = store.getAllTestWithResultCovid(date);
+        }
+
+        double [] meanAge = store.getMeanAgeFromList(this.lstAllTestWithResultCovid);
+
+        double[][] BiarrayX = store.createBiarrayX(dailyNumberTests, meanAge);
+
+        NHSReport report = company.generateNHSReport(sigLevel, confLevel, hypTest);
+
+        this.data = report.calculateData(BiarrayX, arrayY, lstDateExceptSundays);
+
 
     }
 
     /**
      * Method responsible for invoking the writeUsingFileWriter and writing a text report.
      */
-    public void generateNHSReport (){
+    public void sendNHSReport (){
         Report2NHS.writeUsingFileWriter(data);
     }
 }

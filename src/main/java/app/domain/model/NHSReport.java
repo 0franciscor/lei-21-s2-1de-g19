@@ -1,5 +1,9 @@
 package app.domain.model;
 
+import org.apache.commons.math3.distribution.FDistribution;
+import org.apache.commons.math3.distribution.TDistribution;
+import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +22,16 @@ public class NHSReport {
     private double sigLevel;
 
     /**
+     * The chosen confidence level.
+     */
+    private double confLevel;
+
+    /**
+     * The chosen hypothesis test.
+     */
+    private boolean hypTest;
+
+    /**
      * The NHSReport's linearRegression.
      */
     private LinearRegression linearRegression;
@@ -27,8 +41,12 @@ public class NHSReport {
      *
      * The NHSReport constructor.
      */
-    public NHSReport(double sigLevel){
+    public NHSReport(double sigLevel, double confLevel, boolean hypTest){
+
         this.sigLevel = sigLevel;
+        this.confLevel = confLevel;
+        this.hypTest = hypTest;
+
     }
 
 
@@ -55,8 +73,6 @@ public class NHSReport {
                 +
                 "\n//" +
                 "Other statistics");
-
-        //double asd = new Fdistribution(3.51, 3.78);
 
         double SR= 0, SE = 0, ST = 0;
 
@@ -96,9 +112,112 @@ public class NHSReport {
 
         stringSaida.append("\n" +
                 String.format(
-                        "R2= %.4f\nR2adjusted= %.4f\nR= %.4f", R2, R2adj, Math.sqrt(linearRegression.R2()))
-                + "\n\n//");
+                        "R2= %.4f\nR2adjusted= %.4f\nR= %.4f\n\n", R2, R2adj, Math.sqrt(linearRegression.R2())));
 
+
+        // T STUDENT
+        TDistribution td= new TDistribution(degreeFreedomErro);
+        double alphaTD =(1 - sigLevel/100)/2;
+        double tStudent;
+        if(alphaTD> 0.5) {
+            tStudent = td.inverseCumulativeProbability(alphaTD);
+            //System.out.println("t-student critical value: " + tStudent);
+        }
+        else {
+            tStudent = td.inverseCumulativeProbability(1 - alphaTD);
+            //System.out.println("t-student critical value: " + tStudent);
+        }
+
+        TDistribution td1= new TDistribution(degreeFreedomErro);
+        double alphaTD1 =(1 - confLevel/100)/2;
+        double tStudentIntConf;
+        if(alphaTD1> 0.5) {
+            tStudentIntConf = td1.inverseCumulativeProbability(alphaTD1);
+            //System.out.println("t-student critical value: " + tStudentIntConf);
+        }
+        else {
+            tStudentIntConf = td1.inverseCumulativeProbability(1 - alphaTD1);
+            //System.out.println("t-student critical value: " + tStudentIntConf);
+        }
+
+
+        //DESVIO PADRÃO
+        double desvPadr = Math.sqrt(SE/ (x.length-2));
+
+
+        double Sxx = 0;
+
+        //MÉDIA ARRAY X
+
+        double mediaX = 0;
+        for(int i = 0; i<x.length; i++){
+            mediaX += x[i];
+        }
+        mediaX /= x.length;
+
+        // Sxx
+
+        for(int i = 0; i<x.length; i++){
+            Sxx += Math.pow((x[i] - mediaX), 2);
+        }
+
+        //DELTA
+        double delta, lower, upper;
+        double num1 = 1;
+        double lengthArray = x.length;
+
+        String [] intConfidence = new String[x.length];
+
+        for(int i=0; i<x.length; i++){
+            double a = linearRegression.predict(x[i]);
+            delta = tStudentIntConf * desvPadr * Math.sqrt(num1/lengthArray+Math.pow(x[i]-mediaX,2)/Sxx);
+            lower=a-delta;
+            upper=a+delta;
+            intConfidence[i] = String.format("] %.2f ; %.2f [",lower,upper);
+        }
+
+        // F-SNEDECOR
+        FDistribution fd= new FDistribution(degreeFreedomRegressao,degreeFreedomErro);
+        double alphaFD= 1-sigLevel/100;
+        double fSnedecor= fd.inverseCumulativeProbability(1- alphaFD);
+        //System.out.println("Fisher–Snedecor critical value:" + fSnedecor);
+
+
+        double tObs;
+        if (hypTest){
+            tObs = linearRegression.intercept()/(desvPadr*Math.sqrt(1.00/x.length + Math.pow(mediaX,2)/Sxx));
+
+            if (Math.abs(tObs) > tStudent){
+                stringSaida.append("\nHypothesis tests for regression coefficient a\n" +
+                        "H0: a=0  H1: a<>0\n" +
+                        String.format("t_obs = %.4f\n",tObs) +
+                        "Decision:\n" +
+                        String.format("|%.4f| > %.4f -> reject H0\n",tObs,tStudent));
+            } else {
+                stringSaida.append("\nHypothesis tests for regression coefficient a\n" +
+                        "H0: a=0  H1: a<>0\n" +
+                        String.format("t_obs = %.4f\n",tObs) +
+                        "Decision:\n" +
+                        String.format("|%.4f| < %.4f -> no reject H0\n",tObs,tStudent));
+            }
+
+        } else {
+            tObs = linearRegression.slope()/(desvPadr/Math.sqrt(Sxx));
+
+            if (Math.abs(tObs) > tStudent){
+                stringSaida.append("\nHypothesis tests for regression coefficient b\n" +
+                        "H0: b=0  H1: b<>0\n" +
+                        String.format("t_obs = %.4f\n",tObs) +
+                        "Decision:\n" +
+                        String.format("|%.4f| > %.4f -> reject H0\n",tObs,tStudent));
+            } else {
+                stringSaida.append("\nHypothesis tests for regression coefficient b\n" +
+                        "H0: b=0  H1: b<>0\n" +
+                        String.format("t_obs = %.4f\n",tObs) +
+                        "Decision:\n" +
+                        String.format("|%.4f| < %.4f -> no reject H0\n",tObs,tStudent));
+            }
+        }
 
 
         stringSaida.append(
@@ -106,7 +225,7 @@ public class NHSReport {
                         "H0: b=0  H1:b<>0 \n\n" +
                         "\t\t\tdf\t\tSS\t\tMS\t\t\tF\t\n" +
                         String.format(
-                                "Regression\t%.0f\t%.4f\t%.4f\t%.4f\t\n", degreeFreedomRegressao, SR, MSR, fRegressao
+                                "Regression\t%.0f\t%.4f\t\t%.4f\t\t%.4f\t\n", degreeFreedomRegressao, SR, MSR, fRegressao
                         ) +
                         String.format(
                                 "Residual\t%.0f\t%.4f\t\t%.4f\n", degreeFreedomErro, SE, MSE
@@ -116,15 +235,40 @@ public class NHSReport {
                         ));
 
 
-        stringSaida.append("\n// Prediction values \n" +
-                "Date\t\t\t\t\t\t\t\tNumber of OBSERVED positive cases\t\t\t\t\tNumber of ESTIMATED positive cases\t\t\t\t\t95% intervals");
 
-        for(int i = lstDateExceptSundays.size()-1 ; i>=0; i--){
-            stringSaida.append(String.format("\n" + lstDateExceptSundays.get(i) + "\t\t\t\t\t\t %.0f \t\t\t\t\t\t\t\t\t\t %.2f \t\t\t\t\t\t\t\t\t\t" + "intervalo", y[i], linearRegression.predict(x[i])));
+        stringSaida.append(String.format("\nf0 = %.4f ", fRegressao) +
+                String.format("\nF-Snedecor = %.4f", fSnedecor));
+
+        if (fRegressao > fSnedecor) {
+            stringSaida.append("\nDecision:"+
+                    String.format("\n%.4f > %.4f -> Reject H0, the regression model is significant.\n", fRegressao,fSnedecor));
+
+        } else {
+            stringSaida.append("\nDecision:"+
+                    String.format("\n%.4f < %.4f -> No reject H0, the regression model is not significant.\n", fRegressao,fSnedecor));
         }
 
 
-        return stringSaida.toString();
 
+
+
+
+        stringSaida.append("\n// Prediction values \n" +
+                "Date\t\t\t\t\t\t\t\tNumber of OBSERVED positive cases\t\t\t\t\tNumber of ESTIMATED positive cases\t\t\t\t\t"+sigLevel+"% intervals");
+
+
+
+
+        for(int i = lstDateExceptSundays.size()-1 ; i>=0; i--){
+            stringSaida.append(String.format("\n" + lstDateExceptSundays.get(i) + "\t\t\t\t\t\t %.0f \t\t\t\t\t\t\t\t\t\t\t %.2f \t\t\t\t\t\t\t\t\t %s", y[i], linearRegression.predict(x[i]), intConfidence[i]));
+        }
+
+        return stringSaida.toString();
+    }
+
+    public String calculateData (double[][] BiarrayX, double[] y, List<Date> lstDateExceptSundays){
+        String ola = "ola";
+
+        return ola;
     }
 }
