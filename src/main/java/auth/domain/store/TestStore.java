@@ -5,7 +5,7 @@ import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
-import javax.rmi.CORBA.Util;
+
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -286,10 +286,10 @@ public class TestStore {
      *
      * @return the number of tests waiting for result
      */
-    public int getCollectedTestsNumber(){ //nao tem atenção à data
+    public int getCollectedTestsNumber(Date beginning, Date end){
         List<Test> collectedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Registered.toString())){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Registered.toString())&&t.getRegistrationDateTime().after(beginning)&&t.getRegistrationDateTime().before(end)){
                 collectedTest.add(t);
             }
         }
@@ -301,10 +301,10 @@ public class TestStore {
      *
      * @return the number of tests waiting for diagnosis
      */
-    public int getAnalysedTestsNumber(){ //nao tem atenção à data
+    public int getAnalysedTestsNumber(Date beginning, Date end){
         List<Test> analysedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString())){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString())&&t.getChemicalAnalysisDateTime().after(beginning)&&t.getChemicalAnalysisDateTime().before(end)){
                 analysedTest.add(t);
             }
         }
@@ -316,10 +316,10 @@ public class TestStore {
      *
      * @return the number of performed tests
      */
-    public int getValidatedTestsNumber(){ //nao tem atenção à data
+    public int getValidatedTestsNumber(Date beginning, Date end){
         List<Test> validatedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())&&t.getValidationDateTime().after(beginning)&&t.getValidationDateTime().before(end)){
                 validatedTest.add(t);
             }
         }
