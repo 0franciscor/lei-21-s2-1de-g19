@@ -85,14 +85,26 @@ public class ParameterCategoryStore {
     }
 
     /**
+     * @param name
+     *
+     * Searches for a specific ParameterCategory, through a parameter-sent name.
+     *
+     * @return the found ParameterCategoryObject or a null object, stating that it was not found.
+     */
+    public ParameterCategory getParameterCategoryByName(String name){
+        for(ParameterCategory pc : parameterCategoryList)
+            if(pc.getName().equalsIgnoreCase(name))
+                return pc;
+        return null;
+    }
+
+    /**
      *
      * @return all ParameterCategory that exist in the store list
      */
     public List<ParameterCategory> getAllParameterCategories(){
         return parameterCategoryList;
     }
-
-
 
     /**
      * If the parameter category of the testTypeDto passed as a parameter is equal to a parameter category present in the parameterCategoryList,
