@@ -9,7 +9,7 @@ activate A
 
 A -> ":SendReportUI" : send the covid-19 report to the NHS
 activate ":SendReportUI"
-":SendReportUI" --> A: define the date to see the report (dateToSee), the interval of dates, the number of historical day/weeks points (histPoints), \n select between a simple linear and multilinear regression model\n, independent variables (i.e.: meanAge, dailyNumberTests) and define the significance level (sigLevel)
+":SendReportUI" --> A: define the date to see the report (dateToSee), the number of historical day/weeks points (histPoints),\n select between a simple linear and multilinear regression model, independent variables (i.e.: meanAge, dailyNumberTests), \ndefine the significance level (sigLevel), the confidenceLevel (confLevel) and define hypothesis test (hypTest)
 deactivate ":SendReportUI"
 
 A -> ":SendReportUI" : types and selects the requested data
@@ -41,58 +41,20 @@ deactivate ":SendReportController"
 
 
 alt if the user chooses simple linear regression
-":SendReportUI" -> ":SendReportController" : SimpleLinearRegression(userIntention, sigLevel)
+":SendReportUI" -> ":SendReportController" : SimpleLinearRegression(userIntention, sigLevel, confLevel, hypTest)
 activate ":SendReportController"
 
-alt if the user chooses daily number tests
+ref over ":SendReportController" : SD_SimpleLinearRegression(userIntention, sigLevel, confLevel, hypTest)
 
-":SendReportController" -> ":SendReportController" : i = 0
-activate ":SendReportController"
-deactivate ":SendReportController"
-
-loop for each date on the list1
-note over ":SendReportController" : a double array which is filled with the number of daily positive tests
-":SendReportController" -> ":store: TestStore" : dailyNumberTests[i] = getDailyPerformedTest(date)
-activate ":store: TestStore"
-deactivate ":store: TestStore"
-
-
-":SendReportController" -> ":SendReportController" ++: i = i+1
-deactivate ":SendReportController"
-end
-
-else or mean age
-
-":SendReportController" -> ":Company" : store = getTestStore()
-activate ":Company"
-deactivate
-
-loop for each date of the list
-":SendReportController" -> ":store: TestStore" : lstAllTestWithResultCovid = getAllTestWithResultCovid(date)
-activate ":store: TestStore"
-deactivate ":store: TestStore"
-end
-
-
-
-
-
-
-":SendReportController" -> ":store: TestStore" : meanAge[i] = getMeanAgeFromList (lstAllTestWithResultCovid)
-activate ":store: TestStore"
-deactivate ":store: TestStore"
-end
-
-
-":SendReportController" --> ":Company" : report = generateNHSReport(sigLevel)
+":SendReportController" -> ":Company" : report = generateNHSReport(sigLevel,confLevel, hypTest)
 activate ":Company"
 create "report : NHSReport"
-":Company" --> "report : NHSReport" : create(sigLevel)
+":Company" --> "report : NHSReport" : create(sigLevel,confLevel, hypTest)
 deactivate ":Company"
 
 note over ":SendReportController" : arrayX can be dailyNumberTests or meanAge
 
-":SendReportController" -> "report : NHSReport": data = calculateData(arrayX, arrayY, sigLevel)
+":SendReportController" -> "report : NHSReport": data = calculateData(arrayX, arrayY, lstDateExceptSundays)
 activate "report : NHSReport"
 
 
@@ -106,28 +68,40 @@ deactivate ":SendReportController"
 
 
 else the user chooses multilinear regression
-":SendReportUI" -> ":SendReportController" : MultilinearRegression()
+":SendReportUI" -> ":SendReportController" : MultilinearRegression(sigLevel,confLevel, hypTest)
 activate ":SendReportController"
 
 
+ref over ":SendReportController" : SD_MultilinearRegression(sigLevel, confLevel, hypTest)
 
-":SendReportController" -> ":store: TestStore" : dailyNumberPositiveTests = getDailyPositiveTests (lstAllTestWithResultCovidPositive)
-activate ":store: TestStore"
-deactivate ":store: TestStore"
+":SendReportController" -> ":Company" : report = generateNHSReport(sigLevel,confLevel, hypTest)
+activate ":Company"
+create "reportMultilinear : NHSReport"
+":Company" --> "reportMultilinear : NHSReport" : create(sigLevel,confLevel, hypTest)
+deactivate ":Company"
 
-":SendReportController" -> ":store: TestStore" : meanAge = getMeanAgeFromList (lstAllTestWithResultCovidPositive)
-activate ":store: TestStore"
-deactivate ":store: TestStore"
+
+":SendReportController" -> "report : NHSReport": data = calculateData(BiarrayX, arrayY, lstDateExceptSundays)
+activate "report : NHSReport"
+
+
 
 create ":MultilinearRegression"
-":SendReportController" --> ":MultilinearRegression" : create(arrayX, arrayY)
+
+"report : NHSReport" --> ":MultilinearRegression" : create(BiarrayX, arrayY)
+deactivate "report : NHSReport"
+
+
+
+
+
 
 deactivate ":SendReportController"
 end
 
 
 
-":SendReportUI" -> ":SendReportController" : generateNHSReport()
+":SendReportUI" -> ":SendReportController" : sendNHSReport()
 activate ":SendReportController"
 
 
