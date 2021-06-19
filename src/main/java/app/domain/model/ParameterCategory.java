@@ -2,12 +2,14 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * ParameterCategory class, which is responsible for creating the ParameterCategory object.
  *
  * @author Francisco Redol (1201239)
  */
-public class ParameterCategory {
+public class ParameterCategory implements Serializable {
 
     /**
      * The ParameterCategory name.

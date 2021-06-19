@@ -5,6 +5,7 @@ import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
 import javax.rmi.CORBA.Util;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -63,6 +64,7 @@ public class TestStore {
         if (hasTest(test)){
             addTest(test);
             test.updateTestStatus();
+            guardarFicheiroBinario(this.TestList);
             return true;
         }
         return false;
@@ -404,5 +406,20 @@ public class TestStore {
             meanAge[i] = mediaCliente / lstAllTestWithResultCovid[i].size();
         }
         return meanAge;
+    }
+    public boolean guardarFicheiroBinario(List<Test> testList) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("testStore.bin"));
+            try {
+                for (Test c : testList)
+                out.writeObject(c);
+                return true;
+            } finally {
+                out.close();
+            }
+        } catch (IOException ex) {
+            return false;
+        }
     }
 }

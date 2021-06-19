@@ -6,6 +6,7 @@ import auth.domain.store.ClientStore;
 import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  *
  * @author Eduardo Gonçalves
  */
-public class Test {
+public class Test implements Serializable {
 
     /**
      * Test's description.

@@ -3,8 +3,12 @@ package auth.domain.store;
 import app.controller.App;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
+import app.domain.model.Test;
 import auth.mappers.dto.ParameterCategoryDto;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +57,7 @@ public class ParameterStore {
     public boolean saveParameter(Parameter parameter){
         if(parameter!=null&&validate(parameter)){
             add(parameter);
+            guardarFicheiroBinario(parameterStoreList);
             return true;
         }
         return false;
@@ -128,5 +133,20 @@ public class ParameterStore {
                 return parameter;
 
         return null;
+    }
+    public boolean guardarFicheiroBinario(List<Parameter> parameterList) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("parameterStore.bin"));
+            try {
+                for (Parameter c : parameterList)
+                    out.writeObject(c);
+                return true;
+            } finally {
+                out.close();
+            }
+        } catch (IOException ex) {
+            return false;
+        }
     }
 }

@@ -3,12 +3,14 @@ package app.domain.model;
 import app.controller.App;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * Report Class
  *
  * @author Alexandre Soares
  */
-public class Report {
+public class Report implements Serializable {
 
     /**
      * The Report's company.

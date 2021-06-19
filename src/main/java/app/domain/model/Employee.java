@@ -3,13 +3,14 @@ package app.domain.model;
 import app.controller.App;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.Random;
 /**
  * Represents an Employee.
  *
  * @author Alexandre Soares
  */
-public class Employee {
+public class Employee implements Serializable {
     /**
      * The employee's Company.
      */

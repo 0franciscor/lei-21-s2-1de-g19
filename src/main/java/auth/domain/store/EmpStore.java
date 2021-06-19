@@ -1,7 +1,11 @@
 package auth.domain.store;
 
 import app.domain.model.Employee;
+import app.domain.model.Test;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -39,6 +43,7 @@ public class EmpStore {
     public boolean saveEmployee(Employee emp) {
         if (validateEmployee(emp)) {
             empList.add(emp);
+            guardarFicheiroBinario(empList);
             return true;
         } else
             return false;
@@ -64,5 +69,20 @@ public class EmpStore {
      */
     public List<Employee> getEmpList() {
         return empList;
+    }
+    public boolean guardarFicheiroBinario(List<Employee> empList) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("employeeStore.bin"));
+            try {
+                for (Employee c : empList)
+                    out.writeObject(c);
+                return true;
+            } finally {
+                out.close();
+            }
+        } catch (IOException ex) {
+            return false;
+        }
     }
 }

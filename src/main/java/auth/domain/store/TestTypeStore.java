@@ -1,9 +1,13 @@
 package auth.domain.store;
 
+import app.domain.model.Test;
 import app.domain.shared.ExternalModule;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TestType;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +53,9 @@ public class TestTypeStore {
      * @return a boolean stating the success of saving the received TestType (true if successful, false if it can't save)
      */
     public boolean saveTestType(TestType tt){
-        return addTestType(tt);
+        addTestType(tt);
+        guardarFicheiroBinario(testTypeList);
+        return true;
     }
 
     /**
@@ -101,5 +107,20 @@ public class TestTypeStore {
      */
     public List<TestType> getAllTestTypes(){
         return testTypeList;
+    }
+    public boolean guardarFicheiroBinario(List<TestType> testtypeList) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("testStore.bin"));
+            try {
+                for (TestType c : testtypeList)
+                    out.writeObject(c);
+                return true;
+            } finally {
+                out.close();
+            }
+        } catch (IOException ex) {
+            return false;
+        }
     }
 }

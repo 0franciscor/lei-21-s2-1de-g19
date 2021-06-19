@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -14,7 +15,7 @@ import java.util.*;
  *
  * @author Eduardo Gonçalves
  */
-public class Client {
+public class Client implements Serializable {
 
     /**
      * Client's citizen card number.

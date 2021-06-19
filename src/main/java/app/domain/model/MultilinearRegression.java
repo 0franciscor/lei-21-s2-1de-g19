@@ -1,3 +1,4 @@
+/*
 package app.domain.model;
 
 import Jama.Matrix;
@@ -71,3 +72,4 @@ public class MultilinearRegression {
                 regression.beta(0), regression.beta(1), regression.beta(2), regression.R2());
     }
 }
+*/

@@ -1,8 +1,12 @@
 package auth.domain.store;
 
 import app.domain.model.ParameterCategory;
+import app.domain.model.Test;
 import auth.mappers.dto.TestTypeDto;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +52,9 @@ public class ParameterCategoryStore {
     public boolean addParameterCategory(ParameterCategory pc) {
         if (!validateParameterCategory(pc))
             return false;
-        return this.parameterCategoryList.add(pc);
+        this.parameterCategoryList.add(pc);
+        guardarFicheiroBinario(parameterCategoryList);
+        return true;
     }
 
     /**
@@ -106,5 +112,20 @@ public class ParameterCategoryStore {
                 }
         }
         return parameterCategoryListByTestType;
+    }
+    public boolean guardarFicheiroBinario(List<ParameterCategory> pcList) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("ParameterCategoryStore.bin"));
+            try {
+                for (ParameterCategory c : pcList)
+                    out.writeObject(c);
+                return true;
+            } finally {
+                out.close();
+            }
+        } catch (IOException ex) {
+            return false;
+        }
     }
 }

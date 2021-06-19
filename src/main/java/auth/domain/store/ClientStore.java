@@ -1,7 +1,11 @@
 package auth.domain.store;
 
 import app.domain.model.Client;
+import app.domain.model.Test;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +49,7 @@ public class ClientStore {
 
         if (validateClient(cl) == true){
             addClient(cl);
+            guardarFicheiroBinario(ClientList);
             return true;
         }
         return false;
@@ -116,5 +121,20 @@ public class ClientStore {
      */
     public int getClientListNumber(){
         return(ClientList.size());
+    }
+    public boolean guardarFicheiroBinario(List<Client> clientList) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("clientStore.bin"));
+            try {
+                for (Client c : clientList)
+                    out.writeObject(c);
+                return true;
+            } finally {
+                out.close();
+            }
+        } catch (IOException ex) {
+            return false;
+        }
     }
 }

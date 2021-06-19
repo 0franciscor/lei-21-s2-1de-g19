@@ -179,13 +179,13 @@ public class RegisterTestUI implements Runnable {
                                         ctrl.testStore.getNhsCodeList().add(nhsCode);
 
                                         //VER SE O TEST ESTA NA TEST LIST
-                                        /*
+
                                         List<Test> x = ctrl.testStore.SeeList();
                                         for (Test yy: x ) {
                                             System.out.printf(yy.toString());
                                         }
 
-                                         */
+
                                     }
 
                                 } else {

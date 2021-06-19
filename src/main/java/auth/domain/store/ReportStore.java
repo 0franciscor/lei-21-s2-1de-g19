@@ -1,7 +1,11 @@
 package auth.domain.store;
 
 import app.domain.model.Report;
+import app.domain.model.Test;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +40,7 @@ public class ReportStore {
         Report rep = new Report(reportTxt, testCode);
         if (validateReport(rep)) {
             reportList.add(rep);
+            guardarFicheiroBinario(reportList);
             return true;
         }
         return false;
@@ -103,6 +108,21 @@ public class ReportStore {
                 return c;
         }
         return null;
+    }
+    public boolean guardarFicheiroBinario(List<Report> repList) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("ReportStore.bin"));
+            try {
+                for (Report c : repList)
+                    out.writeObject(c);
+                return true;
+            } finally {
+                out.close();
+            }
+        } catch (IOException ex) {
+            return false;
+        }
     }
 
 }
