@@ -127,10 +127,16 @@ public class NHSReport {
 
         double R2 = linearRegression.R2();
         double R2adj = 1-((SE/degreeFreedomErro)/(ST/degreeFreedom));
+        double R;
+
+        if(linearRegression.slope()<0)
+            R=Math.sqrt(linearRegression.R2())-2*Math.sqrt(linearRegression.R2());
+        else
+            R=Math.sqrt(linearRegression.R2());
 
         stringSaida.append("\n" +
                 String.format(
-                        "R2= %.4f\nR2adjusted= %.4f\nR= %.4f\n\n", R2, R2adj, Math.sqrt(linearRegression.R2())));
+                        "R2= %.4f\nR2adjusted= %.4f\nR= %.4f\n\n", R2, R2adj, R));
 
 
         // T STUDENT
