@@ -38,7 +38,7 @@ ConsultTestDetailsByClientController -> ClientStore ++ : client = getClient(tin)
 deactivate ClientStore
 ConsultTestDetailsByClientController -> Client ++ : testListOfClient = getClientTestsList()
 deactivate Client
-ConsultTestDetailsByClientController -> TestMapper : testDtoListOfClient = toDTO(testListOfClient)
+ConsultTestDetailsByClientController -> TestMapper : testDtoListOfClient = toDto(testListOfClient)
 activate TestMapper
 deactivate TestMapper
 deactivate ConsultTestDetailsByClientController
