@@ -107,7 +107,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.MultilinearRegressionTest.multiplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -170,22 +170,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CompanyTest.generateNHSReportFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sem2App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="app.domain.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="app.domain.model" />
-      <option name="MAIN_CLASS_NAME" value="app.domain.model.CompanyTest" />
-      <option name="METHOD_NAME" value="generateNHSReportFalse" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CompanyTest.testGenerateNHSReport" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sem2App" />
       <extension name="coverage">
@@ -202,21 +186,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MultilinearRegressionTest.multiplication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sem2App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.domain.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="app.domain.model" />
+      <option name="MAIN_CLASS_NAME" value="app.domain.model.MultilinearRegressionTest" />
+      <option name="METHOD_NAME" value="multiplication" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.CompanyTest.generateNHSReportFalse" />
       <item itemvalue="JUnit.CompanyTest.testGenerateNHSReport" />
       <item itemvalue="JUnit.CompanyTest" />
       <item itemvalue="JUnit.CompanyTest.GenerateNHSReportMultilinear" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.MultilinearRegressionTest.multiplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MultilinearRegressionTest.multiplication" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CompanyTest" />
         <item itemvalue="JUnit.CompanyTest.GenerateNHSReportMultilinear" />
         <item itemvalue="JUnit.CompanyTest.testGenerateNHSReport" />
-        <item itemvalue="JUnit.CompanyTest.generateNHSReportFalse" />
       </list>
     </recent_temporary>
   </component>
@@ -250,18 +250,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/app/controller/SendReportController.java</url>
-          <line>127</line>
-          <properties class="app.controller.SendReportController" method="MultilinearRegression">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="listParametersDto" language="JAVA" />
