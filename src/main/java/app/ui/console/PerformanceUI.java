@@ -1,7 +1,6 @@
 package app.ui.console;
 
 import app.controller.PerformanceController;
-import app.domain.model.Test;
 import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 
@@ -11,14 +10,30 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
 
-import static java.util.Calendar.SUNDAY;
 
+/**
+ * Represents the Performance UI.
+ *
+ * @author Rita Lello
+ */
 public class PerformanceUI implements Runnable{
+
+    /**
+     * The UI's Performance Controller.
+     */
     private PerformanceController pc;
+
+    /**
+     * Allows access to performance controller methods.
+     * @throws Exception
+     */
     public PerformanceUI(){
         this.pc=new PerformanceController();
     }
 
+    /**
+     * It allows you to enter the data necessary to see the performance of the company and get the contiguous subsequence.
+     */
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
@@ -88,18 +103,8 @@ public class PerformanceUI implements Runnable{
                     int [] seq1 = new int[144];
                     int [] seq2 = new int[144];
                     int [] seq = new int [144];
-                    Date aux=beginningDate;
+                    Date aux;
                     Date aux1=beginningDate;
-                    for(int j=0;j<seq.length;j++){
-                        if(aux.getHours()!=Constants.MAX_HORAS){
-                            aux=beginningDate;
-                            beginningDate.setMinutes(beginningDate.getMinutes()+Constants.INTERVALO);
-                            seq1[j]=pc.getAllTestsWaitResult(aux,beginningDate);
-                            seq2[j]=pc.getAllTestsWaitDiagnosis(aux,beginningDate);
-                        }else{
-
-                        }
-                    }
                     for(int j=0;j<seq.length;j++){
                         if(j<24){
                             aux=dateList.get(0);

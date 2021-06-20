@@ -37,6 +37,9 @@ public class PerformanceController {
      */
     private ClientStore clientStore;
 
+    /**
+     * The controller's sum.
+     */
     private Sum sum;
 
     /**
@@ -81,10 +84,20 @@ public class PerformanceController {
         return testStore.getValidatedTestsNumber(beginning, end);
     }
 
+    /**
+     * Calls the method from the sum class that calculates the subsequence
+     * @param seq
+     * @return the contiguous subsequence
+     */
     public int [] getSubsequenceBenchmark(int[] seq){
         return sum.Max(seq);
     }
 
+    /**
+     * Calls the method from the BruteForce class that calculates the subsequence
+     * @param seq
+     * @return the contiguous subsequence
+     */
     public int [] getSubsequenceBruteForce(int[] seq){
         return BruteForceAlgorithm.Max(seq);
     }

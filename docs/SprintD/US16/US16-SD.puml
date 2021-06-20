@@ -14,10 +14,10 @@ participant "tStore: TestStore" as TS
 activate LC
 LC -> PUI : asks to see the performance of the company
 activate PUI
-PUI --> LC : requests data (i.e.: beginning date, end date)
+PUI --> LC : requests data (i.e.: beginningDate, endDate)
 deactivate PUI
 
-LC -> PUI : selects data (i.e.: beginning date, end date)
+LC -> PUI : types requested data (i.e.: beginningDate, endDate)
 activate PUI
 PUI -> PC : nClients = getAllClients()
 activate PC
@@ -28,24 +28,24 @@ PC -> CS : nClients = getClientListNumber()
 activate CS
 deactivate CS
 deactivate PC
-PUI -> PC : nTestsWaitResult = getAllTestsWaitResult()
+PUI -> PC : nTestsWaitResult = getAllTestsWaitResult(beginningDate, endDate)
 activate PC
 PC -> COMP : tStore = getTestStore()
 activate COMP
 deactivate COMP
-PC -> TS : nTestsWaitResult = getCollectedTestsNumber()
+PC -> TS : nTestsWaitResult = getCollectedTestsNumber(beginningDate, endDate)
 activate TS
 deactivate TS
 deactivate PC
-PUI -> PC : nTestsWaitDiagnosis = getAllTestsWaitDiagnosis()
+PUI -> PC : nTestsWaitDiagnosis = getAllTestsWaitDiagnosis(beginningDate, endDate)
 activate PC
-PC -> TS : nTestsWaitDiagnosis = getAnalysedTestsNumber()
+PC -> TS : nTestsWaitDiagnosis = getAnalysedTestsNumber(beginningDate, endDate)
 activate TS
 deactivate TS
 deactivate PC
-PUI -> PC : nTestsValidated = getAllTestsValidated()
+PUI -> PC : nTestsValidated = getAllTestsValidated(beginningDate, endDate)
 activate PC
-PC -> TS : nTestsValidated = getValidatedTestsNumber()
+PC -> TS : nTestsValidated = getValidatedTestsNumber(beginningDate, endDate)
 activate TS
 deactivate TS
 deactivate PC
@@ -53,9 +53,25 @@ PUI --> LC : shows all the information (i.e.: number of clients, number of tests
 deactivate PUI
 
 LC -> PUI : selects one algorithm
+
 activate PUI
-PUI -> PC :
-PUI --> LC :
+alt if the user chooses benchmark algorithm
+PUI->PC:getSubsequenceBenchmark(seq)
+activate PC
+PC->Sum:Max(seq)
+activate Sum
+deactivate Sum
+deactivate PC
+else the user chooses bruteforce algorithm
+PUI->PC:getSubsequenceBruteForce(seq)
+activate PC
+PC->BruteForceAlgorithm:Max(seq)
+activate BruteForceAlgorithm
+deactivate BruteForceAlgorithm
+deactivate PC
+end
+
+PUI --> LC : shows the information and informs operation success
 deactivate PUI
 deactivate LC
 

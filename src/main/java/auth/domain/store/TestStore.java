@@ -309,7 +309,7 @@ public class TestStore implements Serializable{
     public int getCollectedTestsNumber(Date beginning, Date end){
         List<Test> collectedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Registered.toString())&&t.getRegistrationDateTime().after(beginning)&&t.getRegistrationDateTime().before(end)){
+            if(t.getRegistrationDateTime().after(beginning)&&t.getRegistrationDateTime().before(end)){
                 collectedTest.add(t);
             }
         }
@@ -324,7 +324,7 @@ public class TestStore implements Serializable{
     public int getAnalysedTestsNumber(Date beginning, Date end){
         List<Test> analysedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString())&&t.getChemicalAnalysisDateTime().after(beginning)&&t.getChemicalAnalysisDateTime().before(end)){
+            if(t.getChemicalAnalysisDateTime().after(beginning)&&t.getChemicalAnalysisDateTime().before(end)){
                 analysedTest.add(t);
             }
         }
@@ -339,7 +339,7 @@ public class TestStore implements Serializable{
     public int getValidatedTestsNumber(Date beginning, Date end){
         List<Test> validatedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())&&t.getValidationDateTime().after(beginning)&&t.getValidationDateTime().before(end)){
+            if(t.getValidationDateTime().after(beginning)&&t.getValidationDateTime().before(end)){
                 validatedTest.add(t);
             }
         }

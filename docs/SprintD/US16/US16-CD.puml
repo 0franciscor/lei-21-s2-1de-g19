@@ -12,9 +12,9 @@ package "Core" {
 package "Controllers"{
 class PerformanceController{
   +getAllClients()
-  +getAllTestsWaitResult()
-  +getAllTestsWaitDiagnosis()
-  +getAllTestsValidated()
+  +getAllTestsWaitResult(beginningDate, endDate)
+  +getAllTestsWaitDiagnosis(beginningDate, endDate)
+  +getAllTestsValidated(beginningDate, endDate)
 }
 }
 
@@ -24,9 +24,9 @@ class ClientStore{
 }
 
 class TestStore{
-  +getCollectedTestsNumber()
-  +getAnalysedTestsNumber()
-  +getValidatedTestsNumber()
+  +getCollectedTestsNumber(beginningDate, endDate)
+  +getAnalysedTestsNumber(beginningDate, endDate)
+  +getValidatedTestsNumber(beginningDate, endDate)
 }
 }
 
@@ -36,6 +36,14 @@ class Company{
   +getClientStore()
   +getTestStore()
 }
+
+class BruteForceAlgorithm{
+  +Max(seq)
+}
+
+class Sum{
+  +Max(seq)
+}
 }
 
 
@@ -44,5 +52,7 @@ PerformanceUI ..> PerformanceController
 PerformanceController ..> Company
 PerformanceController ..> ClientStore
 PerformanceController ..> TestStore
+PerformanceController ..> BruteForceAlgorithm
+PerformanceController ..> Sum
 
 @enduml
