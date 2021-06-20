@@ -24,14 +24,14 @@ public class Main {
     {
         try
         {
-            SendNHSReportTimerTask task1 = new SendNHSReportTimerTask();
+            /*SendNHSReportTimerTask task1 = new SendNHSReportTimerTask();
             Timer scheduler = new Timer();
             Date date = new Date();
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             int miliseconds = calendar.get(Calendar.MILLISECOND) + calendar.get(Calendar.SECOND)*1000 + calendar.get(Calendar.MINUTE)*60*1000 + calendar.get(Calendar.HOUR_OF_DAY)*60*60*1000;
             int delayIMilliseconds = miliseconds < 1000*60*60*6 ? 1000*60*60*6 - miliseconds : 1000*60*60*24 - (miliseconds - 1000*60*60*6);
-            scheduler.scheduleAtFixedRate(task1, delayIMilliseconds, 1000*60*60*24);
+            scheduler.scheduleAtFixedRate(task1, delayIMilliseconds, 1000*60*60*24);*/
 
             MainMenuUI menu = new MainMenuUI();
             menu.run();
