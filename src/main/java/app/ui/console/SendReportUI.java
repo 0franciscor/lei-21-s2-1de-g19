@@ -73,7 +73,7 @@ public class SendReportUI implements Runnable {
         boolean userInteraction = false;
         if (option3 == 0) {
 
-            System.out.println("\n--- WHAT DO YOU WANT ? (DAILY NUMBER TESTS OR MEAN AGE) ---");
+            System.out.println("\n--- SELECT BETWEEN DAILY NUMBER TESTS AND MEAN AGE ---");
 
             List<String> options4 = new ArrayList<>();
             options4.add("Mean age");
