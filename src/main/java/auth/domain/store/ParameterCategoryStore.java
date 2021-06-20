@@ -7,7 +7,6 @@ import auth.mappers.dto.TestTypeDto;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +15,7 @@ import java.util.List;
  *
  * @author Francisco Redol (1201239)
  */
-public class ParameterCategoryStore implements Serializable {
+public class ParameterCategoryStore {
 
     /**
      * List which keeps all the ParameterCategory objects created in the store.
@@ -54,7 +53,7 @@ public class ParameterCategoryStore implements Serializable {
         if (!validateParameterCategory(pc))
             return false;
         this.parameterCategoryList.add(pc);
-        guardarFicheiroBinario(this);
+        guardarFicheiroBinario(parameterCategoryList);
         return true;
     }
 
@@ -126,12 +125,13 @@ public class ParameterCategoryStore implements Serializable {
         }
         return parameterCategoryListByTestType;
     }
-    public boolean guardarFicheiroBinario(ParameterCategoryStore store) {
+    public boolean guardarFicheiroBinario(List<ParameterCategory> pcList) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(
-                    new FileOutputStream("parameterCategoryStore.bin"));
+                    new FileOutputStream("ParameterCategoryStore.bin"));
             try {
-                out.writeObject(store);
+                for (ParameterCategory c : pcList)
+                    out.writeObject(c);
                 return true;
             } finally {
                 out.close();

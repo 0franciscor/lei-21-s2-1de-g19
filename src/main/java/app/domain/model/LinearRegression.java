@@ -125,4 +125,5 @@ public class LinearRegression {
         s.append("  (R^2 = " + String.format("%.3f", R2()) + ")");
         return s.toString();
     }
+
 }

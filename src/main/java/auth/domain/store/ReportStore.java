@@ -6,7 +6,6 @@ import app.domain.model.Test;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  *
  * @author Alexandre Soares
  */
-public class ReportStore implements Serializable {
+public class ReportStore {
 
     /**
      * A list of Reports
@@ -41,7 +40,7 @@ public class ReportStore implements Serializable {
         Report rep = new Report(reportTxt, testCode);
         if (validateReport(rep)) {
             reportList.add(rep);
-            guardarFicheiroBinario(this);
+            guardarFicheiroBinario(reportList);
             return true;
         }
         return false;
@@ -110,12 +109,13 @@ public class ReportStore implements Serializable {
         }
         return null;
     }
-    public boolean guardarFicheiroBinario(ReportStore store) {
+    public boolean guardarFicheiroBinario(List<Report> repList) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(
-                    new FileOutputStream("reportStore.bin"));
+                    new FileOutputStream("ReportStore.bin"));
             try {
-                out.writeObject(store);
+                for (Report c : repList)
+                    out.writeObject(c);
                 return true;
             } finally {
                 out.close();

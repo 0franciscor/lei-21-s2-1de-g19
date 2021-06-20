@@ -12,10 +12,8 @@ import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.EmployeeDto;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,29 +39,28 @@ public class Company {
     private List<ExternalModule> externalModuleList;
     private Notification notification;
 
-    public Company(String designation) {
+    public Company(String designation){
         if (StringUtils.isBlank(designation))
             throw new IllegalArgumentException("Designation cannot be blank.");
 
         this.designation = designation;
         this.authFacade = new AuthFacade();
-
         this.testTypeStore = new TestTypeStore();
         this.parameterCategoryStore = new ParameterCategoryStore();
         this.clientstore = new ClientStore();
         this.calStore = new ClinicalAnalysisLaboratoryStore();
         this.parameterStore = new ParameterStore();
         this.employeeStore = new EmpStore();
-        this.reportStore =new ReportStore();
-        this.roleList = new ArrayList<>();
+        this.reportStore = new ReportStore();
+        this.roleList = new ArrayList<OrgRole>();
 
+        this.roleList.add(new OrgRole("SPEC DOCTOR"));
         this.roleList.add(new OrgRole("MED LAB TECH"));
         this.roleList.add(new OrgRole("RECEPTIONIST"));
         this.roleList.add(new OrgRole("LAB COORDINATOR"));
         this.roleList.add(new OrgRole("ADMINISTRATOR"));
         this.roleList.add(new OrgRole("CLINICALCHEMTECH"));
         this.roleList.add(new OrgRole("CLIENT"));
-
 
         this.numEmp = 1;
         this.numTeste = 0;
@@ -97,7 +94,7 @@ public class Company {
      *
      * @return client store
      */
-    public ClientStore getClientStore () {
+    public ClientStore getClientStore (){
         return this.clientstore;
     }
 
@@ -115,8 +112,7 @@ public class Company {
      *
      * @return parameter store.
      */
-    public TestTypeStore getTestTypeStore() {
-
+    public TestTypeStore getTestTypeStore(){
         return testTypeStore;
     }
 
@@ -230,169 +226,4 @@ public class Company {
     public NHSReport generateNHSReport (double sigLevel, double confLevel){
         return new NHSReport(sigLevel, confLevel);
     }
-    /*public Object lerDeFicheiroBinario (int opt) throws IOException, ClassNotFoundException {
-        if (opt == 1) {
-            FileInputStream fileInputStream = new FileInputStream("testStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            TestTypeStore store = (TestTypeStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        } else if (opt == 2) {
-            FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            ClientStore store = (ClientStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        }
-        if (opt == 3) {
-            FileInputStream fileInputStream = new FileInputStream("testStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            ClinicalAnalysisLaboratoryStore store = (ClinicalAnalysisLaboratoryStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        } else if (opt == 4) {
-            FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            ParameterStore store = (ParameterStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        }
-        if (opt == 5) {
-            FileInputStream fileInputStream = new FileInputStream("testStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            ParameterCategoryStore store = (ParameterCategoryStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        } else if (opt == 6) {
-            FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            ReportStore store = (ReportStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        } else if (opt == 7) {
-            FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            EmpStore store = (EmpStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        } else if (opt == 8) {
-            FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            List<OrgRole> store = (List<OrgRole>) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        } else if (opt == 9) {
-            FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            TestStore store = (TestStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            return store;
-        }
-        return null;
-
-    }*/
-    public void lerDeFicheiroBinario ()  {
-            try {
-            FileInputStream fileInputStream = new FileInputStream("testTypeStore.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.testTypeStore = (TestTypeStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-            } catch (Exception e) {
-                System.out.println("Error loading database.");
-            }
-            try {
-                FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
-                ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-                this.clientstore = (ClientStore) inputStream.readObject();
-                inputStream.close();
-                fileInputStream.close();
-             } catch (Exception e) {
-                System.out.println("Error loading database.");
-            }
-        try {
-        FileInputStream fileInputStream = new FileInputStream("calStore.bin");
-        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.calStore = (ClinicalAnalysisLaboratoryStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-        } catch (Exception e) {
-            System.out.println("Error loading database.");
-        }
-        try {
-        FileInputStream fileInputStream = new FileInputStream("parameterStore.bin");
-        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.parameterStore = (ParameterStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-    } catch (Exception e) {
-        System.out.println("Error loading database.");
-    }
-        try {
-        FileInputStream fileInputStream = new FileInputStream("parameterCategoryStore.bin");
-        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.parameterCategoryStore =  (ParameterCategoryStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-        } catch (Exception e) {
-            System.out.println("Error loading database.");
-        }
-        try {
-        FileInputStream fileInputStream = new FileInputStream("reportStore.bin");
-        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.reportStore = (ReportStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-        } catch (Exception e) {
-            System.out.println("Error loading database.");
-        }
-        try {
-        FileInputStream fileInputStream = new FileInputStream("empStore.bin");
-        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.employeeStore = (EmpStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-        } catch (Exception e) {
-            System.out.println("Error loading database.");
-        }
-        try {
-        FileInputStream fileInputStream = new FileInputStream("orgRoleList.bin");
-        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.roleList = (List<OrgRole>) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-        } catch (Exception e) {
-            System.out.println("Error loading database.");
-        }
-        try {
-        FileInputStream fileInputStream = new FileInputStream("testStore.bin");
-        ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.testStore = (TestStore) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-        } catch (Exception e) {
-            System.out.println("Error loading database.");
-        }
-        try {
-            FileInputStream fileInputStream = new FileInputStream("authFacadeData.bin");
-            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
-            this.authFacade = (AuthFacade) inputStream.readObject();
-            inputStream.close();
-            fileInputStream.close();
-        } catch (Exception e) {
-            System.out.println("Error loading database.");
-        }
-        }
-
-
-    }
-
+}
