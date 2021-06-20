@@ -1,27 +1,168 @@
 @startuml
-'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+left to right direction
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+package Core{
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+package Domain{
+class "Company" as C {
+-ClinicalAnalysisLaboratoryStore clinicalAnalysisLaboratoryStore
+-ClientStore clientStore
+-ReportStore reportStore
+-TestStore testStore
+-TestTypeStore testTypeStore
+-ParameterCategoryStore parameterCategoryStore
++ClientStore getClientStore()
++ReportStore getReportStore()
++TestStore getTestStore()
++ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class "ParameterCategory" as pc{
+-String name
+-String code
 }
+
+class "TestType" as testType{
+-String code;
+-String description;
+-String collectingMethod;
+-List<ParameterCategory> parameterCategoriesList;
+-ExternalModule externalModule;
+}
+
+class "Parameter" as parameter{
+-String code;
+-String description
+-String designation
+-ParameterCategory pcat
+}
+
+class "Client" as Client{
+-citizenID
+-nhsID
+-birthDate
+-sex
+-TIN
+-phoneNumber
+-email
+-name
+-address
+}
+
+class "Test" as T {
+-Date registrationDateTime
+-Date collectDateTime
+-Date chemicalAnalysisDateTime
+-Date diagnosisDateTime
+-Date validationDateTime
++String getStatus()
++boolean updateValidationDateTime()
++updateTestStatus()
+}
+
+class "Report" as R{
+-boolean validation
+-String testCode
++boolean getValidation()
++setValidation()
+}
+
+class "ImportTest" as importTest{
+-Company company
+-File ficheiroInput
+-BufferedReader bufferedReader;
+-String[] firstLine;
+-int[] importRules;
+}
+
+}
+
+package Stores{
+
+class "ClientStore" as ClientStore{
+List<Client> ClientList
++boolean saveClient (Client cl)
+}
+
+class "ClinicalAnalysisLaboratoryStore" as CALStore{
+-List<ClinicalAnalysisLaboratory> ClinicalAnalysisLaboratoryList
++ClinicalAnalysisLaboratory getClinicalAnalysisLaboratoryByID(labID)
+}
+
+class "ParameterCategoryStore" as pcStore{
+-List<ParameterCategory> parameterCategoryList
++getParameterCategoryByName(String name)
+}
+
+class "ParameterStore" as parameterStore{
+-List<Parameter> parameterStoreList
++Parameter getParameterByCode(String code)
+}
+
+class "ReportStore" as RS{
+-List<Report> ReportList
+boolean saveReport(reportTxt, testCode)
+}
+
+class "TestStore" as TS{
+-List<Test> TestList
++Test getTestByCode(code)
+}
+
+class "TestTypeStore" as ttStore{
+-List<TestType> testTypeList
++createTest(client, parameterCategoryList, testParameterList, testType, code, nhsCode, existsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate)
+}
+
+}
+
+
+package Controllers{
+class "ImportTestController" as ImportTestController {
+-ImportTest importTest
++importFromFile
+}
+
+}
+
+}
+
+package UI{
+class "ImportTestUI" as ImportTestUI
+}
+
+ImportTestUI ..> ImportTestController
+
+C ..> ClientStore
+C ..> CALStore
+C ..> pcStore
+C ..> parameterStore
+C ..> RS
+C ..> TS
+C ..> ttStore
+ImportTestController ..> C
+
+importTest <.. ImportTestController
+importTest ..> pc
+importTest ..> parameterStore
+importTest ..> R
+importTest ..> T
+importTest ..> pc
+importTest ..> Client
+
+
+ClientStore ..> Client
+pcStore ..> pc
+
+TS ..> T
+
+parameter ..> parameterStore
+
+C "1" -- "*" T : > performs
+
+RS ..> R
+R "1" -- "1" T : > associated with
+
 
 @enduml
