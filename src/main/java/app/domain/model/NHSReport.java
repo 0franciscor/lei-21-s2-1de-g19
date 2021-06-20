@@ -73,6 +73,7 @@ public class NHSReport {
     /**
      * @param x the chosen X array.
      * @param y the calculated Y array.
+     * @param lstDateExceptSundays list of all dates except sundays.
      *
      * Calculates all the data needed to generate a report.
      *
@@ -275,6 +276,15 @@ public class NHSReport {
         return stringSaida.toString();
     }
 
+    /**
+     * @param BiarrayX the chosen X bidimensional array.
+     * @param y the calculated Y array.
+     * @param lstDateExceptSundays list of all dates except sundays.
+     *
+     * Calculates all the data needed to generate a report.
+     *
+     * @return all the data needed to generate a report.
+     */
     public String calculateData (double[][] BiarrayX, double[] y, List<Date> lstDateExceptSundays){
 
         this.multilinearRegression = new MultilinearRegression(BiarrayX,y);
@@ -442,5 +452,14 @@ public class NHSReport {
         }
 
         return stringSaida.toString();
+    }
+
+    /**
+     * Returns a textual representation of the object, which contains all of its attributes.
+     *
+     * @return NHSReport characteristics.
+     */
+    public String toString (){
+        return String.format("\nSignificance level: %.2f \nConfidence level: %.2f \nHypothesis test: %b ",this.sigLevel, this.confLevel, this.hypTest);
     }
 }
