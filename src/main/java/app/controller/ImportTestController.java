@@ -4,6 +4,7 @@ import app.domain.model.ImportTest;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 public class ImportTestController {
 
@@ -13,15 +14,16 @@ public class ImportTestController {
         this.importTest = new ImportTest();
     }
 
-    public String importFromFile(String pathName) throws IOException{
-        String currentlyImportedTest;
+    public List<List> importFromFile(String pathName) throws IOException{
+        List<List> testsImportSuccessList;
+
         boolean fileExists = importTest.getFile(pathName);
 
         if(fileExists){
-            currentlyImportedTest = importTest.readListFromCSV();
+            testsImportSuccessList = importTest.readListFromCSV();
         } else
             throw new FileNotFoundException();
 
-        return currentlyImportedTest;
+        return testsImportSuccessList;
     }
 }

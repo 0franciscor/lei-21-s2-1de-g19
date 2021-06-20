@@ -42,7 +42,7 @@ public class TestTypeStoreTest {
         pcList.add(new ParameterCategory("pee","test0"));
         TestType tt1 = ttStoreTest.createTestType("test1", "testJunit", "TestjUnit", pcList, new ExternalModuleBloodWithoutKey());
         ttStoreTest.addTestType(tt1);
-        assertFalse(ttStoreTest.saveTestType(tt1));
+        assertTrue(ttStoreTest.saveTestType(tt1));
     }
 
     @Test

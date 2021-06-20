@@ -54,29 +54,39 @@ public class ImportTest {
         return contaCategoriasParametros;
     }
 
-    public String readListFromCSV() throws IOException {
+    public List<List> readListFromCSV() throws IOException {
 
+        List<List> lists = new ArrayList<>();
+
+        List<String> testsBeingImported = new ArrayList<>();
+        List<Integer> testsFailedImport = new ArrayList<>();
+
+        int numTeste = 0;
         String linhaFicheiro = bufferedReader.readLine();
         while(linhaFicheiro != null){
+
             String [] linhaSplit = linhaFicheiro.split(";");
             try {
-                checkIfExists(linhaSplit);
-                //TEM DE HAVER AQUI UM RETURN
+                testsBeingImported.add(checkIfExists(linhaSplit));
             } catch (Exception e){
-                //Tem de ter coisas
+                System.out.println("There was an error when importing the test");
+                testsFailedImport.add(numTeste);
             }
-
+            numTeste++;
             linhaFicheiro = bufferedReader.readLine();
         }
 
-        return "The List is finished.";
+        lists.add(testsBeingImported);
+        lists.add(testsFailedImport);
+
+        return lists;
     }
 
-    public void checkIfExists(String [] linhaSplit){
+    public String checkIfExists(String [] linhaSplit){
         Client client;
         List<ParameterCategory> parameterCategoryList = new ArrayList<>();
         List<TestParameter> testParameterList = new ArrayList<>();
-        TestType testType;
+        TestType testType = null;
         boolean testExists;
         Date registerDate = null;
         Date chemicalAnalysisDate = null;
@@ -147,6 +157,9 @@ public class ImportTest {
         } catch (Exception e){
             System.out.println("The test that was currently being imported did not meet the necessary requisites for it to be stored. It has been ignored.");
         }
+
+        return "The test with the Test Type" + testType +", and register date:" + registerDate + "chemical analysis date:" + chemicalAnalysisDate +
+                ", diagnosis date" + diagnosisDate + ", and validation date " + validationDate + " was imported with success.";
 
     }
 
@@ -255,8 +268,7 @@ public class ImportTest {
             throw new IllegalArgumentException("A date is wrong.");
         else {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            Date dateReturn = formatter.parse(date);
-            return dateReturn;
+            return formatter.parse(date);
         }
     }
 
