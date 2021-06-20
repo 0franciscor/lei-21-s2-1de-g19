@@ -44,7 +44,7 @@ ImportTestController -> ImportTest   : importListFromCSV()
 activate ImportTest
 deactivate ImportTest
 
-loop
+loop for each test present on the file
 ImportTestController -> ImportTest : checkIfExists()
 activate ImportTest
 
