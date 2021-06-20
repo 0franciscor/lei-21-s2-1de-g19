@@ -5,9 +5,7 @@ import auth.domain.model.UserRole;
 import auth.domain.store.UserRoleStore;
 import auth.domain.store.UserStore;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.Optional;
 
 /**
@@ -108,5 +106,4 @@ public class AuthFacade {
             return false;
         }
     }
-
 }

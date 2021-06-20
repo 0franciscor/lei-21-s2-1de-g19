@@ -1,0 +1,60 @@
+The regression model fitted using data from the interval:
+^y= NaNx + NaN
+
+//Other statistics
+R2= NaN
+R2adjusted= NaN
+R= NaN
+
+
+Hypothesis tests for regression coefficient a
+H0: a=0  H1: a<>0
+t_obs = NaN
+Decision:
+|NaN| < 2,0484 -> no reject H0
+
+Significance model with Anova
+H0: b=0  H1:b<>0 
+
+			df		SS		MS			F	
+Regression	1	NaN		NaN		NaN	
+Residual	28	NaN		NaN
+Total		29	NaN
+
+f0 = NaN 
+F-Snedecor = 4,1960
+Decision:
+NaN < 4,1960 -> No reject H0, the regression model is not significant.
+
+// Prediction values 
+Date								Number of OBSERVED positive cases					Number of ESTIMATED positive cases					95.0% intervals
+Sat Feb 20 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Mon Feb 22 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Tue Feb 23 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Wed Feb 24 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Thu Feb 25 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Fri Feb 26 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Sat Feb 27 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Mon Mar 01 00:00:00 GMT 2021						 13 											 NaN 									 ] NaN ; NaN [
+Tue Mar 02 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Wed Mar 03 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Thu Mar 04 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Fri Mar 05 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Sat Mar 06 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Mon Mar 08 00:00:00 GMT 2021						 13 											 NaN 									 ] NaN ; NaN [
+Tue Mar 09 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Wed Mar 10 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Thu Mar 11 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Fri Mar 12 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Sat Mar 13 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Mon Mar 15 00:00:00 GMT 2021						 13 											 NaN 									 ] NaN ; NaN [
+Tue Mar 16 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Wed Mar 17 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Thu Mar 18 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Fri Mar 19 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Sat Mar 20 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Mon Mar 22 00:00:00 GMT 2021						 13 											 NaN 									 ] NaN ; NaN [
+Tue Mar 23 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Wed Mar 24 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Thu Mar 25 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [
+Fri Mar 26 00:00:00 GMT 2021						 0 											 NaN 									 ] NaN ; NaN [

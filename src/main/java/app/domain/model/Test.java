@@ -164,6 +164,7 @@ public class Test implements Serializable {
      * @param validationDate date.
      */
     public Test (Client client, List<ParameterCategory> parameterCategoryList, List<TestParameter> testParameterList, TestType testType, String code, String nhsCode, boolean existsTest, Date registerDate, Date chemicalAnalysisDate, Date diagnosisDate, Date validationDate) throws Exception {
+        this.company = App.getInstance().getCompany();
         this.client = client;
         this.parameterCategories = parameterCategoryList;
         this.testParametersList = testParameterList;
@@ -176,6 +177,7 @@ public class Test implements Serializable {
             this.code = code;
         this.registrationDateTime = registerDate;
         this.chemicalAnalysisDateTime = chemicalAnalysisDate;
+        this.diagnosisDateTime = diagnosisDate;
         this.validationDateTime = validationDate;
         addAll(new APIBarcodeAdapter().generateBarcodes(1, true));
         ReportStore reportStore = App.getInstance().getCompany().getReportStore();
