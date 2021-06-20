@@ -11,7 +11,6 @@ import java.util.List;
 public class ImportTestUI implements Runnable{
 
     private ImportTestController importTestController;
-    private static JFileChooser chooser = new JFileChooser(".");
 
     public ImportTestUI(){
         this.importTestController = new ImportTestController();
@@ -22,7 +21,7 @@ public class ImportTestUI implements Runnable{
         String pathName;
         do{
             pathName = Utils.readLineFromConsole("Please insert the name of the file.");
-        }while(!new File("\\"+pathName).exists());
+        }while(!new File("src\\" + pathName).exists());
 
         List<List> receivedList;
         try {

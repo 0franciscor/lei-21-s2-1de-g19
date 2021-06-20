@@ -67,7 +67,8 @@ public class ImportTest {
 
             String [] linhaSplit = linhaFicheiro.split(";");
             try {
-                testsBeingImported.add(checkIfExists(linhaSplit));
+                String beingImported = checkIfExists(linhaSplit);
+                testsBeingImported.add(beingImported);
             } catch (Exception e){
                 System.out.println("There was an error when importing the test");
                 testsFailedImport.add(numTeste);
@@ -122,6 +123,7 @@ public class ImportTest {
                         String parameter = linhaSplit[13 + somaCategoria  + j + i];
                         double parameterValue;
                         if(!parameter.equalsIgnoreCase("NA")) {
+                            parameter = parameter.replace(',', '.');
                             parameterValue = Double.parseDouble(parameter);
                             testParameterList.add(checkIfTestParameterExists(parameterValue, i, (j+1), testType));
                         }
@@ -167,25 +169,14 @@ public class ImportTest {
         ClientStore clientStore = company.getClientStore();
         Client client = clientStore.getClient(conteudoClient[2]);
 
-        if(client == null)
-            throw new IllegalArgumentException();
-        else{
-            if(!client.getCitizenID().equalsIgnoreCase(conteudoClient[0]))
-                throw new IllegalArgumentException("The Citizen ID does not match.");
-            if(!client.getNhsID().equalsIgnoreCase(conteudoClient[1]))
-                throw new IllegalArgumentException("The NHS ID does not match.");
-            if(!client.getBirthDate().equalsIgnoreCase(conteudoClient[3]))
-                throw new IllegalArgumentException("The birth Date does not match.");
-            if(!client.getPhoneNumber().equalsIgnoreCase(conteudoClient[4]))
-                throw new IllegalArgumentException("The Phone number does not match.");
-            if(!client.getName().equalsIgnoreCase(conteudoClient[5]))
-                throw new IllegalArgumentException("The name does not match.");
-            if(!client.getEmail().equalsIgnoreCase(conteudoClient[6]))
-                throw new IllegalArgumentException("The email does not match.");
-            if(!client.getAddress().equalsIgnoreCase(conteudoClient[7]))
-                throw new IllegalArgumentException("the address does not match.");
-
+        if(client != null)
             return client;
+        else{
+            Client clientNew = new Client(conteudoClient[0], conteudoClient[1],conteudoClient[3], "male", conteudoClient[2], conteudoClient[4], conteudoClient[6], conteudoClient[5], conteudoClient[7]);
+
+            clientStore.saveClient(clientNew);
+
+            return clientNew;
         }
     }
 
