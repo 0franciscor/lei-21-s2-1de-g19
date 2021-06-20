@@ -435,7 +435,7 @@ public class NHSReport {
 
 
         stringSaida.append("\n// Prediction values \n" +
-                "Date\t\t\t\t\t\t\t\tNumber of OBSERVED positive cases\t\t\t\t\tNumber of ESTIMATED positive cases\t\t\t\t\t"+sigLevel+"% intervals");
+                "Date\t\t\t\t\t\t\t\tNumber of OBSERVED positive cases\t\t\t\t\tNumber of ESTIMATED positive cases\t\t\t\t\t"+confLevel+"% intervals");
 
         for(int i = lstDateExceptSundays.size()-1 ; i>=0; i--){
             stringSaida.append(String.format("\n" + lstDateExceptSundays.get(i) + "\t\t\t\t\t\t %.0f \t\t\t\t\t\t\t\t\t\t\t %.2f \t\t\t\t\t\t\t\t\t %s", y[i], multilinearRegression.predict(BiarrayX[i][1], BiarrayX[i][2]), intConfidence[i]));
