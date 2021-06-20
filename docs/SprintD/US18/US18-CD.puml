@@ -10,7 +10,7 @@ package Controllers{
 class "SendReportController" as SRC {
 +getAllTestWithResultCovidPositive(dateToSee, histPoints)
 +SimpleLinearRegression(userInteraction, sigLevel, confLevel, hypTest)
-+MultilinearRegression(sigLevel, confLevel, hypTest)
++MultilinearRegression(sigLevel, confLevel)
 +sendNHSReport()
 }
 }
@@ -20,10 +20,12 @@ class "Company" as C {
 -designation
 +TestStore getTestStore()
 +NHSReport generateNHSReport(sigLevel, confLevel, hypTest)
++NHSReport generateNHSReport(sigLevel, confLevel)
 }
 
 class "NHSReport" as NHSR {
 +NHSReport(sigLevel, confLevel, hypTest)
++NHSReport(sigLevel, confLevel)
 +String calculateData(arrayX, arrayY, lstDateExceptSundays)
 +String calculateData(BiarrayX, arrayY, lstDateExceptSundays)
 }

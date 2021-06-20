@@ -3,7 +3,7 @@
 
 autonumber
 
- -> ":SendReportController" : MultilinearRegression(sigLevel,confLevel, hypTest)
+ -> ":SendReportController" : MultilinearRegression(sigLevel,confLevel)
 activate ":SendReportController"
 
 
