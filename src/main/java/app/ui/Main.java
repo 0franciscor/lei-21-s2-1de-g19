@@ -3,7 +3,7 @@ package app.ui;
 
 import app.domain.model.Client;
 import app.domain.model.NHSReport;
-import app.domain.model.SendNHSReportTimerTask;
+//import app.domain.model.SendNHSReportTimerTask;
 import app.domain.model.SortAlgorithm2;
 import app.ui.console.MainMenuUI;
 import auth.mappers.dto.ClientDto;
