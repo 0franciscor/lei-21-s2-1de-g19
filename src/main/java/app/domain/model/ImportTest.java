@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import app.controller.App;
+import app.domain.shared.ExternalModule;
 import auth.domain.store.*;
 
 import java.io.*;
@@ -14,6 +15,8 @@ public class ImportTest {
     private File ficheiroInput;
 
     private BufferedReader bufferedReader;
+
+    private String[] firstLine;
 
     private int[] importRules;
 
@@ -34,16 +37,16 @@ public class ImportTest {
 
     public int[] getRules () throws IOException {
         String linha = bufferedReader.readLine();
-        String [] linhaSplitRegra= linha.split(";");
+        this.firstLine = linha.split(";");
 
         int [] contaCategoriasParametros = null;
 
-        for (String string : linhaSplitRegra) {
+        for (String string : firstLine) {
             if (string.equalsIgnoreCase("TestType")) {
-                contaCategoriasParametros = contaCategorias(linhaSplitRegra);
+                contaCategoriasParametros = contaCategorias(firstLine);
             }
         }
-        contaParametros(linhaSplitRegra, contaCategoriasParametros);
+        contaParametros(firstLine, contaCategoriasParametros);
 
         return contaCategoriasParametros;
     }
@@ -70,7 +73,9 @@ public class ImportTest {
         Client client;
         ClinicalAnalysisLaboratory clinicalAnalysisLaboratory;
         List<ParameterCategory> parameterCategoryList = new ArrayList<>();
-        List<ParameterCategory> parameterList = new ArrayList<>();
+        List<TestParameter> testParameterList = new ArrayList<>();
+        TestType testType;
+        boolean testExists;
 
         String[] conteudoClient = new String[8];
         for(int i = 3; i< 11; i++)
@@ -81,6 +86,7 @@ public class ImportTest {
 
             clinicalAnalysisLaboratory = checkIfLabExists(linhaSplit[2]);
 
+            testType = checkIfTestTypeExists(linhaSplit[11]);
 
             int somaCategoria = 0;
             for(int i = 0; i< importRules.length; i++){
@@ -92,24 +98,22 @@ public class ImportTest {
                 else
                     categoria = linhaSplit[indiceCategoria + i + somaCategoria];
 
-
                 if(!categoria.equalsIgnoreCase("NA")) {
                     parameterCategoryList.add(checkIfCategoryExists(categoria));
                     for (int j = 0; j < importRules[i]; j++) {
                         String parameter = linhaSplit[13 + somaCategoria  + j + i];
                         double parameterValue;
-                        if(!parameter.equalsIgnoreCase("NA"))
-                             parameterValue = Double.parseDouble(parameter);
+                        if(!parameter.equalsIgnoreCase("NA")) {
+                            parameterValue = Double.parseDouble(parameter);
+                            testParameterList.add(checkIfTestParameterExists(parameterValue, i, (j+1), testType));
+                        }
 
                     }
                 }
-
                 somaCategoria += importRules[i];
             }
 
-
-
-
+            testExists = checkIfTestExists(linhaSplit[0], linhaSplit[1]);
 
         } catch (Exception e){
             System.out.println("The test that was currently being imported did not meet the necessary requisites for it to be stored. It has been ignored.");
@@ -125,19 +129,19 @@ public class ImportTest {
             throw new IllegalArgumentException();
         else{
             if(!client.getCitizenID().equalsIgnoreCase(conteudoClient[0]))
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("The Citizen ID does not match.");
             if(!client.getNhsID().equalsIgnoreCase(conteudoClient[1]))
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("The NHS ID does not match.");
             if(!client.getBirthDate().equalsIgnoreCase(conteudoClient[3]))
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("The birth Date does not match.");
             if(!client.getPhoneNumber().equalsIgnoreCase(conteudoClient[4]))
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("The Phone number does not match.");
             if(!client.getName().equalsIgnoreCase(conteudoClient[5]))
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("The name does not match.");
             if(!client.getEmail().equalsIgnoreCase(conteudoClient[6]))
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("The email does not match.");
             if(!client.getAddress().equalsIgnoreCase(conteudoClient[7]))
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("the address does not match.");
 
             return client;
         }
@@ -163,16 +167,35 @@ public class ImportTest {
             return parameterCategory;
     }
 
-//    public Parameter checkIfParameterExists(double result, ){
-//
-//        ParameterStore parameterStore = company.getParameterStore();
-//        Parameter parameter = parameterStore.getParameterByCode();
-//
-//        if(parameter == null)
-//            throw new IllegalArgumentException("There is no Parameter that corresponds to that name");
-//        else
-//            return parameter;
-//    }
+    public TestParameter checkIfTestParameterExists(double result, int numCategoria, int numParameter, TestType testType){
+
+        int sum = 0;
+
+        for(int i = 0; i<numCategoria; i++){
+            sum += importRules[i];
+            if(numCategoria >= 1)
+                numParameter++;
+        }
+
+        String parameterCode = firstLine[12 + sum + numParameter];
+
+        ParameterStore parameterStore = company.getParameterStore();
+        Parameter parameter = parameterStore.getParameterByCode(parameterCode);
+
+        if(parameter == null)
+            throw new IllegalArgumentException("There is no Parameter that corresponds to that name");
+        else {
+            TestParameter testParameter = new TestParameter(parameterCode);
+            ExternalModule externalModule = testType.getExternalModule();
+            String metric = externalModule.getMetric(parameter.getCode());
+            ReferenceValue referenceValue = externalModule.getReferenceValue(testParameter);
+            if(metric.equalsIgnoreCase("-1.0"))
+                throw new IllegalArgumentException("That Category does not have an external module associated. The system is not able to proceed.");
+            testParameter.addResult(result, metric, referenceValue);
+            return testParameter;
+        }
+
+    }
 
     public TestType checkIfTestTypeExists(String code){
         TestTypeStore testTypeStore = company.getTestTypeStore();
@@ -185,17 +208,24 @@ public class ImportTest {
     }
 
 
-    public boolean checkIfTestExists(){
-        return true;
+    public boolean checkIfTestExists(String code, String nhsCode){
+        TestStore testStore = company.getTestStore();
+
+        Test test = testStore.getTestByCode(code);
+
+        if(test == null)
+            return false;
+
+        else
+            if(test.getNhsCode().equalsIgnoreCase(nhsCode))
+                throw new IllegalArgumentException("The imported test must not have an equal Nhs code.");
+            else
+                return true;
     }
 
 
 
-
-
-
-
-    // MÉTODOS ALGORITMIA UTEIS
+    // MÉTODOS ALGORITMIA
 
     public static int[] contaCategorias (String[] linhaRegra){ //FUNCIONA
         int numCategorias = 0, i = 12;

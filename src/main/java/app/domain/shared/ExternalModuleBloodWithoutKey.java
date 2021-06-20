@@ -35,6 +35,15 @@ public class ExternalModuleBloodWithoutKey extends ExternalModule {
     }
 
     /**
+     * @param ParameterID that identifies a certain Parameter.
+     * @return the used metric
+     */
+    @Override
+    public String getMetric(String ParameterID){
+        return externalModule2API.getMetricsFor(ParameterID);
+    }
+
+    /**
      * @return a String containing information about the module.
      */
     @Override
