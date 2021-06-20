@@ -279,7 +279,7 @@ public class TestStore implements Serializable{
         for (Test t: TestList){
 
 
-            if (t.getValidationDateTime().getDay() == date.getDay() && t.getValidationDateTime().getMonth() == date.getMonth() &&
+            if (t.getValidationDateTime().getDate() == date.getDate() && t.getValidationDateTime().getMonth() == date.getMonth() &&
                     t.getValidationDateTime().getYear() == date.getYear()) {
 
                 if (t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())) {
@@ -288,7 +288,7 @@ public class TestStore implements Serializable{
 
                         if (testParameter.getCode().equalsIgnoreCase("IgGAN")) {
                             TestParameterResult testParameterResult = testParameter.getTestParameterResult();
-                            double minValue = testParameterResult.getReferenceValue().getMinValue();
+                            double minValue = testParameterResult.getReferenceValue().getMaxValue();
 
                             if (testParameterResult.getResult() > minValue)
                                 listTestWithResultCovidPositive.add(t);
@@ -356,7 +356,7 @@ public class TestStore implements Serializable{
     public int getDailyPerformedTests(Date date){
         int numTestes = 0;
         for(Test t: TestList){
-            if(t.getValidationDateTime().getDay() == date.getDay() && t.getValidationDateTime().getMonth() == date.getMonth() &&
+            if(t.getValidationDateTime().getDate() == date.getDate() && t.getValidationDateTime().getMonth() == date.getMonth() &&
                     t.getValidationDateTime().getYear() == date.getYear()){
                 numTestes++;
             }
@@ -387,7 +387,7 @@ public class TestStore implements Serializable{
         for (Test t : TestList) {
 
 
-            if (t.getValidationDateTime().getDay() == date.getDay() && t.getValidationDateTime().getMonth() == date.getMonth() &&
+            if (t.getValidationDateTime().getDate() == date.getDate() && t.getValidationDateTime().getMonth() == date.getMonth() &&
                     t.getValidationDateTime().getYear() == date.getYear()) {
 
                 if (t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())) {

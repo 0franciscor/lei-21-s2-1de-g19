@@ -65,6 +65,7 @@ public class SendReportController {
     public SendReportController (){
         this.app = App.getInstance();
         this.company = app.getCompany();
+        this.testStore = company.getTestStore();
     }
 
 
@@ -96,7 +97,7 @@ public class SendReportController {
      * Method that is responsible for saving the data String on the controller, which will later be used to write the report through the API.
      */
     public void SimpleLinearRegression(boolean userIntention, double sigLevel,double confLevel, boolean hypTest) throws ParseException {
-        double[] arrayX = new double[lstAllTestWithResultCovidPositive.length];
+        double[] arrayX = new double[lstDateExceptSundays.size()];
         if(userIntention) {
             int i = 0;
             for(Date date : lstDateExceptSundays){
@@ -126,7 +127,7 @@ public class SendReportController {
 
     public void MultilinearRegression (double sigLevel, double confLevel) throws ParseException {
 
-        double[] dailyNumberTests = new double[lstAllTestWithResultCovidPositive.length];
+        double[] dailyNumberTests = new double[lstDateExceptSundays.size()];
 
         int i = 0;
         for(Date date : lstDateExceptSundays){
@@ -137,7 +138,7 @@ public class SendReportController {
         TestStore store = company.getTestStore();
 
         this.lstAllTestWithResultCovid = new List[lstDateExceptSundays.size()];
-        for (int j=0; i<lstAllTestWithResultCovid.length; i++){
+        for (int j=0; j<lstAllTestWithResultCovid.length; j++){
             Date date = lstDateExceptSundays.get(j);
             this.lstAllTestWithResultCovid[j] = store.getAllTestWithResultCovid(date);
         }

@@ -76,8 +76,8 @@ public class SendReportUI implements Runnable {
             System.out.println("\n--- SELECT BETWEEN DAILY NUMBER TESTS AND MEAN AGE ---");
 
             List<String> options4 = new ArrayList<>();
+            options4.add("Daily Number tests");
             options4.add("Mean age");
-            options4.add("Daily number tests");
 
             int option5 = Utils.showAndSelectIndex(options4,"\nSelect an option from the list.");
 
@@ -100,7 +100,13 @@ public class SendReportUI implements Runnable {
             option6.add("a");
             option6.add("b");
 
-            int option7 = Utils.showAndSelectIndex(option6,"\nSelect an option from the list.");
+            int option7 = 0;
+            try {
+                 option7 = Utils.showAndSelectIndex(option6,"\nSelect an option from the list.");
+            } catch (Exception e){
+                System.out.println("Invalid option");
+                return;
+            }
 
             if (option7 == 0){
                 hypTest = true;
