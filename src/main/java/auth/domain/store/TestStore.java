@@ -1,10 +1,11 @@
 package auth.domain.store;
 
 import app.domain.model.*;
+import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
-import javax.rmi.CORBA.Util;
+
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -51,6 +52,26 @@ public class TestStore {
     public Test createTest (TestType testType, List<Parameter> parameters, List<ParameterCategory> parameterCategories, String TIN, String nhsCode){
 
         return new Test(testType,parameters, parameterCategories, TIN, nhsCode);
+    }
+
+    /**
+     * @param client that ordered the test
+     * @param parameterCategoryList the test's list of Parameter Categories.
+     * @param testParameterList the test's list of Test Parameters.
+     * @param testType the test's Test Type.
+     * @param code the test's code.
+     * @param nhsCode the test's nhsCode.
+     * @param existsTest used to generate a new code.
+     * @param registerDate date.
+     * @param chemicalAnalysisDate date.
+     * @param diagnosisDate date.
+     * @param validationDate date.
+     * @return the success of the operation
+     * @throws Exception
+     */
+    public Test createTest(Client client, List<ParameterCategory> parameterCategoryList, List<TestParameter> testParameterList, TestType testType, String code, String nhsCode, boolean existsTest, Date registerDate, Date chemicalAnalysisDate, Date diagnosisDate, Date validationDate) throws Exception {
+
+        return new Test(client, parameterCategoryList, testParameterList, testType, code, nhsCode, existsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate);
     }
 
     /**
@@ -214,7 +235,7 @@ public class TestStore {
             if (test.getCode().equalsIgnoreCase(code))
                 return test;
         }
-        return new Test();
+        return null;
     }
 
     /**
@@ -285,10 +306,10 @@ public class TestStore {
      *
      * @return the number of tests waiting for result
      */
-    public int getCollectedTestsNumber(){ //nao tem atenção à data
+    public int getCollectedTestsNumber(Date beginning, Date end){
         List<Test> collectedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Registered.toString())){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Registered.toString())&&t.getRegistrationDateTime().after(beginning)&&t.getRegistrationDateTime().before(end)){
                 collectedTest.add(t);
             }
         }
@@ -300,10 +321,10 @@ public class TestStore {
      *
      * @return the number of tests waiting for diagnosis
      */
-    public int getAnalysedTestsNumber(){ //nao tem atenção à data
+    public int getAnalysedTestsNumber(Date beginning, Date end){
         List<Test> analysedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString())){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString())&&t.getChemicalAnalysisDateTime().after(beginning)&&t.getChemicalAnalysisDateTime().before(end)){
                 analysedTest.add(t);
             }
         }
@@ -315,10 +336,10 @@ public class TestStore {
      *
      * @return the number of performed tests
      */
-    public int getValidatedTestsNumber(){ //nao tem atenção à data
+    public int getValidatedTestsNumber(Date beginning, Date end){
         List<Test> validatedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())&&t.getValidationDateTime().after(beginning)&&t.getValidationDateTime().before(end)){
                 validatedTest.add(t);
             }
         }
@@ -406,6 +427,7 @@ public class TestStore {
             meanAge[i] = mediaCliente / lstAllTestWithResultCovid[i].size();
         }
         return meanAge;
+
     }
     public boolean guardarFicheiroBinario(List<Test> testList) {
         try {
@@ -421,5 +443,17 @@ public class TestStore {
         } catch (IOException ex) {
             return false;
         }
+    }
+
+    public double[][] createBiarrayX (double[] dailyNumberTests, double[] meanAge){
+
+        double[][] BiarrayX = new double[dailyNumberTests.length][Constants.NUM_COLUNAS];
+
+        for (int i=0; i<dailyNumberTests.length; i++){
+            BiarrayX[i][0] = 1;
+            BiarrayX[i][1] = dailyNumberTests[i];
+            BiarrayX[i][2] = meanAge[i];
+        }
+        return BiarrayX;
     }
 }
