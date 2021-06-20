@@ -1,19 +1,27 @@
 package app.ui.console;
-
-import app.controller.App;
 import app.controller.ImportTestController;
-import app.domain.model.Test;
 import app.ui.console.utils.Utils;
-import auth.domain.store.TestStore;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+
+/**
+ * The import test UI
+ *
+ * @author Francisco Redol
+ */
 public class ImportTestUI implements Runnable{
 
+    /**
+     * The UI's controller.
+     */
     private ImportTestController importTestController;
 
+    /**
+     * The UI's constructor.
+     */
     public ImportTestUI(){
         this.importTestController = new ImportTestController();
     }

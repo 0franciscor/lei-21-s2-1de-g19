@@ -11,6 +11,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The ImportTest Class
+ *
+ * @author Francisco Redol
+ */
 public class ImportTest {
 
     private Company company;
@@ -27,6 +32,12 @@ public class ImportTest {
         this.company = App.getInstance().getCompany();
     }
 
+    /**
+     * @param pathName of the file
+     *
+     * @return the success of the operation
+     * @throws IOException
+     */
     public boolean getFile(String pathName) throws IOException {
         this.ficheiroInput = new File(pathName);
 
@@ -38,6 +49,10 @@ public class ImportTest {
             return false;
     }
 
+    /**
+     * @return the array which includes the Rules according to the first line of the Csv File
+     * @throws IOException
+     */
     public int[] getRules () throws IOException {
         String linha = bufferedReader.readLine();
         this.firstLine = linha.split(";");
@@ -54,6 +69,12 @@ public class ImportTest {
         return contaCategoriasParametros;
     }
 
+    /**
+     * @return a list of tests which made it through the system
+     *
+     * Method responsible for reading the CSV File
+     * @throws IOException
+     */
     public List<List> readListFromCSV() throws IOException {
 
         List<List> lists = new ArrayList<>();
@@ -70,7 +91,6 @@ public class ImportTest {
                 String beingImported = checkIfExists(linhaSplit);
                 testsBeingImported.add(beingImported);
             } catch (Exception e){
-                System.out.println("There was an error when importing the test");
                 testsFailedImport.add(String.valueOf(numTeste));
             }
             numTeste++;
@@ -83,6 +103,13 @@ public class ImportTest {
         return lists;
     }
 
+    /**
+     * @param linhaSplit The line of the csv file, splitted.
+     *
+     * Method responsible for checking if every element is present on the system.
+     *
+     * @return the String representing the line.
+     */
     public String checkIfExists(String [] linhaSplit){
         Client client;
         List<ParameterCategory> parameterCategoryList = new ArrayList<>();
@@ -273,7 +300,7 @@ public class ImportTest {
 
 
 
-    // MÉTODOS ALGORITMIA
+    // MÉTODOS ALGORITMIA auxiliares a verificar as regras.
 
     public static int[] contaCategorias (String[] linhaRegra){ //FUNCIONA
         int numCategorias = 0, i = 12;
