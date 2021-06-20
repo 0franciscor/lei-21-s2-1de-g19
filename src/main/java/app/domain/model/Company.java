@@ -203,11 +203,9 @@ public class Company {
 
 
     /**
-
-     */
-
-    /**
      * @param sigLevel the significance level chosen by the user.
+     * @param confLevel the confidence level chosen by the user.
+     * @param hypTest the hypothesis test chosen by the user.
      *
      * Generates a covid-19 report that will be sent to the NHS.
      *
@@ -215,5 +213,17 @@ public class Company {
      */
     public NHSReport generateNHSReport (double sigLevel, double confLevel, boolean hypTest){
         return new NHSReport(sigLevel, confLevel, hypTest);
+    }
+
+    /**
+     * @param sigLevel the significance level chosen by the user.
+     * @param confLevel the confidence level chosen by the user.
+     *
+     * Generates a covid-19 report that will be sent to the NHS.
+     *
+     * @return a NHSReport class
+     */
+    public NHSReport generateNHSReport (double sigLevel, double confLevel){
+        return new NHSReport(sigLevel, confLevel);
     }
 }

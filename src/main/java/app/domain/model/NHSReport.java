@@ -37,7 +37,14 @@ public class NHSReport {
     private LinearRegression linearRegression;
 
     /**
+     * The NHSReport's MultilinearRegression.
+     */
+    private MultilinearRegression multilinearRegression;
+
+    /**
      * @param sigLevel the chosen significance level.
+     * @param confLevel the chosen confidence level.
+     * @param hypTest the hypothesis test.
      *
      * The NHSReport constructor.
      */
@@ -46,6 +53,19 @@ public class NHSReport {
         this.sigLevel = sigLevel;
         this.confLevel = confLevel;
         this.hypTest = hypTest;
+
+    }
+
+    /**
+     * @param sigLevel the chosen significance level.
+     * @param confLevel the chosen confidence level.
+     *
+     * The NHSReport constructor.
+     */
+    public NHSReport(double sigLevel, double confLevel){
+
+        this.sigLevel = sigLevel;
+        this.confLevel = confLevel;
 
     }
 
@@ -105,8 +125,6 @@ public class NHSReport {
         double fRegressao = MSR/MSE;
 
 
-
-
         double R2 = linearRegression.R2();
         double R2adj = 1-((SE/degreeFreedomErro)/(ST/degreeFreedom));
 
@@ -121,11 +139,9 @@ public class NHSReport {
         double tStudent;
         if(alphaTD> 0.5) {
             tStudent = td.inverseCumulativeProbability(alphaTD);
-            //System.out.println("t-student critical value: " + tStudent);
         }
         else {
             tStudent = td.inverseCumulativeProbability(1 - alphaTD);
-            //System.out.println("t-student critical value: " + tStudent);
         }
 
         TDistribution td1= new TDistribution(degreeFreedomErro);
@@ -133,11 +149,9 @@ public class NHSReport {
         double tStudentIntConf;
         if(alphaTD1> 0.5) {
             tStudentIntConf = td1.inverseCumulativeProbability(alphaTD1);
-            //System.out.println("t-student critical value: " + tStudentIntConf);
         }
         else {
             tStudentIntConf = td1.inverseCumulativeProbability(1 - alphaTD1);
-            //System.out.println("t-student critical value: " + tStudentIntConf);
         }
 
 
@@ -180,8 +194,6 @@ public class NHSReport {
         FDistribution fd= new FDistribution(degreeFreedomRegressao,degreeFreedomErro);
         double alphaFD= 1-sigLevel/100;
         double fSnedecor= fd.inverseCumulativeProbability(1- alphaFD);
-        //System.out.println("Fisher–Snedecor critical value:" + fSnedecor);
-
 
         double tObs;
         if (hypTest){
@@ -219,7 +231,6 @@ public class NHSReport {
             }
         }
 
-
         stringSaida.append(
                 "\nSignificance model with Anova\n" +
                         "H0: b=0  H1:b<>0 \n\n" +
@@ -235,7 +246,6 @@ public class NHSReport {
                         ));
 
 
-
         stringSaida.append(String.format("\nf0 = %.4f ", fRegressao) +
                 String.format("\nF-Snedecor = %.4f", fSnedecor));
 
@@ -248,15 +258,8 @@ public class NHSReport {
                     String.format("\n%.4f < %.4f -> No reject H0, the regression model is not significant.\n", fRegressao,fSnedecor));
         }
 
-
-
-
-
-
         stringSaida.append("\n// Prediction values \n" +
                 "Date\t\t\t\t\t\t\t\tNumber of OBSERVED positive cases\t\t\t\t\tNumber of ESTIMATED positive cases\t\t\t\t\t"+sigLevel+"% intervals");
-
-
 
 
         for(int i = lstDateExceptSundays.size()-1 ; i>=0; i--){
@@ -267,8 +270,171 @@ public class NHSReport {
     }
 
     public String calculateData (double[][] BiarrayX, double[] y, List<Date> lstDateExceptSundays){
-        String ola = "ola";
 
-        return ola;
+        this.multilinearRegression = new MultilinearRegression(BiarrayX,y);
+
+        StringBuilder stringSaida = new StringBuilder();
+
+        stringSaida.append("The regression model fitted using data from the interval:\n" +
+                String.format(
+                        "^y= %.2fx2 + %.2fx1 + %.2f\n", multilinearRegression.beta2(), multilinearRegression.beta1(), multilinearRegression.beta0()
+                )
+                +
+                "\n//" +
+                "Other statistics");
+
+        stringSaida.append("\n" +
+                String.format(
+                        "R2= %.4f\nR2adjusted= %.4f\nR= %.4f\n\n", multilinearRegression.r2(), multilinearRegression.r2adj(), Math.sqrt(multilinearRegression.r2())));
+
+        // T STUDENT
+        TDistribution td= new TDistribution(multilinearRegression.degreeFreedomErro());
+        double alphaTD =(1 - sigLevel/100)/2;
+        double tStudent;
+        if(alphaTD> 0.5) {
+            tStudent = td.inverseCumulativeProbability(alphaTD);
+        }
+        else {
+            tStudent = td.inverseCumulativeProbability(1 - alphaTD);
+        }
+
+        TDistribution td1= new TDistribution(multilinearRegression.degreeFreedomErro());
+        double alphaTD1 =(1 - confLevel/100)/2;
+        double tStudentIntConf;
+        if(alphaTD1> 0.5) {
+            tStudentIntConf = td1.inverseCumulativeProbability(alphaTD1);
+        }
+        else {
+            tStudentIntConf = td1.inverseCumulativeProbability(1 - alphaTD1);
+        }
+
+        //DESVIO PADRÃO
+        double desvPadr = Math.sqrt(multilinearRegression.MQE());
+
+        //DELTA
+        double delta, lower, upper, xtcx, alfay;
+
+        String [] intConfidence = new String[BiarrayX.length];
+
+        for(int i=0; i<BiarrayX.length; i++){
+            double [][]alfayMatriz;
+            double [][] xtc;
+            double [][] xtcxMatriz;
+            double [][] arrayAuxT = new double[1][BiarrayX[0].length];
+            double [][] arrayAux = new double[BiarrayX[0].length][1];
+            for (int z=0; z<arrayAuxT[0].length; z++){
+                arrayAuxT[0][z] = BiarrayX[i][z];
+                arrayAux[z][0] = BiarrayX [i][z];
+            }
+
+            alfayMatriz = multilinearRegression.multiplication(arrayAuxT, multilinearRegression.betas());
+            alfay = alfayMatriz[0][0];
+
+            xtc = multilinearRegression.multiplication(arrayAuxT,multilinearRegression.xtxinv());
+            xtcxMatriz = multilinearRegression.multiplication(xtc, arrayAux);
+
+            xtcx = xtcxMatriz[0][0];
+
+            delta = tStudentIntConf * desvPadr * Math.sqrt(xtcx);
+
+            lower=alfay-delta;
+            upper=alfay+delta;
+            intConfidence[i] = String.format("] %.2f ; %.2f [",lower,upper);
+        }
+
+
+        // F-SNEDECOR
+        FDistribution fd= new FDistribution(multilinearRegression.degreeFreedomRegressao(),multilinearRegression.degreeFreedomErro());
+        double alphaFD= 1-sigLevel/100;
+        double fSnedecor= fd.inverseCumulativeProbability(1- alphaFD);
+
+        double tObs;
+
+        double [][] xtxinvAux = multilinearRegression.xtxinv();
+        tObs = multilinearRegression.beta0()/(desvPadr*Math.sqrt(xtxinvAux[0][0]));
+
+        if (Math.abs(tObs) > tStudent){
+            stringSaida.append("\nHypothesis tests for regression coefficient b0\n" +
+                    "H0: b0=0  H1: b0<>0\n" +
+                    String.format("t_obs = %.4f\n",tObs) +
+                    "Decision:\n" +
+                    String.format("|%.4f| > %.4f -> reject H0\n",tObs,tStudent));
+        } else {
+            stringSaida.append("\nHypothesis tests for regression coefficient b0\n" +
+                    "H0: b0=0  H1: b0<>0\n" +
+                    String.format("t_obs = %.4f\n",tObs) +
+                    "Decision:\n" +
+                    String.format("|%.4f| < %.4f -> no reject H0\n",tObs,tStudent));
+        }
+
+
+        tObs = multilinearRegression.beta1()/(desvPadr*Math.sqrt(xtxinvAux[1][1]));
+
+        if (Math.abs(tObs) > tStudent){
+            stringSaida.append("\nHypothesis tests for regression coefficient b1\n" +
+                    "H0: b1=0  H1: b1<>0\n" +
+                    String.format("t_obs = %.4f\n",tObs) +
+                    "Decision:\n" +
+                    String.format("|%.4f| > %.4f -> reject H0\n",tObs,tStudent));
+        } else {
+            stringSaida.append("\nHypothesis tests for regression coefficient b1\n" +
+                    "H0: b1=0  H1: b1<>0\n" +
+                    String.format("t_obs = %.4f\n",tObs) +
+                    "Decision:\n" +
+                    String.format("|%.4f| < %.4f -> no reject H0\n",tObs,tStudent));
+        }
+
+        tObs = multilinearRegression.beta2()/(desvPadr*Math.sqrt(xtxinvAux[2][2]));
+
+        if (Math.abs(tObs) > tStudent){
+            stringSaida.append("\nHypothesis tests for regression coefficient b2\n" +
+                    "H0: b2=0  H1: b2<>0\n" +
+                    String.format("t_obs = %.4f\n",tObs) +
+                    "Decision:\n" +
+                    String.format("|%.4f| > %.4f -> reject H0\n",tObs,tStudent));
+        } else {
+            stringSaida.append("\nHypothesis tests for regression coefficient b2\n" +
+                    "H0: b2=0  H1: b2<>0\n" +
+                    String.format("t_obs = %.4f\n",tObs) +
+                    "Decision:\n" +
+                    String.format("|%.4f| < %.4f -> no reject H0\n",tObs,tStudent));
+        }
+
+        stringSaida.append(
+                "\nSignificance model with Anova\n" +
+                        "H0: b1=b2=0  H1:bj<>0, j=1,2 \n\n" +
+                        "\t\t\tdf\t\tSS\t\tMS\t\t\tF\t\n" +
+                        String.format(
+                                "Regression\t%.0f\t%.4f\t\t%.4f\t\t%.4f\t\n", multilinearRegression.degreeFreedomRegressao(), multilinearRegression.SQR(), multilinearRegression.MQR(), multilinearRegression.F()
+                        ) +
+                        String.format(
+                                "Residual\t%.0f\t%.4f\t\t%.4f\n", multilinearRegression.degreeFreedomErro(), multilinearRegression.SQE(), multilinearRegression.MQE()
+                        ) +
+                        String.format(
+                                "Total\t\t%.0f\t%.4f\n", multilinearRegression.degreeFreedom(), (multilinearRegression.SQE()+multilinearRegression.SQR())
+                        ));
+
+
+        stringSaida.append(String.format("\nf0 = %.4f ", multilinearRegression.F()) +
+                String.format("\nF-Snedecor = %.4f", fSnedecor));
+
+        if (multilinearRegression.F() > fSnedecor) {
+            stringSaida.append("\nDecision:"+
+                    String.format("\n%.4f > %.4f -> Reject H0, the regression model is significant.\n", multilinearRegression.F(),fSnedecor));
+
+        } else {
+            stringSaida.append("\nDecision:"+
+                    String.format("\n%.4f < %.4f -> No reject H0, the regression model is not significant.\n", multilinearRegression.F(),fSnedecor));
+        }
+
+
+        stringSaida.append("\n// Prediction values \n" +
+                "Date\t\t\t\t\t\t\t\tNumber of OBSERVED positive cases\t\t\t\t\tNumber of ESTIMATED positive cases\t\t\t\t\t"+sigLevel+"% intervals");
+
+        for(int i = lstDateExceptSundays.size()-1 ; i>=0; i--){
+            stringSaida.append(String.format("\n" + lstDateExceptSundays.get(i) + "\t\t\t\t\t\t %.0f \t\t\t\t\t\t\t\t\t\t\t %.2f \t\t\t\t\t\t\t\t\t %s", y[i], multilinearRegression.predict(BiarrayX[i][1], BiarrayX[i][2]), intConfidence[i]));
+        }
+
+        return stringSaida.toString();
     }
 }

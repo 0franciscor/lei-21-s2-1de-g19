@@ -7,26 +7,9 @@ import org.apache.commons.math3.linear.RealMatrix;
 
 public class MultilinearRegression {
 
-    private double SQT,SQR,SQE,beta0,beta1,beta2,degreeFreedom,degreeFreedomErro,degreeFreedomRegressao,r2,r2adj,MQR,MQE,F;
+    private double SQT, SQR,SQE,beta0,beta1,beta2,degreeFreedom,degreeFreedomErro,degreeFreedomRegressao,r2,r2adj,MQR,MQE,F;
 
-    public static void main(String[] args) {
-        double[][] x = { {  1,  4.2,  4,3},
-                {  1,  6.5,6.5,5 },
-                {  1,  3,3.5,4 },
-                {  1,  2.1,2,3 },
-                {  1, 2.9,3,4 },
-                {  1, 7.2,7,3 },
-                {  1, 4.8,6,4.5},
-                {  1, 4.3,4,5},
-                {  1, 2.6,2.5,5},
-                {  1, 3.1,3,4},
-                {  1, 6.2,5.5,4.5},
-                {  1, 5.5,2,5},
-                {  1,2.2,2.8,4},
-                {  1,3,3,3}};
-        double[] y = { 8.26,14.7,9.73,5.62,7.84,12.18,8.56,10.77,7.56,8.9,12.51,10.46,7.15,6.74 };
-        MultilinearRegression regression = new MultilinearRegression(x, y);
-    }
+    private double[][] xtxinv, betas;
 
     public MultilinearRegression(double[][]x,double[]y){
         if (x.length != y.length) {
@@ -44,7 +27,6 @@ public class MultilinearRegression {
 
         RealMatrix xtxmat = new Array2DRowRealMatrix(xtx);
         RealMatrix xtxinvmat = MatrixUtils.inverse(xtxmat);
-        double [][] xtxinv;
         xtxinv=xtxinvmat.getData();
 
         double [][]yt=new double[1][y.length];
@@ -58,7 +40,7 @@ public class MultilinearRegression {
         double yty=ytymat[0][0];
 
         double [][]xty=multiplication(xt,yy);
-        double [][] betas=multiplication(xtxinv,xty);
+        betas=multiplication(xtxinv,xty);
 
         double [][] betast=new double[1][betas.length];
         for(int i=0;i<betas.length;i++){
@@ -148,8 +130,21 @@ public class MultilinearRegression {
         return F;
     }
 
+    public double[][] xtxinv() {
+        return xtxinv;
+    }
 
-    public static double[][] multiplication(double[][] a, double[][] b) {
+    public double [][] betas() {
+        return betas;
+    }
+
+    public double predict (double x1, double x2){
+        return beta2*x2 + beta1*x1 + beta0;
+
+    }
+
+
+    public double[][] multiplication(double[][] a, double[][] b) {
 
         if (a[0].length != b.length) throw new RuntimeException("Impossible to calculate.");
 
@@ -161,71 +156,5 @@ public class MultilinearRegression {
                     result[i][j] += (a[i][k] * b[k][j]);
         return result ;
     }
-
-
-/*
-    public MultilinearRegression(double[][] x, double[] y) {
-        if (x.length != y.length) {
-            throw new IllegalArgumentException("matrix dimensions don't agree");
-        }
-
-
-        // number of observations
-        int n = y.length;
-
-        Matrix matrixX = new Matrix(x);
-
-        // create matrix from vector
-        Matrix matrixY = new Matrix(y, n);
-
-        // find least squares solution
-        QRDecomposition qr = new QRDecomposition(matrixX);
-        beta = qr.solve(matrixY);
-
-
-        // mean of y[] values
-        double sum = 0.0;
-        for (int i = 0; i < n; i++)
-            sum += y[i];
-        double mean = sum / n;
-
-        // total variation to be accounted for
-        for (int i = 0; i < n; i++) {
-            double dev = y[i] - mean;
-            sst += dev*dev;
-        }
-
-        // variation not accounted for
-        Matrix residuals = matrixX.times(beta).minus(matrixY);
-        sse = residuals.norm2() * residuals.norm2();
-
-    }
-
-
-    public double beta(int j) {
-        return beta.get(j, 0);
-    }
-
-
-    public double R2() {
-        return 1.0 - sse/sst;
-    }
-
-
-    public static void main(String[] args) {
-        double[][] x = { {  1,  10,  20 },
-                {  1,  20,  40 },
-                {  1,  40,  15 },
-                {  1,  80, 100 },
-                {  1, 160,  23 },
-                {  1, 200,  18 } };
-        double[] y = { 243, 483, 508, 1503, 1764, 2129 };
-        MultilinearRegression regression = new MultilinearRegression(x, y);
-
-        System.out.printf("%.2f + %.2f beta1 + %.2f beta2  (R^2 = %.2f)\n",
-                regression.beta(0), regression.beta(1), regression.beta(2), regression.R2());
-    }
-
- */
 }
 

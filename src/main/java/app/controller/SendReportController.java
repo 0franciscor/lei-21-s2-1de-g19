@@ -124,7 +124,7 @@ public class SendReportController {
 
     }
 
-    public void MultilinearRegression (double sigLevel, double confLevel, boolean hypTest) throws ParseException {
+    public void MultilinearRegression (double sigLevel, double confLevel) throws ParseException {
 
         double[] dailyNumberTests = new double[lstAllTestWithResultCovidPositive.length];
 
@@ -146,7 +146,7 @@ public class SendReportController {
 
         double[][] BiarrayX = store.createBiarrayX(dailyNumberTests, meanAge);
 
-        NHSReport report = company.generateNHSReport(sigLevel, confLevel, hypTest);
+        NHSReport report = company.generateNHSReport(sigLevel, confLevel);
 
         this.data = report.calculateData(BiarrayX, arrayY, lstDateExceptSundays);
 

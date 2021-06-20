@@ -90,23 +90,25 @@ public class SendReportUI implements Runnable {
 
         }
 
-        boolean hypTest;
+        boolean hypTest = false;
 
         System.out.println("\n--- hypothesis test ---");
 
-        List<String> option6 = new ArrayList<>();
-        option6.add("a");
-        option6.add("b");
+        if (option3 == 0){
 
-        int option7 = Utils.showAndSelectIndex(option6,"\nSelect an option from the list.");
+            List<String> option6 = new ArrayList<>();
+            option6.add("a");
+            option6.add("b");
 
-        if (option7 == 0){
-            hypTest = true;
+            int option7 = Utils.showAndSelectIndex(option6,"\nSelect an option from the list.");
 
-        } else {
-            hypTest = false;
+            if (option7 == 0){
+                hypTest = true;
+
+            } else {
+                hypTest = false;
+            }
         }
-
 
         double sigLevel = Utils.readDoubleFromConsole("Significance level:");
 
@@ -130,7 +132,7 @@ public class SendReportUI implements Runnable {
         } else {
 
             try {
-                ctrl.MultilinearRegression(sigLevel,confLevel, hypTest);
+                ctrl.MultilinearRegression(sigLevel,confLevel);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
