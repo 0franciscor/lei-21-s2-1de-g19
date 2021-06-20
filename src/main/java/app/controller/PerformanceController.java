@@ -1,8 +1,10 @@
 package app.controller;
 
+import app.domain.model.BruteForceAlgorithm;
 import app.domain.model.Company;
 import auth.domain.store.ClientStore;
 import auth.domain.store.TestStore;
+import com.isep.mdis.Sum;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -34,6 +36,8 @@ public class PerformanceController {
      * The controller's Client Store.
      */
     private ClientStore clientStore;
+
+    private Sum sum;
 
     /**
      * Builds a PerformanceController without receiving parameters.
@@ -75,6 +79,14 @@ public class PerformanceController {
      */
     public int getAllTestsValidated(Date beginning, Date end){
         return testStore.getValidatedTestsNumber(beginning, end);
+    }
+
+    public int [] getSubsequenceBenchmark(int[] seq){
+        return sum.Max(seq);
+    }
+
+    public int [] getSubsequenceBruteForce(int[] seq){
+        return BruteForceAlgorithm.Max(seq);
     }
 
 }

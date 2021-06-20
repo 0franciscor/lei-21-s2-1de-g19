@@ -198,6 +198,19 @@ public class Utils {
         return listDateExceptSundays;
     }
 
+    public static List<Date> getDays(Date date, int histPoints){
+        List<Date> listDate = new ArrayList<>();
+
+        LocalDate dataEscolhida = Utils.convertToLocalDateViaInstant(date);
+        listDate.add(Utils.convertToDateViaInstant(dataEscolhida));
+        for (int i = 0; i < histPoints-1; i++) {
+            dataEscolhida = dataEscolhida.minusDays(1);
+            listDate.add(Utils.convertToDateViaInstant(dataEscolhida));
+        }
+
+        return listDate;
+    }
+
     public static boolean verifyIfListsEmpty(List<Test> [] lstAllTestWithResultCovidPositive){
 
         for (int i=0; i< lstAllTestWithResultCovidPositive.length; i++){

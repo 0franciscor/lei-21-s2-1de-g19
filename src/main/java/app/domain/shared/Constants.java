@@ -15,4 +15,7 @@ public class Constants {
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
     public static final int NUM_COLUNAS = 3;
+    public static final int MAX_HORAS=20;
+    public static final int MIN_HORAS=8;
+    public static final int INTERVALO=30;
 }

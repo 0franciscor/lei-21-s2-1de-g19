@@ -1,13 +1,17 @@
 package app.ui.console;
 
 import app.controller.PerformanceController;
+import app.domain.model.Test;
+import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.util.*;
+
+import static java.util.Calendar.SUNDAY;
 
 public class PerformanceUI implements Runnable{
     private PerformanceController pc;
@@ -35,7 +39,11 @@ public class PerformanceUI implements Runnable{
                     boolean dates;
                     Date beginningDate=null;
                     Date endDate=null;
+                    int i;
                     do{
+                        i=1;
+
+                        System.out.println("Please insert the dates so we can only have a week to validate.");
                         dates=true;
                         String beginningDateS=Utils.readLineFromConsole("Please insert the beginning date:");
                         SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
@@ -50,19 +58,103 @@ public class PerformanceUI implements Runnable{
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
-                        endDate.setHours(23);
-                        endDate.setMinutes(59);
-                        endDate.setSeconds(59);
+                        beginningDate.setHours(Constants.MIN_HORAS);
+                        endDate.setHours(Constants.MAX_HORAS);
                         if(endDate.before(beginningDate)){
                             dates=false;
                             System.out.println("There was a mistake while typing the dates, try again");
                         }
-                    }while(!dates);
-                    System.out.println(endDate);
+                        Date beginningDateAux=beginningDate;
+                        if(beginningDateAux.getDate()!=endDate.getDate()||beginningDateAux.getMonth()!= endDate.getMonth()||beginningDateAux.getYear()!=endDate.getYear()){
+                            do{
+                                beginningDateAux.setDate(beginningDateAux.getDate()+1);
+                                i++;
+                            }while(beginningDateAux.getDate()!=endDate.getDate()||beginningDateAux.getMonth()!= endDate.getMonth()||beginningDateAux.getYear()!=endDate.getYear());
+                        }
+                    }while(!dates||i!=7);
                     System.out.println(String.format("Number of clients: %d",pc.getAllClients()));
                     System.out.println(String.format("Number of tests waiting for analysis: %d",pc.getAllTestsWaitResult(beginningDate, endDate)));
                     System.out.println(String.format("Number of tests waiting for diagnosis: %d",pc.getAllTestsWaitDiagnosis(beginningDate, endDate)));
                     System.out.println(String.format("Number of tests performed: %d",pc.getAllTestsValidated(beginningDate, endDate)));
+                    List<Date> dateListAux = Utils.getDays(endDate,i);
+                    List<Date> dateList=new ArrayList<>();
+                    for(Date date:dateListAux){
+                        LocalDate d =Utils.convertToLocalDateViaInstant(date);
+                        if(!d.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
+                            date.setHours(Constants.MIN_HORAS);
+                            dateList.add(date);
+                        }
+                    }
+                    int [] seq1 = new int[144];
+                    int [] seq2 = new int[144];
+                    int [] seq = new int [144];
+                    Date aux=beginningDate;
+                    Date aux1=beginningDate;
+                    for(int j=0;j<seq.length;j++){
+                        if(aux.getHours()!=Constants.MAX_HORAS){
+                            aux=beginningDate;
+                            beginningDate.setMinutes(beginningDate.getMinutes()+Constants.INTERVALO);
+                            seq1[j]=pc.getAllTestsWaitResult(aux,beginningDate);
+                            seq2[j]=pc.getAllTestsWaitDiagnosis(aux,beginningDate);
+                        }else{
+
+                        }
+                    }
+                    for(int j=0;j<seq.length;j++){
+                        if(j<24){
+                            aux=dateList.get(0);
+                            aux1.setMinutes(beginningDate.getMinutes()+Constants.INTERVALO);
+                            seq1[j]=pc.getAllTestsWaitResult(aux,aux1);
+                            seq2[j]=pc.getAllTestsWaitDiagnosis(aux,aux1);
+                            seq[j]=seq1[j]-seq2[j];
+                        }else if(j>23&&j<48){
+                            aux=dateList.get(1);
+                            aux1.setMinutes(beginningDate.getMinutes()+Constants.INTERVALO);
+                            seq1[j]=pc.getAllTestsWaitResult(aux,aux1);
+                            seq2[j]=pc.getAllTestsWaitDiagnosis(aux,aux1);
+                            seq[j]=seq1[j]-seq2[j];
+                        }else if(j>47&&j<72){
+                            aux=dateList.get(2);
+                            aux1.setMinutes(beginningDate.getMinutes()+Constants.INTERVALO);
+                            seq1[j]=pc.getAllTestsWaitResult(aux,aux1);
+                            seq2[j]=pc.getAllTestsWaitDiagnosis(aux,aux1);
+                            seq[j]=seq1[j]-seq2[j];
+                        }else if(j>71&&j<96){
+                            aux=dateList.get(3);
+                            aux1.setMinutes(beginningDate.getMinutes()+Constants.INTERVALO);
+                            seq1[j]=pc.getAllTestsWaitResult(aux,aux1);
+                            seq2[j]=pc.getAllTestsWaitDiagnosis(aux,aux1);
+                            seq[j]=seq1[j]-seq2[j];
+                        }else if(j>95&&j<120){
+                            aux=dateList.get(4);
+                            aux1.setMinutes(beginningDate.getMinutes()+Constants.INTERVALO);
+                            seq1[j]=pc.getAllTestsWaitResult(aux,aux1);
+                            seq2[j]=pc.getAllTestsWaitDiagnosis(aux,aux1);
+                            seq[j]=seq1[j]-seq2[j];
+                        }else{
+                            aux=dateList.get(5);
+                            aux1.setMinutes(beginningDate.getMinutes()+Constants.INTERVALO);
+                            seq1[j]=pc.getAllTestsWaitResult(aux,aux1);
+                            seq2[j]=pc.getAllTestsWaitDiagnosis(aux,aux1);
+                            seq[j]=seq1[j]-seq2[j];
+                        }
+                    }
+                    List<String> option2 = new ArrayList<>();
+                    option2.add("Benchmark Algorithm");
+                    option2.add("BruteForce Algorithm");
+                    int option3 = 0;
+                    try {
+                        option3 = Utils.showAndSelectIndex(option2,"\nSelect an option from the list.");
+                    } catch (Exception e){
+                        System.out.println("Invalid option");
+                        return;
+                    }
+                    if(option3==0){
+                        System.out.println(Arrays.toString(pc.getSubsequenceBenchmark(seq)));
+                    }else if(option3==1){
+                        System.out.println(Arrays.toString(pc.getSubsequenceBruteForce(seq)));
+                    }
+
                 }
             }
         }while (option!=-1);
