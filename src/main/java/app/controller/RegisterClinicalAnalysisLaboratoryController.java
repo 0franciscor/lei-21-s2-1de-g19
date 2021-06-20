@@ -53,6 +53,7 @@ public class RegisterClinicalAnalysisLaboratoryController {
 
     public boolean registerClinicalAnalysisLaboratory(String name, String address, String phoneNumber, String TIN, String labID, List<TestType> TestTypesList) {
         this.cal = calStore.registerClinicalAnalysisLaboratory(name, address, phoneNumber, TIN, labID, TestTypesList);
+
         return true;
     }
 

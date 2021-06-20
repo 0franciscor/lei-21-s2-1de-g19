@@ -6,6 +6,7 @@ import app.domain.model.Test;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -13,7 +14,7 @@ import java.util.List;
  *
  * @author Alexandre Soares
  */
-public class EmpStore {
+public class EmpStore implements Serializable {
     /**
      * The Employee Store list.
      */
@@ -43,7 +44,7 @@ public class EmpStore {
     public boolean saveEmployee(Employee emp) {
         if (validateEmployee(emp)) {
             empList.add(emp);
-            guardarFicheiroBinario(empList);
+            guardarFicheiroBinario(this);
             return true;
         } else
             return false;
@@ -70,13 +71,12 @@ public class EmpStore {
     public List<Employee> getEmpList() {
         return empList;
     }
-    public boolean guardarFicheiroBinario(List<Employee> empList) {
+    public boolean guardarFicheiroBinario(EmpStore store) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(
-                    new FileOutputStream("employeeStore.bin"));
+                    new FileOutputStream("empStore.bin"));
             try {
-                for (Employee c : empList)
-                    out.writeObject(c);
+                out.writeObject(store);
                 return true;
             } finally {
                 out.close();
