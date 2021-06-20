@@ -235,7 +235,7 @@ public class TestStore {
             if (test.getCode().equalsIgnoreCase(code))
                 return test;
         }
-        return new Test();
+        return null;
     }
 
     /**
