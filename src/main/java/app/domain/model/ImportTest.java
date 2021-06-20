@@ -59,9 +59,9 @@ public class ImportTest {
         List<List> lists = new ArrayList<>();
 
         List<String> testsBeingImported = new ArrayList<>();
-        List<Integer> testsFailedImport = new ArrayList<>();
+        List<String> testsFailedImport = new ArrayList<>();
 
-        int numTeste = 0;
+        int numTeste = 1;
         String linhaFicheiro = bufferedReader.readLine();
         while(linhaFicheiro != null){
 
@@ -71,7 +71,7 @@ public class ImportTest {
                 testsBeingImported.add(beingImported);
             } catch (Exception e){
                 System.out.println("There was an error when importing the test");
-                testsFailedImport.add(numTeste);
+                testsFailedImport.add(String.valueOf(numTeste));
             }
             numTeste++;
             linhaFicheiro = bufferedReader.readLine();

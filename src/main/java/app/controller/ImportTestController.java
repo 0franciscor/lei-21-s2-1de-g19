@@ -17,7 +17,7 @@ public class ImportTestController {
     public List<List> importFromFile(String pathName) throws IOException{
         List<List> testsImportSuccessList;
 
-        boolean fileExists = importTest.getFile("src\\" + pathName);
+        boolean fileExists = importTest.getFile(pathName);
 
         if(fileExists){
             testsImportSuccessList = importTest.readListFromCSV();

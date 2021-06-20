@@ -19,11 +19,11 @@ public class ImportTestUI implements Runnable{
     }
 
    public void run(){
-        System.out.println("\n\n");
+        System.out.println("\nImport Test Section:\n\n");
         String pathName;
         do{
             pathName = Utils.readLineFromConsole("Please insert the name of the file.");
-        }while(!new File("src\\" + pathName).exists());
+        }while(!new File(pathName).exists());
 
         List<List> receivedList;
         try {
@@ -36,15 +36,13 @@ public class ImportTestUI implements Runnable{
         List<String> successList = receivedList.get(0);
         List<String> insuccessList = receivedList.get(1);
 
+       System.out.println("The following tests were created successfully:\n\n");
         for(String string : successList)
             System.out.println(string);
 
-        TestStore testStore = App.getInstance().getCompany().getTestStore();
-
-
         System.out.println("Number of the tests which were not imported:");
         for(String string : insuccessList)
-            System.out.println(String.valueOf(string));
+            System.out.println("Test" + string);
 
     }
 }
