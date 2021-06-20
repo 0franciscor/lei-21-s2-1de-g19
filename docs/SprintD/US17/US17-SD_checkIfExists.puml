@@ -1,0 +1,166 @@
+@startuml
+autonumber
+
+title **SD_checkIfExists**
+
+participant ":ImportTest" as ImportTest
+participant "testsBeingImported: List<String>" as testsBeingImported
+participant "lists : List<List>" as lists
+participant ":Company" as Company
+participant "stringList: List<String>" as stringList
+participant "store: ClientStore" as ClientStore
+participant "client : Client" as Client
+participant "store: ClinicalAnalysisLaboratoryStore" as CALStore
+participant "store: ParameterCategoryStore" as ParameterCategoryStore
+participant "store: ParameterStore" as ParameterStore
+participant "store: TestTypeStore" as TestTypeStore
+participant "store: TestStore" as TestStore
+participant "parameterCategories: List<ParameterCategory>" as parameterCategoryList
+participant "parameter : Parameter" as Parameter
+participant "tesParameter: TestParameter" as TestParameter
+participant "testParameters: List<TestParameter>" as testParameterList
+participant "test: Test" as Test
+participant "testType: TestType " as TestType
+
+[o-> ImportTest : readListFromCSV()
+activate ImportTest
+
+loop for each line present on the file
+
+ImportTest -> ImportTest ++: beingImported = checkIfExists()
+
+activate ImportTest
+
+
+ImportTest -> ImportTest ++: client = checkIfClientExists(conteudoClient[])
+ImportTest -> Company : store=getClientStore()
+activate Company
+deactivate Company
+ImportTest -> ClientStore : client = getClient(conteudoClient[2]))
+
+activate ClientStore
+deactivate ClientStore
+alt the client is null
+ImportTest --> Client : client = create(citizenID, nhsID, birthDate, sex, TIN, phoneNumber, email, name, address)
+activate Client
+deactivate Client
+end
+
+ImportTest -> ClientStore : saveClient(client)
+activate ClientStore
+deactivate ClientStore
+
+
+deactivate ImportTest
+
+
+ImportTest -> ImportTest ++: checkIfLabExists(ID)
+ImportTest -> Company : store=getClinicalAnalysisLaboratoryStore()
+activate Company
+deactivate Company
+ImportTest -> CALStore : getClinicalAnalysisLaboratoryByID(ID)
+activate CALStore
+deactivate CALStore
+deactivate ImportTest
+
+ImportTest -> ImportTest ++: testType = checkIfTestTypeExists(code)
+ImportTest -> Company : store=getTestTypeStore()
+activate Company
+deactivate Company
+ImportTest -> TestTypeStore : getTestTypeByCode(code)
+activate TestTypeStore
+deactivate TestTypeStore
+deactivate ImportTest
+
+
+loop for each category present on the csv file
+ImportTest -> ImportTest ++: category = checkIfCategoryExists(name)
+ImportTest -> Company : store=getParameterCategoryStore()
+activate Company
+deactivate Company
+ImportTest -> ParameterCategoryStore : getParameterCategoryByName(name)
+activate ParameterCategoryStore
+deactivate ParameterCategoryStore
+deactivate ImportTest
+
+
+ImportTest -> parameterCategoryList : add(category)
+activate parameterCategoryList
+deactivate parameterCategoryList
+end
+
+
+
+loop for each parameter present on the csv file
+ImportTest -> ImportTest ++: testParameter = checkIfTestParameterExists(result, numCategoria, numParameter, testType)
+ImportTest -> Company : store=getParameterStore()
+activate Company
+deactivate Company
+ImportTest -> ParameterStore : parameter = getParameterByCode(code)
+activate ParameterStore
+deactivate ParameterStore
+
+ImportTest -> Parameter : code = getCode()
+activate Parameter
+deactivate Parameter
+
+ImportTest -> TestParameter : testParameter = create(code)
+deactivate ImportTest
+
+ImportTest -> testParameterList : add(testParameter)
+activate testParameterList
+deactivate testParameterList
+end
+
+
+
+
+
+ImportTest -> ImportTest ++: testExists = checkIfTestExists(testCode, nhsCode)
+ImportTest -> Company : store=getTestStore()
+activate Company
+deactivate Company
+ImportTest -> TestStore : getTestByCode(testCode)
+activate TestStore
+deactivate TestStore
+deactivate ImportTest
+
+
+deactivate ImportTest
+deactivate ImportTest
+
+
+ImportTest -> ImportTest ++: addTest(client, parameterCategoryList, testParameterList, testType, code, nhsCode, existsTest, \nexistsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate)
+
+ImportTest -> Company : store = getTestStore()
+activate Company
+deactivate Company
+
+ImportTest -> TestStore : createTest(TestType, parameters, parameterCategories, TIN, nhsCode, existsTest, registrationDateTime, collectDateTime, chemicalAnalysisDate, diagnosisDateTime, validationDateTime)
+activate TestStore
+
+TestStore --> Test : create(TestType, parameters, parameterCategories, TIN, nhsCode, existsTest, registrationDateTime, \ncollectDateTime, chemicalAnalysisDate, diagnosisDateTime, validationDateTime)
+activate Test
+note over Test : The test's code and Barcodes and Report are generated inside the Test's constructor.
+deactivate Test
+deactivate TestStore
+
+
+ImportTest -> TestStore : saveTest(Test)
+activate TestStore
+deactivate TestStore
+
+ImportTest -> testsBeingImported : add(beingImported)
+activate testsBeingImported
+deactivate testsBeingImported
+
+deactivate ImportTest
+
+end
+
+ImportTest -> lists : add(testsBeingImported)
+activate lists
+deactivate lists
+
+
+@enduml
