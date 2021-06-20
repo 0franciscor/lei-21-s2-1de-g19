@@ -141,7 +141,7 @@ public class NHSReport {
 
         // T STUDENT
         TDistribution td= new TDistribution(degreeFreedomErro);
-        double alphaTD =(1 - sigLevel/100)/2;
+        double alphaTD =(sigLevel/100)/2;
         double tStudent;
         if(alphaTD> 0.5) {
             tStudent = td.inverseCumulativeProbability(alphaTD);
@@ -295,7 +295,7 @@ public class NHSReport {
 
         // T STUDENT
         TDistribution td= new TDistribution(multilinearRegression.degreeFreedomErro());
-        double alphaTD =(1 - sigLevel/100)/2;
+        double alphaTD =(sigLevel/100)/2;
         double tStudent;
         if(alphaTD> 0.5) {
             tStudent = td.inverseCumulativeProbability(alphaTD);
