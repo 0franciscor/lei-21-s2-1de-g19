@@ -68,16 +68,16 @@ deactivate ":SendReportController"
 
 
 else the user chooses multilinear regression
-":SendReportUI" -> ":SendReportController" : MultilinearRegression(sigLevel,confLevel, hypTest)
+":SendReportUI" -> ":SendReportController" : MultilinearRegression(sigLevel,confLevel)
 activate ":SendReportController"
 
 
-ref over ":SendReportController" : SD_MultilinearRegression(sigLevel, confLevel, hypTest)
+ref over ":SendReportController" : SD_MultilinearRegression(sigLevel, confLevel)
 
-":SendReportController" -> ":Company" : report = generateNHSReport(sigLevel,confLevel, hypTest)
+":SendReportController" -> ":Company" : report = generateNHSReport(sigLevel,confLevel)
 activate ":Company"
 create "reportMultilinear : NHSReport"
-":Company" --> "reportMultilinear : NHSReport" : create(sigLevel,confLevel, hypTest)
+":Company" --> "reportMultilinear : NHSReport" : create(sigLevel,confLevel)
 deactivate ":Company"
 
 
