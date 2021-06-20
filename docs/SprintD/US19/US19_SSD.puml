@@ -1,0 +1,9 @@
+@startuml
+
+autonumber
+actor "Time" as A
+activate A
+A -> System ++: (if Time = 6 AM) send daily report to NHS
+System --> A --: report generated and sent
+
+@enduml

@@ -26,6 +26,7 @@ public class NHSReport {
      */
     private double confLevel;
 
+
     /**
      * The chosen hypothesis test.
      */
@@ -48,6 +49,7 @@ public class NHSReport {
      *
      * The NHSReport constructor.
      */
+
     public NHSReport(double sigLevel, double confLevel, boolean hypTest){
 
         this.sigLevel = sigLevel;
@@ -79,7 +81,7 @@ public class NHSReport {
      *
      * @return all the data needed to generate a report.
      */
-    public String calculateData(double[] x, double[] y, List<Date> lstDateExceptSundays){
+    public String calculateDataLinear(double[] x, double[] y, List<Date> lstDateExceptSundays){
 
         this.linearRegression = new LinearRegression(x,y);
 
@@ -285,7 +287,7 @@ public class NHSReport {
      *
      * @return all the data needed to generate a report.
      */
-    public String calculateData (double[][] BiarrayX, double[] y, List<Date> lstDateExceptSundays){
+    public String calculateDataMultiLinear(double[][] BiarrayX, double[] y, List<Date> lstDateExceptSundays){
 
         this.multilinearRegression = new MultilinearRegression(BiarrayX,y);
 

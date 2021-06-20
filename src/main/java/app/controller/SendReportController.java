@@ -8,7 +8,6 @@ import auth.domain.store.TestStore;
 import com.nhs.report.Report2NHS;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -121,7 +120,7 @@ public class SendReportController {
 
         NHSReport report = company.generateNHSReport(sigLevel, confLevel, hypTest);
 
-        this.data = report.calculateData(arrayX, arrayY, lstDateExceptSundays);
+        this.data = report.calculateDataLinear(arrayX, arrayY, lstDateExceptSundays);
 
     }
 
@@ -149,7 +148,7 @@ public class SendReportController {
 
         NHSReport report = company.generateNHSReport(sigLevel, confLevel);
 
-        this.data = report.calculateData(BiarrayX, arrayY, lstDateExceptSundays);
+        this.data = report.calculateDataMultiLinear(BiarrayX, arrayY, lstDateExceptSundays);
 
 
     }

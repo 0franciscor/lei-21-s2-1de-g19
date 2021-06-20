@@ -1,9 +1,14 @@
 @startuml
+'https://plantuml.com/sequence-diagram
 
 autonumber
-actor "Timer" as A
-activate A
-A -> System ++: send daily
-System --> A --: shows the list of analyzed tests
+activate Time
 
+Time -> SendNHSReportTimerTask ++: run()
+alt if regressionModel = Linear in config.properties
+SendNHSReportTimerTask -> NHSReport: calculateDataLinear()
+else if regressionModel = MultiLinear in config.properties
+end SendNHSReportTimerTask -> NHSReport: calculateDataMultiLinear()
+
+deactivate SendNHSReportTimerTask
 @enduml
