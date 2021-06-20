@@ -6,7 +6,6 @@ import app.domain.model.Test;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  *
  * @author Eduardo Gonçalves
  */
-public class ClientStore implements Serializable {
+public class ClientStore {
 
     /**
      * List of clients.

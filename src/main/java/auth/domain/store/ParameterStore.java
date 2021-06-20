@@ -9,7 +9,6 @@ import auth.mappers.dto.ParameterCategoryDto;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ import java.util.List;
  *
  * @author Rita Lello
  */
-public class ParameterStore implements Serializable {
+public class ParameterStore {
 
     /**
      * The store's parameters list.
@@ -58,7 +57,7 @@ public class ParameterStore implements Serializable {
     public boolean saveParameter(Parameter parameter){
         if(parameter!=null&&validate(parameter)){
             add(parameter);
-            guardarFicheiroBinario(this);
+            guardarFicheiroBinario(parameterStoreList);
             return true;
         }
         return false;
@@ -135,12 +134,13 @@ public class ParameterStore implements Serializable {
 
         return null;
     }
-    public boolean guardarFicheiroBinario(ParameterStore store) {
+    public boolean guardarFicheiroBinario(List<Parameter> parameterList) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(
                     new FileOutputStream("parameterStore.bin"));
             try {
-                out.writeObject(store);
+                for (Parameter c : parameterList)
+                    out.writeObject(c);
                 return true;
             } finally {
                 out.close();

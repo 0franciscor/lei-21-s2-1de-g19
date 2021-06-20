@@ -19,7 +19,7 @@ import java.util.*;
  *
  * @author Eduardo Gonçalves
  */
-public class TestStore implements Serializable {
+public class TestStore {
 
     /**
      * List of tests.
@@ -36,7 +36,6 @@ public class TestStore implements Serializable {
      */
     public TestStore (){
         this.TestList = new ArrayList<>();
-
     }
 
     /**
@@ -65,7 +64,7 @@ public class TestStore implements Serializable {
         if (hasTest(test)){
             addTest(test);
             test.updateTestStatus();
-            guardarFicheiroBinario(this);
+            guardarFicheiroBinario(this.TestList);
             return true;
         }
         return false;
@@ -408,12 +407,13 @@ public class TestStore implements Serializable {
         }
         return meanAge;
     }
-    public boolean guardarFicheiroBinario(TestStore store) {
+    public boolean guardarFicheiroBinario(List<Test> testList) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(
                     new FileOutputStream("testStore.bin"));
             try {
-                out.writeObject(store);
+                for (Test c : testList)
+                out.writeObject(c);
                 return true;
             } finally {
                 out.close();
@@ -422,5 +422,4 @@ public class TestStore implements Serializable {
             return false;
         }
     }
-
 }

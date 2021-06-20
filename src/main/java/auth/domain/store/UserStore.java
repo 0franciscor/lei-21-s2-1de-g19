@@ -4,9 +4,6 @@ import auth.domain.model.Email;
 import auth.domain.model.Password;
 import auth.domain.model.User;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -27,10 +24,8 @@ public class UserStore {
     public boolean add(User user)
     {
         if (user != null) {
-            if (!exists(user)) {
-                this.store.add(user);
-                return true;
-            }
+            if (!exists(user))
+                return this.store.add(user);
         }
         return false;
     }
@@ -73,5 +68,4 @@ public class UserStore {
     {
         return this.store.contains(user);
     }
-
 }

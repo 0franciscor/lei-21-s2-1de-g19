@@ -2,21 +2,16 @@ package auth;
 
 import auth.domain.model.User;
 import auth.domain.model.UserRole;
-import auth.domain.store.ReportStore;
 import auth.domain.store.UserRoleStore;
 import auth.domain.store.UserStore;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.Optional;
 
 /**
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
-public class AuthFacade implements Serializable {
+public class AuthFacade {
     private UserSession userSession;
 
     private UserRoleStore roles ;
@@ -33,14 +28,12 @@ public class AuthFacade implements Serializable {
     public boolean addUserRole(String id, String description)
     {
         UserRole role = this.roles.create(id, description);
-        guardarFicheiroBinario(this);
         return this.roles.add(role);
     }
 
     public boolean addUser(String name, String email, String pwd)
     {
         User user = this.users.create(name, email, pwd);
-        guardarFicheiroBinario(this);
         return this.users.add(user);
     }
 
@@ -52,7 +45,6 @@ public class AuthFacade implements Serializable {
 
         User user = this.users.create(name,email,pwd);
         user.addRole(roleResult.get());
-        guardarFicheiroBinario(this);
         return this.users.add(user);
     }
 
@@ -65,7 +57,6 @@ public class AuthFacade implements Serializable {
             if (roleResult.isPresent())
                 user.addRole(roleResult.get());
         }
-        guardarFicheiroBinario(this);
 
         return this.users.add(user);
     }
@@ -96,20 +87,6 @@ public class AuthFacade implements Serializable {
     public UserSession getCurrentUserSession()
     {
         return this.userSession;
-    }
-    public boolean guardarFicheiroBinario(AuthFacade store) {
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(
-                    new FileOutputStream("authFacadeData.bin"));
-            try {
-                out.writeObject(store);
-                return true;
-            } finally {
-                out.close();
-            }
-        } catch (IOException ex) {
-            return false;
-        }
     }
 
 }

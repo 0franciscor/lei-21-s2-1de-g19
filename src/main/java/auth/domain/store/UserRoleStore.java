@@ -2,9 +2,6 @@ package auth.domain.store;
 
 import auth.domain.model.UserRole;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -25,10 +22,8 @@ public class UserRoleStore {
     public boolean add(UserRole role)
     {
         if (role != null) {
-            if (!exists(role)) {
-                this.store.add(role);
-                return true;
-            }
+            if (!exists(role))
+                return this.store.add(role);
         }
         return false;
     }
@@ -60,5 +55,4 @@ public class UserRoleStore {
     {
         return this.store.contains(role);
     }
-
 }

@@ -24,7 +24,6 @@ public class Main {
     {
         try
         {
-
             SendNHSReportTimerTask task1 = new SendNHSReportTimerTask();
             Timer scheduler = new Timer();
             Date date = new Date();
