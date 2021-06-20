@@ -4,6 +4,10 @@ import app.domain.model.Company;
 import auth.domain.store.ClientStore;
 import auth.domain.store.TestStore;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 /**
  * Represents the Performance Controller.
  *
@@ -50,27 +54,27 @@ public class PerformanceController {
     }
 
     /**
-     * Calls the method from test store which returns how many tests waiting for result there are in the company
+     * Calls the method from test store which returns how many tests waiting for result there are in the company in the asked interval
      * @return the number of tests waiting for result
      */
-    public int getAllTestsWaitResult(){
-        return testStore.getCollectedTestsNumber();
+    public int getAllTestsWaitResult(Date beginning, Date end){
+        return testStore.getCollectedTestsNumber(beginning, end);
     }
 
     /**
-     * Calls the method from test store which returns how many tests waiting for diagnosis there are in the company
+     * Calls the method from test store which returns how many tests waiting for diagnosis there are in the company in the asked interval
      * @return the number of tests waiting for diagnosis
      */
-    public int getAllTestsWaitDiagnosis(){
-        return testStore.getAnalysedTestsNumber();
+    public int getAllTestsWaitDiagnosis(Date beginning, Date end){
+        return testStore.getAnalysedTestsNumber(beginning, end);
     }
 
     /**
-     * Calls the method from test store which returns how many performed tests there are in the company
+     * Calls the method from test store which returns how many tests there are in the company in the asked interval
      * @return the number of performed tests
      */
-    public int getAllTestsValidated(){
-        return testStore.getValidatedTestsNumber();
+    public int getAllTestsValidated(Date beginning, Date end){
+        return testStore.getValidatedTestsNumber(beginning, end);
     }
 
 }

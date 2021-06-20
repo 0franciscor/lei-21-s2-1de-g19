@@ -38,6 +38,15 @@ public class ExternalModuleCovid extends ExternalModule {
     }
 
     /**
+     * @param ParameterID that identifies a certain Parameter.
+     * @return the used metric
+     */
+    @Override
+    public String getMetric(String ParameterID){
+        return covidReferenceValues1API.usedMetric(ParameterID, 12345);
+    }
+
+    /**
      * @return a String containing information about the module.
      */
     @Override

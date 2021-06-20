@@ -101,7 +101,7 @@ public class TestTypeStore implements Serializable {
                 return tt;
             }
         }
-        return new TestType("NOT_FOUND", "NOT_FOUND", "NOT_FOUND.", null, null);
+        return null;
     }
 
     /**

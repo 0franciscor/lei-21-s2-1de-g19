@@ -17,6 +17,11 @@ public abstract class ExternalModule {
     public abstract ReferenceValue getReferenceValue(TestParameter testParameter);
 
     /**
+     * @return the used metric on a certain External Module.
+     */
+    public abstract String getMetric(String ParameterID);
+
+    /**
      * @return a String containing External Module information.
      */
     @Override

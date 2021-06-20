@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+ -> ":SendReportController" : MultilinearRegression(sigLevel,confLevel)
+activate ":SendReportController"
+
+
+":SendReportController" -> ":SendReportController" : i = 0
+activate ":SendReportController"
+deactivate ":SendReportController"
+
+loop for each date on the list1
+note over ":SendReportController" : a double array which is filled with the number of daily performed tests
+":SendReportController" -> ":store: TestStore" : dailyNumberTests[i] = getDailyPerformedTest(date)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+
+
+":SendReportController" -> ":SendReportController" ++: i = i+1
+deactivate ":SendReportController"
+end
+
+
+":SendReportController" -> ":Company" : store = getTestStore()
+activate ":Company"
+deactivate
+
+loop for each date of the list
+":SendReportController" -> ":store: TestStore" : lstAllTestWithResultCovid = getAllTestWithResultCovid(date)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+end
+
+
+
+":SendReportController" -> ":store: TestStore" : meanAge = getMeanAgeFromList (lstAllTestWithResultCovid)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+
+":SendReportController" -> ":store: TestStore" : BiarrayX = createBiarrayX (dailyNumberTests, meanAge)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+@enduml

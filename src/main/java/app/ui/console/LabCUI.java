@@ -19,6 +19,8 @@ public class LabCUI implements Runnable {
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Validate Tests", new ValidateTestUI()));
         options.add(new MenuItem("Consult historical tests from client", new ConsultTestDetailsByClientUI()));
+        options.add(new MenuItem("Company Performance",new PerformanceUI()));
+        options.add(new MenuItem("Import Tests From a .csv File", new ImportTestUI()));
 
 
         int option = 0;

@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+alt if the user chooses simple linear regression
+-> ":SendReportController" : SimpleLinearRegression(userIntention, sigLevel, confLevel, hypTest)
+activate ":SendReportController"
+
+alt if the user chooses daily number tests
+
+":SendReportController" -> ":SendReportController" : i = 0
+activate ":SendReportController"
+deactivate ":SendReportController"
+
+loop for each date on the list1
+note over ":SendReportController" : a double array which is filled with the number of daily performed tests
+":SendReportController" -> ":store: TestStore" : dailyNumberTests[i] = getDailyPerformedTest(date)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+
+
+":SendReportController" -> ":SendReportController" ++: i = i+1
+deactivate ":SendReportController"
+end
+
+else or mean age
+
+":SendReportController" -> ":Company" : store = getTestStore()
+activate ":Company"
+deactivate
+
+loop for each date of the list
+":SendReportController" -> ":store: TestStore" : lstAllTestWithResultCovid = getAllTestWithResultCovid(date)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+end
+
+
+
+
+
+
+":SendReportController" -> ":store: TestStore" : meanAge = getMeanAgeFromList (lstAllTestWithResultCovid)
+activate ":store: TestStore"
+deactivate ":store: TestStore"
+end
+@enduml

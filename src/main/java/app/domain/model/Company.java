@@ -10,7 +10,6 @@ import auth.mappers.ClientMapper;
 import auth.mappers.EmployeeMapper;
 import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.EmployeeDto;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileInputStream;
@@ -208,18 +207,28 @@ public class Company {
 
 
     /**
-
-     */
-
-    /**
      * @param sigLevel the significance level chosen by the user.
+     * @param confLevel the confidence level chosen by the user.
+     * @param hypTest the hypothesis test chosen by the user.
      *
      * Generates a covid-19 report that will be sent to the NHS.
      *
      * @return a NHSReport class
      */
-    public NHSReport generateNHSReport (double sigLevel){
-        return new NHSReport(sigLevel);
+    public NHSReport generateNHSReport (double sigLevel, double confLevel, boolean hypTest){
+        return new NHSReport(sigLevel, confLevel, hypTest);
+    }
+
+    /**
+     * @param sigLevel the significance level chosen by the user.
+     * @param confLevel the confidence level chosen by the user.
+     *
+     * Generates a covid-19 report that will be sent to the NHS.
+     *
+     * @return a NHSReport class
+     */
+    public NHSReport generateNHSReport (double sigLevel, double confLevel){
+        return new NHSReport(sigLevel, confLevel);
     }
     /*public Object lerDeFicheiroBinario (int opt) throws IOException, ClassNotFoundException {
         if (opt == 1) {
