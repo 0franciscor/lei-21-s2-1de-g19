@@ -3,6 +3,10 @@ package auth.domain.store;
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.TestType;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +16,7 @@ import java.util.List;
  *
  * @author Nuno Pinho (1190918)
  */
-public class ClinicalAnalysisLaboratoryStore {
+public class ClinicalAnalysisLaboratoryStore implements Serializable {
 
     /**
      * List which keeps all the ClinicalAnalysisLaboratory objects created in
@@ -52,7 +56,10 @@ public class ClinicalAnalysisLaboratoryStore {
      * Analysis Laboratory (true if successful, false if it can't be saved)
      */
     public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal) {
-        return addClinicalAnalysisLaboratory(cal);
+        addClinicalAnalysisLaboratory(cal);
+        guardarFicheiroBinario(this);
+        return true;
+
     }
 
     /**
@@ -111,5 +118,21 @@ public class ClinicalAnalysisLaboratoryStore {
     public List<ClinicalAnalysisLaboratory> getAllClinicalAnalysisLaboratories() {
         return ClinicalAnalysisLaboratoryList;
     }
+    public boolean guardarFicheiroBinario(ClinicalAnalysisLaboratoryStore store) {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("calStore.bin"));
+            try {
+
+                out.writeObject(store);
+                return true;
+            } finally {
+                out.close();
+            }
+        } catch (IOException ex) {
+            return false;
+        }
+    }
+
 
 }

@@ -23,7 +23,7 @@ public class App {
     {
         Properties props = getProperties();
         this.company = new Company(props.getProperty(Constants.PARAMS_COMPANY_DESIGNATION));
-        this.authFacade = this.company.getAuthFacade();
+        this.company.lerDeFicheiroBinario();
         bootstrap();
     }
 

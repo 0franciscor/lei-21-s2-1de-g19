@@ -8,6 +8,7 @@ import app.domain.model.TestType;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
  *
  * @author Francisco Redol (1201239)
  */
-public class TestTypeStore {
+public class TestTypeStore implements Serializable {
 
     /**
      * List which keeps all the TestType objects created in the store.
@@ -54,7 +55,7 @@ public class TestTypeStore {
      */
     public boolean saveTestType(TestType tt){
         addTestType(tt);
-        guardarFicheiroBinario(testTypeList);
+        guardarFicheiroBinario(this);
         return true;
     }
 
@@ -108,13 +109,12 @@ public class TestTypeStore {
     public List<TestType> getAllTestTypes(){
         return testTypeList;
     }
-    public boolean guardarFicheiroBinario(List<TestType> testtypeList) {
+    public boolean guardarFicheiroBinario(TestTypeStore store) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(
-                    new FileOutputStream("testStore.bin"));
+                    new FileOutputStream("testTypeStore.bin"));
             try {
-                for (TestType c : testtypeList)
-                    out.writeObject(c);
+                out.writeObject(store);
                 return true;
             } finally {
                 out.close();

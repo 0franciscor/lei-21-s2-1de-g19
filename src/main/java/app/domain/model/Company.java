@@ -12,8 +12,10 @@ import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.EmployeeDto;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -226,4 +228,99 @@ public class Company {
     public NHSReport generateNHSReport (double sigLevel, double confLevel){
         return new NHSReport(sigLevel, confLevel);
     }
+    public void lerDeFicheiroBinario ()  {
+        try {
+            FileInputStream fileInputStream = new FileInputStream("testTypeStore.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.testTypeStore = (TestTypeStore) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.clientstore = (ClientStore) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("calStore.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.calStore = (ClinicalAnalysisLaboratoryStore) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("parameterStore.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.parameterStore = (ParameterStore) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("parameterCategoryStore.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.parameterCategoryStore =  (ParameterCategoryStore) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("reportStore.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.reportStore = (ReportStore) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("empStore.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.employeeStore = (EmpStore) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("orgRoleList.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.roleList = (List<OrgRole>) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("testStore.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.testStore = (TestStore) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+        try {
+            FileInputStream fileInputStream = new FileInputStream("authFacadeData.bin");
+            ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+            this.authFacade = (AuthFacade) inputStream.readObject();
+            inputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error loading database.");
+        }
+    }
+
+
 }
+
