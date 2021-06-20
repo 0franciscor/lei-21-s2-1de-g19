@@ -55,6 +55,26 @@ public class TestStore {
     }
 
     /**
+     * @param client that ordered the test
+     * @param parameterCategoryList the test's list of Parameter Categories.
+     * @param testParameterList the test's list of Test Parameters.
+     * @param testType the test's Test Type.
+     * @param code the test's code.
+     * @param nhsCode the test's nhsCode.
+     * @param existsTest used to generate a new code.
+     * @param registerDate date.
+     * @param chemicalAnalysisDate date.
+     * @param diagnosisDate date.
+     * @param validationDate date.
+     * @return the success of the operation
+     * @throws Exception
+     */
+    public Test createTest(Client client, List<ParameterCategory> parameterCategoryList, List<TestParameter> testParameterList, TestType testType, String code, String nhsCode, boolean existsTest, Date registerDate, Date chemicalAnalysisDate, Date diagnosisDate, Date validationDate) throws Exception {
+
+        return new Test(client, parameterCategoryList, testParameterList, testType, code, nhsCode, existsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate);
+    }
+
+    /**
      * If the test does not belong to the test list adds it to that list, update the test status and returns true, otherwise returns false.
      *
      * @param test test to validate

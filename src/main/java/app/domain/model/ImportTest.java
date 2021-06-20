@@ -5,7 +5,10 @@ import app.domain.shared.ExternalModule;
 import auth.domain.store.*;
 
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ImportTest {
@@ -71,20 +74,25 @@ public class ImportTest {
 
     public void checkIfExists(String [] linhaSplit){
         Client client;
-        ClinicalAnalysisLaboratory clinicalAnalysisLaboratory;
         List<ParameterCategory> parameterCategoryList = new ArrayList<>();
         List<TestParameter> testParameterList = new ArrayList<>();
         TestType testType;
         boolean testExists;
+        Date registerDate = null;
+        Date chemicalAnalysisDate = null;
+        Date diagnosisDate = null;
+        Date validationDate = null;
 
-        String[] conteudoClient = new String[8];
-        for(int i = 3; i< 11; i++)
-            conteudoClient[i-3] = linhaSplit[i];
 
         try {
+
+            String[] conteudoClient = new String[8];
+            for(int i = 3; i< 11; i++)
+                conteudoClient[i-3] = linhaSplit[i];
+
             client = checkIfClientExists(conteudoClient);
 
-            clinicalAnalysisLaboratory = checkIfLabExists(linhaSplit[2]);
+            checkIfLabExists(linhaSplit[2]);
 
             testType = checkIfTestTypeExists(linhaSplit[11]);
 
@@ -114,6 +122,27 @@ public class ImportTest {
             }
 
             testExists = checkIfTestExists(linhaSplit[0], linhaSplit[1]);
+
+            int numIteracao = 0;
+            for(int i = linhaSplit.length-1; i>linhaSplit.length-5; i--){
+                switch(numIteracao){
+                    case 0:
+                        validationDate = checkIfDateExists(linhaSplit[i]);
+                        break;
+                    case 1:
+                        diagnosisDate = checkIfDateExists(linhaSplit[i]);
+                        break;
+                    case 2:
+                        chemicalAnalysisDate = checkIfDateExists(linhaSplit[i]);
+                        break;
+                    case 3:
+                        registerDate = checkIfDateExists(linhaSplit[i]);
+                        break;
+                }
+                numIteracao++;
+            }
+
+            addTest(client, parameterCategoryList, testParameterList, testType, linhaSplit[0], linhaSplit[1], testExists, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate);
 
         } catch (Exception e){
             System.out.println("The test that was currently being imported did not meet the necessary requisites for it to be stored. It has been ignored.");
@@ -147,14 +176,12 @@ public class ImportTest {
         }
     }
 
-    public ClinicalAnalysisLaboratory checkIfLabExists(String labID){
+    public void checkIfLabExists(String labID){
         ClinicalAnalysisLaboratoryStore clinicalAnalysisLaboratoryStore = company.getClinicalAnalysisLaboratoryStore();
         ClinicalAnalysisLaboratory clinicalAnalysisLaboratory = clinicalAnalysisLaboratoryStore.getClinicalAnalysisLaboratoryByID(labID);
 
         if(clinicalAnalysisLaboratory == null)
             throw new IllegalArgumentException("There is no Laboratory which corresponds to that name.");
-        else
-            return clinicalAnalysisLaboratory;
     }
 
     public ParameterCategory checkIfCategoryExists(String name){
@@ -221,6 +248,24 @@ public class ImportTest {
                 throw new IllegalArgumentException("The imported test must not have an equal Nhs code.");
             else
                 return true;
+    }
+
+    public Date checkIfDateExists(String date) throws ParseException {
+        if(date == null || date.isEmpty())
+            throw new IllegalArgumentException("A date is wrong.");
+        else {
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            Date dateReturn = formatter.parse(date);
+            return dateReturn;
+        }
+    }
+
+    public boolean addTest(Client client, List<ParameterCategory> parameterCategoryList, List<TestParameter> testParameterList, TestType testType, String code, String nhsCode, boolean existsTest, Date registerDate, Date chemicalAnalysisDate, Date diagnosisDate, Date validationDate) throws Exception {
+        TestStore testStore = new TestStore();
+
+        Test test = testStore.createTest(client, parameterCategoryList, testParameterList, testType, code, nhsCode, existsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate);
+
+        return testStore.saveTest(test);
     }
 
 

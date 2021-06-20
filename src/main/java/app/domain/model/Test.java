@@ -3,6 +3,7 @@ package app.domain.model;
 import app.controller.App;
 import app.domain.shared.ExternalModule;
 import auth.domain.store.ClientStore;
+import auth.domain.store.ReportStore;
 import net.sourceforge.barbecue.Barcode;
 import org.apache.commons.lang3.StringUtils;
 
@@ -147,6 +148,40 @@ public class Test implements Serializable {
         this.testParametersList = new ArrayList<>();
         this.state = Status.Registered;
         this.registrationDateTime = new Date();
+    }
+
+    /**
+     * @param client that ordered the test
+     * @param parameterCategoryList the test's list of Parameter Categories.
+     * @param testParameterList the test's list of Test Parameters.
+     * @param testType the test's Test Type.
+     * @param code the test's code.
+     * @param nhsCode the test's nhsCode.
+     * @param existsTest used to generate a new code.
+     * @param registerDate date.
+     * @param chemicalAnalysisDate date.
+     * @param diagnosisDate date.
+     * @param validationDate date.
+     */
+    public Test (Client client, List<ParameterCategory> parameterCategoryList, List<TestParameter> testParameterList, TestType testType, String code, String nhsCode, boolean existsTest, Date registerDate, Date chemicalAnalysisDate, Date diagnosisDate, Date validationDate) throws Exception {
+        this.client = client;
+        this.parameterCategories = parameterCategoryList;
+        this.testParametersList = testParameterList;
+        this.testType = testType;
+        checknhsCodeRules(nhsCode);
+        this.nhsCode = nhsCode;
+        if(existsTest)
+            generateCode();
+        else
+            this.code = code;
+        this.registrationDateTime = registerDate;
+        this.chemicalAnalysisDateTime = chemicalAnalysisDate;
+        this.validationDateTime = validationDate;
+        addAll(new APIBarcodeAdapter().generateBarcodes(1, true));
+        ReportStore reportStore = App.getInstance().getCompany().getReportStore();
+        reportStore.saveReport("NOT_AVAILABLE", code);
+        this.state = Status.Validated;
+
     }
 
     /**
