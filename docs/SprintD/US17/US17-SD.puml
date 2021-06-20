@@ -7,6 +7,8 @@ activate labC
 participant ":ImportTestUI" as ImportTestUI
 participant ":ImportTestController" as ImportTestController
 participant ":ImportTest" as ImportTest
+participant "testsBeingImported: List<String>" as testsBeingImported
+participant "lists : List<List>" as lists
 participant ":Company" as Company
 participant "stringList: List<String>" as stringList
 participant "store: ClientStore" as ClientStore
@@ -17,6 +19,7 @@ participant "store: ParameterStore" as ParameterStore
 participant "store: TestTypeStore" as TestTypeStore
 participant "store: TestStore" as TestStore
 participant "parameterCategories: List<ParameterCategory>" as parameterCategoryList
+participant "parameter : Parameter" as Parameter
 participant "tesParameter: TestParameter" as TestParameter
 participant "testParameters: List<TestParameter>" as testParameterList
 participant "test: Test" as Test
@@ -49,7 +52,9 @@ activate ImportTest
 
 
 loop for each line present on the file
-ImportTest -> ImportTest ++ : beingImported = checkIfExists()
+
+ImportTest -> ImportTest ++: beingImported = readLine()
+
 activate ImportTest
 
 
@@ -113,7 +118,7 @@ end
 
 
 loop for each parameter present on the csv file
-ImportTest -> ImportTest ++: checkIfTestParameterExists(result, numCategoria, numParameter, testType)
+ImportTest -> ImportTest ++: testParameter = checkIfTestParameterExists(result, numCategoria, numParameter, testType)
 ImportTest -> Company : store=getParameterStore()
 activate Company
 deactivate Company
@@ -121,7 +126,11 @@ ImportTest -> ParameterStore : parameter = getParameterByCode(code)
 activate ParameterStore
 deactivate ParameterStore
 
-ImportTest -> TestParameter : create()
+ImportTest -> Parameter : code = getCode()
+activate Parameter
+deactivate Parameter
+
+ImportTest -> TestParameter : testParameter = create(code)
 deactivate ImportTest
 
 ImportTest -> testParameterList : add(testParameter)
@@ -133,7 +142,7 @@ end
 
 
 
-ImportTest -> ImportTest ++: checkIfTestExists(testCode, nhsCode)
+ImportTest -> ImportTest ++: testExists = checkIfTestExists(testCode, nhsCode)
 ImportTest -> Company : store=getTestStore()
 activate Company
 deactivate Company
@@ -147,16 +156,16 @@ deactivate ImportTest
 deactivate ImportTest
 
 
-ImportTest -> ImportTest ++: addTest(client, parameterCategoryList, testParameterList, testType, code, nhsCode, \nexistsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate)
+ImportTest -> ImportTest ++: addTest(client, parameterCategoryList, testParameterList, testType, code, nhsCode, existsTest, \nexistsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate)
 
 ImportTest -> Company : store = getTestStore()
 activate Company
 deactivate Company
 
-ImportTest -> TestStore : createTest(TestType, parameters, parameterCategories, TIN, nhsCode, registrationDateTime, collectDateTime, chemicalAnalysisDate, diagnosisDateTime, validationDateTime)
+ImportTest -> TestStore : createTest(TestType, parameters, parameterCategories, TIN, nhsCode, existsTest, registrationDateTime, collectDateTime, chemicalAnalysisDate, diagnosisDateTime, validationDateTime)
 activate TestStore
 
-TestStore --> Test : create(TestType, parameters, parameterCategories, TIN, nhsCode, registrationDateTime, \ncollectDateTime, chemicalAnalysisDate, diagnosisDateTime, validationDateTime)
+TestStore --> Test : create(TestType, parameters, parameterCategories, TIN, nhsCode, existsTest, registrationDateTime, \ncollectDateTime, chemicalAnalysisDate, diagnosisDateTime, validationDateTime)
 activate Test
 note over Test : The test's code and Barcodes and Report are generated inside the Test's constructor.
 deactivate Test
@@ -167,16 +176,22 @@ ImportTest -> TestStore : saveTest(Test)
 activate TestStore
 deactivate TestStore
 
-
+ImportTest -> testsBeingImported : add(beingImported)
+activate testsBeingImported
+deactivate testsBeingImported
 
 deactivate ImportTest
-deactivate ImportTest
+
 end
+
+
+ImportTest -> lists : add(testsBeingImported)
+activate lists
+deactivate lists
+
 
 ImportTestUI --> labC : display a list of imported tests
 deactivate ImportTestController
 deactivate ImportTestUI
-
-
 
 @enduml
