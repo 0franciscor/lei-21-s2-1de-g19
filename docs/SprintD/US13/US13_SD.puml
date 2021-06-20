@@ -11,6 +11,7 @@ deactivate ConsultTestDetailsByClientUI
 LB -> ConsultTestDetailsByClientUI : selects order criteria
 activate ConsultTestDetailsByClientUI
 ConsultTestDetailsByClientUI -> ConsultTestDetailsByClientController : orderClients(criteria)
+
 activate ConsultTestDetailsByClientController
 ConsultTestDetailsByClientController -> Company : clientStore = getClientStore()
 activate Company
@@ -21,7 +22,26 @@ deactivate ClientStore
 ConsultTestDetailsByClientController -> ClientMapper  : clientListDto = toDTO(clientList)
 activate ClientMapper
 deactivate ClientMapper
-ConsultTestDetailsByClientController -> SortAlgorithmStore : clientListDtoOrdered = sort(criteria, clientListDto)
+ConsultTestDetailsByClientController -> SortAlgorithmStore ++ : clientListDtoOrdered = sort(criteria, clientListDto)
+
+SortAlgorithmStore -> SortAlgorithmStore ++ : sortAlgorithm = getAlgoritmo()
+deactivate SortAlgorithmStore
+alt if algorithm=app.domain.model.SortAlgorithm1 in config.properties
+alt if criteria = Name
+SortAlgorithmStore -> SortAlgorithm1 : showListByName(clientListDto)
+end
+alt if criteria = TIN
+SortAlgorithmStore -> SortAlgorithm1 : showListByTIN(clientListDto)
+end
+end
+alt if algorithm=app.domain.model.SortAlgorithm2 in config.properties
+alt if criteria = Name
+SortAlgorithmStore -> SortAlgorithm2 : showListByName(clientListDto)
+end
+alt if criteria = TIN
+SortAlgorithmStore -> SortAlgorithm2 : showListByTIN(clientListDto)
+end
+end
 activate SortAlgorithmStore
 deactivate SortAlgorithmStore
 deactivate ConsultTestDetailsByClientController
