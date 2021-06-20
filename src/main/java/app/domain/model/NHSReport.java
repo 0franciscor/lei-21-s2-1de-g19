@@ -198,7 +198,7 @@ public class NHSReport {
 
         // F-SNEDECOR
         FDistribution fd= new FDistribution(degreeFreedomRegressao,degreeFreedomErro);
-        double alphaFD= 1-sigLevel/100;
+        double alphaFD= sigLevel/100;
         double fSnedecor= fd.inverseCumulativeProbability(1- alphaFD);
 
         double tObs;
@@ -351,7 +351,7 @@ public class NHSReport {
 
         // F-SNEDECOR
         FDistribution fd= new FDistribution(multilinearRegression.degreeFreedomRegressao(),multilinearRegression.degreeFreedomErro());
-        double alphaFD= 1-sigLevel/100;
+        double alphaFD= sigLevel/100;
         double fSnedecor= fd.inverseCumulativeProbability(1- alphaFD);
 
         double tObs;
