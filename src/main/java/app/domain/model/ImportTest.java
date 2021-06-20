@@ -157,7 +157,7 @@ public class ImportTest {
             addTest(client, parameterCategoryList, testParameterList, testType, linhaSplit[0], linhaSplit[1], testExists, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate);
 
         } catch (Exception e){
-            throw new IllegalArgumentException("Error.");
+            System.out.println("The test that was currently being imported did not meet the necessary requisites for it to be stored. It has been ignored.");
         }
 
         return "The test with the Test Type" + testType +", and register date:" + registerDate + "chemical analysis date:" + chemicalAnalysisDate +
@@ -264,7 +264,7 @@ public class ImportTest {
     }
 
     public boolean addTest(Client client, List<ParameterCategory> parameterCategoryList, List<TestParameter> testParameterList, TestType testType, String code, String nhsCode, boolean existsTest, Date registerDate, Date chemicalAnalysisDate, Date diagnosisDate, Date validationDate) throws Exception {
-        TestStore testStore = company.getTestStore();
+        TestStore testStore = new TestStore();
 
         Test test = testStore.createTest(client, parameterCategoryList, testParameterList, testType, code, nhsCode, existsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate);
 
