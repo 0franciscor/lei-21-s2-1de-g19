@@ -4,8 +4,8 @@ import auth.mappers.dto.ClientDto;
 
 import java.util.List;
 
-public class SortAlgorithm1 {
-    public SortAlgorithm1() { }
+public class SortAlgorithm1 extends SortAlgorithm {
+    public SortAlgorithm1()  { }
     public List<ClientDto> showListByName  (List<ClientDto> clientListDto) {
         for (int a = 1; a < clientListDto.size(); a++) {
             for (int b = 0; b < clientListDto.size() - a; b++) {

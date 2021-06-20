@@ -24,7 +24,7 @@ public class SortAlgorithmStore {
         return null;
     }
 
-    public SortAlgorithm1 getAlgoritmo() throws IOException {
+    public SortAlgorithm getAlgoritmo() throws IOException {
         File configFile = new File("config.properties");
         InputStream inputStream = new FileInputStream(configFile);
         Properties properties = new Properties();
@@ -36,14 +36,14 @@ public class SortAlgorithmStore {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        SortAlgorithm1 sortAlgorithm1 = null;
+        SortAlgorithm sortAlgorithm = null;
         try {
-            sortAlgorithm1 = (SortAlgorithm1) class1.newInstance();
+            sortAlgorithm = (SortAlgorithm) class1.newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        return sortAlgorithm1;
+        return sortAlgorithm;
     }
 }

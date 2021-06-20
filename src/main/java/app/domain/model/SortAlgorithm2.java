@@ -4,7 +4,7 @@ import auth.mappers.dto.ClientDto;
 
 import java.util.List;
 
-public class SortAlgorithm2 {
+public class SortAlgorithm2 extends SortAlgorithm{
     public SortAlgorithm2() { }
 
     List<ClientDto> list;
