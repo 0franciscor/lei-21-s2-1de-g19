@@ -1,5 +1,7 @@
 package app.ui.console;
 
+import app.controller.App;
+import app.domain.model.Company;
 import app.ui.console.utils.Utils;
 
 import java.io.IOException;
@@ -19,6 +21,9 @@ public class MainMenuUI {
 
     public void run() throws IOException
     {
+        Company company = App.getInstance().getCompany();
+
+
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Do Login", new AuthUI()));
         options.add(new MenuItem("Know the Development Team",new DevTeamUI()));

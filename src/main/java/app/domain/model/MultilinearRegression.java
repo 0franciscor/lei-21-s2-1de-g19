@@ -11,6 +11,13 @@ public class MultilinearRegression {
 
     private double[][] xtxinv, betas;
 
+    /**
+     * Performs a multilinear regression on the data points (y[i], x[i][i]).
+     *
+     * @param  x the values of the predictor variable
+     * @param  y the corresponding values of the response variable
+     * @throws IllegalArgumentException if the lengths of the two arrays are not equal
+     */
     public MultilinearRegression(double[][]x,double[]y){
         if (x.length != y.length) {
             throw new IllegalArgumentException("array lengths are not equal");
@@ -74,76 +81,177 @@ public class MultilinearRegression {
         F=MQR/MQE;
     }
 
-    public double SQT(){
-        return SQT;
-    }
-
+    /**
+     * Returns the sum of squares error.
+     *
+     * @return the sum of squares error
+     */
     public double SQE(){
         return SQE;
     }
 
+    /**
+     * Returns the sum of squares regression.
+     *
+     * @return the sum of squares regression
+     */
     public double SQR(){
         return SQR;
     }
 
+    /**
+     * Returns the coefficient without association to the predictor variables.
+     *
+     * @return the coefficient without association to the predictor variables
+     *
+     */
     public double beta0(){
         return beta0;
     }
 
+    /**
+     * Returns the coefficient associated to the predictor variable x1.
+     *
+     * @return the coefficient associated to the predictor variable x1
+     *
+     */
     public double beta1(){
         return beta1;
     }
 
+    /**
+     * Returns the coefficient associated to the predictor variable x2.
+     *
+     * @return the coefficient associated to the predictor variable x2
+     *
+     */
     public double beta2(){
         return beta2;
     }
 
+    /**
+     * Returns the degree of freedom.
+     *
+     * @return the degree of freedom
+     *
+     */
     public double degreeFreedom(){
         return degreeFreedom;
     }
 
+    /**
+     * Returns the degree of freedom error.
+     *
+     * @return the degree of freedom error
+     *
+     */
     public double degreeFreedomErro(){
         return degreeFreedomErro;
     }
 
+    /**
+     * Returns the degree of freedom regression.
+     *
+     * @return the degree of freedom regression
+     *
+     */
     public double degreeFreedomRegressao(){
         return degreeFreedomRegressao;
     }
 
+    /**
+     * Returns the coefficient of determination R^2.
+     *
+     * @return the coefficient of determination R^2
+     *
+     */
     public double r2(){
         return r2;
     }
 
+    /**
+     * Returns the coefficient of determination R^2 adjusted.
+     *
+     * @return the coefficient of determination R^2 adjusted
+     *
+     */
     public double r2adj(){
         return r2adj;
     }
 
+    /**
+     * Returns the mean squared regression.
+     *
+     * @return the mean squared regression
+     *
+     */
     public double MQR(){
         return MQR;
     }
 
+    /**
+     * Returns the mean squared error.
+     *
+     * @return the mean squared error
+     *
+     */
     public double MQE(){
         return MQE;
     }
 
+    /**
+     * Returns the test statistic.
+     *
+     * @return test statistic
+     *
+     */
     public double F(){
         return F;
     }
 
+    /**
+     * returns the multiplication of the transposed matrix by the inverse matrix.
+     *
+     * @return the multiplication of the transposed matrix by the inverse matrix
+     *
+     */
     public double[][] xtxinv() {
         return xtxinv;
     }
 
+    /**
+     *  returns the regression coefficients.
+     *
+     * @return the regression coefficients
+     *
+     */
     public double [][] betas() {
         return betas;
     }
 
+
+    /**
+     * Returns the expected response y given the value of the predictor
+     * variable x1 and x2.
+     *
+     * @param  x1 the value of the predictor variable
+     * @param  x2 the value of the predictor variable
+     * @return the expected response y given the value of the predictor
+     *         variable x1 and x2
+     */
     public double predict (double x1, double x2){
         return beta2*x2 + beta1*x1 + beta0;
 
     }
 
 
+    /**
+     * Returns the matrix resulting from the multiplication of the received matrices as a parameter.
+     *
+     * @param  a matrix
+     * @param  b matrix
+     * @return the matrix resulting from the multiplication of the received matrices as a parameter.
+     */
     public double[][] multiplication(double[][] a, double[][] b) {
 
         if (a[0].length != b.length) throw new RuntimeException("Impossible to calculate.");

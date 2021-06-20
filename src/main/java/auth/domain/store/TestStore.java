@@ -1,11 +1,10 @@
 package auth.domain.store;
 
 import app.domain.model.*;
-import app.domain.shared.Constants;
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
-
+import javax.rmi.CORBA.Util;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +19,7 @@ import java.util.*;
  *
  * @author Eduardo Gonçalves
  */
-public class TestStore {
+public class TestStore implements Serializable {
 
     /**
      * List of tests.
@@ -37,6 +36,7 @@ public class TestStore {
      */
     public TestStore (){
         this.TestList = new ArrayList<>();
+
     }
 
     /**
@@ -55,26 +55,6 @@ public class TestStore {
     }
 
     /**
-     * @param client that ordered the test
-     * @param parameterCategoryList the test's list of Parameter Categories.
-     * @param testParameterList the test's list of Test Parameters.
-     * @param testType the test's Test Type.
-     * @param code the test's code.
-     * @param nhsCode the test's nhsCode.
-     * @param existsTest used to generate a new code.
-     * @param registerDate date.
-     * @param chemicalAnalysisDate date.
-     * @param diagnosisDate date.
-     * @param validationDate date.
-     * @return the success of the operation
-     * @throws Exception
-     */
-    public Test createTest(Client client, List<ParameterCategory> parameterCategoryList, List<TestParameter> testParameterList, TestType testType, String code, String nhsCode, boolean existsTest, Date registerDate, Date chemicalAnalysisDate, Date diagnosisDate, Date validationDate) throws Exception {
-
-        return new Test(client, parameterCategoryList, testParameterList, testType, code, nhsCode, existsTest, registerDate, chemicalAnalysisDate, diagnosisDate, validationDate);
-    }
-
-    /**
      * If the test does not belong to the test list adds it to that list, update the test status and returns true, otherwise returns false.
      *
      * @param test test to validate
@@ -85,7 +65,7 @@ public class TestStore {
         if (hasTest(test)){
             addTest(test);
             test.updateTestStatus();
-            guardarFicheiroBinario(this.TestList);
+            guardarFicheiroBinario(this);
             return true;
         }
         return false;
@@ -235,7 +215,7 @@ public class TestStore {
             if (test.getCode().equalsIgnoreCase(code))
                 return test;
         }
-        return null;
+        return new Test();
     }
 
     /**
@@ -306,10 +286,10 @@ public class TestStore {
      *
      * @return the number of tests waiting for result
      */
-    public int getCollectedTestsNumber(Date beginning, Date end){
+    public int getCollectedTestsNumber(){ //nao tem atenção à data
         List<Test> collectedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Registered.toString())&&t.getRegistrationDateTime().after(beginning)&&t.getRegistrationDateTime().before(end)){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Registered.toString())){
                 collectedTest.add(t);
             }
         }
@@ -321,10 +301,10 @@ public class TestStore {
      *
      * @return the number of tests waiting for diagnosis
      */
-    public int getAnalysedTestsNumber(Date beginning, Date end){
+    public int getAnalysedTestsNumber(){ //nao tem atenção à data
         List<Test> analysedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString())&&t.getChemicalAnalysisDateTime().after(beginning)&&t.getChemicalAnalysisDateTime().before(end)){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Analyzed.toString())){
                 analysedTest.add(t);
             }
         }
@@ -336,10 +316,10 @@ public class TestStore {
      *
      * @return the number of performed tests
      */
-    public int getValidatedTestsNumber(Date beginning, Date end){
+    public int getValidatedTestsNumber(){ //nao tem atenção à data
         List<Test> validatedTest=new ArrayList<>();
         for(Test t: TestList){
-            if(t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())&&t.getValidationDateTime().after(beginning)&&t.getValidationDateTime().before(end)){
+            if(t.getStatus().equalsIgnoreCase(Test.Status.Validated.toString())){
                 validatedTest.add(t);
             }
         }
@@ -427,15 +407,13 @@ public class TestStore {
             meanAge[i] = mediaCliente / lstAllTestWithResultCovid[i].size();
         }
         return meanAge;
-
     }
-    public boolean guardarFicheiroBinario(List<Test> testList) {
+    public boolean guardarFicheiroBinario(TestStore store) {
         try {
             ObjectOutputStream out = new ObjectOutputStream(
                     new FileOutputStream("testStore.bin"));
             try {
-                for (Test c : testList)
-                out.writeObject(c);
+                out.writeObject(store);
                 return true;
             } finally {
                 out.close();
@@ -445,15 +423,4 @@ public class TestStore {
         }
     }
 
-    public double[][] createBiarrayX (double[] dailyNumberTests, double[] meanAge){
-
-        double[][] BiarrayX = new double[dailyNumberTests.length][Constants.NUM_COLUNAS];
-
-        for (int i=0; i<dailyNumberTests.length; i++){
-            BiarrayX[i][0] = 1;
-            BiarrayX[i][1] = dailyNumberTests[i];
-            BiarrayX[i][2] = meanAge[i];
-        }
-        return BiarrayX;
-    }
 }
