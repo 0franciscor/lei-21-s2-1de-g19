@@ -12,10 +12,7 @@ import auth.mappers.dto.ClientDto;
 import auth.mappers.dto.EmployeeDto;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +20,7 @@ import java.util.List;
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
-public class Company {
+public class Company implements Serializable {
 
     private String designation;
     private AuthFacade authFacade;
@@ -236,7 +233,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("clientStore.bin");
@@ -245,7 +241,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("calStore.bin");
@@ -254,7 +249,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("parameterStore.bin");
@@ -263,7 +257,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("parameterCategoryStore.bin");
@@ -272,7 +265,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("reportStore.bin");
@@ -281,7 +273,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("empStore.bin");
@@ -290,7 +281,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("orgRoleList.bin");
@@ -299,7 +289,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("testStore.bin");
@@ -308,7 +297,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
         try {
             FileInputStream fileInputStream = new FileInputStream("authFacadeData.bin");
@@ -317,7 +305,6 @@ public class Company {
             inputStream.close();
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println("Error loading database.");
         }
     }
 
